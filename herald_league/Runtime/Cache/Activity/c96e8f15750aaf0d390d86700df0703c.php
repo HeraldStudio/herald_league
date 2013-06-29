@@ -26,6 +26,9 @@
 		<link rel="stylesheet" href="__Public__/Css/kuxuan/lof-slider.css" media="all"> 
 		<!-- ENDS slider -->
 		
+		<!-- GOOGLE FONTS -->
+		<link href="__Public__/Css/kuxuan/css" rel="stylesheet" type="text/css">
+
 		<!-- Tweet -->
 		<link rel="stylesheet" href="__Public__/Css/kuxuan/jquery.tweet.css" media="all"> 
 		<script src="__Public__/Js/kuxuan/jquery.tweet.js"></script> 
@@ -38,7 +41,16 @@
 		<script src="__Public__/Js/kuxuan/supersubs.js"></script>
 		<!-- ENDS superfish -->
 		
-
+        <!-- prettyPhoto -->
+		<script src="__Public__/Js/kuxuan/jquery.prettyPhoto.js"></script>
+		<link rel="stylesheet" href="__Public__/Css/kuxuan/prettyPhoto.css" media="screen">
+		<!-- ENDS prettyPhoto -->
+		
+		<!-- poshytip -->
+		<link rel="stylesheet" href="__Public__/Css/kuxuan/tip-twitter.css">
+		<link rel="stylesheet" href="__Public__/Css/kuxuan/tip-yellowsimple.css">
+		<script src="__Public__/Js/kuxuan/jquery.poshytip.min.js"></script>
+		<!-- ENDS poshytip -->
 		
 
 		
