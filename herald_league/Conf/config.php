@@ -16,5 +16,9 @@ return array(
 	'URL_MODEL' => 1,
 
 	'SHOW_PAGE_TRACE' => true,
+
+	'DB_FIELDTYPE_CHECK' => true,
+
+	'VAR_FILTERS' => 'htmlencode',
 );
 ?>
