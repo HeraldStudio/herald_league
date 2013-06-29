@@ -74,7 +74,7 @@ body {
 }
 /* FILTERED ITEMS ----------------------------------------------------*/#filter-buttons li a {
   color: #444;
-  border-bottom: 2px solid transparent;
+  
 }
 #filter-buttons li a:hover,
 #filter-buttons li a.selected {
