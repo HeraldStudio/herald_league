@@ -15,3 +15,20 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.000346s ]
 INFO: [ view_end ] --END-- [ RunTime:0.000396s ]
 
+[ 2013-06-28T22:00:49+08:00 ] 127.0.0.1 /herald_league/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.003621s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003969s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.004856s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005141s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002302s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.002631s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002124s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002958s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010741s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.003350s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003576s ]
+
