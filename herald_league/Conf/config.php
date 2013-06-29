@@ -20,5 +20,10 @@ return array(
 	'DB_FIELDTYPE_CHECK' => true,
 
 	'VAR_FILTERS' => 'htmlencode',
+
+	'TMPL_PARSE_STRING' => array(
+		'__Public__' => __ROOT__.'Public',
+		'__Uploads__' => __ROOT__.'Uploads',
+	),
 );
 ?>
