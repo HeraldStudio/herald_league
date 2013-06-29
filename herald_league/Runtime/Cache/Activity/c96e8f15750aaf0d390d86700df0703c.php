@@ -77,7 +77,7 @@
 		padding-top:48px;}
 	}
 	</style>-->
-	<link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen">
 </head>
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
 	<div class="navbar navbar-fixed-top well">
@@ -198,6 +198,6 @@
 	
 	</div>
 	
-	<script src="js/bootstrap.min.js"></script>
+	<script src="__Public__/Js/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
