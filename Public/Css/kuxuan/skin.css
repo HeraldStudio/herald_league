@@ -2,12 +2,6 @@
   color: #656360;
   background: #f1ede8 url(../img/noise-all.png);
 }
-body a:hover {
-  color: #cb5432;
-}
-a {
-  color: #cb5432;
-}
 header,
 footer {
   background: #2d2d2d;
