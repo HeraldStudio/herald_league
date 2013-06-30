@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
-	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
+	<link href="__Public__/Css/bootstrap/bootstrap-combine.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 
 
@@ -94,7 +94,7 @@
 		}
 	
 	     .well{
-		  background-color:green;
+		  background-color:rgb(103, 212, 240);
 		 }
 		 
          .navbar-inner {
@@ -163,7 +163,7 @@
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">东南大学先声之夜夜夜夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading"><a data-toggle="modal" href="#myModal">东南大学先声之夜夜夜夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
 							<p>主办方：<a href="#">东南大学先声网</a>
 								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
 							</p><br>
@@ -176,7 +176,7 @@
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/02.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading"><a data-toggle="modal" href="#myModal">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
 							<p>主办方：<a href="#">东南大学先声网</a>
 								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
 							</p><br>
@@ -280,13 +280,13 @@
 					</figure>
 					
 			</div><!-- ENDS Filter container -->
-	        <button class="btn btn-warning large span10">MORE</button>
+	        <button class="btn btn-warning btn-large span11">MORE</button>
 	  
 	  </div>
 	
 	</div>
 	
-<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">点击演示</a>
+
 <div id="myModal" class="modal hide fade " >
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>
@@ -307,11 +307,7 @@
 	      </p>
 
               <hr>
-
               <h4>对溢出文本使用可选的滚动条</h4>
-              <p>
-		我们对 <code>.modal-body</code> 样式修正了 <code>max-height</code> 。对于超过高度的内容就会显示滚动条。
-	      </p>
               <p>南京街头某家麦当劳门口，一个外国人买了两包薯条，分给乞讨的老奶奶一包，两人席地而坐，开心地吃着聊着。</p>
 	      <p>@说书者一枚 ：《帝都日爆》射论：《从麦当劳事件看美国小伙的拙劣表演》：这位美国小伙拙劣的”亲民民主表演“，再次印证了中国的古语“黄鼠狼给鸡拜年没安好心”。这道貌岸然的潜伏”美国政客“，想用糖衣炮弹瓦解坚强的中国无产阶级老奶奶，必定遭到中国人民的唾弃！不要做自取其辱的丑事！（完，完蛋的完） </p>
               <p>4日晚，东莞东城海雅百货前，一女子被偷包，巴西籍男子MOZEN阻止，遭小偷团伙报复群殴。其间数十名路人在场，无人施救。MOZEN说，小偷打他，他觉得正常，可没有任何人帮他，让他觉得不正常，“这个社会是需要互相帮助的，我整天出没在君豪商业中心，中心几乎大部分人都认识我，却没有一个人帮我，这让我觉得很失望，很心寒”。</p>
@@ -319,8 +315,7 @@
               <p>美国总统富兰克林·罗斯福1942年6月14日美国国旗纪念日广播演讲：“我们所有人都是地球的子孙，有些道理不言而喻，如果我们的兄弟在遭受压迫，我们也将遭受压迫，如果他们在忍饥挨饿，我们也将忍饥挨饿，如果他们的自由权利被剥夺，我们的自由也将不复存在......<a href="http://t.cn/aDoq5K"></a>http://t.cn/aDoq5K</p>
             </div>
             <div class="modal-footer">
-              <a href="#" class="btn" data-dismiss="modal">关闭</a>
-              <a href="#" class="btn btn-primary">保存更改</a>
+              <a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
             </div>
           </div>
 
