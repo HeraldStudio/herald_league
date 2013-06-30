@@ -119,6 +119,7 @@
 		 .text-center {
 					text-align: center;
 				}
+	
 	</style>
 	<!--<style type="text/css">
 	@media (min-width:980px){
