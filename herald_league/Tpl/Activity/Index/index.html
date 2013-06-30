@@ -111,6 +111,16 @@
 					   -moz-border-radius: 4px;
 							border-radius: 4px;
 		  }
+		  
+		  .center {
+				width: auto;
+				display: table;
+				margin-left: auto;
+				margin-right: auto;
+				}
+		.text-center {
+				text-align: center;
+				}
 	</style>
 	<!--<style type="text/css">
 	@media (min-width:980px){
@@ -410,5 +420,7 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>
+<hr>
+<h5 class="center"> CopyRight 2013 Herald.seu.edu.cn</h5>
 </body>
 </html>
