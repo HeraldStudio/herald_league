@@ -4,6 +4,7 @@
 	<title>Test</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
+	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-combine.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
@@ -12,8 +13,9 @@
 <script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-modal.js"></script>
+
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-transition.js"></script>
-<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-dropdown.js"></script>	
+	
 	
 	
 	
@@ -109,17 +111,6 @@
 					   -moz-border-radius: 4px;
 							border-radius: 4px;
 		  }
-		  
-		  .center {
-				width: auto;
-				display: table;
-				margin-left: auto;
-				margin-right: auto;
-					}
-		 .text-center {
-					text-align: center;
-				}
-	
 	</style>
 	<!--<style type="text/css">
 	@media (min-width:980px){
@@ -139,11 +130,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="brand" href="#"><strong>活动平台</strong></a>
-				<div class=" nav-collapse collapse">
-				
-				
-									
-		
+				<div class="nav-collapse collapse">
 					<a href="#" class="navbar-text pull-right" style="text-decoration:none;padding-left:20px">登录</a>
 					<form class="navbar-form pull-right">
 						<input type="text" class="search-query span3" placeholder="Search">
@@ -154,26 +141,13 @@
 						<li><a href="#">社团列表</a></li>
 						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
-						<li><a href="#">失物招领</a></li>		
-					</ul>
-					<ul class="nav pull-right"> 
-					    <li class="dropdown">
-						    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">
-									wang <b class="caret "></b></a>
-									<ul class="dropdown-menu">
-											  <li><a href="#">个人空间</a></li>
-											  <li><a href="#">二手市场</a></li>
-											  <li><a href="#">其他</a></li>
-											  <li class="divider"></li>
-											  <li><a href="#">注销</a></li>
-								   </ul>
-						</li>		
+						<li><a href="#">失物招领</a></li>
 					</ul>
 				</div><!-- /.nav-collapse -->
 			</div>
 		</div>
 	</div>
-<div class="container-fluid" style="padding-top:100px">
+	<div class="container-fluid" style="padding-top:100px">
 		<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a href="#">分类</a></li>
@@ -190,9 +164,14 @@
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a data-toggle="modal" href="#myModal">东南大学先声之夜夜夜夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a data-toggle="modal" href="#myModal">东南大学先声之夜夜夜夜</a>
+								<a href="#" title="关注此活动">
+									<img src="__Public__/Images/attention.png"/>
+								</a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -203,9 +182,12 @@
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/02.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a data-toggle="modal" href="#myModal">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a data-toggle="modal" href="#myModal">先声之夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -217,9 +199,12 @@
 					<figure class="movie design isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t03.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">东南大学先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a href="#">东南大学先声之夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -231,9 +216,12 @@
 					<figure class="photo isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/04.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a href="#">先声之夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -244,9 +232,12 @@
 					<figure class="web photo isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t05.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a href="#">先声之夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -258,9 +249,12 @@
 					<figure class="web print isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/06.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a href="#">先声之夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -271,9 +265,12 @@
 					<figure class="photo isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t04.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a href="#">先声之夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -284,9 +281,12 @@
 					<figure class="web movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/05.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a href="#">先声之夜夜夜夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -297,9 +297,12 @@
 					<figure class="web movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
 						<figcaption>
-							<div class="heading"><a href="#">先声之夜</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></div>
+							<div class="heading">
+								<a href="#">先声之夜</a>
+								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
@@ -308,45 +311,92 @@
 					
 			</div><!-- ENDS Filter container -->
 	        <button class="btn btn-warning btn-large span11">MORE</button>
-
 	  
 	  </div>
 	
 	</div>
 	
-<div id="myModal" class="modal hide fade " >
-            <div class="modal-header">
-              <a class="close" data-dismiss="modal">×</a>
-              <h3>对话框标题</h3>
-            </div>
-            <div class="modal-body">
-              <h4>对话框文字</h4>
-              <p>
-		高考临近，湖北孝感惊现史上最刻苦“吊瓶班”。这是昨日孝感市第一高级中学某晚自习教室的一幕，"吊瓶高考班"轰动全校！不知台上的老师面对如此震撼的场面和沁人心脾的药水味，如何站稳脚跟hold住全场呢？该校学生表示，备战高考，补充能量挨几针也是值得的，你hold住了吗？
-	      </p>
 
-              <h4>对话框中的弹出提示</h4>
-              <p> <a href="#" class="btn popover-test" data-content="青岛工学院最近下发通知，将考研自习室772个座位“有偿提供”，5元起售，目前已售出500多个座位。根据采光通风等条件不同，座位每月收费划分为5元、10元、15元、20元、25元五个档次，学生购买时要一次交纳10个月的费用。教务处长称， 为了给学生解决考研复习问题，只好“出此下策”。" data-original-title="花钱买座位">学生真不易</a> 把鼠标放上来试试？</p>
-
-              <h4>对话框中的工具提示</h4>
-              <p>
-		5月1日，济南一名<a href="#" class="tooltip-test" data-original-title="城管里面也有好人，把他们变成坏人的是恶的制度">城管</a>要对一位抱着三四岁孩子的<a href="#" class="tooltip-test" data-original-title="小商贩真的很辛苦，不要再欺负辛劳人了">女商贩</a>扣留时候发生争执。争执中女商贩抱着孩子给城管下跪,城管见状也向女商贩跪下。事后城管称，下跪是为了与对方“平等对话”,也怕对孩子心理产生不良影响。
-	      </p>
-
-              <hr>
-              <h4>对溢出文本使用可选的滚动条</h4>
-              <p>南京街头某家麦当劳门口，一个外国人买了两包薯条，分给乞讨的老奶奶一包，两人席地而坐，开心地吃着聊着。</p>
-	      <p>@说书者一枚 ：《帝都日爆》射论：《从麦当劳事件看美国小伙的拙劣表演》：这位美国小伙拙劣的”亲民民主表演“，再次印证了中国的古语“黄鼠狼给鸡拜年没安好心”。这道貌岸然的潜伏”美国政客“，想用糖衣炮弹瓦解坚强的中国无产阶级老奶奶，必定遭到中国人民的唾弃！不要做自取其辱的丑事！（完，完蛋的完） </p>
-              <p>4日晚，东莞东城海雅百货前，一女子被偷包，巴西籍男子MOZEN阻止，遭小偷团伙报复群殴。其间数十名路人在场，无人施救。MOZEN说，小偷打他，他觉得正常，可没有任何人帮他，让他觉得不正常，“这个社会是需要互相帮助的，我整天出没在君豪商业中心，中心几乎大部分人都认识我，却没有一个人帮我，这让我觉得很失望，很心寒”。</p>
-	      <p>MOZEN说，海雅百货这一带治安很乱，这已经不是他第一次阻止小偷行窃了，早在今年春节前，他就曾扑倒过一个小偷。可有了这一次的经历，如果下回再碰上类似情况，他不会也不敢再帮忙了。</p>
-              <p>美国总统富兰克林·罗斯福1942年6月14日美国国旗纪念日广播演讲：“我们所有人都是地球的子孙，有些道理不言而喻，如果我们的兄弟在遭受压迫，我们也将遭受压迫，如果他们在忍饥挨饿，我们也将忍饥挨饿，如果他们的自由权利被剥夺，我们的自由也将不复存在......<a href="http://t.cn/aDoq5K"></a>http://t.cn/aDoq5K</p>
-            </div>
-            <div class="modal-footer">
-              <a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
-            </div>
-          </div>
-<hr>
-<h1 class="center"> Copyright 2013 Herald.seu.edu.cn</h1>
-
+<div id="myModal" class="modal hide fade ">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>东南大学先声之夜夜夜夜
+			<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>
+			
+		</h3>
+	</div>
+	<div class="modal-body">
+	  <div class="row-fluid">
+		<div class="span3">
+			<div id="follower">
+				<h5 class="pull-left">关注者</h5>
+				<h5 class="pull-right">17人</h5>
+			</div>
+			<div id="follower-list">
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+			</div>
+		</div>
+		<div class="span9">
+			<div class="act-info-header">
+				<h4>活动信息</h4>
+			</div>
+			<div class="act-info-body">
+				<div class="act-info"><i class="icon-user"></i>主办方：<a href="#">东南大学先声网</a>
+					<!--<a href="#" title="关注此社团">
+						<img src="__Public__/Images/attention-small.png"/>
+					</a>-->
+				</div>
+				<div class="act-info"><i class="icon-time"></i>时间：2013年06月30日 18:30</div>
+				<div class="act-info"><i class="icon-home"></i>地点：焦廷标馆</div>
+				<div class="act-info"><i class="icon-envelope"></i>联系方式：行政楼520</div>
+				<div class="act-info-para">
+					<p> 棋在其中占据了独特的地位。棋作为体育项目之一，也是随着国运的变动而起起伏伏。陈毅元帅说过：“国运昌，棋运盛。”如今中国进步发展了，在大家的推动下，棋也会有蓬勃之象。
+					</p>
+					<p>我们先辈发明的围棋能够延衍千年而不至湮灭。黑白色的棋子在象征意义的穹宇之间寥寥落落地布下，演练的是风云际会，人生拼搏。许多棋手由是而领悟了世事的兴盛与衰没，欢乐与痛苦，失败与成就乃至死亡与新生。
+					</p>
+					<p>12年春季，北京大学生围棋联赛如火如荼地举行了，多家知名媒体新浪、搜狐报导围棋赛事，围棋第一大杂志《围棋天地》刊登比赛状况。但是现在，上海的大学生们面临着一个难题，很多同学喜欢围棋并对围棋有着浓厚的兴趣，却面临着无棋可下，无赛可参的窘境。
+					</p>
+					<p>为了搭建同学之间交流的平台，推广和宣传围棋文化，丰富同学课余生活让同学更深入的了解认识中国棋文化，弘扬中国民族文化艺术，培养学生特色技能，展现朝气蓬勃、积极进取、开拓创新的精神风貌，增进各校之间的交流与来往。故而举办这次“大学生围棋联赛”。
+					</p>
+				</div>
+				<div class="act-info-pic">
+					<img src="__Public__/Images/head.jpg"/>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
+	</div>
+</div>
 </body>
 </html>
