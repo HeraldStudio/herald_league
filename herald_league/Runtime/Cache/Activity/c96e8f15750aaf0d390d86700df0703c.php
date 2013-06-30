@@ -2,17 +2,17 @@
 <html>
 <head>
 	<title>Test</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
-	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
+	<link href="__Public__/Css/bootstrap/bootstrap-combine.css" rel="stylesheet" media="screen"> 
+	<link href="__Public__/Css/bootstrap/responsive-nav.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
+	<script src="__Public__/Js/bootstrap/responsive-nav.js"></script>	
 
 
 <script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
-
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-modal.js"></script>
-
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-transition.js"></script>
 	
 	
@@ -110,6 +110,25 @@
 					   -moz-border-radius: 4px;
 							border-radius: 4px;
 		  }
+		  
+		  a {
+              color: #0088cc;
+              text-decoration: none;
+            }
+
+        a:hover,a:focus {
+                        color: #cb5432;
+                        } 
+		
+
+
+		
+		@media screen and (max-width: 70em) {
+		    #filter-buttons { display:non;	}
+
+		}
+	
+
 	</style>
 	<!--<style type="text/css">
 	@media (min-width:980px){
@@ -131,6 +150,7 @@
 				<a class="brand" href="#"><strong>活动平台</strong></a>
 				<div class="nav-collapse collapse">
 					<a href="#" class="navbar-text pull-right" style="text-decoration:none;padding-left:20px">登录</a>
+					<a href="#" class="navbar-text pull-right" style="text-decoration:none;padding-left:40px">wang</a>
 					<form class="navbar-form pull-right">
 						<input type="text" class="search-query span3" placeholder="Search">
 						<button type="submit" class="btn">Go</button>
@@ -148,7 +168,7 @@
 	</div>
 	<div class="container-fluid" style="padding-top:100px">
 		<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)">
-			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
+			<ul class="nav nav-tabs nav-stacked "  id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a href="#">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected">show all</a></li>
 				<li><a href="#" data-filter=".web">web</a></li>
@@ -158,7 +178,7 @@
 				<li><a href="#" data-filter=".movie">movie</a></li>
 			</ul>	
 	    </div>
-	    <div class="span12 offset3">
+	    <div class="span8 offset3" id="main">
 			<div id="filter-container" class="cf isotope" >
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
@@ -178,14 +198,13 @@
 					<figure class="movie design isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t03.jpg" alt="alt"></a>
 						<figcaption>
-							<a href="#"><h3 class="heading">东南大学先声之夜<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></h3></a>
+							<a data-toggle="modal" href="#myModal"><h3 class="heading">东南大学先声之夜<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></h3></a>
 							<p>主办方：<a href="#">东南大学先声网</a>
 								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
 							</p><br>
 							<p>时间：2013年06月30日 18:30</p><br>
 							<p>地点：焦廷标馆</p>
 							<br><img src="__Public__/Images/need-sign.png" class="pull-right"/>
-							
 						</figcaption>
 					</figure>
 					
@@ -209,7 +228,7 @@
 					<figure class="web print isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/06.jpg" alt="alt"></a>
 						<figcaption>
-							<a href="#" title="关注此活动"><h3 class="heading">先声之夜<a href="#"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></h3></a>
+							<a data-toggle="modal" href="#myModal" title="关注此活动"><h3 class="heading">先声之夜<a href="#"><img src="__Public__/Images/attention.png" style="padding-left:5px;"/></a></h3></a>
 							<p>主办方：<a href="#">东南大学先声网</a>
 								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png" style="padding-left:3px;"/></a>
 							</p><br>
@@ -243,13 +262,13 @@
 					</figure>
 					
 			</div><!-- ENDS Filter container -->
-	        <button class="btn btn-warning large span10">MORE</button>
+	        <button class="btn btn-warning btn-large span11">MORE</button>
 	  
 	  </div>
 	
 	</div>
 	
-<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">点击演示</a>
+
 <div id="myModal" class="modal hide fade " >
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>
@@ -282,10 +301,11 @@
               <p>美国总统富兰克林·罗斯福1942年6月14日美国国旗纪念日广播演讲：“我们所有人都是地球的子孙，有些道理不言而喻，如果我们的兄弟在遭受压迫，我们也将遭受压迫，如果他们在忍饥挨饿，我们也将忍饥挨饿，如果他们的自由权利被剥夺，我们的自由也将不复存在......<a href="http://t.cn/aDoq5K"></a>http://t.cn/aDoq5K</p>
             </div>
             <div class="modal-footer">
-              <a href="#" class="btn" data-dismiss="modal">关闭</a>
-              <a href="#" class="btn btn-primary">保存更改</a>
+              <a href="#" class="btn btn-primary" data-dismiss="modal"> 知道了</a>
             </div>
           </div>
+
+
 
 </body>
 </html>
