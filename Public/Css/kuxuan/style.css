@@ -157,10 +157,6 @@ body.home #main {
   font-size: 32px;
   line-height: 1.2em;
   display: block;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 #filter-container figure figcaption .readmore {
   display: block;

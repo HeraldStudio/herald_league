@@ -24,7 +24,7 @@ body {
 }
 #headline,
 .masthead {
-  color: #444444;
+  color: #656360;
 }
 /* NAVIGATION ------------------------------------------------------------*/
 #nav > li > a {
@@ -51,7 +51,7 @@ body {
   background: #f8f5f2;
 }
 #nav .sfHover ul li a {
-  color: #444444;
+  color: #656360;
 }
 #nav .sfHover ul li a:hover {
   background: rgba(0, 0, 0, 0.8);
@@ -78,16 +78,25 @@ body {
   background: #f8f5f2;
 }
 #filter-container figure .thumb {
-  background: #cb5432 url(../img/icon-link.png) center center no-repeat;
+  background: #c1c1c1 url(../img/icon-link.png) center center no-repeat;
 }
-#filter-container figure figcaption .heading {
-  color: #444444;
+#filter-container figure figcaption .heading a ,
+#filter-container figure figcaption p a {
+  text-decoration:none;
+  color: #656360;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-#filter-container figure figcaption .heading:hover {
+#filter-container figure figcaption .heading a:hover{
+  color: #cb5432;
+}
+#filter-container figure figcaption p a:hover {
   color: #cb5432;
 }
 #filter-container figure .readmore {
-  color: #444444;
+  color: #656360;
 }
 #filter-container figure .readmore:hover h5 {
   color: #cb5432;
@@ -99,7 +108,7 @@ body {
   color: #cb5432;
 }
 #portfolio-content .project-pager a {
-  color: #444444;
+  color: #656360;
 }
 #portfolio-content .project-pager a:hover {
   color: #cb5432;
@@ -113,7 +122,7 @@ body {
 }
 /* RELATED PROJECTS ---------------------------------------------------*/
 .related-projects figure .heading {
-  color: #444444;
+  color: #656360;
 }
 .related-projects figure .heading:hover {
   color: #cb5432;
@@ -133,7 +142,7 @@ body {
   background: #2d2d2d;
 }
 #posts-list article .box .excerpt .post-heading {
-  color: #444444;
+  color: #656360;
 }
 #posts-list article .box .excerpt .post-heading:hover {
   color: #cb5432;
@@ -165,7 +174,7 @@ body.single #posts-list .box .meta {
 }
 /* PAGE NAVIGATION ------------------------------------------------------------*/
 #main .page-navigation a {
-  color: #444444;
+  color: #656360;
 }
 #main .page-navigation a:hover {
   color: #cb5432;
