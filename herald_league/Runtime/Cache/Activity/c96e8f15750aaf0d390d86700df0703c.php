@@ -13,7 +13,7 @@
 <script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-modal.js"></script>
-
+<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-dropdown.js"></script>
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-transition.js"></script>
 	
 	
@@ -142,6 +142,18 @@
 						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
+					</ul>
+					<ul class="nav pull-right">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> Name <b class="caret"></b> </a>
+                             <ul class="dropdown-menu">
+								<li><a href="#">个人空间</a></li>
+								<li><a href="#">二手市场</a></li>
+								<li><a href="#">其他</a></li>
+								<li class="divider"></li>
+								<li><a href="#">登出</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div><!-- /.nav-collapse -->
 			</div>
