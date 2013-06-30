@@ -12,9 +12,8 @@
 <script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-modal.js"></script>
-
 <script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-transition.js"></script>
-	
+<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-dropdown.js"></script>	
 	
 	
 	
@@ -110,6 +109,16 @@
 					   -moz-border-radius: 4px;
 							border-radius: 4px;
 		  }
+		  
+		  .center {
+				width: auto;
+				display: table;
+				margin-left: auto;
+				margin-right: auto;
+					}
+		 .text-center {
+					text-align: center;
+				}
 	</style>
 	<!--<style type="text/css">
 	@media (min-width:980px){
@@ -129,7 +138,11 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="brand" href="#"><strong>活动平台</strong></a>
-				<div class="nav-collapse collapse">
+				<div class=" nav-collapse collapse">
+				
+				
+									
+		
 					<a href="#" class="navbar-text pull-right" style="text-decoration:none;padding-left:20px">登录</a>
 					<form class="navbar-form pull-right">
 						<input type="text" class="search-query span3" placeholder="Search">
@@ -140,13 +153,26 @@
 						<li><a href="#">社团列表</a></li>
 						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
-						<li><a href="#">失物招领</a></li>
+						<li><a href="#">失物招领</a></li>		
+					</ul>
+					<ul class="nav pull-right"> 
+					    <li class="dropdown">
+						    <a  class="dropdown-toggle" data-toggle="dropdown" href="#">
+									wang <b class="caret "></b></a>
+									<ul class="dropdown-menu">
+											  <li><a href="#">个人空间</a></li>
+											  <li><a href="#">二手市场</a></li>
+											  <li><a href="#">其他</a></li>
+											  <li class="divider"></li>
+											  <li><a href="#">注销</a></li>
+								   </ul>
+						</li>		
 					</ul>
 				</div><!-- /.nav-collapse -->
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" style="padding-top:100px">
+<div class="container-fluid" style="padding-top:100px">
 		<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a href="#">分类</a></li>
@@ -281,12 +307,12 @@
 					
 			</div><!-- ENDS Filter container -->
 	        <button class="btn btn-warning btn-large span11">MORE</button>
+
 	  
 	  </div>
 	
 	</div>
 	
-
 <div id="myModal" class="modal hide fade " >
             <div class="modal-header">
               <a class="close" data-dismiss="modal">×</a>
@@ -318,6 +344,8 @@
               <a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
             </div>
           </div>
+<hr>
+<h1 class="center"> Copyright 2013 Herald.seu.edu.cn</h1>
 
 </body>
 </html>
