@@ -12,18 +12,18 @@ return array(
 	//分组设置
 	'APP_GROUP_LIST' => 'User,League,Activity,Admin,Public',
 	'DEFAULT_GROUP' => 'Activity',
-
+	
 	'URL_MODEL' => 1,
-
+	
 	'SHOW_PAGE_TRACE' => true,
-
+	
 	'DB_FIELDTYPE_CHECK' => true,
-
+	
 	'VAR_FILTERS' => 'htmlencode',
-
+	
 	'TMPL_PARSE_STRING' => array(
-		'__Public__' => __ROOT__.'/Public',
-		'__Uploads__' => __ROOT__.'/Uploads',
+	bin/'__Public__' => __ROOT__.'/Public',
+	bin/'__Uploads__' => __ROOT__.'/Uploads',
 	),
-);
+	);
 ?>
