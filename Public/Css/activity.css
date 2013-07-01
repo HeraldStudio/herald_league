@@ -1,3 +1,7 @@
+#filter-container img{
+	vertical-align:baseline;
+}
+
 #myModal{
 	font-size:14px;/*µ¯³ö¿ò×ÖÌå*/
 }
@@ -74,12 +78,20 @@
 	padding-top:10px;
 	text-align:center;
 }
+#myModal .span4{
+	vertical-align:baseline;
+}
 
-.accordion-inner .row-fluid a{
-	line-height:30px;
-	font-size:14px;
-	text-align:center;
-	height:15px;
-	border-bottom:1px solid #EFEFEF;	
-	margin-bottom:14px;
+#listModal .span3{
+	font-size:15px;
+	/*text-align:center;*/
+	padding-bottom:3px;
+	margin-bottom:10px;
+	border-bottom:1px solid #EFEFEF;
+}
+
+#listModal .span3 img{
+	max-width:35px;
+	max-height:35px;
+	vertical-align:baseline;
 }
