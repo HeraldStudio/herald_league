@@ -18,6 +18,7 @@
 	
 	
 	
+	
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
 		<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
@@ -88,7 +89,7 @@
 		.fixed-left{
 			position: fixed;
 			left: 0;
-			z-index: 1030;
+			
 			top: 100px;
 		}
 	
@@ -119,6 +120,20 @@
 		.text-center {
 				text-align: center;
 				}
+	    .spant3{
+		          width:220px;
+		}
+		.top100{padding-top:100px}
+	    @media (max-width: 980px){
+		     #celeft{
+			    display:none;
+			 }
+			 #ceright{
+			    margin-left:30px;	
+				padding-top:30px;
+			 }
+		 }
+	
 	</style>
 	<!--<style type="text/css">
 	@media (min-width:980px){
@@ -151,35 +166,24 @@
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
-					<ul class="nav pull-right">        
-                         <li class="dropdown" >
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> Name <b class="caret"></b> </a>
-                             <ul class="dropdown-menu">
-								<li><a href="#">个人空间</a></li>
-								<li><a href="#">二手市场</a></li>
-								<li><a href="#">其他</a></li>
-								<li class="divider"></li>
-								<li><a href="#">登出</a></li>
-							</ul>
-						</li>
-					</ul>
+					
 				</div><!-- /.nav-collapse -->
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" style="padding-top:100px">
-		<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)">
-			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
-				<li class="active"><a href="#">分类</a></li>
-				<li><a href="#" data-filter="*" class="selected">show all</a></li>
-				<li><a href="#" data-filter=".web">web</a></li>
-				<li><a href="#" data-filter=".print">print</a></li>
-				<li><a href="#"data-filter=".design">design</a></li>
-				<li><a href="#" data-filter=".photo">photo</a></li>
-				<li><a href="#" data-filter=".movie">movie</a></li>
-			</ul>	
-	    </div>
-	    <div class="span12 offset3">
+	<div class="container-fluid" >
+			<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)" id="celeft">
+				<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
+					<li class="active"><a href="#">分类</a></li>
+					<li><a href="#" data-filter="*" class="selected">show all</a></li>
+					<li><a href="#" data-filter=".web">web</a></li>
+					<li><a href="#" data-filter=".print">print</a></li>
+					<li><a href="#"data-filter=".design">design</a></li>
+					<li><a href="#" data-filter=".photo">photo</a></li>
+					<li><a href="#" data-filter=".movie">movie</a></li>
+				</ul>	
+			</div>
+	    <div class="span12 offset3 top100" id="ceright" >
 			<div id="filter-container" class="cf isotope" >
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
@@ -418,188 +422,7 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>
-<div id="listModal" class="modal hide fade ">
-	<div class="modal-header">
-		<a class="close" data-dismiss="modal">×</a>
-		<h3>社团列表</h3>
-	</div>
-	<div class="modal-body">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="accordion-list">
-						<div class="accordion-group">
-							<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#kxjs">科学技术类（23）
-								<i class="icon-star pull-right" title="点我试试"></i>
-							</a>
-							</div>
-							<div id="kxjs" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a> 
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a> 
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a> 
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a> 
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a> 
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a> 
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-										<a class="span3"target="_blank" href="#">东南大学网络安全联盟</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#tyjs">体育健身类（23）
-								<i class="icon-star pull-right" title="点我试试"></i>
-							</a>
-							</div>
-							<div id="tyjs" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-										<a class="span3"target="_blank" href="#">极真空手道协会</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#whys">文化艺术类（15）
-									<i class="icon-star pull-right" title="点我试试"></i>
-								</a>
-							</div>
-							<div id="whys" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-										<a class="span3"target="_blank" href="#">异度沸腾动漫俱乐部</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#wxcm">文学传媒类（16）
-									<i class="icon-star pull-right" title="点我试试"></i>
-								</a>
-							</div>
-							<div id="wxcm" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-									</div>
-									<div class="row-fluid">
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-										<a class="span3"target="_blank" href="#">东南大学先声网</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="btn btn-primary" data-dismiss="modal">关闭</a>
-	</div>
-</div>
 <hr>
-<a href="#listModal" role="button" class="btn" data-toggle="modal">查看演示案例</a>
-<h5 class="center"> CopyRight 2013 Herald.seu.edu.cn</h5>
+<h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
 </body>
 </html>
