@@ -22,8 +22,8 @@ return array(
 	'VAR_FILTERS' => 'htmlencode',
 	
 	'TMPL_PARSE_STRING' => array(
-	bin/'__Public__' => __ROOT__.'/Public',
-	bin/'__Uploads__' => __ROOT__.'/Uploads',
+	'__Public__' => __ROOT__.'/Public',
+	'__Uploads__' => __ROOT__.'/Uploads',
 	),
 	);
 ?>
