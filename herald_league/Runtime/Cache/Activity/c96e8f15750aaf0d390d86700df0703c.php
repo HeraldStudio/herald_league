@@ -4,17 +4,16 @@
 	<title>Test</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
+	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-combine.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 
 
-<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 
-<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-modal.js"></script>
-<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-dropdown.js"></script>
-<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-transition.js"></script>
+
+
 	
 	
 	
@@ -90,7 +89,7 @@
 		.fixed-left{
 			position: fixed;
 			left: 0;
-			z-index: 1030;
+			
 			top: 100px;
 		}
 	
@@ -121,6 +120,20 @@
 		.text-center {
 				text-align: center;
 				}
+	    .spant3{
+		          width:220px;
+		}
+		.top100{padding-top:100px}
+	    @media (max-width: 980px){
+		     #celeft{
+			    display:none;
+			 }
+			 #ceright{
+			    margin-left:30px;	
+				padding-top:30px;
+			 }
+		 }
+	
 	</style>
 	<!--<style type="text/css">
 	@media (min-width:980px){
@@ -153,35 +166,24 @@
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
-					<ul class="nav pull-right">        
-                         <li class="dropdown" >
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> Name <b class="caret"></b> </a>
-                             <ul class="dropdown-menu">
-								<li><a href="#">个人空间</a></li>
-								<li><a href="#">二手市场</a></li>
-								<li><a href="#">其他</a></li>
-								<li class="divider"></li>
-								<li><a href="#">登出</a></li>
-							</ul>
-						</li>
-					</ul>
+					
 				</div><!-- /.nav-collapse -->
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" style="padding-top:100px">
-		<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)">
-			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
-				<li class="active"><a href="#">分类</a></li>
-				<li><a href="#" data-filter="*" class="selected">show all</a></li>
-				<li><a href="#" data-filter=".web">web</a></li>
-				<li><a href="#" data-filter=".print">print</a></li>
-				<li><a href="#"data-filter=".design">design</a></li>
-				<li><a href="#" data-filter=".photo">photo</a></li>
-				<li><a href="#" data-filter=".movie">movie</a></li>
-			</ul>	
-	    </div>
-	    <div class="span12 offset3">
+	<div class="container-fluid" >
+			<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)" id="celeft">
+				<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
+					<li class="active"><a href="#">分类</a></li>
+					<li><a href="#" data-filter="*" class="selected">show all</a></li>
+					<li><a href="#" data-filter=".web">web</a></li>
+					<li><a href="#" data-filter=".print">print</a></li>
+					<li><a href="#"data-filter=".design">design</a></li>
+					<li><a href="#" data-filter=".photo">photo</a></li>
+					<li><a href="#" data-filter=".movie">movie</a></li>
+				</ul>	
+			</div>
+	    <div class="span12 offset3 top100" id="ceright" >
 			<div id="filter-container" class="cf isotope" >
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
@@ -421,6 +423,6 @@
 	</div>
 </div>
 <hr>
-<h5 class="center"> CopyRight 2013 Herald.seu.edu.cn</h5>
+<h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
 </body>
 </html>
