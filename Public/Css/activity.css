@@ -2,6 +2,14 @@
 	font-size:14px;/*µ¯³ö¿ò×ÖÌå*/
 }
 
+#myModal .modal-header a,#myModal .modal-body a,#listModal .modal-header a,#listModal .modal-body a{
+	color:#656360;
+}
+
+#myModal .modal-header a:hover,#myModal .modal-body a:hover,#listModal .modal-header a:hover,#listModal .modal-body a:hover{
+	color:#cb5432;
+}
+
 #modal-header-attention{
 	padding-left:5px;
 	vertical-align:middle;
@@ -65,4 +73,13 @@
 .act-info-pic{
 	padding-top:10px;
 	text-align:center;
+}
+
+.accordion-inner .row-fluid a{
+	line-height:30px;
+	font-size:14px;
+	text-align:center;
+	height:15px;
+	border-bottom:1px solid #EFEFEF;	
+	margin-bottom:14px;
 }
