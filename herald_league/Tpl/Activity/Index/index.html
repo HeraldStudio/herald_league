@@ -131,7 +131,7 @@
 	</style>
 </head>
 
-<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+<body style="font-family:微软雅黑;font-size:16px; background-image:url(__Public__/Images/noise-all.png)">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
