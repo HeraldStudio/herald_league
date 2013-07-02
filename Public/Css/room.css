@@ -1,0 +1,32 @@
+#flist{
+	font-size:14px;
+	text-align:center;
+	margin-bottom:20px;
+}
+#clist{
+	font-size:13px;
+	margin-bottom:40px;
+}
+#flist .row-fluid{
+	padding-bottom:5px;
+}
+#flist img,#clist img{
+	max-width:40px;
+	max-height:40px;
+}
+#clist ul{
+	margin-left:5px;
+}
+#clist ul li{
+	list-style-type:none;
+	border-bottom:1px solid #EFEFEF;
+	margin-bottom:20px;
+	padding-bottom:5px;
+}
+#flist a,#clist a{
+	color:#656360;
+}
+#flist a:hover,#clist a:hover{
+	color:#cb5432;
+	text-decoration:none;
+}

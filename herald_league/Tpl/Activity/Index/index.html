@@ -189,8 +189,8 @@
 						<figcaption>
 							<div class="heading">
 								<a data-toggle="modal" href="#myModal">东南大学先声之夜夜夜夜</a>
-								<a href="#" title="关注此活动">
-									<img src="__Public__/Images/attention.png"/>
+								<a href="#" title="已关注">
+									<img src="__Public__/Images/attention2.png"/>
 								</a>
 							</div>
 							<p>主办方：<a href="#">东南大学先声网</a>
