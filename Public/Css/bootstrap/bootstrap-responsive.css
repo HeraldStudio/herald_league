@@ -108,7 +108,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
   .row {
     margin-left: -30px;
     *zoom: 1;
@@ -161,7 +161,7 @@
     width: 370px;
   }
   .span3 {
-    width: 270px;
+    width: 240px;
   }
   .span2 {
     width: 170px;
@@ -197,7 +197,7 @@
     margin-left: 430px;
   }
   .offset3 {
-    margin-left: 330px;
+    margin-left: 300px;
   }
   .offset2 {
     margin-left: 230px;
