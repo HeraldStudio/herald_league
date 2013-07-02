@@ -7,18 +7,9 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
-	<link href="__Public__/Css/bootstrap/bootstrap-combine.css" rel="stylesheet" media="screen"> 
+	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 
-
-
-
-
-	
-	
-	
-	
-	
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
 		<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
@@ -124,26 +115,23 @@
 		          width:220px;
 		}
 		.top100{padding-top:100px}
-	    @media (max-width: 980px){
+	    @media (max-width: 979px){
 		     #celeft{
 			    display:none;
 			 }
 			 #ceright{
-			    margin-left:30px;	
+			    margin-left:40px;	
 				padding-top:30px;
 			 }
+			 #more{
+				margin-left:40px;
+			}
 		 }
 	
 	</style>
-	<!--<style type="text/css">
-	@media (min-width:980px){
-		body{
-		padding-top:48px;}
-	}
-	</style>-->
-
 </head>
-<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+
+<body style="font-family:微软雅黑;font-size:16px; background-image:url(__Public__/Images/noise-all.png)">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
@@ -182,19 +170,19 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" >
-			<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)" id="celeft">
-				<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
-					<li class="active"><a href="#">分类</a></li>
-					<li><a href="#" data-filter="*" class="selected">show all</a></li>
-					<li><a href="#" data-filter=".web">web</a></li>
-					<li><a href="#" data-filter=".print">print</a></li>
-					<li><a href="#"data-filter=".design">design</a></li>
-					<li><a href="#" data-filter=".photo">photo</a></li>
-					<li><a href="#" data-filter=".movie">movie</a></li>
-				</ul>	
-			</div>
-	    <div class="span12 offset3 top100" id="ceright" >
+	<div class="container-fluid " >
+		<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)" id="celeft">
+			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
+				<li class="active"><a href="#">分类</a></li>
+				<li><a href="#" data-filter="*" class="selected">show all</a></li>
+				<li><a href="#" data-filter=".web">web</a></li>
+				<li><a href="#" data-filter=".print">print</a></li>
+				<li><a href="#"data-filter=".design">design</a></li>
+				<li><a href="#" data-filter=".photo">photo</a></li>
+				<li><a href="#" data-filter=".movie">movie</a></li>
+			</ul>	
+		</div>
+	    <div class="offset3 top100" id="ceright" style="margin-right:40px;">
 			<div id="filter-container" class="cf isotope" >
 					<figure class="movie isotope-item" >
 						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
@@ -345,14 +333,15 @@
 					</figure>
 					
 			</div><!-- ENDS Filter container -->
-	        <button class="btn btn-warning btn-large span11">MORE</button>
-	  
-	  </div>
-	
+	          
+		</div>
+		<div id="more" class="offset3" style="margin-right:60px;font-family:微软雅黑">
+			<div class="btn btn-large btn-block">加载更多</div>
+		</div>
 	</div>
 	
 
-<div id="myModal" class="modal hide fade ">
+	<div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>东南大学先声之夜夜夜夜
@@ -433,7 +422,7 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>
-<div id="listModal" class="modal hide fade ">
+	<div id="listModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>社团列表</h3>
@@ -673,7 +662,7 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">关闭</a>
 	</div>
 </div>
-<hr>
-<h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
+	<hr>
+	<h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
 </body>
 </html>

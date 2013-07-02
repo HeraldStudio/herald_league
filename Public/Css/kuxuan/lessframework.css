@@ -32,7 +32,30 @@ px      68    160    252    344    436    528    620    712    804    896    */
 -----------------------------------------------------------------
 cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+@media (min-width:1140px) and (max-width:1299px) {
+  #filter-container {
+    width: 810px;
+    /* 712 + 20 gap */
+  
+  }
+  #filter-container figure {
+    width: 250px;
+    margin-right: 20px;
+  }
+}
+@media only screen and (min-width:980px) and (max-width:1139px) {
+  #filter-container {
+    width: 660px;
+    /* 712 + 20 gap */
+  
+  }
+  #filter-container figure {
+    width: 200px;
+    margin-right: 20px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
   /* GENERAL TABLET ----------------------------------------------------*/.wrapper {
     width: 712px;
   }
@@ -81,12 +104,12 @@ px      68    160    252    344    436    528    620    712    */
     width: 712px;
   }
   /* FILTERED ITEMS TABLET ----------------------------------------------------*/#filter-container {
-    width: 732px;
+    width: 666px;
     /* 712 + 20 gap */
   
   }
   #filter-container figure {
-    width: 223px;
+    width: 202px;
     margin-right: 20px;
   }
   /* CAROUSEL TABLET ----------------------------------------------------*/.jcarousel-skin-folder .jcarousel-container-horizontal {
