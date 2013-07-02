@@ -23,32 +23,32 @@
 		display:block;
 		height:32px;
 		width:32px;
-		background:#d1d1d1 url(__Public__/Images/top.png) no-repeat center center;
+		background:#d1d1d1 url(../../Images/top.png) no-repeat center center;
 		margin-bottom:5px;
 		-moz-transition:background 1s;
 		-webkit-transition:background 1s;
 		-o-transition:background 1s;
 	}
 	#back-to-top a:hover span{
-		background:#979797 url(__Public__/Images/top.png) no-repeat center center;
+		background:#979797 url(../../Images/top.png) no-repeat center center;
 	}
 	
-#fix-div{
+#fixdiv{
 			position:fixed;
-			right: .5%;
-			bottom:50px;
+			right:-136px;
+			bottom:100px;
 			width:175px;
-			height:257px;
+			height:207px;
 			z-index=100000;
 		}
 		#gototop{
 			width:32px;
 			height:32px;
 			z-index=100000;
-			background-image:url(__Public__/Images/top.png);
+			background-image:url(../../Images/top.png);
 			cursor:pointer;
 			position:fixed;
-			right: .5%;
+			right:7px;
 			bottom:332px;
 		}
 		#MsgGoUp{
@@ -64,16 +64,19 @@
 			padding-top:6px;
 			display:none;
 		}
+		#fix2{
+		}
 		#fix2pic{
 			width:32px;
 			height:32px;
-			background-image:url(__Public__/Images/top.png);
+			background-image:url(../../Images/top.png);
 			cursor:pointer;
 			position:relative;
-			right:-143px;
+			left:0px;
 		}
 		#menu2{
 			position:relative;
+			left:2px;
 			display:none;
 		}
 		#Msg2{
@@ -96,13 +99,14 @@
 		#fix3pic{
 			width:32px;
 			height:32px;
-			background-image:url(__Public__/Images/top.png);
+			background-image:url(../../Images/top.png);
 			cursor:pointer;
 			position:relative;
-			left:143px;
+			left:0px;
 		}
 		#menu3{
 			position:relative;
+			left:2px;
 			display:none;
 		}
 		#Msg3{
@@ -110,7 +114,7 @@
 			width:140px;
 			position:absolute;
 			top:0px;
-			left:0px;
+			left:2px;
 			background-color:#D3D3D3;
 			  -webkit-border-radius: 6px;
 				-moz-border-radius: 6px;
@@ -125,13 +129,14 @@
 		#fix4pic{
 			width:32px;
 			height:32px;
-			background-image:url(__Public__/Images/top.png);
+			background-image:url(../../Images/top.png);
 			cursor:pointer;
 			position:relative;
-			left:143px;
+			left:0px;
 		}
 		#menu4{
 			position:relative;
+			left:2px;
 			display:none;
 		}
 		#Msg4{
@@ -139,7 +144,7 @@
 			width:140px;
 			position:absolute;
 			top:0px;
-			left:0px;
+			left:2px;
 			background-color:#D3D3D3;
 			  -webkit-border-radius: 6px;
 				-moz-border-radius: 6px;

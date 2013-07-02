@@ -16,6 +16,11 @@
     <script src="__Public__/Js/back-to-top/script.js"></script>	
 
 	<style>
+	.fixed-left{
+			position:fixed;	
+			left:77px;
+			top: 100px;
+		}
 	.center {
 		width: auto;
 		display: table;
@@ -61,6 +66,17 @@
 	.flist{
 	       margin-top:100px;
 	}
+	#cezhong{
+	    margin-left:250px;
+	}
+	@media (max-width: 979px){
+		     #celeft{
+			    display:none;
+			 }
+			 #cezhong{
+			    margin-left:40px;	
+			 }
+		 }
 	</style>
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
@@ -110,7 +126,7 @@
 		<div class="span12">
 			<div class="row-fluid">
 			    <div class="span1"></div>
-				<div class="span2">
+				<div class="span2 fixed-left" id="celeft">
 					<div class="page-header" style=" margin: 10px 0 20px;">
 						<h4>
 							浏览导航
@@ -136,22 +152,22 @@
 								好消息!
 							</h5> <strong>好消息!</strong> 请注意你的个人隐私安全.
 					</div>
-						<div class="alert alert-success">
-							 <button type="button" class="close" data-dismiss="alert">×</button>
+					<div class="alert">
+						 <button type="button" class="close" data-dismiss="alert">×</button>
 							<h5>
 								好消息!
-							</h5> <strong>警告!</strong> 请注意你的个人隐私安全.
-						</div>
-						<div class="alert alert-error">
-							 <button type="button" class="close" data-dismiss="alert">×</button>
+							</h5> <strong>好消息!</strong> 请注意你的个人隐私安全.
+					</div>
+					<div class="alert">
+						 <button type="button" class="close" data-dismiss="alert">×</button>
 							<h5>
-								提示!
-							</h5> <strong>警告!</strong> 请注意你的个人隐私安全.
+								好消息!
+							</h5> <strong>好消息!</strong> 请注意你的个人隐私安全.
 					</div>
 			    </div>
 				
 				<!--zhong-->
-				<div class="span6" >
+				<div class="span6 "  id="cezhong" >
 					<div class="row-fluid">
 						<div class="span12">
 							<div class="row-fluid">
@@ -204,7 +220,7 @@
 																</li>
 																<li class="span4">
 																	<div class="thumbnail">
-																		<img alt="300x200" src="./Images/02.jpg" />
+																		<img alt="300x200" src="__Public__/Images/02.jpg" />
 																		<div class="caption">
 																			<h5>
 																				哈佛结构
@@ -218,7 +234,7 @@
 																</li>
 																<li class="span4">
 																	<div class="thumbnail">
-																		<img alt="300x200" src="./Images/01.jpg" />
+																		<img alt="300x200" src="__Public__/Images/01.jpg" />
 																		<div class="caption">
 																			<h3>
 																				改进型哈佛结构
@@ -236,7 +252,7 @@
 														<ul class="thumbnails">
 																<li class="span4">
 																	<div class="thumbnail">
-																		<img alt="300x200" src="./Images/03.jpg" />
+																		<img alt="300x200" src="__Public__/Images/03.jpg" />
 																		<div class="caption">
 																			<h3>
 																				冯诺尔曼结构
@@ -289,14 +305,14 @@
 									<div class="row-fluid">
 										<div class="span4">
 											<a data-toggle="modal" href="#myModal">
-											   <img alt="140x140" src="./Images/06.jpg" class="img-rounded" />
+											   <img alt="140x140" src="__Public__/Images/06.jpg" class="img-rounded" />
 											</a>
 										</div>
 										<div class="span4">
-											<img alt="140x140" src="./Images/06.jpg" class="img-polaroid" />
+											<img alt="140x140" src="__Public__/Images/06.jpg" class="img-polaroid" />
 										</div>
 										<div class="span4">
-											<img alt="140x140" src="./Images/06.jpg" class="img-circle" />
+											<img alt="140x140" src="__Public__/Images/06.jpg" class="img-circle" />
 										</div>
 									</div>
 								</div>
@@ -398,71 +414,70 @@
 				</div>
 				
 				<div class="span1">
-				   <div id="fix-div">					
+				   	<div id="fixdiv">
 									<div class="move" id="fix2">
-										<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
-										<div id="menu2">
-											<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-												<li><a tabindex="-1" href="#">加入我们</a></li>
-												<li><a tabindex="-1" href="#">先声大纪事</a></li>
-												<li><a tabindex="-1" href="#">先声元老</a></li>
-											</ul>
-											<div style="height:97px; width:175px;"></div>
-										</div>
-									</div>
-									
-									<div class="move" id="fix3">
-										<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
-										<div id="menu3">
-											<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-												<li><a tabindex="-1" href="#">那个什么</a></li>
-												<li><a tabindex="-1" href="#">那个什么</a></li>
-												<li><a tabindex="-1" href="#">那个什么</a></li>
-											</ul>
-											<div style="height:97px; width:175px;"></div>
-										</div>
-										<div id="Msg3"><p class="text-center">那个什么</p></div>
-									</div>
-									
-									<div class="move" id="fix4">
-										<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
-										<div id="menu4">
-											<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-												<li><a tabindex="-1" href="#">跑操查询</a></li>
-												<li><a tabindex="-1" href="#">校车时刻表</a></li>
-												<li><a tabindex="-1" href="#">图书馆</a></li>
-											</ul>
-											<div style="height:97px; width:175px;"></div>
-										</div>
-										<div id="Msg4"><p class="text-center">校园助手</p></div>
-									</div>
-								</div>
-								<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
-								<div id="Msg2"><p class="text-center">关于我们</p></div>
+							<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
+							<div id="menu2">
+								<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+									<li><a tabindex="-1" href="#">加入我们</a></li>
+									<li><a tabindex="-1" href="#">先声大纪事</a></li>
+									<li><a tabindex="-1" href="#">先声元老</a></li>
+								</ul>
+								<div style="height:97px; width:175px;"></div>
+							</div>
+						</div>
+						
+						<div class="move" id="fix3">
+							<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
+							<div id="menu3">
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+									<li><a tabindex="-1" href="#">那个什么</a></li>
+									<li><a tabindex="-1" href="#">那个什么</a></li>
+									<li><a tabindex="-1" href="#">那个什么</a></li>
+								</ul>
+								<div style="height:97px; width:175px;"></div>
+							</div>
+							<div id="Msg3"><p class="text-center">那个什么</p></div>
+						</div>
+						
+						<div class="move" id="fix4">
+							<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
+							<div id="menu4">
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+									<li><a tabindex="-1" href="#">跑操查询</a></li>
+									<li><a tabindex="-1" href="#">校车时刻表</a></li>
+									<li><a tabindex="-1" href="#">图书馆</a></li>
+								</ul>
+								<div style="height:97px; width:175px;"></div>
+							</div>
+							<div id="Msg4"><p class="text-center">校园助手</p></div>
+						</div>
+					</div>
+					<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
+					<div id="Msg2"><p class="text-center">关于我们</p></div>
+					
+					
+					
+					
+					<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:307px; display:none"></div>
+					<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:50px; position:fixed; right:7px; bottom:50px; display:none"></div>
+					<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:282px; position:fixed; right:181px; bottom:50px; display:none"></div>
+					<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:282px; position:fixed; right:0px; bottom:50px; display:none"></div>
 								
-								
-								
-								
-								<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right: .5%; bottom:307px;"></div>
-								<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:50px; position:fixed; right: .5%; bottom:50px;"></div>
-								<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:282px; position:fixed; right:181px; bottom:50px;"></div>
-								<div class="myboder" onmouseover="mboder()" id="boderl" style="width:10px; height:282px; position:fixed; right:-4px; bottom:50px;"></div>
-								
-				
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-	
-<hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
-<h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>	
-
+<div class="span12"> 
+   <hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
+   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>	
+</div>
 <div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>东南大学先声之夜夜夜夜
-			<a href="#" title="关注此活动"><img id="modal-header-attention" src="./Images/attention.png"/></a>
+			<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>
 			
 		</h3>
 	</div>
@@ -474,7 +489,7 @@
 			</div>
 			<div class="act-info-body">
 				<div class="act-info-pic">
-					<img src="./Images/06.jpg"/>
+					<img src="__Public__/Images/06.jpg"/>
 				</div>
 			</div>
 		</div>

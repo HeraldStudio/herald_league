@@ -1,7 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title>Test</title>
+	<title>Index</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
