@@ -662,7 +662,8 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">关闭</a>
 	</div>
 </div>
-	<hr>
-	<h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
+	<hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
+   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
+   <div style="height:10px"></div>  
 </body>
 </html>
