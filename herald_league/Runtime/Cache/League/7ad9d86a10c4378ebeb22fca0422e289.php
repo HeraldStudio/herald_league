@@ -11,62 +11,26 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
+		
+<!--[if lte IE 6]>
+  <!-- bsie css 补丁文件 -->
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
 
+  <!-- bsie 额外的 css 补丁文件 -->
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
+  <![endif]-->
 	
 	<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>	
 	<script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
     <script src="__Public__/Js/back-to-top/script.js"></script>	
-    
-<script type="text/javascript">
-/* tangbin - http://www.veryhuo.com - MIT Licensed */
-(function($){
-// tipWrap: 	提示消息的容器
-// maxNumber: 	最大输入字符
-$.fn.artTxtCount = function(tipWrap, maxNumber){
-var countClass = 'js_txtCount',		// 定义内部容器的CSS类名
-fullClass = 'js_txtFull',		// 定义超出字符的CSS类名
-disabledClass = 'disabled';		// 定义不可用提交按钮CSS类名
-// 统计字数
-var count = function(){
-var btn = $(this).closest('form').find(':submit'),
-val = $(this).val().length,
-// 是否禁用提交按钮
-disabled = {
-on: function(){
-btn.removeAttr('disabled').removeClass(disabledClass);
-},
-off: function(){
-btn.attr('disabled', 'disabled').addClass(disabledClass);
-}
-};
-if (val == 0) disabled.off();
-if(val <= maxNumber){
-if (val > 0) disabled.on();
-tipWrap.html('<span class="' + countClass + '">\u8FD8\u80FD\u8F93\u5165 <strong>' + (maxNumber - val) + '</strong> \u4E2A\u5B57</span>');
-}else{
-disabled.off();
-tipWrap.html('<span class="' + countClass + ' ' + fullClass + '">\u5DF2\u7ECF\u8D85\u51FA <strong>' + (val - maxNumber) + '</strong> \u4E2A\u5B57</span>');
-};
-};
-$(this).bind('keyup change', count);
-return this;
-};
-})(jQuery);
-</script>
-<script type="text/javascript">
-// demo
-jQuery(function(){
-// 批量
-$('.autoTxtCount').each(function(){
-$(this).find('.text').artTxtCount($(this).find('.tips'), 140);
-});
-// 单个
-$('#test').artTxtCount($('#test_tips'), 10);
-});
-</script>
-	
+    <script src="__Public__/Js/room.js"></script>
+
+  <!--[if lte IE 6]>
+  <!-- bsie js 补丁只在IE6中才执行 -->
+  <script type="text/javascript" src="js/bootstrap-ie.js"></script>
+  <!--[endif]-->
 	<style>
-	.fixed-left{
+		.fixed-left{
 			position:fixed;	
 			left:77px;
 			top: 100px;
@@ -95,26 +59,13 @@ $('#test').artTxtCount($('#test_tips'), 10);
 	.reply{
 	      margin-bottom:10px;
 	}
-	p{
-	     text-indent:2em;
-	 }
-	 h1,h2,h3,h4,h5,h6{
+	    h1,h2,h3,h4,h5,h6{
 	    font-weight:normal;
 	 }
-	 .hero-unit {
-			  padding:20px;
-			  margin-bottom: 10px;
-			  font-size: 16px;
-			  font-weight: 200;
-			  line-height: 25px;
-			  color: inherit;
-			  background-color: #eeeeee;
-			  -webkit-border-radius: 6px;
-				 -moz-border-radius: 6px;
-					  border-radius: 6px;
-			}
-	
-	#cezhong{
+	 	p{
+	     text-indent:2em;
+	 }
+	 #cezhong{
 	    margin-left:250px;
 	}
 	@media (max-width: 979px){
@@ -124,17 +75,43 @@ $('#test').artTxtCount($('#test_tips'), 10);
 			 #cezhong{
 			    margin-left:40px;	
 			 }
+			 #main2{
+			     padding-top:10px;
+			 }
 		 }
+    @media (min-width: 979px){
+	      #main2{
+		       padding-top:100px;
+		  }
+	}
 	.pagination {
 			  margin: 10px 0 0px;
 			}
-    .tips { color:#999; padding:0 5px; }	
-    .tips strong { color:#1E9300; }
-    .tips .js_txtFull strong { color:#F00; }
-    textarea.text { width:474px; }
-	
+		.tips { color:#999; padding:0 5px; }	
+		.tips strong { color:#1E9300; }
+		.tips .js_txtFull strong { color:#F00; }
+		textarea.text { width:474px; }
+	.reply_title{
+	    background-color:#eeeeee;
+	}
+	.pinglun{
+	   font-size:14px;
+	   text-indent:2em;
+	   padding-top:28px;
+	}
+	 .hero-unit {
+		  padding:20px;
+		  margin-bottom: 10px;
+		  font-size: 16px;
+		  font-weight: 200;
+		  line-height: 25px;
+		  color: inherit;
+		  background-color: #eeeeee;
+		  -webkit-border-radius: 6px;
+			 -moz-border-radius: 6px;
+				  border-radius: 6px;
+		}
 	</style>
-	
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
 	<p id="back-to-top"><a href="#top"><span></span>.</a></p>
@@ -178,7 +155,7 @@ $('#test').artTxtCount($('#test_tips'), 10);
 	</div>
     <!--header-->
 	
-	<div class="container-fluid" style="padding-top:100px;">
+	<div class="container-fluid"id="main2">
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="row-fluid">
@@ -217,10 +194,6 @@ $('#test').artTxtCount($('#test_tips'), 10);
 								<td>地点</td>
 								<td>TB - Monthly</td>
 							</tr>
-							<tr>
-								<td>XX</td>
-								<td>XXXXXX</td>
-							</tr>		
 						</tbody>
 					</table>	
 			    </div>
@@ -365,32 +338,46 @@ $('#test').artTxtCount($('#test_tips'), 10);
 											留言板
 										</h4>
 									</div>
-									<div class="thumbnail reply">		
-											<p><h5>我看这个社团不错！</h5></p>	
+									<div class="thumbnail reply row-fluid span11">		
+									    <div class="span12">
+											<div class="span3 reply_title">
+												东南大学先声网
+											</div>
+											<div class="span9 reply_title">
+												发布时间 XXXX-XX-XX
+											</div>
+											<div class="pinglun">
+											    我看这个社团不错
+												<button class="btn btn-success btn-small pull-right btn_replay"  onclick="focus()" type="submit" name="">评论</button>
+										    </div>
+											
+										</div>												
 									</div>
-									
-									<div class="thumbnail reply">		
-											<p><h5>我看也行！</h5></p>	
+									<div class="thumbnail reply row-fluid span11">		
+									    <div class="span12 ">
+											<div class="span3 reply_title" id="username_1">
+												东南大学先声网555
+											</div>
+											<div class="span9 reply_title">
+												发布时间 XXXX-XX-XX
+											</div>
+											<div class="pinglun">
+									           我看也行！
+										    <button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">评论</button>
+											</div>
+										</div>												
 									</div>
-									
-									<div class="thumbnail reply">		
-											<p><h5>我信，我信！</h5></p>	
-									</div>
-								
-									<form class="span12 autoTxtCount">								  
-										<textarea name="limit_chars" id="limit_chars" cols="1" rows="2" class="span12 "></textarea>
-									    <span class="tips"></span> 
-										<button class="btn btn-success btn-small pull-right"  id = "submitanswer" type="submit" name="">回复</button>
-									    <button class="btn btn-danger btn-small pull-right" style="margin-right:10px"type="reset">清空</button>
-									</form>	
-                                    <form class="autoTxtCount" action="" method="get">
+						
+                                    <form class="autoTxtCount thumbnail row-fluid span11" action="" method="get">
 										<div>
-										<textarea class="text" name="" cols="50" rows="3"></textarea>
+										   <textarea class="text span12" name="" cols="50" id="text1" rows="2"></textarea>
 										</div>
-										<div>
-										<button type="submit">提交</button>
-										<span class="tips"></span> </div>
-										</form>									
+										<div >
+										<button class="btn btn-danger btn-small pull-right" type="reset">清空</button>
+										<button class="btn btn-success btn-small pull-right"  style="margin-right:10px"id = "submitanswer" type="submit" name="">回复</button>				    
+										<span class="tips"></span>
+										</div>
+									</form>									
 								</div>
 							</div>
 						</div>
@@ -511,10 +498,11 @@ $('#test').artTxtCount($('#test_tips'), 10);
 		</div>
 	</div>
 </div>
-<div class="span12"> 
-   <hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
-   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>	
-</div>
+<div style="height:100px">
+	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
+	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy 2001-2013 Herald.seu.edu.cn</h5>
+</div> 
+
 <div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
@@ -541,6 +529,15 @@ $('#test').artTxtCount($('#test_tips'), 10);
 		<a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>
 	</div>
 </div>	
-	
+	<script>
+	  $(document).ready(function(){
+	$(".btn_replay").click(function(){
+                $("#text1").addClass("focus").next().show();
+                $("#text1")[0].focus();
+                //alert($("#username_3").text());
+                $("#text1").val("回复"+$.trim($("#username_1").html())+" : "); 
+      });
+});
+	</script>
     </body>
 </html>

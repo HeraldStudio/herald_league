@@ -216,8 +216,73 @@
 		</h3>
 	</div>
 	<div class="modal-body">
-	<iframe src="__Public__/frame.html" style="width:100%;height:430px"></iframe>
-
+	  <div class="row-fluid">
+		<div class="span3">
+			<div id="follower">
+				<h5 class="pull-left">关注者</h5>
+				<h5 class="pull-right">17人</h5>
+			</div>
+			<div id="follower-list">
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+			</div>
+		</div>
+		<div class="span9">
+			<div class="act-info-header">
+				<h4>活动信息</h4>
+			</div>
+			<div class="act-info-body">
+				<div class="act-info"><i class="icon-user"></i>主办方：<a href="#">东南大学先声网</a>
+					<!--<a href="#" title="关注此社团">
+						<img src="__Public__/Images/attention-small.png"/>
+					</a>-->
+				</div>
+				<div class="act-info"><i class="icon-time"></i>时间：2013年06月30日 18:30</div>
+				<div class="act-info"><i class="icon-home"></i>地点：焦廷标馆</div>
+				<div class="act-info"><i class="icon-envelope"></i>联系方式：行政楼520</div>
+				<div class="act-info-para">
+					<p> 棋在其中占据了独特的地位。棋作为体育项目之一，也是随着国运的变动而起起伏伏。陈毅元帅说过：“国运昌，棋运盛。”如今中国进步发展了，在大家的推动下，棋也会有蓬勃之象。
+					</p>
+					<p>我们先辈发明的围棋能够延衍千年而不至湮灭。黑白色的棋子在象征意义的穹宇之间寥寥落落地布下，演练的是风云际会，人生拼搏。许多棋手由是而领悟了世事的兴盛与衰没，欢乐与痛苦，失败与成就乃至死亡与新生。
+					</p>
+					<p>12年春季，北京大学生围棋联赛如火如荼地举行了，多家知名媒体新浪、搜狐报导围棋赛事，围棋第一大杂志《围棋天地》刊登比赛状况。但是现在，上海的大学生们面临着一个难题，很多同学喜欢围棋并对围棋有着浓厚的兴趣，却面临着无棋可下，无赛可参的窘境。
+					</p>
+					<p>为了搭建同学之间交流的平台，推广和宣传围棋文化，丰富同学课余生活让同学更深入的了解认识中国棋文化，弘扬中国民族文化艺术，培养学生特色技能，展现朝气蓬勃、积极进取、开拓创新的精神风貌，增进各校之间的交流与来往。故而举办这次“大学生围棋联赛”。
+					</p>
+				</div>
+				<div class="act-info-pic">
+					<img src="__Public__/Images/head.jpg"/>
+				</div>
+			</div>
+		</div>
+	  </div>
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
