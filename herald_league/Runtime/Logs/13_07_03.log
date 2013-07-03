@@ -16,3 +16,6 @@ ERR: 无法加载模块:eaguelist
 [ 2013-07-03T10:38:29+08:00 ] 127.0.0.1 /herald_league/index.php/League/leaguelist
 ERR: 无法加载模块:leaguelist
 
+[ 2013-07-03T18:55:55+08:00 ] 127.0.0.1 /herald_league/index.php/league/leaguelist
+ERR: 无法加载模块:leaguelist
+

@@ -12,9 +12,9 @@
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
 	
-	<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>	
+	<!--<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>	
 	<script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
-    <script src="__Public__/Js/back-to-top/script.js"></script>	
+    <script src="__Public__/Js/back-to-top/script.js"></script>	-->
 
 	<style>
 	.fixed-left{

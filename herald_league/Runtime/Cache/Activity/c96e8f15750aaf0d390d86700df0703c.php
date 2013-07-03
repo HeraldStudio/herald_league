@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
+	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
-
+	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
 		<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
@@ -112,6 +113,9 @@
 				margin-right:80px;
 				padding-top:100px;
 			}
+			#more{
+				margin-right:80px;
+			}
 		}
 	    @media (max-width: 979px){
 		     #celeft{
@@ -124,6 +128,7 @@
 			 }
 			 #more{
 				margin-left:40px;
+				margin-right:40px;
 			}
 		 }
 	
@@ -202,7 +207,7 @@
 			</div><!-- ENDS Filter container -->
 	          
 		</div>
-		<div id="more" class="offset3" style="margin-right:60px;font-family:微软雅黑">
+		<div id="more" class="offset3" style="font-family:微软雅黑">
 			<div class="btn btn-large btn-block">加载更多</div>
 		</div>
 	</div>
@@ -216,13 +221,130 @@
 		</h3>
 	</div>
 	<div class="modal-body">
-	<iframe src="__Public__/frame.html" style="width:100%;height:430px"></iframe>
-
+	  <div class="row-fluid">
+		<div class="span3">
+			<div id="follower">
+				<h5 class="pull-left">关注者</h5>
+				<h5 class="pull-right">17人</h5>
+			</div>
+			<div id="follower-list">
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+			</div>
+		</div>
+		<div class="span9">
+			<div class="act-info-header">
+				<h4>活动信息</h4>
+			</div>
+			<div class="act-info-body">
+				<div class="act-info"><i class="icon-user"></i>主办方：<a href="#">东南大学先声网</a>
+					<!--<a href="#" title="关注此社团">
+						<img src="__Public__/Images/attention-small.png"/>
+					</a>-->
+				</div>
+				<div class="act-info"><i class="icon-time"></i>时间：2013年06月30日 18:30</div>
+				<div class="act-info"><i class="icon-home"></i>地点：焦廷标馆</div>
+				<div class="act-info"><i class="icon-envelope"></i>联系方式：行政楼520</div>
+				<div class="act-info-para">
+					<p> 棋在其中占据了独特的地位。棋作为体育项目之一，也是随着国运的变动而起起伏伏。陈毅元帅说过：“国运昌，棋运盛。”如今中国进步发展了，在大家的推动下，棋也会有蓬勃之象。
+					</p>
+					<p>我们先辈发明的围棋能够延衍千年而不至湮灭。黑白色的棋子在象征意义的穹宇之间寥寥落落地布下，演练的是风云际会，人生拼搏。许多棋手由是而领悟了世事的兴盛与衰没，欢乐与痛苦，失败与成就乃至死亡与新生。
+					</p>
+					<p>12年春季，北京大学生围棋联赛如火如荼地举行了，多家知名媒体新浪、搜狐报导围棋赛事，围棋第一大杂志《围棋天地》刊登比赛状况。但是现在，上海的大学生们面临着一个难题，很多同学喜欢围棋并对围棋有着浓厚的兴趣，却面临着无棋可下，无赛可参的窘境。
+					</p>
+					<p>为了搭建同学之间交流的平台，推广和宣传围棋文化，丰富同学课余生活让同学更深入的了解认识中国棋文化，弘扬中国民族文化艺术，培养学生特色技能，展现朝气蓬勃、积极进取、开拓创新的精神风貌，增进各校之间的交流与来往。故而举办这次“大学生围棋联赛”。
+					</p>
+				</div>
+				<div class="act-info-pic">
+					<img src="__Public__/Images/head.jpg"/>
+				</div>
+			</div>
+		</div>
+	  </div>
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>
+	<div id="fixdiv">
+		<a href="#top"  id="scrollUp" style="display:none;">
+			<div id="gototop" onmouseover="mover(1)" onmouseout="mout(1)"></div>
+		</a>
+		<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
+		<div class="move" id="fix2">
+			<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
+			<div id="menu2">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">加入我们</a></li>
+						<li><a tabindex="-1" href="#">先声大纪事</a></li>
+						<li><a tabindex="-1" href="#">先声元老</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg2"><p class="text-center">关于我们</p></div>
+		</div>
+		
+		<div class="move" id="fix3">
+			<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
+			<div id="menu3">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg3"><p class="text-center">那个什么</p></div>
+		</div>
+		
+		<div class="move" id="fix4">
+			<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
+			<div id="menu4">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">跑操查询</a></li>
+						<li><a tabindex="-1" href="#">校车时刻表</a></li>
+						<li><a tabindex="-1" href="#">图书馆</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg4"><p class="text-center">校园助手</p></div>
+		</div>
+	</div>
+				
+	<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:237px; display:none"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:38px; position:fixed; right:7px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height:100px">
 	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
 	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy 2001-2013 Herald.seu.edu.cn</h5>
