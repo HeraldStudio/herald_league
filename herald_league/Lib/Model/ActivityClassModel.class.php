@@ -12,7 +12,7 @@ class ActivityClassModel extends Model{
 		return $classname;
 	}
 	public function getClassList(){
-		$activityclass = $this -> field('class') -> select();
+		$activityclass = $this -> select();
 		return $activityclass;
 	}
 }

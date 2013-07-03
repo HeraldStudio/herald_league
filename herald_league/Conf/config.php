@@ -25,5 +25,5 @@ return array(
 	'__Public__' => __ROOT__.'/Public',
 	'__Uploads__' => __ROOT__.'/Uploads',
 	),
-	);
+);
 ?>
