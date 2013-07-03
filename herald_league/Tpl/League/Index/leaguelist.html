@@ -4,10 +4,15 @@
 	<title>List</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset='utf-8'>
+	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen">
-	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen">
+	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen">	
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>
+	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
+	<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>	
+	<script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
+    <script src="__Public__/Js/back-to-top/script.js"></script>	
 	<style>
 		.row-fluid{
 			margin-bottom:10px;
@@ -36,8 +41,8 @@
 			border-bottom:1px solid #EFEFEF;
 		}
 		img{
-			max-width:40px;
-			max-height:40px;
+			max-width:35px;
+			max-height:35px;
 		}
 		@media (min-width:980px){
 			#row-fluid{
@@ -48,7 +53,7 @@
 </head>
 
 <body style="font-family:微软雅黑;">
-	<div class="navbar navbar-fixed-top well"style="font-size:16px;">
+	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -64,7 +69,7 @@
 						<button type="submit" class="btn">Go</button>
 					</form>
 					<ul class="nav">
-						<li><a href="#">首页</a></li>
+						<li><a href="#">平台首页</a></li>
 						<li class="active"><a href="#">社团列表</a></li>
 						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
@@ -86,8 +91,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="row-fluid" id="row-fluid"style="font-size:15px;">
-		<div class="span3">
+	<div class="row-fluid" id="row-fluid">
+		<div class="span3 offset1">
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="span12">
@@ -170,7 +175,7 @@
 				
 			</div>
 		</div>
-		<div class="span9">
+		<div class="span7" style="margin-left:10px;font-size:13px">
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="span12">
@@ -185,7 +190,7 @@
 									<div class="accordion-inner">
 										<div class="row-fluid">
 											<div class="span3">
-												<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
+												<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊</a>
 												<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 											</div>
 											<div  class="span3">
@@ -401,6 +406,57 @@
 			</div>
 		</div>
 	</div>
+	<p id="back-to-top"><a href="#top"><span></span>.</a></p>
+	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
+		<div id="fixdiv">
+				<div class="move" id="fix2">
+				<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
+				<div id="menu2">
+					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">加入我们</a></li>
+						<li><a tabindex="-1" href="#">先声大纪事</a></li>
+						<li><a tabindex="-1" href="#">先声元老</a></li>
+					</ul>
+					<div style="height:97px; width:175px;"></div>
+				</div>
+				<div id="Msg2"><p class="text-center">关于我们</p></div>
+			</div>
+			
+			<div class="move" id="fix3">
+				<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
+				<div id="menu3">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+					</ul>
+					<div style="height:97px; width:175px;"></div>
+				</div>
+				<div id="Msg3"><p class="text-center">那个什么</p></div>
+			</div>
+			
+			<div class="move" id="fix4">
+				<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
+				<div id="menu4">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">跑操查询</a></li>
+						<li><a tabindex="-1" href="#">校车时刻表</a></li>
+						<li><a tabindex="-1" href="#">图书馆</a></li>
+					</ul>
+					<div style="height:97px; width:175px;"></div>
+				</div>
+				<div id="Msg4"><p class="text-center">校园助手</p></div>
+			</div>
+		</div>
+				
+		<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:307px; display:none"></div>
+		<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:50px; position:fixed; right:7px; bottom:50px; display:none"></div>
+		<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:282px; position:fixed; right:181px; bottom:50px; display:none"></div>
+		<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:282px; position:fixed; right:0px; bottom:50px; display:none"></div>				
 	
+	<div style="height:100px">
+		<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
+		<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy 2001-2013 Herald.seu.edu.cn</h5>
+	</div> 
 </body>
 </html>
