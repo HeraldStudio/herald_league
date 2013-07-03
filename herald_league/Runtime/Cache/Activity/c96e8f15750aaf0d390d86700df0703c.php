@@ -9,6 +9,7 @@
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
+	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
 
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
@@ -174,163 +175,29 @@
 		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:100px;" id="celeft">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a href="#">分类</a></li>
-				<li><a href="#" data-filter="*" class="selected">show all</a></li>
-				<li><a href="#" data-filter=".web">web</a></li>
-				<li><a href="#" data-filter=".print">print</a></li>
-				<li><a href="#"data-filter=".design">design</a></li>
-				<li><a href="#" data-filter=".photo">photo</a></li>
-				<li><a href="#" data-filter=".movie">movie</a></li>
+				<li><a href="#" data-filter="*" class="selected">显示全部</a></li>
+				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li><a href="#" data-filter=".<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>	
 		</div>
 	    <div class="offset3" id="ceright" style>
 			<div id="filter-container" class="cf isotope" >
-					<figure class="movie isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a data-toggle="modal" href="#myModal">东南大学先声之夜夜夜夜</a>
-								<a href="#" title="已关注">
-									<img src="__Public__/Images/attention2.png"/>
-								</a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-							<br><img src="__Public__/Images/need-sign.png" class="pull-right"/>
-						</figcaption>
-					</figure>
-					
-					<figure class="movie isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/02.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a data-toggle="modal" href="#myModal">先声之夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-							<br><img src="__Public__/Images/need-sign.png" class="pull-right"/>
-						</figcaption>
-					</figure>
-					
-					
-					<figure class="movie design isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/t03.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a href="#">东南大学先声之夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-							<br><img src="__Public__/Images/need-sign.png" class="pull-right"/>
-						</figcaption>
-					</figure>
-					
-					
-					<figure class="photo isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/04.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a href="#">先声之夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-						</figcaption>
-					</figure>
-					
-					
-					<figure class="web photo isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/t05.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a href="#">先声之夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-							<br><img src="__Public__/Images/need-sign.png" class="pull-right"/>
-						</figcaption>
-					</figure>
-					
-					
-					<figure class="web print isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/06.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a href="#">先声之夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-						</figcaption>
-					</figure>
-					
-					
-					<figure class="photo isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/t04.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a href="#">先声之夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-						</figcaption>
-					</figure>
-					
-					
-					<figure class="web movie isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/05.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a href="#">先声之夜夜夜夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-						</figcaption>
-					</figure>
-					
-					
-					<figure class="web movie isotope-item" >
-						<a href="#" class="thumb"><img src="__Public__/Images/t01.jpg" alt="alt"></a>
-						<figcaption>
-							<div class="heading">
-								<a href="#">先声之夜</a>
-								<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
-							</div>
-							<p>主办方：<a href="#">东南大学先声网</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</p><br>
-							<p>时间：2013年06月30日 18:30</p><br>
-							<p>地点：焦廷标馆</p>
-						</figcaption>
-					</figure>
+				<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><figure class="<?php echo ($vai["class"]); ?> isotope-item" >
+				<?php if(!empty($vai["post_add"])): ?><a href="#" class="thumb">
+					<img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" />
+				</a><?php endif; ?>
+					<figcaption>
+						<div class="heading">
+							<a data-toggle="modal" href="#myModal" class="activityname"><?php echo ($vai["name"]); ?></a>
+							<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+						</div>
+						<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
+							<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+						</p><br>
+						<p>时间：<?php echo ($vai["start_time"]); ?></p><br>
+						<p>地点：<?php echo ($vai["place"]); ?></p>
+						<br /><img src="__Public__/Images/need-sign.png" class="pull-right"/>
+					</figcaption>
+				</figure><?php endforeach; endif; else: echo "" ;endif; ?>
 					
 			</div><!-- ENDS Filter container -->
 	          
@@ -344,9 +211,8 @@
 	<div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
-		<h3>东南大学先声之夜夜夜夜
-			<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>
-			
+		<h3>
+		<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
 		</h3>
 	</div>
 	<div class="modal-body">

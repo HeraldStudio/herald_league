@@ -7,18 +7,23 @@
  * */
 class IndexAction extends Action {
 	public function index(){
+		$activityclass = $this -> activityClass();
+		$activityinfo = $this -> activityInfo();
+
+		$this -> assign('activityclass', $activityclass);
+		$this -> assign('activityinfo', $activityinfo);
 		$this -> display();
 	}
 	public function activityClass(){
-		$ActivityClass = M('ActivityClass');
+		$ActivityClass = D('ActivityClass');
 		return $ActivityClass -> getClassList();
 	}
 	public function activityInfo(){
-		$ActivityInfo = M('ActivityInfo');
+		$ActivityInfo = D('ActivityInfo');
 		return $ActivityInfo -> getAllActivityInfo();
 	}
 	public function leagueList(){
-		$LeagueInfo = M('LeagueInfo');
+		$LeagueInfo = D('LeagueInfo');
 		return $LeagueInfo -> getLeaguePartInfo();
 	}
 

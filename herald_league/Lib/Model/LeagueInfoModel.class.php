@@ -14,6 +14,9 @@ class LeagueInfoModel extends Model{
 	 *
 	 * */
 	public function getLeaguePartInfo(){
-	 	return $partleagueinfo -> $this -> filed('id, league_name') -> group('class') -> select();
+	 	return $this -> filed('id, league_name') -> group('class') -> select();
+	}
+	public function getLeagueNameById($leagueid){
+		return $this -> where('uid='.$leagueid) -> getField('league_name');
 	}
 }
