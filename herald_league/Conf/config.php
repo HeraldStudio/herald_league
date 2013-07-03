@@ -6,7 +6,7 @@ return array(
 	'DB_HOST' => 'localhost',
 	'DB_NAME' => 'herald_league',
 	'DB_USER' => 'root',
-	'DB_PWD' => 'ggr940110,.',
+	'DB_PWD' => '12345678',
 	'DB_PORT' => 3306,
 	'DB_PREFIX' => 'lg_',
 	//分组设置
@@ -25,5 +25,5 @@ return array(
 	'__Public__' => __ROOT__.'/Public',
 	'__Uploads__' => __ROOT__.'/Uploads',
 	),
-	);
+);
 ?>

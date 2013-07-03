@@ -16,6 +16,10 @@ class ActivityInfoModel extends Model{
 	 * */
 	public function getAllActivityInfo(){
 		$activityinfo = $this -> limit(ACTIVITY_NUM) -> select();
+		$leagueinfo = D('LeagueInfo');
+		foreach($activityinfo as $key => $activityinfos){
+			$activityinfo[$key]['league_name'] = $leagueinfo -> getLeagueNameById($activityinfos['league_id']);
+		}
 		return $activityinfo;
 	}
 }

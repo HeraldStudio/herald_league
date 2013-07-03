@@ -108,7 +108,7 @@
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
   .row {
     margin-left: -30px;
     *zoom: 1;
@@ -161,7 +161,7 @@
     width: 370px;
   }
   .span3 {
-    width: 240px;
+    width: 270px;
   }
   .span2 {
     width: 170px;
