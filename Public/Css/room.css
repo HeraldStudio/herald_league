@@ -8,11 +8,14 @@
 	margin-bottom:40px;
 }
 #flist .row-fluid{
-	padding-bottom:5px;
+	padding-bottom:25px;
+}
+#flist {
+	font-size:13px;
 }
 #flist img,#clist img{
-	max-width:40px;
-	max-height:40px;
+	max-width:37px;
+	max-height:37px;
 }
 #clist ul{
 	margin-left:5px;

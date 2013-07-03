@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Room Page</title>
+	<link href="__Public__/Css/room.css" rel="stylesheet" media="screen">
     <link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
@@ -16,14 +17,11 @@
     <script src="__Public__/Js/back-to-top/script.js"></script>	
 
 	<style>
-<<<<<<< HEAD
-=======
 	.fixed-left{
 			position:fixed;	
 			left:77px;
 			top: 100px;
 		}
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 	.center {
 		width: auto;
 		display: table;
@@ -34,8 +32,8 @@
 		text-align: center;
 		}
 	.page-header{
-			padding-bottom: 5px;
-			margin: 0px 0 20px;
+			padding-bottom: 0px;
+			margin: 20px 0 15px;
 			border-bottom: 1px solid black;
 			}
 	.clear:after{
@@ -66,12 +64,7 @@
 				 -moz-border-radius: 6px;
 					  border-radius: 6px;
 			}
-	.flist{
-<<<<<<< HEAD
-	       margin-top:100px;
-=======
-	       margin-top:20px;
-	}
+	
 	#cezhong{
 	    margin-left:250px;
 	}
@@ -83,20 +76,13 @@
 			    margin-left:40px;	
 			 }
 		 }
-		 
-	.quyuanjiao{
-	    {
-			border-radius: 0;
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
-	}
+	.pagination {
+			  margin: 10px 0 0px;
+			}
 	</style>
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
-<<<<<<< HEAD
 	<p id="back-to-top"><a href="#top"><span></span>.</a></p>
-=======
-	<p id="back-to-top" style="height:38px;" class="quyuanjiao"><a href="#top" ><span></span>.</a></p>
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 	<!--header-->
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
@@ -137,20 +123,12 @@
 	</div>
     <!--header-->
 	
-<<<<<<< HEAD
 	<div class="container-fluid" style="padding-top:100px;">
-=======
-	<div class="container-fluid" style="padding-top:78px;">
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="row-fluid">
 			    <div class="span1"></div>
-<<<<<<< HEAD
-				<div class="span2">
-=======
 				<div class="span2 fixed-left" id="celeft">
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 					<div class="page-header" style=" margin: 10px 0 20px;">
 						<h4>
 							浏览导航
@@ -167,33 +145,6 @@
 					</nav>
 					<div class="page-header">
 						<h4>
-<<<<<<< HEAD
-							社团消息
-						</h4>
-					</div>
-					<div class="alert">
-						 <button type="button" class="close" data-dismiss="alert">×</button>
-							<h5>
-								好消息!
-							</h5> <strong>好消息!</strong> 请注意你的个人隐私安全.
-					</div>
-						<div class="alert alert-success">
-							 <button type="button" class="close" data-dismiss="alert">×</button>
-							<h5>
-								好消息!
-							</h5> <strong>警告!</strong> 请注意你的个人隐私安全.
-						</div>
-						<div class="alert alert-error">
-							 <button type="button" class="close" data-dismiss="alert">×</button>
-							<h5>
-								提示!
-							</h5> <strong>警告!</strong> 请注意你的个人隐私安全.
-					</div>
-			    </div>
-				
-				<!--zhong-->
-				<div class="span6" >
-=======
 							社团联系方式
 						</h4>
 					</div>
@@ -221,16 +172,11 @@
 				
 				<!--zhong-->
 				<div class="span6 "  id="cezhong" >
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 					<div class="row-fluid">
 						<div class="span12">
 							<div class="row-fluid">
 								<div class="span12">
-<<<<<<< HEAD
-									<div class="page-header" style=" margin: 10px 0 20px;">
-=======
-									<div class="page-header" style=" margin: 0 0 20px;">
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
+									<div class="page-header" style=" margin: -20px 0 20px;">
 										<h2>
 											XXX社团
 										</h2>
@@ -251,25 +197,24 @@
 							<div class="row-fluid" > 
 								<div class="span12">								
 								   <div class="w-box" id="w_sort07" style="">
-										<div class="page-header" >
-										    <h4 id="huodong">
+										<div class="page-header span12">
+										    <h4 id="huodong" class="span3">
 										     	活动信息
-										   </h4>
+										    </h4>
+                                            <div class="pagination pull-right">
+											  <ul>
+												<li><a href="#"><<</a></li>
+												<li><a href="#">1</a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#">>></a></li>
+											  </ul>
+											</div>										   
 									    </div>
 										<div class="w-box-content">
-											<div class="tabbable clearfix">
-<<<<<<< HEAD
-												<ul class="nav nav-tabs">
-													<li class="active"><a href="#tab1" data-toggle="tab">One</a></li>
-													<li class=""><a href="#tab2" data-toggle="tab">Two</a></li>
-													<li class=""><a href="#tab3" data-toggle="tab">Three	</a></li>
-												</ul>
-												<div class="tab-content">
-													<div class="tab-pane active" id="tab1">
-=======
-												
-												
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
+											<div class="tabbable clearfix">											
 														    <ul class="thumbnails">
 																<li class="span4">
 																	<div class="thumbnail">	
@@ -277,21 +222,13 @@
 																			<h5>
 																				这是个好活动！
 																			</h5>								
-<<<<<<< HEAD
-																			<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> <a class="btn" href="#">分享</a>
-=======
 																			<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 																		</div>
 																	</div>
 																</li>
 																<li class="span4">
 																	<div class="thumbnail">
-<<<<<<< HEAD
-																		<img alt="300x200" src="./Images/02.jpg" />
-=======
 																		<img alt="300x200" src="__Public__/Images/02.jpg" />
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 																		<div class="caption">
 																			<h5>
 																				哈佛结构
@@ -299,21 +236,13 @@
 																			<p>
 																				哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。
 																			</p>
-<<<<<<< HEAD
-																				<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> <a class="btn" href="#">分享</a>
-=======
 																				<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> 
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 																		</div>
 																	</div>
 																</li>
 																<li class="span4">
 																	<div class="thumbnail">
-<<<<<<< HEAD
-																		<img alt="300x200" src="./Images/01.jpg" />
-=======
 																		<img alt="300x200" src="__Public__/Images/01.jpg" />
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 																		<div class="caption">
 																			<h3>
 																				改进型哈佛结构
@@ -321,57 +250,13 @@
 																			<p>
 																				改进型的哈佛结构具有一条独立的地址总线和一条独立的数据总线，两条总线由程序存储器和数据存储器分时复用，使结构更紧凑。
 																			</p>
-<<<<<<< HEAD
-																				<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a>
-=======
 																				<a class="btn btn-primary" href="#">浏览</a> 
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 																		</div>
 																	</div>
 																</li>					
 															</ul>		
-<<<<<<< HEAD
-													</div>
-													<div class="tab-pane" id="tab2">
-														<ul class="thumbnails">
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="./Images/03.jpg" />
-																		<div class="caption">
-																			<h3>
-																				冯诺尔曼结构
-																			</h3>
-																			<p>
-																				也称普林斯顿结构，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置。
-																			</p>
-																				<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a>	
-																		</div>
-																	</div>
-																</li>
-															
-														</ul>
-													</div>
-													<div class="tab-pane" id="tab3">
-														<ul class="thumbnails">
-															<li class="span4">
-																<div class="thumbnail">																		
-																	<div class="caption">	
-																		<h3>Just Do It!</h3>
-																		<p>
-																		　程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置。
-																		</p>
-																	</div>
-																</div>
-															</li>			
-														</ul>
-													</div>
-												</div>
-=======
-												
+											       
 													
-													
-												
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 											</div>
 										</div>
 									</div>
@@ -387,24 +272,25 @@
 							
 							<div class="row-fluid"> 						
 								<div class="span12">
-									<div class="page-header">
-										<h4 id="xiangce">
+									<div class="page-header span12">
+										<h4 id="xiangce" class="span3">
 											社团相册
 										</h4>
+										<div class="pagination pull-right">
+										  <ul>
+											<li><a href="#"><<</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">>></a></li>
+										  </ul>
+										</div>
 									</div>
 									<div class="row-fluid">
 										<div class="span4">
 											<a data-toggle="modal" href="#myModal">
-<<<<<<< HEAD
-											   <img alt="140x140" src="./Images/06.jpg" class="img-rounded" />
-											</a>
-										</div>
-										<div class="span4">
-											<img alt="140x140" src="./Images/06.jpg" class="img-polaroid" />
-										</div>
-										<div class="span4">
-											<img alt="140x140" src="./Images/06.jpg" class="img-circle" />
-=======
 											   <img alt="140x140" src="__Public__/Images/06.jpg" class="img-rounded" />
 											</a>
 										</div>
@@ -413,7 +299,6 @@
 										</div>
 										<div class="span4">
 											<img alt="140x140" src="__Public__/Images/06.jpg" class="img-circle" />
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 										</div>
 									</div>
 								</div>
@@ -449,131 +334,67 @@
 					</div>
 				</div>
 				<div class="span2 ">
-<<<<<<< HEAD
 					<div class="page-header" style="margin-top:10px;">
-=======
-					<div class="page-header" style="margin-top:28px;">
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 						<h4>
         						其他社团
 						</h4>
 					</div>
-					<div class="flist">
-							<div class="row-fluid">
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                
+					<div id="clist">
+						<ul>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+						</ul>	
 					</div>
 					<div class="page-header" >
 						<h4>
         						关注者
 						</h4>
 					</div>
-					<div class="flist">
+					<div id="flist">
 							<div class="row-fluid">
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                           
 							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1" ><img src="__Public__/Images/head.jpg"/><br><a href="#">我是谁</a></div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                           
 							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                           
 							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                
 					</div>
 					
 				</div>
 				
 				<div class="span1">
-<<<<<<< HEAD
-				   <div id="fix-div">					
-									<div class="move" id="fix2">
-										<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
-										<div id="menu2">
-											<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-												<li><a tabindex="-1" href="#">加入我们</a></li>
-												<li><a tabindex="-1" href="#">先声大纪事</a></li>
-												<li><a tabindex="-1" href="#">先声元老</a></li>
-											</ul>
-											<div style="height:97px; width:175px;"></div>
-										</div>
-									</div>
-									
-									<div class="move" id="fix3">
-										<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
-										<div id="menu3">
-											<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-												<li><a tabindex="-1" href="#">那个什么</a></li>
-												<li><a tabindex="-1" href="#">那个什么</a></li>
-												<li><a tabindex="-1" href="#">那个什么</a></li>
-											</ul>
-											<div style="height:97px; width:175px;"></div>
-										</div>
-										<div id="Msg3"><p class="text-center">那个什么</p></div>
-									</div>
-									
-									<div class="move" id="fix4">
-										<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
-										<div id="menu4">
-											<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-												<li><a tabindex="-1" href="#">跑操查询</a></li>
-												<li><a tabindex="-1" href="#">校车时刻表</a></li>
-												<li><a tabindex="-1" href="#">图书馆</a></li>
-											</ul>
-											<div style="height:97px; width:175px;"></div>
-										</div>
-										<div id="Msg4"><p class="text-center">校园助手</p></div>
-									</div>
-								</div>
-								<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
-								<div id="Msg2"><p class="text-center">关于我们</p></div>
-								
-								
-								
-								
-								<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right: .5%; bottom:307px;"></div>
-								<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:50px; position:fixed; right: .5%; bottom:50px;"></div>
-								<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:282px; position:fixed; right:181px; bottom:50px;"></div>
-								<div class="myboder" onmouseover="mboder()" id="boderl" style="width:10px; height:282px; position:fixed; right:-4px; bottom:50px;"></div>
-								
-				
-=======
 				   	<div id="fixdiv">
-									<div class="move" id="fix2">
+							<div class="move" id="fix2">
 							<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
 							<div id="menu2">
 								<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
@@ -622,32 +443,20 @@
 					<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:282px; position:fixed; right:181px; bottom:50px; display:none"></div>
 					<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:282px; position:fixed; right:0px; bottom:50px; display:none"></div>
 								
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-	
-<hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
-<h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>	
-=======
-
+<div class="span12"> 
    <hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
-   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
-   <div style="height:10px"></div>   
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
-
+   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>	
+</div>
 <div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>东南大学先声之夜夜夜夜
-<<<<<<< HEAD
-			<a href="#" title="关注此活动"><img id="modal-header-attention" src="./Images/attention.png"/></a>
-=======
 			<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 			
 		</h3>
 	</div>
@@ -659,11 +468,7 @@
 			</div>
 			<div class="act-info-body">
 				<div class="act-info-pic">
-<<<<<<< HEAD
-					<img src="./Images/06.jpg"/>
-=======
 					<img src="__Public__/Images/06.jpg"/>
->>>>>>> 75e0c3cb3e592f975d14e961828f0d2a14b76100
 				</div>
 			</div>
 		</div>
