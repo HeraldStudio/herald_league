@@ -9,6 +9,7 @@
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
+	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
 
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
@@ -188,7 +189,7 @@
 				</a><?php endif; ?>
 					<figcaption>
 						<div class="heading">
-							<a data-toggle="modal" href="#myModal"><?php echo ($vai["name"]); ?></a>
+							<a data-toggle="modal" href="#myModal" class="activityname"><?php echo ($vai["name"]); ?></a>
 							<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
 						</div>
 						<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
@@ -212,9 +213,8 @@
 	<div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
-		<h3>东南大学先声之夜夜夜夜
-			<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>
-			
+		<h3>
+		<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
 		</h3>
 	</div>
 	<div class="modal-body">
