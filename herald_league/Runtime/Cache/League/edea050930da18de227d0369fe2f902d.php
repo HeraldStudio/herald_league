@@ -142,27 +142,29 @@
 					</nav>
 					<div class="page-header">
 						<h4>
-							社团消息
+							社团联系方式
 						</h4>
 					</div>
-					<div class="alert">
-						 <button type="button" class="close" data-dismiss="alert">×</button>
-							<h5>
-								好消息!
-							</h5> <strong>好消息!</strong> 请注意你的个人隐私安全.
-					</div>
-					<div class="alert">
-						 <button type="button" class="close" data-dismiss="alert">×</button>
-							<h5>
-								好消息!
-							</h5> <strong>好消息!</strong> 请注意你的个人隐私安全.
-					</div>
-					<div class="alert">
-						 <button type="button" class="close" data-dismiss="alert">×</button>
-							<h5>
-								好消息!
-							</h5> <strong>好消息!</strong> 请注意你的个人隐私安全.
-					</div>
+					<table class="table table-hover" contenteditable="true">
+						<tbody>
+							<tr>
+								<td>邮箱</td>
+								<td>TB - Monthly</td>
+							</tr>
+							<tr>
+								<td>电话</td>
+								<td>TB - Monthly</td>
+							</tr>
+							<tr>
+								<td>地点</td>
+								<td>TB - Monthly</td>
+							</tr>
+							<tr>
+								<td>XX</td>
+								<td>XXXXXX</td>
+							</tr>		
+						</tbody>
+					</table>	
 			    </div>
 				
 				<!--zhong-->
@@ -171,7 +173,7 @@
 						<div class="span12">
 							<div class="row-fluid">
 								<div class="span12">
-									<div class="page-header" style=" margin: 10px 0 20px;">
+									<div class="page-header" style=" margin: -20px 0 20px;">
 										<h2>
 											XXX社团
 										</h2>
@@ -192,20 +194,15 @@
 							<div class="row-fluid" > 
 								<div class="span12">								
 								   <div class="w-box" id="w_sort07" style="">
-										<div class="page-header" >
+										<div class="page-header">
 										    <h4 id="huodong">
 										     	活动信息
-										   </h4>
+										   </h4>										 
 									    </div>
 										<div class="w-box-content">
 											<div class="tabbable clearfix">
-												<ul class="nav nav-tabs">
-													<li class="active"><a href="#tab1" data-toggle="tab">One</a></li>
-													<li class=""><a href="#tab2" data-toggle="tab">Two</a></li>
-													<li class=""><a href="#tab3" data-toggle="tab">Three	</a></li>
-												</ul>
-												<div class="tab-content">
-													<div class="tab-pane active" id="tab1">
+												
+												
 														    <ul class="thumbnails">
 																<li class="span4">
 																	<div class="thumbnail">	
@@ -213,7 +210,7 @@
 																			<h5>
 																				这是个好活动！
 																			</h5>								
-																			<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> <a class="btn" href="#">分享</a>
+																			<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
 																		</div>
 																	</div>
 																</li>
@@ -227,7 +224,7 @@
 																			<p>
 																				哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。
 																			</p>
-																				<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> <a class="btn" href="#">分享</a>
+																				<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> 
 																		</div>
 																	</div>
 																</li>
@@ -241,46 +238,13 @@
 																			<p>
 																				改进型的哈佛结构具有一条独立的地址总线和一条独立的数据总线，两条总线由程序存储器和数据存储器分时复用，使结构更紧凑。
 																			</p>
-																				<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a>
+																				<a class="btn btn-primary" href="#">浏览</a> 
 																		</div>
 																	</div>
 																</li>					
 															</ul>		
-													</div>
-													<div class="tab-pane" id="tab2">
-														<ul class="thumbnails">
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="__Public__/Images/03.jpg" />
-																		<div class="caption">
-																			<h3>
-																				冯诺尔曼结构
-																			</h3>
-																			<p>
-																				也称普林斯顿结构，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置。
-																			</p>
-																				<a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a>	
-																		</div>
-																	</div>
-																</li>
-															
-														</ul>
-													</div>
-													<div class="tab-pane" id="tab3">
-														<ul class="thumbnails">
-															<li class="span4">
-																<div class="thumbnail">																		
-																	<div class="caption">	
-																		<h3>Just Do It!</h3>
-																		<p>
-																		　程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置。
-																		</p>
-																	</div>
-																</div>
-															</li>			
-														</ul>
-													</div>
-												</div>
+											       
+													
 											</div>
 										</div>
 									</div>
