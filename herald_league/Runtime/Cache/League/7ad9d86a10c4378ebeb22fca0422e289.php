@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Room Page</title>
+	<link href="__Public__/Css/room.css" rel="stylesheet" media="screen">
     <link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
@@ -31,8 +32,8 @@
 		text-align: center;
 		}
 	.page-header{
-			padding-bottom: 5px;
-			margin: 0px 0 20px;
+			padding-bottom: 0px;
+			margin: 0px 0 15px;
 			border-bottom: 1px solid black;
 			}
 	.clear:after{
@@ -63,9 +64,7 @@
 				 -moz-border-radius: 6px;
 					  border-radius: 6px;
 			}
-	.flist{
-	       margin-top:20px;
-	}
+	
 	#cezhong{
 	    margin-left:250px;
 	}
@@ -77,15 +76,10 @@
 			    margin-left:40px;	
 			 }
 		 }
-		 
-	.quyuanjiao{
-	    {
-			border-radius: 0;
-	}
 	</style>
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
-	<p id="back-to-top" style="height:38px;" class="quyuanjiao"><a href="#top" ><span></span>.</a></p>
+	<p id="back-to-top"><a href="#top"><span></span>.</a></p>
 	<!--header-->
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
@@ -126,7 +120,7 @@
 	</div>
     <!--header-->
 	
-	<div class="container-fluid" style="padding-top:78px;">
+	<div class="container-fluid" style="padding-top:100px;">
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="row-fluid">
@@ -179,7 +173,7 @@
 						<div class="span12">
 							<div class="row-fluid">
 								<div class="span12">
-									<div class="page-header" style=" margin: 0 0 20px;">
+									<div class="page-header" style=" margin: -20px 0 20px;">
 										<h2>
 											XXX社团
 										</h2>
@@ -200,10 +194,10 @@
 							<div class="row-fluid" > 
 								<div class="span12">								
 								   <div class="w-box" id="w_sort07" style="">
-										<div class="page-header" >
+										<div class="page-header">
 										    <h4 id="huodong">
 										     	活动信息
-										   </h4>
+										   </h4>										 
 									    </div>
 										<div class="w-box-content">
 											<div class="tabbable clearfix">
@@ -249,10 +243,8 @@
 																	</div>
 																</li>					
 															</ul>		
-												
+											       
 													
-													
-												
 											</div>
 										</div>
 									</div>
@@ -319,66 +311,59 @@
 					</div>
 				</div>
 				<div class="span2 ">
-					<div class="page-header" style="margin-top:28px;">
+					<div class="page-header" style="margin-top:10px;">
 						<h4>
         						其他社团
 						</h4>
 					</div>
-					<div class="flist">
-							<div class="row-fluid">
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                
+					<div id="clist">
+						<ul>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+							<li>
+								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
+								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+							</li>
+						</ul>	
 					</div>
 					<div class="page-header" >
 						<h4>
         						关注者
 						</h4>
 					</div>
-					<div class="flist">
+					<div id="flist">
 							<div class="row-fluid">
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                           
 							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1" ><img src="__Public__/Images/head.jpg"/><br><a href="#">我是谁</a></div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                           
 							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                           
 							<div class="row-fluid">          
-								<div class="span3"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span3 offset1"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
 							</div>                
 					</div>
 					
@@ -440,11 +425,10 @@
 		</div>
 	</div>
 </div>
-
+<div class="span12"> 
    <hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
-   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
-   <div style="height:10px"></div>   
-
+   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>	
+</div>
 <div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
