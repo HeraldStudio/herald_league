@@ -11,11 +11,60 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
+
 	
 	<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>	
 	<script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
     <script src="__Public__/Js/back-to-top/script.js"></script>	
-
+    
+<script type="text/javascript">
+/* tangbin - http://www.veryhuo.com - MIT Licensed */
+(function($){
+// tipWrap: 	提示消息的容器
+// maxNumber: 	最大输入字符
+$.fn.artTxtCount = function(tipWrap, maxNumber){
+var countClass = 'js_txtCount',		// 定义内部容器的CSS类名
+fullClass = 'js_txtFull',		// 定义超出字符的CSS类名
+disabledClass = 'disabled';		// 定义不可用提交按钮CSS类名
+// 统计字数
+var count = function(){
+var btn = $(this).closest('form').find(':submit'),
+val = $(this).val().length,
+// 是否禁用提交按钮
+disabled = {
+on: function(){
+btn.removeAttr('disabled').removeClass(disabledClass);
+},
+off: function(){
+btn.attr('disabled', 'disabled').addClass(disabledClass);
+}
+};
+if (val == 0) disabled.off();
+if(val <= maxNumber){
+if (val > 0) disabled.on();
+tipWrap.html('<span class="' + countClass + '">\u8FD8\u80FD\u8F93\u5165 <strong>' + (maxNumber - val) + '</strong> \u4E2A\u5B57</span>');
+}else{
+disabled.off();
+tipWrap.html('<span class="' + countClass + ' ' + fullClass + '">\u5DF2\u7ECF\u8D85\u51FA <strong>' + (val - maxNumber) + '</strong> \u4E2A\u5B57</span>');
+};
+};
+$(this).bind('keyup change', count);
+return this;
+};
+})(jQuery);
+</script>
+<script type="text/javascript">
+// demo
+jQuery(function(){
+// 批量
+$('.autoTxtCount').each(function(){
+$(this).find('.text').artTxtCount($(this).find('.tips'), 140);
+});
+// 单个
+$('#test').artTxtCount($('#test_tips'), 10);
+});
+</script>
+	
 	<style>
 	.fixed-left{
 			position:fixed;	
@@ -79,7 +128,13 @@
 	.pagination {
 			  margin: 10px 0 0px;
 			}
+    .tips { color:#999; padding:0 5px; }	
+    .tips strong { color:#1E9300; }
+    .tips .js_txtFull strong { color:#F00; }
+    textarea.text { width:474px; }
+	
 	</style>
+	
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
 	<p id="back-to-top"><a href="#top"><span></span>.</a></p>
@@ -322,12 +377,20 @@
 											<p><h5>我信，我信！</h5></p>	
 									</div>
 								
-									<form>
-									   <textarea name="" id="" cols="10" rows="3" class="span12" placeholder="说点什么吧..."></textarea>   
-									   <button class="btn btn-success btn-small pull-right" type="submit">回复</button>
-									   <button class="btn btn-danger btn-small pull-right" style="margin-right:10px"type="reset">清空</button>
-									</form>
-									
+									<form class="span12 autoTxtCount">								  
+										<textarea name="limit_chars" id="limit_chars" cols="1" rows="2" class="span12 "></textarea>
+									    <span class="tips"></span> 
+										<button class="btn btn-success btn-small pull-right"  id = "submitanswer" type="submit" name="">回复</button>
+									    <button class="btn btn-danger btn-small pull-right" style="margin-right:10px"type="reset">清空</button>
+									</form>	
+                                    <form class="autoTxtCount" action="" method="get">
+										<div>
+										<textarea class="text" name="" cols="50" rows="3"></textarea>
+										</div>
+										<div>
+										<button type="submit">提交</button>
+										<span class="tips"></span> </div>
+										</form>									
 								</div>
 							</div>
 						</div>
