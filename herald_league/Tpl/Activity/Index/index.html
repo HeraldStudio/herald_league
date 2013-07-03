@@ -157,12 +157,12 @@
 					<ul class="nav pull-right">        
                          <li class="dropdown" >
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> Name 
-							<p style="display:inline-block;background-color:red;font-size:12px;color:white;padding:2px 5px;line-height:12px;vertical-align:middle;border-radius:4px;position:absolute;top:1px;left:-3px">3</p>
+							<p class="new-message-all">3</p>
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">
-								<li><a href="#">个人空间</a></li>
-								<li><a href="#">二手市场</a></li>
-								<li><a href="#">其他</a></li>
+								<li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
+								<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
+								<li><a href="#">其他<p class="new-message-single">33</p></a></li>
 								<li class="divider"></li>
 								<li><a href="#">登出</a></li>
 							</ul>

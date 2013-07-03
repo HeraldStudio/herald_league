@@ -1,0 +1,18 @@
+[ 2013-07-03T10:36:37+08:00 ] 127.0.0.1 /herald_league/index.php/leaguelist
+ERR: 无法加载模块:leaguelist
+
+[ 2013-07-03T10:37:38+08:00 ] 127.0.0.1 /herald_league/index.php/league/leaguelist
+ERR: 无法加载模块:leaguelist
+
+[ 2013-07-03T10:38:01+08:00 ] 127.0.0.1 /herald_league/index.php/league/list
+ERR: 无法加载模块:list
+
+[ 2013-07-03T10:38:07+08:00 ] 127.0.0.1 /herald_league/index.php/league/leaguelist
+ERR: 无法加载模块:leaguelist
+
+[ 2013-07-03T10:38:25+08:00 ] 127.0.0.1 /herald_league/index.php/League/eaguelist
+ERR: 无法加载模块:eaguelist
+
+[ 2013-07-03T10:38:29+08:00 ] 127.0.0.1 /herald_league/index.php/League/leaguelist
+ERR: 无法加载模块:leaguelist
+

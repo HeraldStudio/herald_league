@@ -371,7 +371,7 @@
 				
 				<div class="span1">
 				   	<div id="fixdiv">
-									<div class="move" id="fix2">
+						<div class="move" id="fix2">
 							<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
 							<div id="menu2">
 								<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
@@ -381,6 +381,7 @@
 								</ul>
 								<div style="height:97px; width:175px;"></div>
 							</div>
+							<div id="Msg2"><p class="text-center">关于我们</p></div>
 						</div>
 						
 						<div class="move" id="fix3">
@@ -410,7 +411,7 @@
 						</div>
 					</div>
 					<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
-					<div id="Msg2"><p class="text-center">关于我们</p></div>
+					
 					
 					
 					
