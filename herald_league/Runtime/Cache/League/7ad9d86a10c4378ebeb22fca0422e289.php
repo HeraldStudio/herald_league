@@ -270,12 +270,12 @@
 																	<a href="#" class="thumb">
 																		<img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" />
 																	</a>
-																	<div class="heading center" style="font-size:28px;margin-top:20px;">
+																	<div class="heading center" style="font-size:20px;margin-top:20px;">
 																	 <a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
 																	 <a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
 																	</div>
 																	<div class="word_wrap">	
-																		<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
+																		<br/><p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
 																			<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 																		</p>
 																      	<p>时间：<?php echo ($vai["start_time"]); ?></p>
