@@ -101,7 +101,7 @@
 	   padding-top:28px;
 	}
 	.pinglun_2{
-	   font-size:10px;
+	   font-size:11px;
 	   padding-top:2px;
 	
 	}
@@ -127,6 +127,9 @@
 	.text{
 	    font-size:14px;
 		line-height:30px;
+	}
+	.pagination{
+	    margin-bottom:5px;
 	}
 	</style>
     </head>
@@ -265,20 +268,20 @@
 													<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4">
 															<div class="thumbnail">	
 																	<a href="#" class="thumb">
-																		<img src="__Public__/Images/images/album1/thumbs/5.jpg" alt="alt" />
+																		<img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" />
 																	</a>
-																	<div class="heading">
+																	<div class="heading center" style="font-size:20px;margin-top:20px;">
 																	 <a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
 																	 <a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
 																	</div>
 																	<div class="word_wrap">	
-																		<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
+																		<br/><p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
 																			<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-																		</p><br>
-																      	<p>时间：<?php echo ($vai["start_time"]); ?></p><br>
+																		</p>
+																      	<p>时间：<?php echo ($vai["start_time"]); ?></p>
 																      	<p>地点：<?php echo ($vai["place"]); ?></p><br/>
-																	</div>																							
-																	<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
+																	<a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a>
+																	</div>	
 															</div>
 														</li><?php endforeach; endif; else: echo "" ;endif; ?>																
 												</ul>													   					
@@ -340,11 +343,16 @@
 											</div>
 											<div class="pinglun">
 											    我看这个社团不错
-												<button class="btn btn-success btn-small pull-right btn_replay"  onclick="focus()" type="submit" name="">评论</button>
+												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">评论</button>
 										    </div>
-											<div class="pinglun_2 thumbnail span10">
-											    回复东南大学先声网555: </br>我看这个社团不错看这个社团不错	看这个社团不错	看这个社团不错					
-										    </div>
+											<div class="pinglun_2 thumbnail span10" id="reply_r">
+												<div class="span3 reply_title" id="reply_r_p_p"> wbc</div>
+												<div class="span3 reply_title">XXXX-XX-XX</div>
+												<div class="span11">
+												回复东南大学先声网555：我看这个社团不错看这个社团不错	看这个社团不错	看这个社团不错	sadasfasfasfasfasfasfafasfasfafafafasfas	
+												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">评论</button>
+										        </div>
+											</div>
 											
 										</div>												
 									</div>
@@ -365,7 +373,7 @@
 						
                                     <form class="autoTxtCount thumbnail row-fluid span11" action="" method="get">
 										<div>
-										   <textarea class="text span12" name="" cols="50" id="text1" rows="2"></textarea>
+										   <textarea class="text span12" placeholder="说点什么..." cols="50" id="text1" rows="2"></textarea>
 										</div>
 										<div >
 										<button class="btn btn-danger btn-small pull-right" type="reset">清空</button>
@@ -489,7 +497,7 @@
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>
 		<span></span>
-		<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
+		<a href="#" title="关注此活动">活动名称<img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
 		</h3>
 	</div>
 	<div class="modal-body">
@@ -560,11 +568,27 @@
 </div>
 	<script>
 	  $(document).ready(function(){
-	$(".btn_replay").click(function(){
-                $("#text1").addClass("focus").next().show();
+	$("#reply_btn_r").click(function(){
                 $("#text1")[0].focus();
-                //alert($("#username_3").text());
+                $("#text1").val("回复"+$.trim($("#reply_r_p_p").html())+" : "); 
+      });
+});
+	</script>
+	<script>
+	  $(document).ready(function(){
+	$(".btn_replay").click(function(){
+                $("#text1")[0].focus();
                 $("#text1").val("回复"+$.trim($("#username_1").html())+" : "); 
+      });
+});
+	</script>
+	<script>
+	  $(document).ready(function(){
+	$("#reply_r").mouseover(function(){
+                $("#reply_btn_r").show();
+      });
+	 $("#reply_r").mouseout(function(){
+                $("#reply_btn_r").hide();
       });
 });
 	</script>
