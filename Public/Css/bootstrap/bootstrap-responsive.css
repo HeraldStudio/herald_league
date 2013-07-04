@@ -108,7 +108,7 @@
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
   .row {
     margin-left: -30px;
     *zoom: 1;
@@ -161,7 +161,7 @@
     width: 370px;
   }
   .span3 {
-    width: 240px;
+    width: 270px;
   }
   .span2 {
     width: 170px;
@@ -222,7 +222,7 @@
     display: block;
     float: left;
     width: 100%;
-    min-height: 30px;
+    min-height: 20px;
     margin-left: 2.564102564102564%;
     *margin-left: 2.5109110747408616%;
     -webkit-box-sizing: border-box;
@@ -572,7 +572,7 @@
     display: block;
     float: left;
     width: 100%;
-    min-height: 30px;
+    min-height: 20px;
     margin-left: 2.7624309392265194%;
     *margin-left: 2.709239449864817%;
     -webkit-box-sizing: border-box;

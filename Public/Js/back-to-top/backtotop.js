@@ -4,12 +4,13 @@ $(document).ready(function(){
 	//当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
 	$(function () {
 		$(window).scroll(function(){
-		if ($(window).scrollTop()>100){
-		$("#back-to-top").fadeIn(1500);
+		if ($(window).scrollTop()>200){
+		$("#back-to-top").fadeIn(500);
 		}
 		else
 		{
-		$("#back-to-top").fadeOut(1500);
+		$("#back-to-top").fadeOut(500);
+		$("#MsgGoUp").fadeOut(500);
 		}
 		});
 		//当点击跳转链接后，回到页面顶部位置
@@ -32,10 +33,10 @@ $(document).ready(function(){
 		var scrollUp = document.getElementById( "scrollUp" );
 		if( t >= 300 ) {
 			//scrollUp.style.display = "inline";
-			$("#scrollUp").fadeIn(1000);
+			
 		}else {
-			$("#scrollUp").fadeOut(1000);
-			$("#MsgGoUp").fadeOut(1000);
+			
+			
 		}}
 
 		function mover(obj){

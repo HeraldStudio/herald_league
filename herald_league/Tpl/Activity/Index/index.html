@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
+	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
-
+	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
 		<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
@@ -80,8 +81,6 @@
 	<style>
 		.fixed-left{
 			position: fixed;
-			left: 0;
-			
 			top: 100px;
 		}
 	
@@ -103,19 +102,21 @@
 							border-radius: 4px;
 		  }
 		  
-		  .center {
-				width: auto;
-				display: table;
-				margin-left: auto;
-				margin-right: auto;
-				}
 		.text-center {
 				text-align: center;
 				}
 	    .spant3{
 		          width:220px;
 		}
-		.top100{padding-top:100px}
+		@media (min-width:980px){
+			#ceright{
+				margin-right:80px;
+				padding-top:100px;
+			}
+			#more{
+				margin-right:80px;
+			}
+		}
 	    @media (max-width: 979px){
 		     #celeft{
 			    display:none;
@@ -123,16 +124,18 @@
 			 #ceright{
 			    margin-left:40px;	
 				padding-top:30px;
+				margin-right:40px;
 			 }
 			 #more{
 				margin-left:40px;
+				margin-right:40px;
 			}
 		 }
 	
 	</style>
 </head>
 
-<body style="font-family:微软雅黑;font-size:16px; background-image:url(__Public__/Images/noise-all.png)">
+<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
@@ -149,8 +152,8 @@
 						<button type="submit" class="btn">Go</button>
 					</form>
 					<ul class="nav">
-						<li class="active"><a href="#">首页</a></li>
-						<li><a data-toggle="modal" href="#listModal">社团列表</a></li>
+						<li class="active"><a href="#">平台首页</a></li>
+						<li><a href="#">社团列表</a></li>
 						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
@@ -173,8 +176,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid " >
-		<div class="span3 fixed-left" style="background-image:url(__Public__/Images/main-bg.png)" id="celeft">
+	<div class="container-fluid" >
+		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:100px;" id="celeft">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a href="#">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected">显示全部</a></li>
@@ -183,7 +186,10 @@
 				</volist>
 			</ul>	
 		</div>
-	    <div class="offset3 top100" id="ceright" style="margin-right:40px;">
+	    <div class="offset3" id="ceright" style>
+			<div id="no-activity" style="text-align:center;display:none">
+				<img src="__Public__/Images/no-activity.jpg"></img>
+			</div>
 			<div id="filter-container" class="cf isotope" >
 				<volist name="activityinfo" id="vai">
 				<figure class="{$vai.class} isotope-item" >
@@ -210,7 +216,7 @@
 			</div><!-- ENDS Filter container -->
 	          
 		</div>
-		<div id="more" class="offset3" style="margin-right:60px;font-family:微软雅黑">
+		<div id="more" class="offset3" style="font-family:微软雅黑">
 			<div class="btn btn-large btn-block">加载更多</div>
 		</div>
 	</div>
@@ -297,248 +303,59 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>
-	<div id="listModal" class="modal hide fade ">
-	<div class="modal-header">
-		<a class="close" data-dismiss="modal">×</a>
-		<h3>社团列表</h3>
-	</div>
-	<div class="modal-body">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="accordion-list">
-						<div class="accordion-group">
-							<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#kxjs">
-								<h4 style="color:#99CCFF;">科学技术类（23）<i class="icon-star pull-right" title="点我试试"></i></h4>
-							</a>
-							</div>
-							<div id="kxjs" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<div class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>爱立信俱乐部</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>物流协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>日语俱乐部</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										
-									</div>
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>日语俱乐部</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>日语俱乐部</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>啊啊啊啊啊啊</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#tyjs">
-								<h4 style="color:#FFCC00;">体育健身类（23）<i class="icon-star pull-right" title="点我试试"></i></h4>
-							</a>
-							</div>
-							<div id="tyjs" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#whys">
-									<h4 style="color:#99FF99;">文化艺术类（15）<i class="icon-star pull-right" title="点我试试"></i></h4>
-								</a>
-							</div>
-							<div id="whys" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#wxcm">
-									<h4 style="color:#CC66FF">文学传媒类（16）<i class="icon-star pull-right" title="点我试试"></i></h4>						
-								</a>
-							</div>
-							<div id="wxcm" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-										<div  class="span3">
-											<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg"/>天文协会</a>
-											<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+	<div id="fixdiv">
+		<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
+		<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
+		<div class="move" id="fix2">
+			<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
+			<div id="menu2">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">加入我们</a></li>
+						<li><a tabindex="-1" href="#">先声大纪事</a></li>
+						<li><a tabindex="-1" href="#">先声元老</a></li>
+					</ul>
 				</div>
 			</div>
+			<div id="Msg2"><p class="text-center">关于我们</p></div>
+		</div>
+		
+		<div class="move" id="fix3">
+			<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
+			<div id="menu3">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg3"><p class="text-center">那个什么</p></div>
+		</div>
+		
+		<div class="move" id="fix4">
+			<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
+			<div id="menu4">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">跑操查询</a></li>
+						<li><a tabindex="-1" href="#">校车时刻表</a></li>
+						<li><a tabindex="-1" href="#">图书馆</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg4"><p class="text-center">校园助手</p></div>
 		</div>
 	</div>
-	<div class="modal-footer">
-		<a href="#" class="btn btn-primary" data-dismiss="modal">关闭</a>
-	</div>
-</div>
-	<hr style="border-top: 1px solid black;border-bottom: 1px solid #ffffff;">
-   <h5 class="center"> CopyRight &copy 2013 Herald.seu.edu.cn</h5>
-   <div style="height:10px"></div>  
+				
+	<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:237px; display:none"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:38px; position:fixed; right:7px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
+<div style="height:100px">
+	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
+	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy 2001-2013 Herald.seu.edu.cn</h5>
+</div>  
 </body>
 </html>
