@@ -41,7 +41,7 @@
 		bottom:30px;
 		width:175px;
 		height:207px;
-		z-index=100000;
+		z-index:100000;
 }
 #gototop{
 	width:32px;
@@ -166,4 +166,7 @@
 	border-radius: 4px;
 	padding-top:6px;
 	display:none;
+}
+.myboder{
+	z-index:10000;
 }
