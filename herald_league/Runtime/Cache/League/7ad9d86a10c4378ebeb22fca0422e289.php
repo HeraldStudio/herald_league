@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
+	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">
 		
 <!--[if lte IE 6]>
   <!-- bsie css 补丁文件 -->
@@ -245,44 +246,33 @@
 										<div class="w-box-content">
 											<div class="tabbable clearfix">											
 														    <ul class="thumbnails">
-																<li class="span4">
+															<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4">
 																	<div class="thumbnail">	
 																		<div class="caption">
-																			<h5>
-																				这是个好活动！
-																			</h5>								
+																			<div id="filter-container" class="cf isotope" >
+																				<figure class="<?php echo ($vai["class"]); ?> isotope-item" >
+																				<?php if(!empty($vai["post_add"])): ?><a href="#" class="thumb">
+																					<img src="__Uploads__/ActivityPost/m_<?php echo ($vai["post_add"]); ?>" alt="alt" />
+																				</a><?php endif; ?>
+																					<figcaption>
+																						<div class="heading">
+																							<a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
+																							<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+																						</div>
+																						<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
+																							<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+																						</p><br>
+																						<p>时间：<?php echo ($vai["start_time"]); ?></p><br>
+																						<p>地点：<?php echo ($vai["place"]); ?></p>
+																						<br /><img src="__Public__/Images/need-sign.png" class="pull-right"/>
+																					</figcaption>
+																				</figure>	
+																			</div><!-- ENDS Filter container -->								
 																			<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
 																		</div>
 																	</div>
-																</li>
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="__Public__/Images/02.jpg" />
-																		<div class="caption">
-																			<h5>
-																				哈佛结构
-																			</h5>
-																			<p>
-																				哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。
-																			</p>
-																				<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> 
-																		</div>
-																	</div>
-																</li>
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="__Public__/Images/01.jpg" />
-																		<div class="caption">
-																			<h3>
-																				改进型哈佛结构
-																			</h3>
-																			<p>
-																				改进型的哈佛结构具有一条独立的地址总线和一条独立的数据总线，两条总线由程序存储器和数据存储器分时复用，使结构更紧凑。
-																			</p>
-																				<a class="btn btn-primary" href="#">浏览</a> 
-																		</div>
-																	</div>
-																</li>					
+																	
+																</li><?php endforeach; endif; else: echo "" ;endif; ?>																
 															</ul>		
 											       
 													
@@ -318,19 +308,12 @@
 										</div>
 									</div>
 									<div class="row-fluid">
-										<div class="span4">
+										<?php if(is_array($albuminfo)): $i = 0; $__LIST__ = $albuminfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><div class="span4">
 											<a data-toggle="modal" href="#myModal">
 											   <img alt="140x140" src="__Public__/Images/06.jpg" class="img-rounded" />
-											   <p>活动1</p>
+											   <p><?php echo ($val["name"]); ?></p>
 											</a>
-										</div>
-										<div class="span4">
-											<img alt="140x140" src="__Public__/Images/06.jpg" class="img-polaroid" />
-											<p>活动2</p>
-										</div>
-										<div class="span4">
-											<img alt="140x140" src="__Public__/Images/06.jpg" class="img-circle" />
-										</div>
+										</div><?php endforeach; endif; else: echo "" ;endif; ?>
 									</div>
 								</div>
 							</div>

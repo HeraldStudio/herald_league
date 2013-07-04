@@ -31,6 +31,5 @@ class ActivityInfoModel extends Model{
 			$activityinfo[$key]['league_name'] = $leagueinfo -> getLeagueNameById($activityinfos['league_id']);
 		}
 		return $activityinfo;
-		//print_r($activityinfo);
 	}
 }
