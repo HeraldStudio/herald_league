@@ -114,7 +114,6 @@
 	</style>
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
-	<p id="back-to-top"><a href="#top"><span></span>.</a></p>
 	<!--header-->
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
@@ -444,54 +443,58 @@
 				
 				<div class="span1">
 				   	<div id="fixdiv">
-							<div class="move" id="fix2">
-							<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
-							<div id="menu2">
-								<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-									<li><a tabindex="-1" href="#">加入我们</a></li>
-									<li><a tabindex="-1" href="#">先声大纪事</a></li>
-									<li><a tabindex="-1" href="#">先声元老</a></li>
-								</ul>
-								<div style="height:97px; width:175px;"></div>
-							</div>
-						</div>
-						
-						<div class="move" id="fix3">
-							<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
-							<div id="menu3">
-								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-									<li><a tabindex="-1" href="#">那个什么</a></li>
-									<li><a tabindex="-1" href="#">那个什么</a></li>
-									<li><a tabindex="-1" href="#">那个什么</a></li>
-								</ul>
-								<div style="height:97px; width:175px;"></div>
-							</div>
-							<div id="Msg3"><p class="text-center">那个什么</p></div>
-						</div>
-						
-						<div class="move" id="fix4">
-							<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
-							<div id="menu4">
-								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-									<li><a tabindex="-1" href="#">跑操查询</a></li>
-									<li><a tabindex="-1" href="#">校车时刻表</a></li>
-									<li><a tabindex="-1" href="#">图书馆</a></li>
-								</ul>
-								<div style="height:97px; width:175px;"></div>
-							</div>
-							<div id="Msg4"><p class="text-center">校园助手</p></div>
-						</div>
-					</div>
-					<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
-					<div id="Msg2"><p class="text-center">关于我们</p></div>
-					
-					
-					
-					
-					<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:307px; display:none"></div>
-					<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:50px; position:fixed; right:7px; bottom:50px; display:none"></div>
-					<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:282px; position:fixed; right:181px; bottom:50px; display:none"></div>
-					<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:282px; position:fixed; right:0px; bottom:50px; display:none"></div>
+		<a href="#top"  id="scrollUp" style="display:none;">
+			<div id="gototop" onmouseover="mover(1)" onmouseout="mout(1)"></div>
+		</a>
+		<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
+		<div class="move" id="fix2">
+			<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
+			<div id="menu2">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">加入我们</a></li>
+						<li><a tabindex="-1" href="#">先声大纪事</a></li>
+						<li><a tabindex="-1" href="#">先声元老</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg2"><p class="text-center">关于我们</p></div>
+		</div>
+		
+		<div class="move" id="fix3">
+			<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
+			<div id="menu3">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg3"><p class="text-center">那个什么</p></div>
+		</div>
+		
+		<div class="move" id="fix4">
+			<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
+			<div id="menu4">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">跑操查询</a></li>
+						<li><a tabindex="-1" href="#">校车时刻表</a></li>
+						<li><a tabindex="-1" href="#">图书馆</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg4"><p class="text-center">校园助手</p></div>
+		</div>
+	</div>
+				
+	<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:237px; display:none"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:38px; position:fixed; right:7px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
+
 								
 				</div>
 			</div>
