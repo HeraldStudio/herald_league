@@ -101,7 +101,7 @@
 	   padding-top:28px;
 	}
 	.pinglun_2{
-	   font-size:11px;
+	   font-size:10px;
 	   padding-top:2px;
 	
 	}
@@ -127,9 +127,6 @@
 	.text{
 	    font-size:14px;
 		line-height:30px;
-	}
-	.pagination{
-	    margin-bottom:5px;
 	}
 	</style>
     </head>
@@ -268,20 +265,20 @@
 													<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4">
 															<div class="thumbnail">	
 																	<a href="#" class="thumb">
-																		<img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" />
+																		<img src="__Public__/Images/images/album1/thumbs/5.jpg" alt="alt" />
 																	</a>
-																	<div class="heading center" style="font-size:28px;margin-top:20px;">
+																	<div class="heading">
 																	 <a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
 																	 <a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
 																	</div>
 																	<div class="word_wrap">	
 																		<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
 																			<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-																		</p>
-																      	<p>时间：<?php echo ($vai["start_time"]); ?></p>
-																      	<p>地点：<?php echo ($vai["place"]); ?>pp</p>																						
-																	<a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a>
-																	</div>	
+																		</p><br>
+																      	<p>时间：<?php echo ($vai["start_time"]); ?></p><br>
+																      	<p>地点：<?php echo ($vai["place"]); ?></p><br/>
+																	</div>																							
+																	<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
 															</div>
 														</li><?php endforeach; endif; else: echo "" ;endif; ?>																
 												</ul>													   					
@@ -343,16 +340,11 @@
 											</div>
 											<div class="pinglun">
 											    我看这个社团不错
-												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">评论</button>
+												<button class="btn btn-success btn-small pull-right btn_replay"  onclick="focus()" type="submit" name="">评论</button>
 										    </div>
-											<div class="pinglun_2 thumbnail span10" id="reply_r">
-												<div class="span3 reply_title" id="reply_r_p_p"> wbc</div>
-												<div class="span3 reply_title">XXXX-XX-XX</div>
-												<div class="span11">
-												回复东南大学先声网555：我看这个社团不错看这个社团不错	看这个社团不错	看这个社团不错	sadasfasfasfasfasfasfafasfasfafafafasfas	
-												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">评论</button>
-										        </div>
-											</div>
+											<div class="pinglun_2 thumbnail span10">
+											    回复东南大学先声网555: </br>我看这个社团不错看这个社团不错	看这个社团不错	看这个社团不错					
+										    </div>
 											
 										</div>												
 									</div>
@@ -373,7 +365,7 @@
 						
                                     <form class="autoTxtCount thumbnail row-fluid span11" action="" method="get">
 										<div>
-										   <textarea class="text span12" placeholder="说点什么..." cols="50" id="text1" rows="2"></textarea>
+										   <textarea class="text span12" name="" cols="50" id="text1" rows="2"></textarea>
 										</div>
 										<div >
 										<button class="btn btn-danger btn-small pull-right" type="reset">清空</button>
@@ -422,28 +414,10 @@
 						</h4>
 					</div>
 					<div id="flist">
-							<div class="row-fluid">
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                           
-							<div class="row-fluid">          
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-								<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-							</div>                
+						<?php if(is_array($leagueattentioninfo)): $i = 0; $__LIST__ = $leagueattentioninfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 3 );++$i; if(($key) != "0"): if(($mod) == "2"): ?><div class="row-fluid"><?php endif; endif; ?>
+								<div class="span4"><img src="__Uploads__/UserAvatar/<?php echo ($vle["avatar_address"]); ?>"/><br /><?php echo ($vle["user_true_name"]); ?></div>
+							<?php if(($key) != "0"): if(($mod) == "2"): ?></div><?php endif; endif; endforeach; endif; else: echo "" ;endif; ?>               
 					</div>
-					
-				</div>
 				
 				<div class="span1">
 				   	<div id="fixdiv">
@@ -515,7 +489,7 @@
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>
 		<span></span>
-		<a href="#" title="关注此活动">活动名称<img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
+		<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
 		</h3>
 	</div>
 	<div class="modal-body">
@@ -523,38 +497,12 @@
 		<div class="span3">
 			<div id="follower">
 				<h5 class="pull-left">关注者</h5>
-				<h5 class="pull-right">17人</h5>
+				<h5 class="pull-right"><?php echo ($attentioncount); ?>人</h5>
 			</div>
 			<div id="follower-list">
-				<div class="row-fluid">
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
-				</div>
+				<?php if(is_array($leagueattentioninfo)): $i = 0; $__LIST__ = $leagueattentioninfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 3 );++$i; if(($key) != "0"): if(($mod) == "2"): ?><div class="row-fluid"><?php endif; endif; ?>
+						<div class="span4"><img src="__Uploads__/UserAvatar/<?php echo ($vle["avatar_address"]); ?>"/><br /><?php echo ($vle["user_true_name"]); ?></div>
+					<?php if(($key) != "0"): if(($mod) == "2"): ?></div><?php endif; endif; endforeach; endif; else: echo "" ;endif; ?>            
 			</div>
 		</div>
 		<div class="span9">
@@ -612,27 +560,11 @@
 </div>
 	<script>
 	  $(document).ready(function(){
-	$("#reply_btn_r").click(function(){
-                $("#text1")[0].focus();
-                $("#text1").val("回复"+$.trim($("#reply_r_p_p").html())+" : "); 
-      });
-});
-	</script>
-	<script>
-	  $(document).ready(function(){
 	$(".btn_replay").click(function(){
+                $("#text1").addClass("focus").next().show();
                 $("#text1")[0].focus();
+                //alert($("#username_3").text());
                 $("#text1").val("回复"+$.trim($("#username_1").html())+" : "); 
-      });
-});
-	</script>
-	<script>
-	  $(document).ready(function(){
-	$("#reply_r").mouseover(function(){
-                $("#reply_btn_r").show();
-      });
-	 $("#reply_r").mouseout(function(){
-                $("#reply_btn_r").hide();
       });
 });
 	</script>

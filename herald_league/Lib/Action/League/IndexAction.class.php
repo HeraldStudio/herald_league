@@ -53,7 +53,8 @@ class IndexAction extends Action{
 	private function getLeagueAttention(){
 		$AttentionLeague = D('AttentionLeague');
 		$leagueattentioninfo = $AttentionLeague -> getLeagueAttentionById($this -> leagueid);
-		print_r($leagueattentioninfo);
-		//$this -> assign('leagueattentioninfo',$leagueattentioninfo);
+		//print_r($leagueattentioninfo);
+		$this -> attentioncount = count($leagueattentioninfo);
+		$this -> assign('leagueattentioninfo',$leagueattentioninfo);
 	}
 }
