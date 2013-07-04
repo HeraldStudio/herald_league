@@ -185,6 +185,9 @@
 			</ul>	
 		</div>
 	    <div class="offset3" id="ceright" style>
+			<div id="no-activity" style="text-align:center;display:none">
+				<img src="__Public__/Images/no-activity.jpg"></img>
+			</div>
 			<div id="filter-container" class="cf isotope" >
 				<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><figure class="<?php echo ($vai["class"]); ?> isotope-item" >
 				<?php if(!empty($vai["post_add"])): ?><a href="#" class="thumb">
