@@ -320,10 +320,12 @@
 										<div class="span4">
 											<a data-toggle="modal" href="#myModal">
 											   <img alt="140x140" src="__Public__/Images/06.jpg" class="img-rounded" />
+											   <p>活动1</p>
 											</a>
 										</div>
 										<div class="span4">
 											<img alt="140x140" src="__Public__/Images/06.jpg" class="img-polaroid" />
+											<p>活动2</p>
 										</div>
 										<div class="span4">
 											<img alt="140x140" src="__Public__/Images/06.jpg" class="img-circle" />
