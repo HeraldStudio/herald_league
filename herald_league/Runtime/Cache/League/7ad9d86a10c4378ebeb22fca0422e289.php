@@ -114,6 +114,7 @@
 	</style>
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
+	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<!--header-->
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
