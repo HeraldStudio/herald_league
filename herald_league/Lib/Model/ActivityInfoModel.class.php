@@ -22,4 +22,6 @@ class ActivityInfoModel extends Model{
 		}
 		return $activityinfo;
 	}
+	public function getAllActivityInfoWithAttention(){
+	}
 }

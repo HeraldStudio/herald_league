@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$(".activityname").click(function(){	
 		var activityname = $(this).html();
-		$(".modal-header>h3").html(activityname+$(".modal-header>h3").html());
+		$(".modal-header>h3>span").html(activityname);
+		//$(this).attr('id');
 	});
 });
