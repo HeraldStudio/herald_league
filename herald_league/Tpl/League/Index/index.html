@@ -132,8 +132,9 @@
 						<button type="submit" class="btn">Go</button>
 					</form>
 					<ul class="nav">
-						<li class="active"><a href="#">活动平台首页</a></li>
+						<li><a href="#">平台首页</a></li>
 						<li><a href="#">社团列表</a></li>
+						<li class="active"><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
