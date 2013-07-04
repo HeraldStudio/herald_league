@@ -22,4 +22,7 @@ class LeagueInfoModel extends Model{
 	public function getLeagunInfoByid($leagueid){
 		return $this -> where('uid='.$leagueid) -> find();
 	}
+	public function getLeagueCount(){
+		return $this -> count();
+	}
 }
