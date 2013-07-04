@@ -132,8 +132,9 @@
 						<button type="submit" class="btn">Go</button>
 					</form>
 					<ul class="nav">
-						<li class="active"><a href="#">活动平台首页</a></li>
+						<li><a href="#">平台首页</a></li>
 						<li><a href="#">社团列表</a></li>
+						<li class="active"><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
@@ -168,7 +169,7 @@
 					</div>
 					<nav>
 					<ul class="nav nav-tabs nav-stacked " >
-						<li class="active"><a href="#">XXX社团</a></li>
+						<li class="active"><a href="#"><?php echo ($leaguename); ?></a></li>
 						<li><a href="#">社团信息</a></li>
 						<li><a href="#huodong">活动信息</a></li>
 						<li><a href="#xiangce">相册</a></li>
@@ -184,15 +185,15 @@
 						<tbody>
 							<tr>
 								<td>邮箱</td>
-								<td>TB - Monthly</td>
+								<td><?php echo ($email); ?></td>
 							</tr>
 							<tr>
 								<td>电话</td>
-								<td>TB - Monthly</td>
+								<td><?php echo ($phone); ?></td>
 							</tr>
 							<tr>
 								<td>地点</td>
-								<td>TB - Monthly</td>
+								<td><?php echo ($place); ?></td>
 							</tr>
 						</tbody>
 					</table>	
@@ -206,7 +207,7 @@
 								<div class="span12">
 									<div class="page-header" style=" margin: -20px 0 20px;">
 										<h2>
-											XXX社团
+											<?php echo ($leaguename); ?>
 										</h2>
 									</div>
 								</div>
@@ -215,7 +216,7 @@
 								<div class="span12">
 									<div class="hero-unit">						
 										<p>
-											东南大学支教协会成立于2010年4月11日，是东南大学校团委领导下的学生团体。虽然年轻，可是却填补了东大本科生部支教的空白。它拥有一大批热情而有爱心的大学生，甘于奉献，乐于付出，视支教为生命， 愿毕其一生去追求。
+											<?php echo ($introduce); ?>
 										</p>
                                         <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal">成员信息</button>										
 									</div>
