@@ -6,6 +6,7 @@
         <title>Room Page</title>
 	<link href="__Public__/Css/room.css" rel="stylesheet" media="screen">
     <link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
+	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
@@ -99,6 +100,11 @@
 	   text-indent:2em;
 	   padding-top:28px;
 	}
+	.pinglun_2{
+	   font-size:10px;
+	   padding-top:2px;
+	
+	}
 	 .hero-unit {
 		  padding:20px;
 		  margin-bottom: 10px;
@@ -111,9 +117,16 @@
 			 -moz-border-radius: 6px;
 				  border-radius: 6px;
 		}
+	.word_wrap{
+	      overflow:hidden;
+		  word-wrap:break-word;
+	}
+	#follower{
+		height:35px;
+	}
 	.text{
-	    font-size:16px;
-		line-height:25px;
+	    font-size:14px;
+		line-height:30px;
 	}
 	</style>
     </head>
@@ -248,48 +261,30 @@
 									    </div>
 										<div class="w-box-content">
 											<div class="tabbable clearfix">											
-														    <ul class="thumbnails">
-																<li class="span4">
-																	<div class="thumbnail">	
-																		<div class="caption">
-																			<h5>
-																				这是个好活动！
-																			</h5>								
-																			<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
-																		</div>
+											   <ul class="thumbnails">
+													<1volist name="activityinfo" id="vai">
+														<li class="span4">
+															<div class="thumbnail">	
+																	<a href="#" class="thumb">
+																		<img src="__Uploads__/ActivityPost/m_<?php echo ($vai["post_add"]); ?>" alt="alt" />
+																	</a>
+																	<div class="heading">
+																	 <a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
+																	 <a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
 																	</div>
-																</li>
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="__Public__/Images/02.jpg" />
-																		<div class="caption">
-																			<h5>
-																				哈佛结构
-																			</h5>
-																			<p>
-																				哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。
-																			</p>
-																				<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> 
-																		</div>
-																	</div>
-																</li>
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="__Public__/Images/01.jpg" />
-																		<div class="caption">
-																			<h3>
-																				改进型哈佛结构
-																			</h3>
-																			<p>
-																				改进型的哈佛结构具有一条独立的地址总线和一条独立的数据总线，两条总线由程序存储器和数据存储器分时复用，使结构更紧凑。
-																			</p>
-																				<a class="btn btn-primary" href="#">浏览</a> 
-																		</div>
-																	</div>
-																</li>					
-															</ul>		
-											       
-													
+																	<div class="word_wrap">	
+																		<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
+																			<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+																		</p><br>
+																      	<p>时间：<?php echo ($vai["start_time"]); ?></p><br>
+																      	<p>地点：<?php echo ($vai["place"]); ?>pp</p><br/>
+																	</div>																							
+																	<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
+															</div>
+														</li>
+														
+													</volist>																
+												</ul>													   					
 											</div>
 										</div>
 									</div>
@@ -356,6 +351,9 @@
 											<div class="pinglun">
 											    我看这个社团不错
 												<button class="btn btn-success btn-small pull-right btn_replay"  onclick="focus()" type="submit" name="">评论</button>
+										    </div>
+											<div class="pinglun_2 thumbnail span10">
+											    回复东南大学先声网555: </br>我看这个社团不错看这个社团不错	看这个社团不错	看这个社团不错					
 										    </div>
 											
 										</div>												
@@ -517,27 +515,82 @@
 <div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
-		<h3>东南大学先声之夜夜夜夜
-			<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>
-			
+		<h3>
+		<span></span>
+		<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
 		</h3>
 	</div>
 	<div class="modal-body">
-	  <div class="row-fluid">		
-		<div class="span12">
+	  <div class="row-fluid">
+		<div class="span3">
+			<div id="follower">
+				<h5 class="pull-left">关注者</h5>
+				<h5 class="pull-right">17人</h5>
+			</div>
+			<div id="follower-list">
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+					<div class="span4"><img src="__Public__/Images/head.jpg"/><br>我是谁</div>
+				</div>
+			</div>
+		</div>
+		<div class="span9">
 			<div class="act-info-header">
-				<h4>照片很不错!</h4>
+				<h4>活动信息</h4>
 			</div>
 			<div class="act-info-body">
+				<div class="act-info"><i class="icon-user"></i>主办方：<a href="#">东南大学先声网</a>
+					<!--<a href="#" title="关注此社团">
+						<img src="__Public__/Images/attention-small.png"/>
+					</a>-->
+				</div>
+				<div class="act-info"><i class="icon-time"></i>时间：2013年06月30日 18:30</div>
+				<div class="act-info"><i class="icon-home"></i>地点：焦廷标馆</div>
+				<div class="act-info"><i class="icon-envelope"></i>联系方式：行政楼520</div>
+				<div class="act-info-para">
+					<p> 棋在其中占据了独特的地位。棋作为体育项目之一，也是随着国运的变动而起起伏伏。陈毅元帅说过：“国运昌，棋运盛。”如今中国进步发展了，在大家的推动下，棋也会有蓬勃之象。
+					</p>
+					<p>我们先辈发明的围棋能够延衍千年而不至湮灭。黑白色的棋子在象征意义的穹宇之间寥寥落落地布下，演练的是风云际会，人生拼搏。许多棋手由是而领悟了世事的兴盛与衰没，欢乐与痛苦，失败与成就乃至死亡与新生。
+					</p>
+					<p>12年春季，北京大学生围棋联赛如火如荼地举行了，多家知名媒体新浪、搜狐报导围棋赛事，围棋第一大杂志《围棋天地》刊登比赛状况。但是现在，上海的大学生们面临着一个难题，很多同学喜欢围棋并对围棋有着浓厚的兴趣，却面临着无棋可下，无赛可参的窘境。
+					</p>
+					<p>为了搭建同学之间交流的平台，推广和宣传围棋文化，丰富同学课余生活让同学更深入的了解认识中国棋文化，弘扬中国民族文化艺术，培养学生特色技能，展现朝气蓬勃、积极进取、开拓创新的精神风貌，增进各校之间的交流与来往。故而举办这次“大学生围棋联赛”。
+					</p>
+				</div>
 				<div class="act-info-pic">
-					<img src="__Public__/Images/06.jpg"/>
+					<img src="__Public__/Images/head.jpg"/>
 				</div>
 			</div>
 		</div>
 	  </div>
 	</div>
 	<div class="modal-footer">
-		<a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>
+		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>	
 
@@ -549,10 +602,9 @@
 	<div class="modal-body">
 	  <div class="row-fluid">		
 		<div class="span12">
-			<div class="act-info-body text">
-				<p>奥特曼 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽</p>
+			<div class="text">
+				李华 小明 小李 
 			</div>
-			
 		</div>
 	  </div>
 	</div>
