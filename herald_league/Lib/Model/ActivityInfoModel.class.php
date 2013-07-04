@@ -16,12 +16,21 @@ class ActivityInfoModel extends Model{
 	 * */
 	public function getAllActivityInfo(){
 		$activityinfo = $this -> limit(ACTIVITY_NUM) -> select();
+		return $this -> getActivityLeague($activityinfo);
+	}
+	public function getActivityInfoByLeagueId($leagueid){
+
+		$activityinfo = $this -> where('league_id='.$leagueid) -> select();
+		return $this -> getActivityLeague($activityinfo);
+	}
+	public function getAllActivityInfoWithAttention(){
+	}
+	private function getActivityLeague($activityinfo){
 		$leagueinfo = D('LeagueInfo');
 		foreach($activityinfo as $key => $activityinfos){
 			$activityinfo[$key]['league_name'] = $leagueinfo -> getLeagueNameById($activityinfos['league_id']);
 		}
 		return $activityinfo;
-	}
-	public function getAllActivityInfoWithAttention(){
+		//print_r($activityinfo);
 	}
 }

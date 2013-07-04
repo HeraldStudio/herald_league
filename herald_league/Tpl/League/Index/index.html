@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
+	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">
 		
 <!--[if lte IE 6]>
   <!-- bsie css 补丁文件 -->
@@ -169,7 +170,7 @@
 					</div>
 					<nav>
 					<ul class="nav nav-tabs nav-stacked " >
-						<li class="active"><a href="#">XXX社团</a></li>
+						<li class="active"><a href="#">{$leaguename}</a></li>
 						<li><a href="#">社团信息</a></li>
 						<li><a href="#huodong">活动信息</a></li>
 						<li><a href="#xiangce">相册</a></li>
@@ -185,15 +186,15 @@
 						<tbody>
 							<tr>
 								<td>邮箱</td>
-								<td>TB - Monthly</td>
+								<td>{$email}</td>
 							</tr>
 							<tr>
 								<td>电话</td>
-								<td>TB - Monthly</td>
+								<td>{$phone}</td>
 							</tr>
 							<tr>
 								<td>地点</td>
-								<td>TB - Monthly</td>
+								<td>{$place}</td>
 							</tr>
 						</tbody>
 					</table>	
@@ -207,7 +208,7 @@
 								<div class="span12">
 									<div class="page-header" style=" margin: -20px 0 20px;">
 										<h2>
-											XXX社团
+											{$leaguename}
 										</h2>
 									</div>
 								</div>
@@ -216,7 +217,7 @@
 								<div class="span12">
 									<div class="hero-unit">						
 										<p>
-											东南大学支教协会成立于2010年4月11日，是东南大学校团委领导下的学生团体。虽然年轻，可是却填补了东大本科生部支教的空白。它拥有一大批热情而有爱心的大学生，甘于奉献，乐于付出，视支教为生命， 愿毕其一生去追求。
+											{$introduce}
 										</p>
                                         <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal_member">成员信息</button>										
 									</div>
@@ -245,44 +246,37 @@
 										<div class="w-box-content">
 											<div class="tabbable clearfix">											
 														    <ul class="thumbnails">
+															<volist name="activityinfo" id="vai">
 																<li class="span4">
 																	<div class="thumbnail">	
 																		<div class="caption">
-																			<h5>
-																				这是个好活动！
-																			</h5>								
+																			<div id="filter-container" class="cf isotope" >
+																				<figure class="{$vai.class} isotope-item" >
+																				<notempty name="vai.post_add">
+																				<a href="#" class="thumb">
+																					<img src="__Uploads__/ActivityPost/m_{$vai.post_add}" alt="alt" />
+																				</a>
+																				</notempty>
+																					<figcaption>
+																						<div class="heading">
+																							<a data-toggle="modal" href="#myModal" class="activityname" id="{$vai.id}">{$vai.name}</a>
+																							<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+																						</div>
+																						<p>主办方：<a href="#">{$vai.league_name}</a>
+																							<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+																						</p><br>
+																						<p>时间：{$vai.start_time}</p><br>
+																						<p>地点：{$vai.place}</p>
+																						<br /><img src="__Public__/Images/need-sign.png" class="pull-right"/>
+																					</figcaption>
+																				</figure>	
+																			</div><!-- ENDS Filter container -->								
 																			<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a>
 																		</div>
 																	</div>
+																	
 																</li>
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="__Public__/Images/02.jpg" />
-																		<div class="caption">
-																			<h5>
-																				哈佛结构
-																			</h5>
-																			<p>
-																				哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。
-																			</p>
-																				<a class="btn btn-primary" data-toggle="modal" href="#myModal">浏览</a> 
-																		</div>
-																	</div>
-																</li>
-																<li class="span4">
-																	<div class="thumbnail">
-																		<img alt="300x200" src="__Public__/Images/01.jpg" />
-																		<div class="caption">
-																			<h3>
-																				改进型哈佛结构
-																			</h3>
-																			<p>
-																				改进型的哈佛结构具有一条独立的地址总线和一条独立的数据总线，两条总线由程序存储器和数据存储器分时复用，使结构更紧凑。
-																			</p>
-																				<a class="btn btn-primary" href="#">浏览</a> 
-																		</div>
-																	</div>
-																</li>					
+																</volist>																
 															</ul>		
 											       
 													
