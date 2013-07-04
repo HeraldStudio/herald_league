@@ -32,15 +32,15 @@ $(document).ready(function(){
 		var scrollUp = document.getElementById( "scrollUp" );
 		if( t >= 300 ) {
 			//scrollUp.style.display = "inline";
-			$("#scrollUp").fadeIn(500);
+			
 		}else {
-			$("#scrollUp").fadeOut(500);
-			$("#MsgGoUp").fadeOut(500);
+			
+			
 		}}
 
 		function mover(obj){
 			if(obj==1){
-				$("#MsgGoUp").fadeIn(500);
+				$("#MsgGoUp").fadeIn(0);
 			}
 			else if(obj==2){
 				mypointon();
@@ -63,7 +63,7 @@ $(document).ready(function(){
 		}
 		function mout(obj){
 			if(obj==1){
-				$("#MsgGoUp").fadeOut(500);
+				$("#MsgGoUp").fadeOut(0);
 			}
 		}
 		function mboder(){
