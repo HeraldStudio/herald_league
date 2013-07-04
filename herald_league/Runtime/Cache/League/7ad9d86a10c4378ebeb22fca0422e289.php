@@ -111,6 +111,10 @@
 			 -moz-border-radius: 6px;
 				  border-radius: 6px;
 		}
+	.text{
+	    font-size:16px;
+		line-height:25px;
+	}
 	</style>
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
@@ -218,7 +222,7 @@
 										<p>
 											东南大学支教协会成立于2010年4月11日，是东南大学校团委领导下的学生团体。虽然年轻，可是却填补了东大本科生部支教的空白。它拥有一大批热情而有爱心的大学生，甘于奉献，乐于付出，视支教为生命， 愿毕其一生去追求。
 										</p>
-                                        <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal">成员信息</button>										
+                                        <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal_member">成员信息</button>										
 									</div>
 								</div>
 								
@@ -455,7 +459,7 @@
 			<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
 			<div id="menu2">
 				<div style="height:97px; width:175px;">
-					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display:block; position:static; margin-bottom: 5px; *width: 180px;">
 						<li><a tabindex="-1" href="#">加入我们</a></li>
 						<li><a tabindex="-1" href="#">先声大纪事</a></li>
 						<li><a tabindex="-1" href="#">先声元老</a></li>
@@ -536,6 +540,26 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>
 	</div>
 </div>	
+
+<div id="myModal_member" class="modal hide fade ">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>成员信息</h3>
+	</div>
+	<div class="modal-body">
+	  <div class="row-fluid">		
+		<div class="span12">
+			<div class="act-info-body text">
+				<p>奥特曼 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽 小怪兽 奥特曼 小怪兽 奥特曼 小怪兽</p>
+			</div>
+			
+		</div>
+	  </div>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>
+	</div>
+</div>
 	<script>
 	  $(document).ready(function(){
 	$(".btn_replay").click(function(){
