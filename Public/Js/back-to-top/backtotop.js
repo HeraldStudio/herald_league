@@ -10,6 +10,7 @@ $(document).ready(function(){
 		else
 		{
 		$("#back-to-top").fadeOut(500);
+		$("#MsgGoUp").fadeOut(500);
 		}
 		});
 		//当点击跳转链接后，回到页面顶部位置
@@ -40,7 +41,7 @@ $(document).ready(function(){
 
 		function mover(obj){
 			if(obj==1){
-				$("#MsgGoUp").fadeIn(0);
+				$("#MsgGoUp").fadeIn(500);
 			}
 			else if(obj==2){
 				mypointon();
@@ -63,7 +64,7 @@ $(document).ready(function(){
 		}
 		function mout(obj){
 			if(obj==1){
-				$("#MsgGoUp").fadeOut(0);
+				$("#MsgGoUp").fadeOut(500);
 			}
 		}
 		function mboder(){

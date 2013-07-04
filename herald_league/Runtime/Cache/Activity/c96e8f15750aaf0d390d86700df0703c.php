@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
-	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
-	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
-	
-	
+	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
+	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
 		<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
@@ -295,10 +293,8 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>
-	<div id="fixdiv"  class="bushoukongzhi" >
-		<a href="#top"  id="scrollUp"style="display:none;">
-			<div id="gototop" onmouseover="mover(1)" onmouseout="mout(1)"></div>
-		</a>
+	<div id="fixdiv">
+		<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 		<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
 		<div class="move" id="fix2">
 			<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
