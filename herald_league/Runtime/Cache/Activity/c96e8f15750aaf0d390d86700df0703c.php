@@ -195,7 +195,7 @@
 				</a><?php endif; ?>
 					<figcaption>
 						<div class="heading">
-							<a data-toggle="modal" href="#myModal" class="activityname"><?php echo ($vai["name"]); ?></a>
+							<a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
 							<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
 						</div>
 						<p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
@@ -220,6 +220,7 @@
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>
+		<span></span>
 		<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
 		</h3>
 	</div>
