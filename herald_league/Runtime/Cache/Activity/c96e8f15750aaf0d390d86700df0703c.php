@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
+	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
-
+	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 		<!-- JS -->
 		<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
@@ -112,6 +113,9 @@
 				margin-right:80px;
 				padding-top:100px;
 			}
+			#more{
+				margin-right:80px;
+			}
 		}
 	    @media (max-width: 979px){
 		     #celeft{
@@ -124,6 +128,7 @@
 			 }
 			 #more{
 				margin-left:40px;
+				margin-right:40px;
 			}
 		 }
 	
@@ -202,7 +207,7 @@
 			</div><!-- ENDS Filter container -->
 	          
 		</div>
-		<div id="more" class="offset3" style="margin-right:60px;font-family:微软雅黑">
+		<div id="more" class="offset3" style="font-family:微软雅黑">
 			<div class="btn btn-large btn-block">加载更多</div>
 		</div>
 	</div>
@@ -288,6 +293,58 @@
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
 	</div>
 </div>
+	<div id="fixdiv">
+		<a href="#top"  id="scrollUp" style="display:none;">
+			<div id="gototop" onmouseover="mover(1)" onmouseout="mout(1)"></div>
+		</a>
+		<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
+		<div class="move" id="fix2">
+			<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
+			<div id="menu2">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">加入我们</a></li>
+						<li><a tabindex="-1" href="#">先声大纪事</a></li>
+						<li><a tabindex="-1" href="#">先声元老</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg2"><p class="text-center">关于我们</p></div>
+		</div>
+		
+		<div class="move" id="fix3">
+			<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
+			<div id="menu3">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">那个什么</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg3"><p class="text-center">那个什么</p></div>
+		</div>
+		
+		<div class="move" id="fix4">
+			<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
+			<div id="menu4">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">跑操查询</a></li>
+						<li><a tabindex="-1" href="#">校车时刻表</a></li>
+						<li><a tabindex="-1" href="#">图书馆</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg4"><p class="text-center">校园助手</p></div>
+		</div>
+	</div>
+				
+	<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:237px; display:none"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:38px; position:fixed; right:7px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height:100px">
 	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
 	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy 2001-2013 Herald.seu.edu.cn</h5>

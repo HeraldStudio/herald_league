@@ -12,9 +12,9 @@
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
 	
-	<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>	
+	<!--<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>	
 	<script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
-    <script src="__Public__/Js/back-to-top/script.js"></script>	
+    <script src="__Public__/Js/back-to-top/script.js"></script>	-->
 
 	<style>
 	.fixed-left{
@@ -404,7 +404,6 @@
 								</ul>
 								<div style="height:97px; width:175px;"></div>
 							</div>
-							<div id="Msg2"><p class="text-center">关于我们</p></div>
 						</div>
 						
 						<div class="move" id="fix3">
@@ -434,7 +433,7 @@
 						</div>
 					</div>
 					<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
-					
+					<div id="Msg2"><p class="text-center">关于我们</p></div>
 					
 					
 					
