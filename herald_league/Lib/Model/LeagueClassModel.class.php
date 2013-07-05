@@ -1,19 +1,12 @@
 <?php
-/**
- *
- *@filename LeagueClassModel.class.php
- *@author GuoGengrui <tairyguo@gmail.com>
- *@version 1.0.0
- * 
- * */
 class LeagueClassModel extends Model{
-	/**
-	 *
-	 *@para int 社团类别的id
-	 *@return array 类别的名称
-	 *
-	 * */
-	public function getLeagueClassById($classid){
-		return $this -> where('id='.$classid) -> find();
+	public function getLeagueClassName($classid){
+		return $this -> where('id='.$classid) -> getField('class_name');
+	}
+	public function getLeagueClassColor($classid){
+		return $this -> where('id='.$classid) -> getField('color');
+	}
+	public function getLeagueClassInfo(){
+		return $this -> select();
 	}
 }

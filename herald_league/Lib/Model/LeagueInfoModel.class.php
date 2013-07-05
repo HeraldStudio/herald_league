@@ -13,16 +13,37 @@ class LeagueInfoModel extends Model{
 	 *
 	 *
 	 * */
-	public function getLeaguePartInfo(){
-	 	return $this -> filed('id, league_name') -> group('class') -> select();
+	public function getLeagueList(){
+	 	$leagueinfo = $this -> field('uid, league_name, class') -> select();
+	 	$LeagueClass = D('LeagueClass');
+	 	$leagueclass = $LeagueClass -> getLeagueClassInfo();
+	 	foreach ($leagueclass as $key => $leagueclasses) {
+	 		$leagueclass[$key]['leagueinfo'] = $this -> getLeagueInfoByClass($leagueclasses['id']);
+	 		$leagueclass[$key]['leagueaccount'] = count($leagueclass[$key]['leagueinfo']);
+	 	}
+	 	return $leagueclass;
+	}
+	private function getLeagueInfoByClass($classid){
+		return $this -> where('class='.$classid) -> field('league_name,uid') -> select();
 	}
 	public function getLeagueNameById($leagueid){
 		return $this -> where('uid='.$leagueid) -> getField('league_name');
 	}
-	public function getLeagunInfoByid($leagueid){
+	public function getLeagueInfoById($leagueid){
 		return $this -> where('uid='.$leagueid) -> find();
 	}
 	public function getLeagueCount(){
 		return $this -> count();
+	}
+	public function getTenGoodLeague(){
+		return $this -> where('isten=1') -> select();
+	}
+	public function getAttentionLeagueRankInfo(){
+		$AttentionLeague = D('AttentionLeague');
+		$attentionRank = $AttentionLeague -> getAttentionRank();
+		foreach ($attentionRank as $key => $attentionRanks) {
+			$attentionRank[$key]['leaguename'] = $this -> getLeagueNameById($attentionRanks['league_id']);
+		}
+		return $attentionRank;
 	}
 }

@@ -9,4 +9,7 @@ class AttentionLeagueModel extends Model{
 		}
 		return $attentiondata;
 	}
+	public function getAttentionRank(){
+		return $this -> query("select `league_id`, count(*) from `lg_attention_league` group by `league_id`");
+	}
 }
