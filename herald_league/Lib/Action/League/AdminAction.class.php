@@ -21,6 +21,12 @@ class AdminAction extends Action{
 		$LeagueInfo = D('LeagueInfo');
 		$leagueinfo = $LeagueInfo -> getLeagueInfoById($this -> leagueid);
 		$this -> leaguename = $leagueinfo['league_name'];
+		$this -> leagueintro = $leagueinfo['introduce'];
+		$this -> member = $leagueinfo['member'];
+		$this -> phone = $leagueinfo['phone'];
+		$this -> place = $leagueinfo['place'];
+		$this -> email = $leagueinfo['email'];
+		$this -> avatr = $leagueinfo['avatar_address'];
 		//$this -> assign('leagueinfo', $leagueinfo);
 	}
 	private function getLeagueClassList(){
