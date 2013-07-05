@@ -146,7 +146,16 @@
 				</button>
 				<a class="brand" href="#"><strong>活动平台</strong></a>
 				<div class="nav-collapse collapse">
-					<a href="#" class="navbar-text pull-right" style="text-decoration:none;padding-left:20px">登录</a>
+					<ul class="nav pull-right" style="text-decoration:none;">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#"> 登录 
+								<b class="caret"></b></a>
+							<ul class="dropdown-menu" style="min-width:0px;">
+								<li><a href="#">个人登录</a></li>
+								<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
+							</ul>
+						</li>
+					</ul>
 					<form class="navbar-form pull-right">
 						<input type="text" class="search-query span3" placeholder="Search">
 						<button type="submit" class="btn">Go</button>
@@ -160,13 +169,26 @@
 					</ul>
 					<ul class="nav pull-right">        
                          <li class="dropdown" >
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> Name 
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> 个人 
 							<p class="new-message-all">3</p>
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">
 								<li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
 								<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
 								<li><a href="#">其他<p class="new-message-single">33</p></a></li>
+								<li class="divider"></li>
+								<li><a href="#">登出</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav pull-right">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> 社团 
+							<b class="caret"></b> </a>
+                             <ul class="dropdown-menu">
+								<li><a href="#">发布活动</a></li>
+								<li><a href="#">上传照片</a></li>
+								<li><a href="#">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="#">登出</a></li>
 							</ul>
@@ -216,7 +238,7 @@
 	</div>
 	
 
-	<div id="myModal" class="modal hide fade ">
+<div id="myModal" class="modal hide fade ">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>
@@ -295,6 +317,39 @@
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
+	</div>
+</div>
+<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>社团登录</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal" style="margin-top:30px;">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">用户名</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="用户名">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">密码</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="密码">
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox">
+						<input type="checkbox"> 记住我
+					</label>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+		<a href="#" class="btn" data-dismiss="modal">取消</a>
 	</div>
 </div>
 	<div id="fixdiv">
