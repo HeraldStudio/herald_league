@@ -9,6 +9,10 @@ class AdminAction extends Action{
 
 		$this -> getLeagueInfo();
 		$this -> getLeagueClassList();
+		if(!empty($_POST)){
+			$this -> updateLeagueInfo();
+		}
+
 		$this -> display();
 	}
 	public function addalbum(){
@@ -33,5 +37,18 @@ class AdminAction extends Action{
 		$LeagueClass = D('LeagueClass');
 		$leagueclasslist = $LeagueClass -> getLeagueClassInfo();
 		$this -> assign('leagueclasslist', $leagueclasslist);
+	}
+	private function updateLeagueInfo(){
+		$LeagueClass = D('LeagueClass');
+		$LeagueInfo = D('LeagueInfo');
+
+		$adddata['league_name'] = $this -> _param('leaguename'); 
+		$adddata['introduce'] = $this -> _param('introduce');
+		$adddata['member'] = $this -> _param('member');
+		$adddata['phone'] = $this -> _param('phone');
+		$adddata['email'] = $this -> _param('email');
+		$adddata['place'] = $this -> _param('place');
+		$adddata['class'] = $LeagueClass -> getClassId($this -> _param('leagueclass'));
+		$LeagueInfo -> updateLeagueInfo($adddata,$this -> _param('leagueid'));
 	}
 }

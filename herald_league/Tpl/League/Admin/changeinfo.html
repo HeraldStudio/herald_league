@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>社团信息</title>
+		<title>修改社团信息</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="__Public__/Css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -22,9 +22,18 @@
 		<script type="text/javascript">
 		
 		/////文本编辑器
-		var editor;
+		var editor, editor2;
 			KindEditor.ready(function(K) {
-				editor = K.create('textarea[name="content"]', {
+				editor = K.create('textarea[name="member"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,
+					allowImageUpload : false,
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+				editor2 = K.create('textarea[name="introduce"]', {
 					resizeType : 1,
 					allowPreviewEmoticons : false,
 					allowImageUpload : false,
@@ -82,28 +91,21 @@
 				<div class="span1"></div>
 						
 				<div class="span10">
-					<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">社团信息</h3>
+					<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">修改社团信息</h3>
 
 						<div class="row-fluid">
 							<div class="span9">
-								<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
+								<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" action="" method="post">
 									<fieldset>
-									
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupName" class="control-label">社团名称：</label>
 											<div class="controls">
-												<input type="text" id="groupName" class="input-xlarge" value="{$leaguename}"/>
+												<input type="text" id="groupName" class="input-xlarge" name="leaguename" value="{$leaguename}"/>
 												&nbsp社团类别：
-												<select class="span1"  id="unclass" style="width:150px;">
-												<option>科技</option>
-												<option>文娱</option>
-												<option>体育</option>
-												<option>实践</option>
-												<select class="span1"  id="unclass" style="width:90px;">
-												<volist name="leagueclasslist" id="vlc">
-												<option>{$vlc.class_name}</option>
-												</volist>
-												
+												<select class="span1"  id="unclass" style="width:150px;" name="leagueclass">
+												<volist name="leagueclasslist" id="vcl">
+												<option>{$vcl.class_name}</option>
+											    </volist>
 												</select>
 											</div>
 										</div>
@@ -123,25 +125,26 @@
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupIntro" class="control-label">社团介绍：</label>
 											<div class="controls">
-												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">{$leagueintro}</textarea>
+												<textarea name="introduce" style="width:500px;height:150px;visibility:hidden;">{$leagueintro}</textarea>
 											</div>
 										</div>
 										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupMum" class="control-label">社团成员：</label>
 											<div class="controls">
-												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">{$member}</textarea>
+												<textarea name="member" style="width:500px;height:150px;visibility:hidden;">{$member}</textarea>
 											</div>
 										</div>
 										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label class="control-label">联系方式：</label>
 											<div class="controls">
-												电话：<input type="text" id="groupTel" style="width:100px;" value="{$phone}">
-												邮箱：<input type="text" id="groupMail" style="width:150px;" value="{$email}">
+												电话：<input name="phone" type="text" id="groupTel" style="width:100px;" value="{$phone}">
+												邮箱：<input name="email" type="text" id="groupMail" style="width:150px;" value="{$email}">
+												<input name="leagueid" type="hidden" value="{$leagueid}">
 											</div>
 											<div class="controls" style="margin-top:10px;">
-												地点：<input type="text" id="groupPlace" style="width:310px;" value="{$place}">
+												地点：<input name="place" type="text" id="groupPlace" style="width:310px;" value="{$place}">
 											</div>
 										</div>
 										
@@ -150,7 +153,7 @@
 										<div class="control-group">
 											<div class="controls">
 												<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>
-												<button class="btn btn-info">取消</button>
+												<button class="btn btn-info">重置</button>
 											</div>
 										</div>
 									</fieldset>
