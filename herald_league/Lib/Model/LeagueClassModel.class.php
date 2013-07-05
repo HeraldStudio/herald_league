@@ -9,4 +9,7 @@ class LeagueClassModel extends Model{
 	public function getLeagueClassInfo(){
 		return $this -> select();
 	}
+	public function getClassId($classname){
+		return $this -> where('class_name=\''.$classname.'\'') -> getField('id');
+	}
 }

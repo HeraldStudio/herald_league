@@ -46,4 +46,7 @@ class LeagueInfoModel extends Model{
 		}
 		return $attentionRank;
 	}
+	public function updateLeagueInfo($data,$leagueid){
+		$this -> where('uid='.$leagueid) -> save($data);
+	}
 }
