@@ -47,6 +47,7 @@
 			
 			if(groupname.value==""){
 				alert("怎么能不写社团名称呢？");
+				return;
 			}
 			else if(grouimg.value==""){
 				alert("您一定要上传一个社团头像哦");
@@ -71,6 +72,20 @@
 				}
 			}
 		
+		}
+		
+		function cleanAll()
+		{
+			document.getElementById("groupName").value="";
+			document.getElementById("unclass").value="";
+			document.getElementById("groupTel").value="";
+			document.getElementById("groupMail").value="";
+			document.getElementById("groupPlace").value="";
+			//document.getElementById("groupImg").value="";
+			document.getElementById("groupIntro").innerText="a";
+			//document.getElementById("groupIntro").value="";
+			//document.getElementById("groupIntro").text=none;
+			//document.getElementById("groupMum").innerHTML="";
 		}
 	
 		</script>
@@ -123,14 +138,14 @@
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupIntro" class="control-label">社团介绍：</label>
 											<div class="controls">
-												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">{$leagueintro}</textarea>
+												<textarea name="content" id="groupIntro" style="width:500px;height:150px;visibility:hidden;">{$leagueintro}</textarea>
 											</div>
 										</div>
 										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupMum" class="control-label">社团成员：</label>
 											<div class="controls">
-												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">{$member}</textarea>
+												<textarea name="content" id="groupMum" style="width:500px;height:150px;visibility:hidden;">{$member}</textarea>
 											</div>
 										</div>
 										
@@ -149,12 +164,12 @@
 										
 										<div class="control-group">
 											<div class="controls">
-												<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>
-												<button class="btn btn-info">取消</button>
+												<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>					
 											</div>
 										</div>
 									</fieldset>
 								</form>
+								<button class="btn btn-info" onclick="cleanAll()" style="position:relative; left:300px;top:-51px;" >取消</button>
 								<button class="btn btn-primary" href="index2.html" style="position:relative; left:350px;top:-51px;">添加社团相册</button>
 							</div>
 							<div class="span1"></div>
