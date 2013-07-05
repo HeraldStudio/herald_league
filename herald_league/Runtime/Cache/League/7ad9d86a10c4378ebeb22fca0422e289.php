@@ -266,10 +266,10 @@
 											<div class="tabbable clearfix">											
 											   <ul class="thumbnails">
 													<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4">
-															<div class="thumbnail">	
-																	<a href="#" class="thumb">
+															<div class="thumbnail">
+																	<?php if(!empty($vai["post_add"])): ?><a href="#" class="thumb">
 																		<img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" />
-																	</a>
+																	</a><?php endif; ?>
 																	<div class="heading center" style="font-size:20px;margin-top:20px;">
 																	 <a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
 																	 <a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
@@ -333,44 +333,36 @@
 											留言板
 										</h4>
 									</div>
-									<div class="thumbnail reply row-fluid span11">		
+									<?php if(is_array($commentinfo)): $i = 0; $__LIST__ = $commentinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vc): $mod = ($i % 2 );++$i;?><div class="thumbnail reply row-fluid span11">		
 									    <div class="span12">
 											<div class="span3 reply_title">
-												东南大学先声网
+												<?php echo ($vc["sender_name"]); ?>
 											</div>
 											<div class="span9 reply_title">
-												发布时间 XXXX-XX-XX
+												发布时间 <?php echo ($vc["comment_time"]); ?>
 											</div>
 											<div class="pinglun">
-											    我看这个社团不错
-												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">评论</button>
+											    <?php echo ($vc["content"]); ?>
+												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">回复</button>
 										    </div>
-											<div class="pinglun_2 thumbnail span10" id="reply_r">
-												<div class="span3 reply_title" id="reply_r_p_p"> wbc</div>
-												<div class="span3 reply_title">XXXX-XX-XX</div>
+										    <?php if(is_array($vc["responseinfo"])): $i = 0; $__LIST__ = $vc["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10" id="reply_r">
+												<div class="span3 reply_title" id="reply_r_p_p"><?php echo ($vr["sender_name"]); ?></div>
+												<div class="span3 reply_title"><?php echo ($vr["comment_time"]); ?></div>
 												<div class="span11">
-												回复东南大学先声网555：我看这个社团不错看这个社团不错	看这个社团不错	看这个社团不错	sadasfasfasfasfasfasfafasfasfafafafasfas	
-												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">评论</button>
+												回复<?php echo ($vr["receiver_name"]); ?>：<?php echo ($vr["content"]); ?>	
+												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div>
-											
+											<?php if(is_array($vr["responseinfo"])): $i = 0; $__LIST__ = $vr["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vrr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10" id="reply_r">
+												<div class="span3 reply_title" id="reply_r_p_p"><?php echo ($vrr["sender_name"]); ?></div>
+												<div class="span3 reply_title"><?php echo ($vrr["comment_time"]); ?></div>
+												<div class="span11">
+												回复<?php echo ($vrr["receiver_name"]); ?>：<?php echo ($vrr["content"]); ?>
+												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">回复</button>
+										        </div>
+											</div><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 										</div>												
-									</div>
-									<div class="thumbnail reply row-fluid span11">		
-									    <div class="span12 ">
-											<div class="span3 reply_title" id="username_1">
-												东南大学先声网555
-											</div>
-											<div class="span9 reply_title">
-												发布时间 XXXX-XX-XX
-											</div>
-											<div class="pinglun">
-									           我看也行！
-										    <button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">评论</button>
-											</div>
-										</div>												
-									</div>
-						
+									</div><?php endforeach; endif; else: echo "" ;endif; ?>
                                     <form class="autoTxtCount thumbnail row-fluid span11" action="" method="get">
 										<div>
 										   <textarea class="text span12" placeholder="说点什么..." cols="50" id="text1" rows="2"></textarea>

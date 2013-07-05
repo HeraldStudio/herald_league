@@ -267,10 +267,12 @@
 											   <ul class="thumbnails">
 													<volist name="activityinfo" id="vai">
 														<li class="span4">
-															<div class="thumbnail">	
+															<div class="thumbnail">
+																	<notempty name="vai.post_add">	
 																	<a href="#" class="thumb">
 																		<img src="__Uploads__/ActivityPost/{$vai.post_add}" alt="alt" />
 																	</a>
+																	</notempty>
 																	<div class="heading center" style="font-size:20px;margin-top:20px;">
 																	 <a data-toggle="modal" href="#myModal" class="activityname" id="{$vai.id}">{$vai.name}</a>
 																	 <a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
@@ -338,44 +340,42 @@
 											留言板
 										</h4>
 									</div>
+									<volist name="commentinfo" id="vc">
 									<div class="thumbnail reply row-fluid span11">		
 									    <div class="span12">
 											<div class="span3 reply_title">
-												东南大学先声网
+												{$vc.sender_name}
 											</div>
 											<div class="span9 reply_title">
-												发布时间 XXXX-XX-XX
+												发布时间 {$vc.comment_time}
 											</div>
 											<div class="pinglun">
-											    我看这个社团不错
-												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">评论</button>
+											    {$vc.content}
+												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">回复</button>
 										    </div>
+										    <volist name="vc.responseinfo" id="vr">
 											<div class="pinglun_2 thumbnail span10" id="reply_r">
-												<div class="span3 reply_title" id="reply_r_p_p"> wbc</div>
-												<div class="span3 reply_title">XXXX-XX-XX</div>
+												<div class="span3 reply_title" id="reply_r_p_p">{$vr.sender_name}</div>
+												<div class="span3 reply_title">{$vr.comment_time}</div>
 												<div class="span11">
-												回复东南大学先声网555：我看这个社团不错看这个社团不错	看这个社团不错	看这个社团不错	sadasfasfasfasfasfasfafasfasfafafafasfas	
-												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">评论</button>
+												回复{$vr.receiver_name}：{$vr.content}	
+												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div>
-											
+											<volist name="vr.responseinfo" id="vrr">
+												<div class="pinglun_2 thumbnail span10" id="reply_r">
+												<div class="span3 reply_title" id="reply_r_p_p">{$vrr.sender_name}</div>
+												<div class="span3 reply_title">{$vrr.comment_time}</div>
+												<div class="span11">
+												回复{$vrr.receiver_name}：{$vrr.content}
+												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">回复</button>
+										        </div>
+											</div>
+											</volist>
+											</volist>
 										</div>												
 									</div>
-									<div class="thumbnail reply row-fluid span11">		
-									    <div class="span12 ">
-											<div class="span3 reply_title" id="username_1">
-												东南大学先声网555
-											</div>
-											<div class="span9 reply_title">
-												发布时间 XXXX-XX-XX
-											</div>
-											<div class="pinglun">
-									           我看也行！
-										    <button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">评论</button>
-											</div>
-										</div>												
-									</div>
-						
+									</volist>
                                     <form class="autoTxtCount thumbnail row-fluid span11" action="" method="get">
 										<div>
 										   <textarea class="text span12" placeholder="说点什么..." cols="50" id="text1" rows="2"></textarea>

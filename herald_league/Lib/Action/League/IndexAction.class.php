@@ -12,6 +12,7 @@ class IndexAction extends Action{
 		$this -> getLeagueActivityInfo();
 		$this -> getLeagueAlbum();
 		$this -> getLeagueAttention();
+		$this -> getCommentInfo();
 
 		$this -> display();
 	}
@@ -53,8 +54,13 @@ class IndexAction extends Action{
 	private function getLeagueAttention(){
 		$AttentionLeague = D('AttentionLeague');
 		$leagueattentioninfo = $AttentionLeague -> getLeagueAttentionById($this -> leagueid);
-		//print_r($leagueattentioninfo);
 		$this -> attentioncount = count($leagueattentioninfo);
 		$this -> assign('leagueattentioninfo',$leagueattentioninfo);
+	}
+	private function getCommentInfo(){
+		$CommentInfo = D('CommentInfo');
+		$commentinfo = $CommentInfo -> getLeagueCommentInfoById($this -> leagueid);
+		//print_r($commentinfo);
+		$this -> assign('commentinfo', $commentinfo);
 	}
 }
