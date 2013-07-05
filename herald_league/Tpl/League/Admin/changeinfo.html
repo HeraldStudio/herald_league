@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>社团信息</title>
@@ -92,13 +92,18 @@
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupName" class="control-label">社团名称：</label>
 											<div class="controls">
-												<input type="text" id="groupName" class="input-xlarge" value=""/>
+												<input type="text" id="groupName" class="input-xlarge" value="{$leaguename}"/>
 												&nbsp社团类别：
 												<select class="span1"  id="unclass" style="width:150px;">
 												<option>科技</option>
 												<option>文娱</option>
 												<option>体育</option>
 												<option>实践</option>
+												<select class="span1"  id="unclass" style="width:90px;">
+												<volist name="leagueclasslist" id="vlc">
+												<option>{$vlc.class_name}</option>
+												</volist>
+												
 												</select>
 											</div>
 										</div>
