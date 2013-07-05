@@ -354,21 +354,21 @@
 												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">回复</button>
 										    </div>
 										    <volist name="vc.responseinfo" id="vr">
-											<div class="pinglun_2 thumbnail span10" id="reply_r">
+											<div class="pinglun_2 thumbnail span10 reply_r">
 												<div class="span3 reply_title" id="reply_r_p_p">{$vr.sender_name}</div>
 												<div class="span3 reply_title">{$vr.comment_time}</div>
 												<div class="span11">
 												回复{$vr.receiver_name}：{$vr.content}	
-												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">回复</button>
+												 <button id="reply_btn_r" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div>
 											<volist name="vr.responseinfo" id="vrr">
-												<div class="pinglun_2 thumbnail span10" id="reply_r">
+												<div class="pinglun_2 thumbnail span10 reply_r">
 												<div class="span3 reply_title" id="reply_r_p_p">{$vrr.sender_name}</div>
 												<div class="span3 reply_title">{$vrr.comment_time}</div>
 												<div class="span11">
 												回复{$vrr.receiver_name}：{$vrr.content}
-												 <button id="reply_btn_r" class="btn btn-success btn-small pull-right hide">回复</button>
+												 <button id="reply_btn_r" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div>
 											</volist>
@@ -593,7 +593,7 @@
 </div>
 	<script>
 	  $(document).ready(function(){
-	$("#reply_btn_r").click(function(){
+	$(".reply_btn_r").click(function(){
                 $("#text1")[0].focus();
                 $("#text1").val("回复"+$.trim($("#reply_r_p_p").html())+" : "); 
       });
@@ -609,11 +609,11 @@
 	</script>
 	<script>
 	  $(document).ready(function(){
-	$("#reply_r").mouseover(function(){
-                $("#reply_btn_r").show();
+	$(".reply_r").mouseover(function(){
+                $(this).find("button").show();
       });
-	 $("#reply_r").mouseout(function(){
-                $("#reply_btn_r").hide();
+	 $(".reply_r").mouseout(function(){
+                $(this).find("button").hide();
       });
 });
 	</script>

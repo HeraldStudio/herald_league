@@ -345,20 +345,20 @@
 											    <?php echo ($vc["content"]); ?>
 												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">回复</button>
 										    </div>
-										    <?php if(is_array($vc["responseinfo"])): $i = 0; $__LIST__ = $vc["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10" id="reply_r1">
+										    <?php if(is_array($vc["responseinfo"])): $i = 0; $__LIST__ = $vc["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10 reply_r">
 												<div class="span3 reply_title" id="reply_r_p_p"><?php echo ($vr["sender_name"]); ?></div>
 												<div class="span3 reply_title"><?php echo ($vr["comment_time"]); ?></div>
 												<div class="span11">
 												回复<?php echo ($vr["receiver_name"]); ?>：<?php echo ($vr["content"]); ?>	
-												 <button id="reply_btn_r1" class="btn btn-success btn-small pull-right hide">回复</button>
+												 <button id="reply_btn_r" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div>
-											<?php if(is_array($vr["responseinfo"])): $i = 0; $__LIST__ = $vr["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vrr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10" id="reply_r2">
+											<?php if(is_array($vr["responseinfo"])): $i = 0; $__LIST__ = $vr["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vrr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10 reply_r">
 												<div class="span3 reply_title" id="reply_r_p_p"><?php echo ($vrr["sender_name"]); ?></div>
 												<div class="span3 reply_title"><?php echo ($vrr["comment_time"]); ?></div>
 												<div class="span11">
 												回复<?php echo ($vrr["receiver_name"]); ?>：<?php echo ($vrr["content"]); ?>
-												 <button id="reply_btn_r2" class="btn btn-success btn-small pull-right hide">回复</button>
+												 <button id="reply_btn_r" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 										</div>												
@@ -560,7 +560,7 @@
 </div>
 	<script>
 	  $(document).ready(function(){
-	$(id^="reply_btn_r").click(function(){
+	$(".reply_btn_r").click(function(){
                 $("#text1")[0].focus();
                 $("#text1").val("回复"+$.trim($("#reply_r_p_p").html())+" : "); 
       });
@@ -576,11 +576,11 @@
 	</script>
 	<script>
 	  $(document).ready(function(){
-	 $(id^="reply_r").mouseover(function(){
-                $(i"#reply_btn_r1").show();
+	$(".reply_r").mouseover(function(){
+                $(this).find("button").show();
       });
-	 $(id^="reply_r").mouseout(function(){
-                $(id^="reply_btn_r").hide();
+	 $(".reply_r").mouseout(function(){
+                $(this).find("button").hide();
       });
 });
 	</script>
