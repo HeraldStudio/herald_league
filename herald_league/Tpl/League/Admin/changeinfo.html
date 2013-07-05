@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>社团信息</title>
@@ -81,7 +81,7 @@
 			<div class="row-fluid">
 				<div class="span1"></div>
 						
-				<div class="span8">
+				<div class="span10">
 					<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">社团信息</h3>
 
 						<div class="row-fluid">
@@ -94,10 +94,16 @@
 											<div class="controls">
 												<input type="text" id="groupName" class="input-xlarge" value="{$leaguename}"/>
 												&nbsp社团类别：
+												<select class="span1"  id="unclass" style="width:150px;">
+												<option>科技</option>
+												<option>文娱</option>
+												<option>体育</option>
+												<option>实践</option>
 												<select class="span1"  id="unclass" style="width:90px;">
 												<volist name="leagueclasslist" id="vlc">
 												<option>{$vlc.class_name}</option>
 												</volist>
+												
 												</select>
 											</div>
 										</div>
@@ -107,35 +113,35 @@
 											<div class="controls">
 												<div data-fileupload="image" class="fileupload fileupload-new">
 													<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
-														<img src="../../www.placehold.it/80x80/EFEFEF/AAAAAA" alt="">
+														<img src="__Uploads__/LeagueAvatar/{$avatr}" alt="">
 													</div>
 												</div>
-												<input type="file" id="groupImg" style="width:71px;">
+												<input type="file" id="groupImg">
 											</div>
 										</div>
 										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupIntro" class="control-label">社团介绍：</label>
 											<div class="controls">
-												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">社团介绍</textarea>
+												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">{$leagueintro}</textarea>
 											</div>
 										</div>
 										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupMum" class="control-label">社团成员：</label>
 											<div class="controls">
-												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">社团成员</textarea>
+												<textarea name="content" style="width:500px;height:150px;visibility:hidden;">{$member}</textarea>
 											</div>
 										</div>
 										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label class="control-label">联系方式：</label>
 											<div class="controls">
-												电话：<input type="text" id="groupTel" style="width:100px;">
-												邮箱：<input type="text" id="groupMail" style="width:150px;">
+												电话：<input type="text" id="groupTel" style="width:100px;" value="{$phone}">
+												邮箱：<input type="text" id="groupMail" style="width:150px;" value="{$email}">
 											</div>
 											<div class="controls" style="margin-top:10px;">
-												地点：<input type="text" id="groupPlace" style="width:310px;">
+												地点：<input type="text" id="groupPlace" style="width:310px;" value="{$place}">
 											</div>
 										</div>
 										
@@ -151,7 +157,7 @@
 								</form>
 								<button class="btn btn-primary" href="index2.html" style="position:relative; left:350px;top:-51px;">添加社团相册</button>
 							</div>
-							<div class="span3"></div>
+							<div class="span1"></div>
 						</div>
 					
 				</div>
