@@ -549,7 +549,7 @@
 	  <div class="row-fluid">		
 		<div class="span12">
 			<div class="text">
-				李华 小明 小李 
+				<?php echo ($memberinfo); ?> 
 			</div>
 		</div>
 	  </div>

@@ -17,6 +17,10 @@ class IndexAction extends Action{
 		$this -> display();
 	}
 	public function leaguelist(){
+		$this -> getLeagueList();
+		$this -> getTenGoodLeague();
+		$this -> getAttentionLeagueRank();
+		
 		$this -> display();
 	}
 	public function album(){
@@ -30,6 +34,7 @@ class IndexAction extends Action{
 		$this -> email = $leagueinfo['email'];
 		$this -> phone = $leagueinfo['phone'];
 		$this -> place = $leagueinfo['place'];
+		$this -> memberinfo = $leagueinfo['member'];
 	}
 	private function getLeagueActivityInfo(){
 		$ActivityInfo = D('ActivityInfo');
@@ -62,5 +67,20 @@ class IndexAction extends Action{
 		$commentinfo = $CommentInfo -> getLeagueCommentInfoById($this -> leagueid);
 		//print_r($commentinfo);
 		$this -> assign('commentinfo', $commentinfo);
+	}
+	private function getLeagueList(){
+		$LeagueInfo = D('LeagueInfo');
+		$leaguelist = $LeagueInfo -> getLeagueList();
+		$this -> assign('leaguelist', $leaguelist);		
+	}
+	private function getTenGoodLeague(){
+		$LeagueInfo = D('LeagueInfo');
+		$tengoodleagueinfo = $LeagueInfo -> getTenGoodLeague();
+		$this -> assign('tengoodleagueinfo', $tengoodleagueinfo);
+	}
+	private function getAttentionLeagueRank(){
+		$LeagueInfo = D('LeagueInfo');
+		$attentionrank = $LeagueInfo -> getAttentionLeagueRankInfo();
+		$this -> assign('attentionrank', $attentionrank);
 	}
 }
