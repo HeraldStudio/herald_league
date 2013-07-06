@@ -28,7 +28,7 @@ class IndexAction extends Action{
 	}
 	private function getLeagueInfo(){
 		$LeagueInfo = D('LeagueInfo');
-		$leagueinfo = $LeagueInfo -> getLeagunInfoByid($this -> leagueid);
+		$leagueinfo = $LeagueInfo -> getLeagueInfoById($this -> leagueid);
 		$this -> leaguename = $leagueinfo['league_name'];
 		$this -> introduce = $leagueinfo['introduce'];
 		$this -> email = $leagueinfo['email'];
