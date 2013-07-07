@@ -18,23 +18,13 @@
     <script src="__Public__/Js/bootstrap/bootstrap.min.js"></script>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
 	<script type="text/javascript">
-	/////文本编辑器
-		var editor;
-			KindEditor.ready(function(K) {
-				editor = K.create('textarea[name="content"]', {
-					resizeType : 1,
-					allowPreviewEmoticons : false,
-					allowImageUpload : false,
-					items : [
-						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-				});
-			});
-			
-			
-	/////表单验证	
+	window.UEDITOR_HOME_URL = "__Public__/Ueditor/";
+	</script>
+	<load href="__Public__/Ueditor/ueditor.config.js" />
+	<load href="__Public__/Ueditor/ueditor.all.min.js" />
+	<script type="text/javascript">
 		
 		function mycheck(){
 			var actname=document.getElementById("actName");
@@ -158,7 +148,24 @@
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actInfo" class="control-label">详细信息：</label>
 										<div class="controls">
-											<textarea name="content" style="width:500px;height:200px;visibility:hidden;">详细信息</textarea>
+											<script type="text/plain" id="activityinfo" name="activityinfo"></script>
+												<script type="text/javascript">
+												$(function(){
+												    var activityinfo;
+												    var options = {
+												        initialFrameWidth:700,        //初化宽度
+												        initialFrameHeight:300,        //初化高度
+												        focus:false,                        //初始化时，是否让编辑器获得焦点true或false
+												        maximumWords:1000,        //允许的最大字符数
+												    };
+												    activityinfo = new UE.ui.Editor(options);
+												    activityinfo = new UE.ui.Editor(options);
+												    activityinfo.render("activityinfo");
+												    activityinfo.ready(function(){
+												        activityinfo.setContent('{$leagueintro|htmlspecialchars_decode}');     //加载数据库Action.class.PHP传过来的值
+												    });
+												 });    
+												 </script>
 										</div>
 									</div>
 									

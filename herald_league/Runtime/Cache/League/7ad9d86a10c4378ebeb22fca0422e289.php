@@ -236,7 +236,7 @@
 								<div class="span12">
 									<div class="hero-unit">						
 										<p>
-											<?php echo ($introduce); ?>
+											<?php echo (htmlspecialchars_decode($introduce)); ?>
 										</p>
                                         <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal_member">成员信息</button>										
 									</div>
@@ -549,7 +549,7 @@
 	  <div class="row-fluid">		
 		<div class="span12">
 			<div class="text">
-				<?php echo ($memberinfo); ?> 
+				<?php echo (htmlspecialchars_decode($memberinfo)); ?> 
 			</div>
 		</div>
 	  </div>
