@@ -77,41 +77,12 @@
 						<div class="span9">
 							<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 								<fieldset>
-									<div class="control-group formSet" style="padding-bottom:10px;border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-										<label for="fileinput" class="control-label">活动宣传图片：</label>
-										<div class="controls">
-											<div data-fileupload="image" class="fileupload fileupload-new">
-												<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
-													<img src="../../www.placehold.it/80x80/EFEFEF/AAAAAA" alt="">
-												</div>
-												
-												<input type="file" id="imgFile">
-												
-											</div>
-										</div>
-									</div>
+									
+									
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actName" class="control-label">活动名称：</label>
 										<div class="controls">
 											<input type="text" id="actName" class="input-xlarge" value="">
-										</div>
-									</div>
-									
-									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-										<label for="actName" class="control-label">活动类型：</label>
-										<div class="controls">
-											<select id="activityclass" name="activityclass">
-												<volist name="activityclasslist" id="vacl">
-													<option>{$vacl.class}</option>
-												</volist>
-											</select>	
-										</div>
-									</div>
-									
-									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-										<label for="actPlace" class="control-label">活动地点：</label>
-										<div class="controls">
-											<input type="text" id="actPlace" class="input-xlarge" value="">
 										</div>
 									</div>
 									
@@ -135,6 +106,40 @@
 											</script>
 										</div>
 									</div>
+									
+									<div class="control-group formSet" style="padding-bottom:10px;border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
+										<label for="fileinput" class="control-label">活动宣传图片：</label>
+										<div class="controls">
+											<div data-fileupload="image" class="fileupload fileupload-new">
+												<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
+													<img src="../../www.placehold.it/80x80/EFEFEF/AAAAAA" alt="">
+												</div>
+												
+												<input type="file" id="imgFile">
+												
+											</div>
+										</div>
+									</div>
+									
+									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
+										<label for="actName" class="control-label">活动类型：</label>
+										<div class="controls">
+											<select id="activityclass" name="activityclass">
+												<volist name="activityclasslist" id="vacl">
+													<option>{$vacl.class}</option>
+												</volist>
+											</select>	
+										</div>
+									</div>
+									
+									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
+										<label for="actPlace" class="control-label">活动地点：</label>
+										<div class="controls">
+											<input type="text" id="actPlace" class="input-xlarge" value="">
+										</div>
+									</div>
+									
+
 									
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actPlace" class="control-label">联系方式：</label>
