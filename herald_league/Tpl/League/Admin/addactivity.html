@@ -100,13 +100,11 @@
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actName" class="control-label">活动类型：</label>
 										<div class="controls">
-											<select id=>
-												<option></option>
-												<option></option>
-												<option></option>
-												<option></option>
-											</select>
-											
+											<select id="activityclass" name="activityclass">
+												<volist name="activityclasslist" id="vacl">
+													<option>{$vacl.class}</option>
+												</volist>
+											</select>	
 										</div>
 									</div>
 									
@@ -161,9 +159,6 @@
 												    activityinfo = new UE.ui.Editor(options);
 												    activityinfo = new UE.ui.Editor(options);
 												    activityinfo.render("activityinfo");
-												    activityinfo.ready(function(){
-												        activityinfo.setContent('{$leagueintro|htmlspecialchars_decode}');     //加载数据库Action.class.PHP传过来的值
-												    });
 												 });    
 												 </script>
 										</div>

@@ -2,7 +2,7 @@
 class AdminAction extends Action{
 	public function changeinfo(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
-		if($this -> leagueid < 0){
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
@@ -19,6 +19,12 @@ class AdminAction extends Action{
 		$this -> display();
 	}
 	public function addactivity(){
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
+		$this -> getActivityClassList();
 		$this -> display();
 	}
 	private function getLeagueInfo(){
@@ -31,12 +37,16 @@ class AdminAction extends Action{
 		$this -> place = $leagueinfo['place'];
 		$this -> email = $leagueinfo['email'];
 		$this -> avatr = $leagueinfo['avatar_address'];
-		//$this -> assign('leagueinfo', $leagueinfo);
 	}
 	private function getLeagueClassList(){
 		$LeagueClass = D('LeagueClass');
 		$leagueclasslist = $LeagueClass -> getLeagueClassInfo();
 		$this -> assign('leagueclasslist', $leagueclasslist);
+	}
+	private function getActivityClassList(){
+		$ActivityClass = D('ActivityClass');
+		$activityclasslist = $ActivityClass -> getClassList();
+		$this -> assign('activityclasslist', $activityclasslist);
 	}
 	private function updateLeagueInfo(){
 		$LeagueClass = D('LeagueClass');
