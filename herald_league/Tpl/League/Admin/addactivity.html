@@ -75,21 +75,19 @@
 					<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">社团活动信息发布</h3>
 					<div class="row-fluid">
 						<div class="span9">
-							<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
+							<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" method="post" action="">
 								<fieldset>
-									
-									
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actName" class="control-label">活动名称：</label>
 										<div class="controls">
-											<input type="text" id="actName" class="input-xlarge" value="">
+											<input type="text" id="actName" class="input-xlarge" name="activityname" value="">
 										</div>
 									</div>
-									
+									<input type="hidden" name="leagueid" value="{$leagueid}"/>
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actBegin" class="control-label">开始时间：</label>
 										<div class="controls">
-											<input size="16" type="text" value="2013-07-05 16:45" readonly class="form_datetime">
+											<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="starttime">
 											<script type="text/javascript">
 												$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 											</script>
@@ -100,7 +98,7 @@
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actEnd" class="control-label">结束时间：</label>
 										<div class="controls">
-											<input size="16" type="text" value="2013-07-05 16:45" readonly class="form_datetime">
+											<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="endtime">
 											<script type="text/javascript">
 												$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 											</script>
@@ -135,7 +133,7 @@
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actPlace" class="control-label">活动地点：</label>
 										<div class="controls">
-											<input type="text" id="actPlace" class="input-xlarge" value="">
+											<input type="text" id="actPlace" class="input-xlarge" name="activityplace" value="">
 										</div>
 									</div>
 									
@@ -144,7 +142,7 @@
 									<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 										<label for="actPlace" class="control-label">联系方式：</label>
 										<div class="controls">
-											<input type="text" id="actTel" class="input-xlarge" value="">
+											<input type="text" id="actTel" class="input-xlarge" name="connectinfo" value="">
 										</div>
 									</div>
 									
@@ -180,7 +178,7 @@
 									
 								</fieldset>
 							</form>	
-							<button class="btn btn-info" style="position:relative; top:-51px; left:300px;">取消</button>
+							<button class="btn btn-info" style="position:relative; top:-51px; left:300px;">重置</button>
 						</div>
 					</div>
 				</div>
