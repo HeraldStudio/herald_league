@@ -32,4 +32,7 @@ class ActivityInfoModel extends Model{
 		}
 		return $activityinfo;
 	}
+	public function addActivityInfo($data){
+		return $this -> add($data);
+	}
 }

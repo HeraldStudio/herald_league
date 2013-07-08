@@ -49,4 +49,12 @@ class LeagueInfoModel extends Model{
 	public function updateLeagueInfo($data,$leagueid){
 		$this -> where('uid='.$leagueid) -> save($data);
 	}
+	public function cheakLeague($leagueid, $password){
+		$result = $this -> where("uid='".$leagueid."' AND password='".$password."'") -> find();
+		if(!$result){
+			return "error";
+		}else{
+			return "success";
+		}
+	}
 }

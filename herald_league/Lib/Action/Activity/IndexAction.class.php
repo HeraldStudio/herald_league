@@ -26,5 +26,19 @@ class IndexAction extends Action {
 		$LeagueInfo = D('LeagueInfo');
 		return $LeagueInfo -> getLeaguePartInfo();
 	}
+	public function leagueLogin(){
+		$leagueid = $this -> _param('leagueid');
+		$password = $this ->_param('password');
+
+		$LeagueInfo = D('LeagueInfo');
+		$isUserExit = $LeagueInfo -> cheakLeague($leagueid, $password);
+		if($isUserExit == "success"){
+			$LeagueSession = D('LeagueSession');
+			$LeagueSession -> addSesssion($leagueid, $password);
+			echo "登录成功";
+		}elseif($isUserExit == "error"){
+			echo "用户名密码错误";
+		}
+	}
 
 }
