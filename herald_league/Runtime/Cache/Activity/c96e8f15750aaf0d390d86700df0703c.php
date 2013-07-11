@@ -1,7 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title>Index</title>
+	<title>先声网-活动信息平台</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
@@ -153,6 +153,16 @@
 					});
 				}
 			});
+			$(".logout").click(function(){
+				$.ajax({
+					url:'<?php echo U('Public/Login/logout');?>',
+					type:'post',
+					dataType:'text',
+					success:function(data){
+						alert(data);
+					}
+				});
+			});
 		});
 	</script>
 </head>
@@ -168,6 +178,7 @@
 				</button>
 				<a class="brand" href="#"><strong>活动平台</strong></a>
 				<div class="nav-collapse collapse">
+					<?php if($loginuser): else: ?>
 					<ul class="nav pull-right" style="text-decoration:none;">        
                          <li class="dropdown" >
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#"> 登录 
@@ -177,7 +188,7 @@
 								<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
 							</ul>
 						</li>
-					</ul>
+					</ul><?php endif; ?>
 					<form class="navbar-form pull-right">
 						<input type="text" class="search-query span3" placeholder="Search">
 						<button type="submit" class="btn">Go</button>
@@ -189,9 +200,9 @@
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
-					<ul class="nav pull-right">        
+					<?php if($loginusertype == 2): ?><ul class="nav pull-right">        
                          <li class="dropdown" >
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> 个人 
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
 							<p class="new-message-all">3</p>
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">
@@ -199,23 +210,24 @@
 								<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
 								<li><a href="#">其他<p class="new-message-single">33</p></a></li>
 								<li class="divider"></li>
-								<li><a href="#">登出</a></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
 							</ul>
 						</li>
 					</ul>
+					<?php elseif($loginusertype == 1): ?>
 					<ul class="nav pull-right">        
                          <li class="dropdown" >
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> 社团 
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">
 								<li><a href="#">发布活动</a></li>
 								<li><a href="#">上传照片</a></li>
 								<li><a href="#">修改社团信息</a></li>
 								<li class="divider"></li>
-								<li><a href="#">登出</a></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
 							</ul>
 						</li>
-					</ul>
+					</ul><?php endif; ?>
 				</div><!-- /.nav-collapse -->
 			</div>
 		</div>

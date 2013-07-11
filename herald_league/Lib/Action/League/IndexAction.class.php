@@ -24,6 +24,12 @@ class IndexAction extends Action{
 		$this -> display();
 	}
 	public function album(){
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
+		$this -> getAlbumInfo();
 		$this -> display();
 	}
 	private function getLeagueInfo(){
@@ -65,7 +71,6 @@ class IndexAction extends Action{
 	private function getCommentInfo(){
 		$CommentInfo = D('CommentInfo');
 		$commentinfo = $CommentInfo -> getLeagueCommentInfoById($this -> leagueid);
-		//print_r($commentinfo);
 		$this -> assign('commentinfo', $commentinfo);
 	}
 	private function getLeagueList(){
@@ -82,5 +87,12 @@ class IndexAction extends Action{
 		$LeagueInfo = D('LeagueInfo');
 		$attentionrank = $LeagueInfo -> getAttentionLeagueRankInfo();
 		$this -> assign('attentionrank', $attentionrank);
+	}
+	private function getAlbumInfo(){
+		$AlbumInfo = D('LeagueAlbum');
+		$LeagueInfo = D('LeagueInfo');
+		$albuminfo = $AlbumInfo -> getAlbumInfoByLeagueIdWithoutPage($this -> leagueid);
+		$this -> leaguename = $LeagueInfo -> getLeagueNameById($this -> leagueid);
+		$this -> assign('albuminfo',$albuminfo);
 	}
 }

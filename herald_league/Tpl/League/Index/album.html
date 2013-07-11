@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>Album</title>
+        <title>先声网-{$leaguename}相册</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="Polaroid Photobar Gallery" />
         <meta name="keywords" content="polaroid, jquery, css3, rotation, image gallery"/>
@@ -38,7 +38,7 @@
     </head>
 
     <body>
-		<h1>XXX相册</h1>
+		<h1>{$leaguename}</h1>
 		
 		<div id="pp_gallery" class="pp_gallery">
 			
@@ -46,88 +46,19 @@
 			<div id="pp_next" class="pp_next"></div>
 			<div id="pp_prev" class="pp_prev"></div>
 			<div id="pp_thumbContainer">
-
+				<volist name="albuminfo" id="va">
 				<div class="album">
+					<volist name="va.picture" id="vp">
 					<div class="content">
-						<img src="__Public__/Images/images/album1/thumbs/1.jpg" alt="__Public__/Images/images/album1/1.jpg" />
-						<span>The Sixties by Tetsumo</span>
+						<img src="__Uploads__/LeagueAlbum/s_{$vp.address}" alt="__Uploads__/LeagueAlbum/l_{$vp.address}" />
+						<span>{$vp.name}</span>
 					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album1/thumbs/2.jpg" alt="__Public__/Images/images/album1/2.jpg" />
-						<span>The Sixties by Tetsumo</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album1/thumbs/3.jpg" alt="__Public__/Images/images/album1/3.jpg" />
-						<span>The Sixties by Tetsumo</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album1/thumbs/4.jpg" alt="__Public__/Images/images/album1/4.jpg" />
-						<span>The Sixties by Tetsumo</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album1/thumbs/5.jpg" alt="__Public__/Images/images/album1/5.jpg" />
-						<span>The Sixties by Tetsumo</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album1/thumbs/6.jpg" alt="__Public__/Images/images/album1/6.jpg" />
-						<span>The Sixties by Tetsumo</span>
-					</div>
+					</volist>
 					<div class="descr">
-						招新
+						{$va.name}
 					</div>
 				</div>
-
-				<div class="album">
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/1.jpg" alt="__Public__/Images/images/album2/1.jpg" />
-						<span>Butterfly Girl</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/2.jpg" alt="__Public__/Images/images/album2/2.jpg" />
-						<span>Mmmmmmh Strawberries</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/3.jpg" alt="__Public__/Images/images/album2/3.jpg" />
-						<span>Polaroid in Picture</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/4.jpg" alt="__Public__/Images/images/album2/4.jpg" />
-						<span>Girl with brown hair</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/5.jpg" alt="__Public__/Images/images/album2/5.jpg" />
-						<span>Hair up</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/6.jpg" alt="__Public__/Images/images/album2/6.jpg" />
-						<span>Smiling Girl</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/6.jpg" alt="__Public__/Images/images/album2/6.jpg" />
-						<span>Smiling Girl</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/6.jpg" alt="__Public__/Images/images/album2/6.jpg" />
-						<span>Smiling Girl</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/6.jpg" alt="__Public__/Images/images/album2/6.jpg" />
-						<span>Smiling Girl</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/thumbs/6.jpg" alt="__Public__/Images/images/album2/6.jpg" />
-						<span>Smiling Girl</span>
-					</div>
-					<div class="content">
-						<img src="__Public__/Images/images/album2/5.jpg" alt="__Public__/Images/images/album2/6.jpg" />
-						<span>Smiling Girl</span>
-					</div>
-
-					<div class="descr">
-						晚会
-					</div>
-				</div>
-
+				</volist>
 				<div id="pp_back" class="pp_back">Albums</div>
 			</div>
 		</div>
