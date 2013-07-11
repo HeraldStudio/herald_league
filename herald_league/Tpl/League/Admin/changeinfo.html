@@ -17,30 +17,13 @@
 		<script src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script src="__Public__/Js/bootstrap/bootstrap.min.js"></script>
 		<script type="text/javascript">
+		window.UEDITOR_HOME_URL = "__Public__/Ueditor/";    //UEDITOR_HOME_URL、config、all这三个顺序不能改变(绝对路径)
+ 		</script>
+ 		<load href="__Public__/Ueditor/ueditor.config.js" />
+ 		<load href="__Public__/Ueditor/ueditor.all.min.js" />
+
+		<script type="text/javascript">
 		
-		/////文本编辑器
-		var editor, editor2;
-			KindEditor.ready(function(K) {
-				editor = K.create('textarea[name="member"]', {
-					resizeType : 1,
-					allowPreviewEmoticons : false,
-					allowImageUpload : false,
-					items : [
-						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-				});
-				editor2 = K.create('textarea[name="introduce"]', {
-					resizeType : 1,
-					allowPreviewEmoticons : false,
-					allowImageUpload : false,
-					items : [
-						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-				});
-			});
-	
 		function mycheck(){
 			var groupname=document.getElementById("groupName");
 			var grouimg=document.getElementById("groupImg");
@@ -137,17 +120,37 @@
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupIntro" class="control-label">社团介绍：</label>
 											<div class="controls">
-												<textarea name="introduce" style="width:500px;height:150px;visibility:hidden;">{$leagueintro}</textarea>
+												<script type="text/plain" id="introduce" name="introduce"></script>
 											</div>
 										</div>
 										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label for="groupMum" class="control-label">社团成员：</label>
 											<div class="controls">
-												<textarea name="member" style="width:500px;height:150px;visibility:hidden;">{$member}</textarea>
+												<script type="text/plain" id="member" name="member"></script>
+												<script type="text/javascript">
+												$(function(){
+												    var introduce, member;
+												    var options = {
+												        initialFrameWidth:700,        //初化宽度
+												        initialFrameHeight:300,        //初化高度
+												        focus:false,                        //初始化时，是否让编辑器获得焦点true或false
+												        maximumWords:1000,        //允许的最大字符数
+												    };
+												    introduce = new UE.ui.Editor(options);
+												    member = new UE.ui.Editor(options);
+												    introduce.render("introduce");
+												    introduce.ready(function(){
+												        introduce.setContent('{$leagueintro|htmlspecialchars_decode}');     //加载数据库Action.class.PHP传过来的值
+												    });
+												    member.render("member");
+												    member.ready(function(){
+												        member.setContent('{$member|htmlspecialchars_decode}');     //加载数据库Action.class.PHP传过来的值
+												    });
+												 });    
+												 </script>
 											</div>
 										</div>
-										
 										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
 											<label class="control-label">联系方式：</label>
 											<div class="controls">

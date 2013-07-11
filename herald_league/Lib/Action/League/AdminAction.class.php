@@ -2,7 +2,7 @@
 class AdminAction extends Action{
 	public function changeinfo(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
-		if($this -> leagueid < 0){
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
@@ -19,6 +19,19 @@ class AdminAction extends Action{
 		$this -> display();
 	}
 	public function addactivity(){
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
+
+		$this -> getActivityClassList();
+		$this -> time = date("Y-m-d H:i");
+
+		if(!empty($_POST)){
+			$this -> addActivityData();
+		}
+
 		$this -> display();
 	}
 	private function getLeagueInfo(){
@@ -31,12 +44,16 @@ class AdminAction extends Action{
 		$this -> place = $leagueinfo['place'];
 		$this -> email = $leagueinfo['email'];
 		$this -> avatr = $leagueinfo['avatar_address'];
-		//$this -> assign('leagueinfo', $leagueinfo);
 	}
 	private function getLeagueClassList(){
 		$LeagueClass = D('LeagueClass');
 		$leagueclasslist = $LeagueClass -> getLeagueClassInfo();
 		$this -> assign('leagueclasslist', $leagueclasslist);
+	}
+	private function getActivityClassList(){
+		$ActivityClass = D('ActivityClass');
+		$activityclasslist = $ActivityClass -> getClassList();
+		$this -> assign('activityclasslist', $activityclasslist);
 	}
 	private function updateLeagueInfo(){
 		$LeagueClass = D('LeagueClass');
@@ -50,5 +67,20 @@ class AdminAction extends Action{
 		$adddata['place'] = $this -> _param('place');
 		$adddata['class'] = $LeagueClass -> getClassId($this -> _param('leagueclass'));
 		$LeagueInfo -> updateLeagueInfo($adddata,$this -> _param('leagueid'));
+	}
+	private function addActivityData(){
+		$ActivityInfo = D('ActivityInfo');
+
+		$adddata['name'] = $this -> _param('activityname');
+		$adddata['league_id'] = $this -> _param('leagueid');
+		$adddata['start_time'] = $this -> _param('starttime');
+		$adddata['end_time'] = $this -> _param('endtime');
+		$adddata['class'] = $this -> _param('activityclass');
+		$adddata['place'] = $this -> _param('activityplace');
+		$adddata['connect_info'] = $this -> _param('connectinfo');
+		$adddata['release_time'] = date("Y-m-d H:i");
+		$adddata['introduction'] = $this -> _param('activityinfo');
+
+		$ActivityInfo -> addActivityInfo($adddata);
 	}
 }

@@ -16,6 +16,12 @@ class AttentionActivityModel extends Model{
 	 *
 	 * */
 	public function getAttentionActivityById($activityid){
-		$this -> where('activity_id='.$activityid) -> select();
+		$attentionactivity = $this -> where('activity_id='.$activityid) -> select();
+		$User = D('User');
+		foreach($attentionactivity as $key => $attentionactivitys){
+			$attentionactivity[$key]['user_true_name'] = $User -> getUserNameById($attentionactivitys['user_id']);
+			$attentionactivity[$key]['avatar_address'] = $User -> getUserAvatarAddressByid($attentionactivitys['user_id']);
+		}
+		return $attentionactivity;
 	}
 }

@@ -15,15 +15,20 @@ class ActivityInfoModel extends Model{
 	 *
 	 * */
 	public function getAllActivityInfo(){
-		$activityinfo = $this -> limit(ACTIVITY_NUM) -> select();
+		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> select();
 		return $this -> getActivityLeague($activityinfo);
+	}
+	public function getActivityInfoById($activityid){
+		return $this -> where('id='.$activityid) -> find();
+	}
+	public function getMoreActivityInfo($lastactivityid){
+		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> where('id<'.$lastactivityid)-> select();
+		return $activityinfo = $this -> getActivityLeague($activityinfo);
 	}
 	public function getActivityInfoByLeagueId($leagueid){
 
 		$activityinfo = $this -> where('league_id='.$leagueid) -> select();
 		return $this -> getActivityLeague($activityinfo);
-	}
-	public function getAllActivityInfoWithAttention(){
 	}
 	private function getActivityLeague($activityinfo){
 		$leagueinfo = D('LeagueInfo');
@@ -31,5 +36,8 @@ class ActivityInfoModel extends Model{
 			$activityinfo[$key]['league_name'] = $leagueinfo -> getLeagueNameById($activityinfos['league_id']);
 		}
 		return $activityinfo;
+	}
+	public function addActivityInfo($data){
+		return $this -> add($data);
 	}
 }
