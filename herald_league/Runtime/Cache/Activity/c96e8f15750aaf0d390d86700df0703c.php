@@ -148,6 +148,7 @@
 						data:'leagueid='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
 						success:function(data){
 							alert(data);
+							//document.write(data);
 						}
 					});
 				}
