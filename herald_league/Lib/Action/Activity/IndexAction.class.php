@@ -23,10 +23,6 @@ class IndexAction extends Action {
 		$ActivityInfo = D('ActivityInfo');
 		return $ActivityInfo -> getAllActivityInfo();
 	}
-	// public function leagueList(){
-	// 	$LeagueInfo = D('LeagueInfo');
-	// 	return $LeagueInfo -> getLeaguePartInfo();
-	// }
 	public function leagueLogin(){
 		$leagueid = $this -> _param('leagueid');
 		$password = $this ->_param('password');
@@ -62,6 +58,27 @@ class IndexAction extends Action {
 			$this -> loginuserid = $loginuserinfo[0];
 		}else{
 			$this -> loginuser = false;
+		}
+	}
+	public function getMoreActivity(){
+		if($this -> isPost()){
+			$ActivityInfo = D('ActivityInfo');
+			$lastactivity = $ActivityInfo -> getMoreActivityInfo($this -> _param('lastactivityid'));
+			echo json_encode($lastactivity);
+		}else{
+			echo "非法请求";
+		}
+	}
+	public function getActivityAttention(){
+		if($this -> isPost()){
+			$result = array();
+			$AttentionActivity = D('AttentionActivity');
+			$result['attentioninfo'] = $AttentionActivity -> getAttentionActivityById($this -> _param('activityid'));
+			$ActivityInfo = D('ActivityInfo');
+			$result['activityinfo'] = $ActivityInfo -> getActivityInfoById($this -> _param('activityid'));
+			echo json_encode($result);
+		}else{
+			echo "非法请求";
 		}
 	}
 }
