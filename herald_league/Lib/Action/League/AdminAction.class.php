@@ -6,16 +6,30 @@ class AdminAction extends Action{
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
-
-		$this -> getLeagueInfo();
-		$this -> getLeagueClassList();
-		if(!empty($_POST)){
-			$this -> updateLeagueInfo();
+		$LeagueSession = D('LeagueSession');
+		if($LeagueSession -> hasLeagueLogin()){
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			if($loginuserinfo[0] == $this -> leagueid){
+				$this -> getLeagueInfo();
+				$this -> getLeagueClassList();
+				if(!empty($_POST)){
+					$this -> updateLeagueInfo();
+				}
+				$this -> display();
+			}else{
+				echo "quanxianbuzu";
+			}
+		}else{
+				echo "quanxianbuzu";
 		}
-
-		$this -> display();
 	}
 	public function addalbum(){
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
+
 		$this -> display();
 	}
 	public function addactivity(){
@@ -24,15 +38,23 @@ class AdminAction extends Action{
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
+		$LeagueSession = D('LeagueSession');
+		if($LeagueSession -> hasLeagueLogin()){
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			if($loginuserinfo[0] == $this -> leagueid){
+				$this -> getActivityClassList();
+				$this -> time = date("Y-m-d H:i");
 
-		$this -> getActivityClassList();
-		$this -> time = date("Y-m-d H:i");
-
-		if(!empty($_POST)){
-			$this -> addActivityData();
+				if(!empty($_POST)){
+					$this -> addActivityData();
+				}
+				$this -> display();
+			}else{
+				echo "quanxianbuzu";
+			}
+		}else{
+				echo "quanxianbuzu";
 		}
-
-		$this -> display();
 	}
 	private function getLeagueInfo(){
 		$LeagueInfo = D('LeagueInfo');
