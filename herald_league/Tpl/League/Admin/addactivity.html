@@ -14,9 +14,6 @@
 			border-bottom-style:dashed;
 			border-bottom-color:#D3D3D3;
 		}
-		.votelab{
-			margin-bottom:5px;
-		}
 		
 	</style>
 	<script src="__Public__/Js/bootstrap/jquery.js"></script>
@@ -46,214 +43,166 @@
 		function mycheck(){
 			var actname=document.getElementById("actName");
 			var actplace=document.getElementById("actPlace");
-			var actbegin=document.getElementById("actBegin");
-			var actend=document.getElementById("actEnd");
-			var beginHour=document.getElementById("beginhour");
-			var beginMin=document.getElementById("beginmin");
-			var endHour=document.getElementById("endhour");
-			var endMin=document.getElementById("endmin");
-			
-			
+			var acttel=document.getElementById("actTel");
+			var actinfo=document.getElementById("activityinfo");
+
 			if(actname.value==""){
-				alert("活动名称不能为空。");
+				alert("要写活动名称哦~~");
 			}
 			else if(actplace.value==""){
-				alert("活动地点不能为空。");
+				alert("不要忘了活动地点啊~~");
 			}
-			else if(actbegin.value==""){
-				alert("活动开始时间不能为空。");
+			else if(acttel.value==""){
+				alert("记得填写联系方式哟~~");
 			}
-			else if(actend.value==""){
-				alert("活动结束时间不能为空。");
+			else if(actinfo.value==""){
+				alert("活动详细信息很重要呀~~");
 			}
-			else if(beginHour.value==""){
-				alert("具体开始时间不能为空。");
-			}
-			else if(beginMin.value==""){
-				alert("具体开始时间不能为空。");
-			}
-			else if(endHour.value==""){
-				alert("具体结束时间不能为空。");
-			}
-			else if(endMin.value==""){
-				alert("具体结束时间不能为空。");
-			}
+			
+		}
+
+		var count=1;
+		function addvote()
+		{ 
+			count=count+1;
+			var newNode = document.createElement();
+			newNode.innerHTML = "<div class='controls'>" + count + ".<input type='text' class='input-xlarge' style='margin-bottom:10px;'> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type='file' id='imgFile'>"; 
+			var oldNode = document.getElementById("votes"); 
+			oldNode.appendChild(newNode); 
 		}
 	</script>
   </head>
   
-	<body>
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span2"></div>
-						
-				<div class="span8">
-					<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">社团活动信息发布</h3>
-					<div class="row-fluid">
-						<div class="span9">
-							<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" method="post" action="">
-								<fieldset>
-									
-									
-									
-									<div class="control-group formSep formborder">
-										<label for="actName" class="control-label">活动名称：</label>
-										<div class="controls">
-											<input type="text" id="actName" class="input-xlarge" name="activityname" value="">
-										</div>
-									</div>
-									
-									<div class="control-group formSep formborder">
-									<input type="hidden" name="leagueid" value="{$leagueid}"/>
-									</div>
-									
-									
-									<div class="control-group formSep formborder" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-										<label for="actBegin" class="control-label">开始时间：</label>
-										<div class="controls">
-											<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="starttime">
-											<script type="text/javascript">
-												$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-											</script>
-										</div>
-										
-									</div>
-									
-									<div class="control-group formSep formborder">
-										<label for="actEnd" class="control-label">结束时间：</label>
-										<div class="controls">
-											<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="endtime">
-											<script type="text/javascript">
-												$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-											</script>
-										</div>
-									</div>
-									
-									<div class="control-group formSet">
-										<label for="fileinput" class="control-label">活动宣传图片：</label>
-										<div class="controls">
-											<div data-fileupload="image" class="fileupload fileupload-new">
-												<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
-													<img src="../../www.placehold.it/80x80/EFEFEF/AAAAAA" alt="">
-												</div>
-												
-												<input type="file" id="imgFile">
-												
-											</div>
-										</div>
-									</div>
-									
-									<div class="control-group formSep formborder">
-										<label for="actName" class="control-label">活动类型：</label>
-										<div class="controls">
-											<select id="activityclass" name="activityclass">
-												<volist name="activityclasslist" id="vacl">
-													<option>{$vacl.class}</option>
-												</volist>
-											</select>	
-										</div>
-									</div>
-									
-									<div class="control-group formSep formborder">
-										<label for="actPlace" class="control-label">活动地点：</label>
-										<div class="controls">
-											<input type="text" id="actPlace" class="input-xlarge" name="activityplace" value="">
-										</div>
-									</div>
-									
-
-									
-									<div class="control-group formSep formborder">
-										<label for="actPlace" class="control-label">联系方式：</label>
-										<div class="controls">
-											<input type="text" id="actTel" class="input-xlarge" name="connectinfo" value="">
-										</div>
-									</div>
-									
-									<div class="control-group formSep formborder">
-										<label for="actInfo" class="control-label">详细信息：</label>
-										<div class="controls">
-											<script type="text/plain" id="activityinfo" name="activityinfo"></script>
-												<script type="text/javascript">
-												$(function(){
-												    var activityinfo;
-												    var options = {
-												        initialFrameWidth:700,        //初化宽度
-												        initialFrameHeight:300,        //初化高度
-												        focus:false,                        //初始化时，是否让编辑器获得焦点true或false
-												        maximumWords:1000,        //允许的最大字符数
-												    };
-												    activityinfo = new UE.ui.Editor(options);
-												    activityinfo = new UE.ui.Editor(options);
-												    activityinfo.render("activityinfo");
-												    activityinfo.ready(function(){
-												        activityinfo.setContent('{$leagueintro|htmlspecialchars_decode}');     //加载数据库Action.class.PHP传过来的值
-													});
-												 });    
-												 </script>
-										</div>
-									</div>
-									
-									<div class="control-group formSep formborder" id="vote" style="display:none;">
-										<label for="actPlace" class="control-label">投票：</label>
-										<div class="controls">
-											主题：<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										
-										<div class="controls">
-											<label class="radio inline">
-												<input type="radio" name="radios" id="radio1" value="option1">单选
-											</label>
-											<label class="radio inline">
-												<input type="radio" name="radios" id="radio2" value="option2">多选
-											</label>
-										</div>
-										
-										<div class="controls votelab">
-											1.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										<div class="controls votelab">
-											2.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										<div class="controls votelab">
-											3.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										<div class="controls votelab">
-											4.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										<div class="controls votelab">
-											5.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										<div class="controls votelab">
-											6.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										<div class="controls votelab">
-											7.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										<div class="controls votelab">
-											8.<input type="text" id="" class="input-xlarge" value="">
-										</div>
-										
-										
-									</div>
-									
-									<div class="control-group">
-										<div class="controls">
-											<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>	
-										</div>	
-									</div>
-									
-									
-								</fieldset>
-							</form>	
-							<button class="btn btn-info" style="position:relative; top:-71px; left:300px;">取消</button>
-							<button class="btn btn-info" id="votebut" onclick="myclick()" style="position:relative; top:-71px; left:400px;">发起投票</button>
+<body>
+	<div class="row-fluid">
+		<div class="span1"></div>
+		<div class="span8">
+			<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">社团活动信息发布</h3>
+			<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" method="post" action="">
+				<fieldset>
+					<div class="control-group formSep formborder">
+						<label for="actName" class="control-label">活动名称：</label>
+						<div class="controls">
+							<input type="text" id="actName" class="input-xlarge" name="activityname" value="">
 						</div>
 					</div>
-				</div>
-		
-				<div class="span2"></div>
-			</div>
+
+					<div class="control-group formSep formborder" >
+						<label for="actBegin" class="control-label">开始时间：</label>
+						<div class="controls">
+							<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="starttime"/>
+						</div>
+					</div>
+
+					<div class="control-group formSep formborder">
+						<label for="actEnd" class="control-label">结束时间：</label>
+						<div class="controls">
+							<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="endtime"/>
+						</div>
+					</div>
+
+					<div class="control-group formSet">
+						<label for="fileinput" class="control-label">活动宣传图片：</label>
+						<div class="controls">
+							<div data-fileupload="image" class="fileupload fileupload-new">
+								<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
+									<img src="../../www.placehold.it/80x80/EFEFEF/AAAAAA" alt="">
+								</div>
+								
+								<input type="file" id="imgFile">
+								
+							</div>
+						</div>
+					</div>
+									
+					<div class="control-group formSep formborder">
+						<label for="actName" class="control-label">活动类型：</label>
+						<div class="controls">
+							<select id="activityclass" name="activityclass">
+								<volist name="activityclasslist" id="vacl">
+									<option>{$vacl.class}</option>
+								</volist>
+							</select>	
+						</div>
+					</div>
+									
+					<div class="control-group formSep formborder">
+						<label for="actPlace" class="control-label">活动地点：</label>
+						<div class="controls">
+							<input type="text" id="actPlace" class="input-xlarge" name="activityplace" value="">
+						</div>
+					</div>
+				
+					<div class="control-group formSep formborder">
+						<label for="actPlace" class="control-label">联系方式：</label>
+						<div class="controls">
+							<input type="text" id="actTel" class="input-xlarge" name="connectinfo" value="">
+						</div>
+					</div>
+									
+					<div class="control-group formSep formborder">
+						<label for="actInfo" class="control-label">详细信息：</label>
+						<div class="controls">
+							<script type="text/plain" id="activityinfo" name="activityinfo"></script>
+								<script type="text/javascript">
+								$(function(){
+									var activityinfo;
+									var options = {
+										initialFrameWidth:700,        //初化宽度
+										initialFrameHeight:300,        //初化高度
+										focus:false,                        //初始化时，是否让编辑器获得焦点true或false
+										maximumWords:1000,        //允许的最大字符数
+									};
+									activityinfo = new UE.ui.Editor(options);
+									activityinfo = new UE.ui.Editor(options);
+									activityinfo.render("activityinfo");
+									activityinfo.ready(function(){
+										activityinfo.setContent('{$leagueintro|htmlspecialchars_decode}');     //加载数据库Action.class.PHP传过来的值
+									});
+								 });    
+								 </script>
+						</div>
+					</div>
+									
+					<div class="control-group formSep formborder" id="vote" style="display:none;">
+						<label for="actPlace" class="control-label">投票：</label>
+						<div class="controls">
+							主题：<input type="text" id="" class="input-xlarge" value="">
+						</div>
+						
+						<div class="controls">
+							<label class="radio inline">
+								<input type="radio" name="radios" id="radio1" value="option1">单选
+							</label>
+							<label class="radio inline">
+								<input type="radio" name="radios" id="radio2" value="option2">多选
+							</label>
+						</div>
+						<div id="votes">
+							<div class="controls" id="vote1" style="margin-bottom:10px;">
+								1.<input type="text" id="" class="input-xlarge" value="">&nbsp附加图片<input type="file" id="imgFile">
+							</div>
+						</div>
+					</div>
+									
+					<div class="control-group">
+						<div class="controls">
+							<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>	
+						</div>	
+					</div>
+									
+				</fieldset>
+			</form>	
+			
+			<button class="btn btn-info" style="position:relative; top:-71px; left:300px;">取消</button>
+			<button class="btn btn-info" id="votebut" onclick="myclick()" style="position:relative; top:-71px; left:400px;">发起投票</button>
+			<button class="btn btn-info" style="position:relative; top:-140px; left:650px;" onclick="addvote()">增加选项</button>
+					
 		</div>
-	</body>
+		<div class="span3"></div>
+	</div>
+	<script type="text/javascript">
+		$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+	</script>
+</body>
 </html>
