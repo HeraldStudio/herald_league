@@ -12,4 +12,12 @@ class AttentionLeagueModel extends Model{
 	public function getAttentionRank(){
 		return $this -> query("select `league_id`, count(*) from `lg_attention_league` group by `league_id`");
 	}
+	public function addAttentionLeague($data){
+		if($this -> where($data) -> select()){
+			return "alreadyattention";
+		}else{
+			$this -> add($data);
+			return "attentionsuccess";
+		}
+	}
 }

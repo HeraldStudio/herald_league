@@ -81,4 +81,40 @@ class IndexAction extends Action {
 			echo "非法请求";
 		}
 	}
+	public function attentionactivity(){
+		if($this -> isPost()){
+			$UserSession = D('Session');
+			if($UserSession -> hasUserLogin()){
+				$userinfo = $UserSession -> hasUserLogin();	
+				$data['user_id'] = $userinfo[0];
+ 			}
+			if(!empty($data)){
+				$data['activity_id'] = $this -> _param('activityid');
+				$AttentionActivity  = D('AttentionActivity');
+				echo $AttentionActivity -> addattentionactivity($data);
+			}else{
+				echo "Please Login as nomal user";
+			}
+		}else{
+			echo "非法请求";
+		}
+	}
+	public function attentionleague(){
+		if($this -> isPost()){
+			$UserSession = D('Session');
+			if($UserSession -> hasUserLogin()){
+				$userinfo = $UserSession -> hasUserLogin();	
+				$data['user_id'] = $userinfo[0];
+ 			}
+			if(!empty($data)){
+				$data['league_id'] = $this -> _param('leagueid');
+				$AttentionLeague  = D('AttentionLeague');
+				echo $AttentionLeague -> addAttentionLeague($data);
+			}else{
+				echo "Please Login as nomal user";
+			}
+		}else{
+			echo "非法请求";
+		}
+	}
 }

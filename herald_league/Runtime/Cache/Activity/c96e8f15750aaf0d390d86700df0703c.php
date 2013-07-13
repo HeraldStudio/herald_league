@@ -77,7 +77,7 @@
 	<!-- flexslider -->
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/flexslider.css">
 	<script src="__Public__/Js/kuxuan/jquery.flexslider.js"></script>
-	
+	<script src="__Public__/Js/attention.js"></script>
 	<style>
 		.fixed-left{
 			position: fixed;
@@ -230,7 +230,7 @@
 					</form>
 					<ul class="nav">
 						<li class="active"><a href="#">平台首页</a></li>
-						<li><a href="#">社团列表</a></li>
+						<li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
 						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
@@ -246,6 +246,7 @@
 								<li><a href="#">其他<p class="new-message-single">33</p></a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
+								<input type="hidden" id="loginuserid" value="<?php echo ($loginuserid); ?>"/>
 							</ul>
 						</li>
 					</ul>
@@ -254,7 +255,7 @@
                          <li class="dropdown" >
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
 							<b class="caret"></b> </a>
-                             <ul class="dropdown-menu">
+                             <ul class="dropdown-menu">		
 								<li><a href="./index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 								<li><a href="#">上传照片</a></li>
 								<li><a href="./index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
@@ -287,10 +288,10 @@
 					<figcaption>
 						<div class="heading">
 							<a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
-							<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+							<a href="javascript:void(0);" title="关注此活动" class="attentionactivity"><img src="__Public__/Images/attention.png"/></a>
 						</div>
-						<p>主办方：<a href="#" class="leaguename"><?php echo ($vai["league_name"]); ?></a>
-							<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
+						<p>主办方：<a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vai["league_id"]); ?>" class="leaguename" id="<?php echo ($vai["league_id"]); ?>"><?php echo ($vai["league_name"]); ?></a>
+							<a href="javascript:void(0);" title="关注此社团" class="attentionleague"><img src="__Public__/Images/attention-small.png"/></a>
 						</p><br>
 						<p>时间：<span id="time"><?php echo ($vai["start_time"]); ?></span></p><br>
 						<p>地点：<span id="place"><?php echo ($vai["place"]); ?></span></p>
@@ -342,7 +343,7 @@
 				<div class="act-info"><i class="icon-home"></i>地点：<sapn id="model_place"></span></div>
 				<div class="act-info"><i class="icon-envelope"></i>联系方式：<span id="connectinfo"></span></div>
 				<div class="act-info-para" id="introduction">
-				</div>
+				</div>`
 				<div class="act-info-pic">
 					<img src="" id="actpost"/>
 				</div>

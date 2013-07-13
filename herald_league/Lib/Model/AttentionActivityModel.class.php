@@ -24,4 +24,12 @@ class AttentionActivityModel extends Model{
 		}
 		return $attentionactivity;
 	}
+	public function addAttentionActivity($data){
+		if($this -> where($data) -> select()){
+			return "alreadyattention";
+		}else{
+			$this -> add($data);
+			return "attentionsuccess";
+		}
+	}
 }
