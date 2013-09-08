@@ -89,6 +89,8 @@ jQuery(document).ready(function($) {
 			resizable: false,
 			animationEngine: 'jquery'
 		});
+		
+		
 	});
 	
 	// filter buttons
