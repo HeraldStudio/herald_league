@@ -496,13 +496,13 @@ $(document).ready(function(){
 			<div id="menu3">
 				<div style="height:97px; width:175px;">
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-						<li><a tabindex="-1" href="#">那个什么</a></li>
-						<li><a tabindex="-1" href="#">那个什么</a></li>
-						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">东大之声</a></li>
+						<li><a tabindex="-1" href="#">东大文苑</a></li>
+						<li><a tabindex="-1" href="#">先声知道</a></li>
 					</ul>
 				</div>
 			</div>
-			<div id="Msg3"><p class="text-center">那个什么</p></div>
+			<div id="Msg3"><p class="text-center">东大信息</p></div>
 		</div>
 		
 		<div class="move" id="fix4">
