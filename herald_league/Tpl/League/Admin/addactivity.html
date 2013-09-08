@@ -6,25 +6,7 @@
     <!-- Bootstrap -->
     <link href="__Public__/Css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/datetimepicker.css" rel="stylesheet" media="screen">
-	<style type="text/css">
-		.formborder{
-			padding-bottom:10px;
-			margin-bottom:10px;
-			border-bottom-width:1px;
-			border-bottom-style:dashed;
-			border-bottom-color:#D3D3D3;
-		}
-		.spform{
-			width:500px;
-		}
-		#actPic{
-			position:absolute;
-			left:700px;
-			top:80px;
-		
-		}
-		
-	</style>
+	<link href="__Public__/Css/bootstrap/addactivity.css" rel="stylesheet" media="screen">
 	<script src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.min.js"></script>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-datetimepicker.js" charset="UTF-8"></script>
@@ -35,68 +17,15 @@
 	</script>
 	<load href="__Public__/Ueditor/ueditor.config.js" />
 	<load href="__Public__/Ueditor/ueditor.all.min.js" />
-	<script type="text/javascript">
-		var ifvote=false;
-		function myclick(){
-			if(ifvote==false){
-				$("#vote").slideToggle("slow");
-				document.getElementById("votebut").innerHTML="收起投票";
-				ifvote=true;
-			}else{
-				$("#vote").slideToggle("slow");
-				document.getElementById("votebut").innerHTML="发起投票";
-				ifvote=false;
-			}
-		}
-		
-		function mycheck(){
-			var actname=document.getElementById("actName");
-			var actplace=document.getElementById("actPlace");
-			var acttel=document.getElementById("actTel");
-			var actinfo=document.getElementById("activityinfo");
-
-			if(actname.value==""){
-				alert("要写活动名称哦~~");
-			}
-			else if(actplace.value==""){
-				alert("不要忘了活动地点啊~~");
-			}
-			else if(acttel.value==""){
-				alert("记得填写联系方式哟~~");
-			}
-			else if(actinfo.value==""){
-				alert("活动详细信息很重要呀~~");
-			}
-			
-		}
-
-		var count=1;
-		function delvote()
-		{
-			var pNode = document.getElementById("votes"); 
-			var delNode=document.getElementById("vote1"); 
-			pNode.removeChild(delNode);
-		}
-		function addvote()
-		{ 
-			count=count+1;
-			var newNode = document.createElement();
-			newNode.innerHTML = "<div class='controls' id='vote"+count+"'>" + count + ".<input type='text' class='input-xlarge' style='margin-bottom:10px;'/> "+
-				"&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  "+
-				"&nbsp &nbsp &nbsp &nbsp<input type='file' /></div>"; 
-			var parentNode = document.getElementById("votes"); 
-			parentNode.appendChild(newNode); 
-		}
-
-	</script>
+	<script type="text/javascript" src="__Public__/Js/bootstrap/addactivity.js" charset="UTF-8"></script>
   </head>
   
 <body>
 	<div class="row-fluid">
 		<div class="span1"></div>
 		<div class="span8">
-			<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">社团活动信息发布</h3>
-			<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" method="post" action="">
+			<h3 id="mainTitle">社团活动信息发布</h3>
+			<form class="form-horizontal" method="post" action="">
 				<fieldset>
 					<div class="control-group formSep formborder spform">
 						<label for="actName" class="control-label">活动名称：</label>
@@ -198,10 +127,11 @@
 				</fieldset>
 			</form>	
 			
-			<button class="btn btn-info" style="position:relative; top:-71px; left:300px;">取消</button>
-			<button class="btn btn-info" id="votebut" onclick="myclick()" style="position:relative; top:-71px; left:400px;">发起投票</button>
-			<button class="btn btn-info" style="position:relative; top:-140px; left:650px;" onclick="addvote()">增加选项</button>
-				
+			<button class="btn btn-info" id="cancel">取消</button>
+			<button class="btn btn-info" id="voteBut" onclick="myclick()">发起投票</button>
+			<button class="btn btn-info" id="addVote" onclick="addvote()">增加选项</button>
+			<!-- 删除按钮 -->
+			<button class="btn btn-warning" id="removeVote" onclick='delvote()'>删除选项</button>
 
 			<div id="actPic">
 				<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">添加活动宣传图片</a>	
@@ -215,8 +145,8 @@
 			  </div>
 			  <div class="modal-body">
 				
-					<input type="file" id="fileinput" name="fileinput" />
-				
+					<input type="file" id="fileinput" name="fileinput"><br/>
+					<img src="" style="width:200px; height:200px;">
 				
 				
 				
@@ -228,8 +158,7 @@
 				<button class="btn btn-primary">上传</button>
 			  </div>
 			</div>
-			<!-- 删除按钮 -->
-			<!--<button class='btn btn-warning btn-small' onclick='delvote()'>删除</button>-->
+			<!-- Modal -->
 			
 		</div>
 		<div class="span3"></div>
