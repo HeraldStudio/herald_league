@@ -9,6 +9,16 @@ class CommentInfoModel extends Model{
 		}
 		return $commentinfo;
 	}
+	public function addNewComment($sender, $sender_type, $comment_id, $receiver, $receiver_type, $content){
+		$data['sender'] = $sender;
+		$data['sender_type'] = $sender_type;
+		$data['comment_id'] = $comment_id;
+		$data['receiver'] = $receiver;
+		$data['receiver_type']  = $receiver_type;
+		$data['content'] = $content;
+		$data['comment_time'] = date('Y-m-d H:i:s');
+		$this -> add($data);
+	}
 	private function getCommenterInfo($commenterid, $commentertype){
 		if($commentertype == 1){
 			$LeagueInfo = D('LeagueInfo');

@@ -176,7 +176,7 @@
 	</div>
     <!--header-->
 	
-	<div class="container-fluid"id="main2">
+	<div class="container-fluid" id="main2">
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="row-fluid">
@@ -335,7 +335,7 @@
 									</div>
 									<?php if(is_array($commentinfo)): $i = 0; $__LIST__ = $commentinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vc): $mod = ($i % 2 );++$i;?><div class="thumbnail reply row-fluid span11">		
 									    <div class="span12">
-											<div class="span3 reply_title">
+											<div class="span3 reply_title" id="username_1">
 												<?php echo ($vc["sender_name"]); ?>
 											</div>
 											<div class="span9 reply_title">
@@ -343,14 +343,14 @@
 											</div>
 											<div class="pinglun">
 											    <?php echo ($vc["content"]); ?>
-												<button class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">回复</button>
+												<button id="<?php echo ($vc["id"]); ?>" class="btn btn-success btn-small pull-right btn_replay"  type="submit" name="">回复</button>
 										    </div>
-										    <?php if(is_array($vc["responseinfo"])): $i = 0; $__LIST__ = $vc["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10 reply_r">
+										    <?php if(is_array($vc["responseinfo"])): $i = 0; $__LIST__ = $vc["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10 reply_r" >
 												<div class="span3 reply_title" id="reply_r_p_p"><?php echo ($vr["sender_name"]); ?></div>
 												<div class="span3 reply_title"><?php echo ($vr["comment_time"]); ?></div>
 												<div class="span11">
 												回复<?php echo ($vr["receiver_name"]); ?>：<?php echo ($vr["content"]); ?>	
-												 <button id="reply_btn_r" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
+												 <button id="<?php echo ($vr["id"]); ?>" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div>
 											<?php if(is_array($vr["responseinfo"])): $i = 0; $__LIST__ = $vr["responseinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vrr): $mod = ($i % 2 );++$i;?><div class="pinglun_2 thumbnail span10 reply_r">
@@ -358,21 +358,23 @@
 												<div class="span3 reply_title"><?php echo ($vrr["comment_time"]); ?></div>
 												<div class="span11">
 												回复<?php echo ($vrr["receiver_name"]); ?>：<?php echo ($vrr["content"]); ?>
-												 <button id="reply_btn_r" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
+												 <button id="<?php echo ($vrr["id"]); ?>" class="reply_btn_r btn btn-success btn-small pull-right hide">回复</button>
 										        </div>
 											</div><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 										</div>												
 									</div><?php endforeach; endif; else: echo "" ;endif; ?>
-                                    <form class="autoTxtCount thumbnail row-fluid span11" action="" method="get">
-										<div>
-										   <textarea class="text span12" placeholder="说点什么..." cols="50" id="text1" rows="2"></textarea>
-										</div>
-										<div >
-										<button class="btn btn-danger btn-small pull-right" type="reset">清空</button>
-										<button class="btn btn-success btn-small pull-right"  style="margin-right:10px"id = "submitanswer" type="submit" name="">回复</button>				    
-										<span class="tips"></span>
-										</div>
-									</form>									
+                                    <form class="autoTxtCount thumbnail row-fluid span11" action="<?php echo U('comment');?>" method="post">
+				<div>
+				   <textarea class="text span12" placeholder="说点什么..." cols="50" id="text1" rows="2" name="content"></textarea>
+				</div>
+				<input type="hidden" name="leagueid" value="<?php echo ($leagueid); ?>" />
+				<input type="hidden" name="comment_id" value="" id="comment_id"/>
+				<div >
+				<button class="btn btn-danger btn-small pull-right" type="reset">清空</button>
+				<button class="btn btn-success btn-small pull-right"  style="margin-right:10px" id = "submitanswer" type="submit" name="">回复</button>				    
+				<span class="tips"></span>
+				</div>
+			</form>									
 								</div>
 							</div>
 						</div>
@@ -563,6 +565,7 @@
 	$(".reply_btn_r").click(function(){
                 $("#text1")[0].focus();
                 $("#text1").val("回复"+$.trim($("#reply_r_p_p").html())+" : "); 
+                $("#comment_id").val($(this).attr('id'));
       });
 });
 	</script>
@@ -571,6 +574,7 @@
 	$(".btn_replay").click(function(){
                 $("#text1")[0].focus();
                 $("#text1").val("回复"+$.trim($("#username_1").html())+" : "); 
+                $("#comment_id").val($(this).attr('id'));
       });
 });
 	</script>

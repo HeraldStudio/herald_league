@@ -1,7 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title>先声网-活动信息平台</title>
+    <title>先声网-活动信息平台</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
@@ -340,7 +340,7 @@
 					</a>-->
 				</div>
 				<div class="act-info"><i class="icon-time"></i>时间：<span id="model_time"></span></div>
-				<div class="act-info"><i class="icon-home"></i>地点：<sapn id="model_place"></span></div>
+				<div class="act-info"><i class="icon-home"></i>地点：<span id="model_place"></span></div>
 				<div class="act-info"><i class="icon-envelope"></i>联系方式：<span id="connectinfo"></span></div>
 				<div class="act-info-para" id="introduction">
 				</div>`
