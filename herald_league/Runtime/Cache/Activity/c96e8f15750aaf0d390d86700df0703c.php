@@ -15,6 +15,7 @@
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 	<!-- JS -->
 	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
+	<script src="__Public__/Js/kuxuan/jquery.masonry.min.js"></script>
 	<script src="__Public__/Js/kuxuan/custom.js"></script>
 	<script src="__Public__/Js/kuxuan/tabs.js"></script>
 	<script src="__Public__/Js/kuxuan/css3-mediaqueries.js"></script>
@@ -29,8 +30,6 @@
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/lof-slider.css" media="all"> 
 	<!-- ENDS slider -->
 	
-	<!-- GOOGLE FONTS -->
-	<link href="__Public__/Css/kuxuan/css" rel="stylesheet" type="text/css">
 
 	<!-- Tweet -->
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/jquery.tweet.css" media="all"> 
@@ -62,8 +61,6 @@
 	<link rel="stylesheet" media="screen" href="__Public__/Css/kuxuan/carousel.css"> 
 	<!-- ENDS JCarousel -->
 	
-	<!-- GOOGLE FONTS -->
-	<link href="__Public__/Js/kuxuan/css" rel="stylesheet" type="text/css">
 
 	<!-- modernizr -->
 	<script src="__Public__/Js/kuxuan/modernizr.js"></script>
@@ -133,6 +130,110 @@
 		 }
 	
 	</style>
+ 
+
+
+ <script>
+ $(function(){ 
+	jsonajax();
+ });
+ 
+ function cli(){
+     $("#fl").click();
+ };
+ 
+ $(document).ready(function(){
+    setTimeout("cli()",100);    
+ });
+ 
+ //这里就要进行计算滚动条当前所在的位置了。如果滚动条离最底部还有100px的时候就要进行调用ajax加载数据
+ $(window).scroll(function(){    
+     //此方法是在滚动条滚动时发生的函数
+     // 当滚动到最底部以上100像素时，加载新内容
+     var $doc_height,$s_top,$now_height;
+     $doc_height = $(document).height();        //这里是document的整个高度
+     $s_top = $(this).scrollTop();            //当前滚动条离最顶上多少高度
+     $now_height = $(this).height();            //这里的this 也是就是window对象
+ //if(($doc_height - $s_top - $now_height) < 100) {jsonajax();     $("#fl").click();}  
+ });
+ 
+ 
+ 
+ //做一个ajax方法来请求data.php不断的获取数据
+ var $num = 0;
+ function jsonajax(){
+     
+     $.ajax({
+        // url:'<?php echo U('getMoreActivity');?>',
+         url:'data.php',
+		 type:'POST',
+        // data:'lastactivityid='+$(".activityname:last").attr('id'),
+         data:"num="+$num++,
+		 dataType:'json',
+         success:function(json){
+             if(typeof json == 'object'){
+                 var neirou,$row,iheight,temp_h;
+                 for(var i=0,l=json.length;i<l;i++){
+                     neirou = json[i];    //当前层数据
+                     //找了高度最少的列做添加新内容
+					
+                     iheight  =  -1;
+					 max_height = -1;
+                     $("#filter-container figure").each(function(){
+                         //得到当前li的高度
+                         temp_h = Number($(this).height());
+                         if(iheight == -1 || iheight >temp_h){
+                             iheight = temp_h;
+                             $row = $(this); //此时$row是li对象了
+                         }
+						 if(temp_h > max_height)
+						 {
+							max_height = temp_h;
+						 }
+                     });
+				/*	 var innerhtml = "<figure class=\""+n.class +" isotope-item\" >";
+			                	if(n.post_add){
+									innerhtml += "<a href=\"#\" class=\"thumb\"><img src=\"__Uploads__/ActivityPost/"+n.post_add+"\" alt=\"alt\" /></a>"
+								}
+								innerhtml += "<figcaption><div class=\"heading\"><a data-toggle=\"modal\" href=\"#myModal\"class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
+										"<a data-toggle=\"modal\" href=\"#myModal\" class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
+										"<a href=\"#\" title=\"关注此活动\"><img src=\"__Public__/Images/attention.png\"/></a>"+
+									"</div>"+
+									"<p>主办方：<a href=\"#\">"+n.league_name+"</a>"+
+										"<a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a>"+
+									"</p><br>"+
+									"<p>时间："+n.start_time+"</p><br>"+
+									"<p>地点："+n.place+"</p>"+
+									"<br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/>"+
+								"</figcaption></figure>";     */
+                     $item = $('<div><img src="'+neirou.img+'" border="0" ><br/>'+neirou.title+'</div>').hide();
+                     $row.append($item);				
+                     $item.fadeIn();				
+                }	 
+			 }
+			else
+               {  alert("没有更多了..."); 
+			      $("#getmore").hide();
+			    }			
+         }
+     });
+ }
+ </script>
+
+<script>
+$(document).ready(function(){
+   $("#getmore").click(function(){ 	   
+	jsonajax();	
+   // var sub = document.getElementById("fl"); 
+	//var sub2= document.getElementById("all"); 
+	// setTimeout("jsonajax()",2000);
+    // $('#fl').click();
+	// $("#login").click();
+	setTimeout("cli()",100);
+	})
+  });
+</script>
+
 	<script>
 		$(document).ready(function(){
 			$("#leaguelogin").click(function(){
@@ -163,7 +264,7 @@
 					}
 				});
 			});
-			$("#getmore").click(function(){
+			$("#getmore2").click(function(){		     
 				$.ajax({
 					url:'<?php echo U('getMoreActivity');?>',
 					type:'post',
@@ -190,16 +291,21 @@
 									"<p>地点："+n.place+"</p>"+
 									"<br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/>"+
 								"</figcaption></figure>";
-								$("#filter-container").append(innerhtml);
-                    		});
+								$('#filter-container').append(innerhtml);					
+                    		})							
 						}else{
 							alert("没有更多了");
 						}
+						$('#filter-container').masonry('reload');
+						alert("asd");
 					}
 				});
-			});
+			});			
 		});
 	</script>
+
+	
+	
 </head>
 
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
@@ -216,7 +322,7 @@
 					<?php if($loginuser): else: ?>
 					<ul class="nav pull-right" style="text-decoration:none;">        
                          <li class="dropdown" >
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#"> 登录 
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login"> 登录 
 								<b class="caret"></b></a>
 							<ul class="dropdown-menu" style="min-width:0px;">
 								<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
@@ -271,8 +377,8 @@
 	<div class="container-fluid" >
 		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:100px;" id="celeft">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
-				<li class="active"><a href="#">分类</a></li>
-				<li><a href="#" data-filter="*" class="selected">显示全部</a></li>
+				<li class="active"><a href="#" id="fl">分类</a></li>
+				<li><a href="#" data-filter="*" class="selected" >显示全部</a></li>
 				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li><a href="#" data-filter=".<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>	
 		</div>
@@ -281,26 +387,11 @@
 				<img src="__Public__/Images/no-activity.jpg"></img>
 			</div>
 			<div id="filter-container" class="cf isotope" >
-				<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><figure class="<?php echo ($vai["class"]); ?> isotope-item" >
-				<?php if(!empty($vai["post_add"])): ?><a href="#" class="thumb">
-					<img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" id="activitypost"/>
-				</a><?php endif; ?>
-					<figcaption>
-						<div class="heading">
-							<a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
-							<a href="javascript:void(0);" title="关注此活动" class="attentionactivity"><img src="__Public__/Images/attention.png"/></a>
-						</div>
-						<p>主办方：<a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vai["league_id"]); ?>" class="leaguename" id="<?php echo ($vai["league_id"]); ?>"><?php echo ($vai["league_name"]); ?></a>
-							<a href="javascript:void(0);" title="关注此社团" class="attentionleague"><img src="__Public__/Images/attention-small.png"/></a>
-						</p><br>
-						<p>时间：<span id="time"><?php echo ($vai["start_time"]); ?></span></p><br>
-						<p>地点：<span id="place"><?php echo ($vai["place"]); ?></span></p>
-						<br /><img src="__Public__/Images/need-sign.png" class="pull-right"/>
-					</figcaption>
-				</figure><?php endforeach; endif; else: echo "" ;endif; ?>
-					
+			    <?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><figure class="<?php echo ($vai["class"]); ?> isotope-item" >
+				    
+				</figure><?php endforeach; endif; else: echo "" ;endif; ?>			
 			</div><!-- ENDS Filter container -->
-	          
+
 		</div>
 		<div id="more" class="offset3" style="font-family:微软雅黑">
 			<div class="btn btn-large btn-block" id="getmore">加载更多</div>
