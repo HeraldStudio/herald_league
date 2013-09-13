@@ -13,7 +13,7 @@ class IndexAction extends Action {
 
 		$this -> assign('activityclass', $activityclass);
 		$this -> assign('activityinfo', $activityinfo);
-		$this -> display();
+		$this -> display('index');
 	}
 	public function activityClass(){
 		$ActivityClass = D('ActivityClass');

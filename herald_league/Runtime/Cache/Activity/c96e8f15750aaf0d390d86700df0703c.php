@@ -1,7 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
-	<title>先声网-活动信息平台</title>
+    <title>先声网-活动信息平台</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
@@ -160,61 +160,65 @@
  
  
  //做一个ajax方法来请求data.php不断的获取数据
- var $num = 0;
+ //var $num = 0;
  function jsonajax(){
-     
+     var lastid = $(".activityname:last").attr('id');
+     if(!lastid){
+     	lastid = 11;
+     }
      $.ajax({
-        // url:'<?php echo U('getMoreActivity');?>',
-         url:'data.php',
-		 type:'POST',
-        // data:'lastactivityid='+$(".activityname:last").attr('id'),
-         data:"num="+$num++,
-		 dataType:'json',
+         url:'<?php echo U('getMoreActivity');?>',
+         //url:'data.php',
+         type:'post',
+         data:'lastactivityid='+lastid,
+        // data:"num="+$num++,
+        dataType:'json',
          success:function(json){
              if(typeof json == 'object'){
-                 var neirou,$row,iheight,temp_h;
-                 for(var i=0,l=json.length;i<l;i++){
-                     neirou = json[i];    //当前层数据
-                     //找了高度最少的列做添加新内容
-					
+                 var n,$row,iheight,temp_h;
+                 alert(json.length);
+                 var l=json.length
+                 for(var i=0; i<l; i++){
+                     n = json[i];    //当前层数据
+                     //找了高度最少的列做添加新内容			
                      iheight  =  -1;
-					 max_height = -1;
-                     $("#filter-container figure").each(function(){
+	          max_height = -1;
+                     $("#filter-container div").each(function(){
                          //得到当前li的高度
                          temp_h = Number($(this).height());
                          if(iheight == -1 || iheight >temp_h){
                              iheight = temp_h;
                              $row = $(this); //此时$row是li对象了
                          }
-						 if(temp_h > max_height)
-						 {
-							max_height = temp_h;
-						 }
+			 if(temp_h > max_height)
+			 {
+				max_height = temp_h;
+			 }
                      });
-				/*	 var innerhtml = "<figure class=\""+n.class +" isotope-item\" >";
-			                	if(n.post_add){
-									innerhtml += "<a href=\"#\" class=\"thumb\"><img src=\"__Uploads__/ActivityPost/"+n.post_add+"\" alt=\"alt\" /></a>"
-								}
-								innerhtml += "<figcaption><div class=\"heading\"><a data-toggle=\"modal\" href=\"#myModal\"class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
-										"<a data-toggle=\"modal\" href=\"#myModal\" class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
-										"<a href=\"#\" title=\"关注此活动\"><img src=\"__Public__/Images/attention.png\"/></a>"+
-									"</div>"+
-									"<p>主办方：<a href=\"#\">"+n.league_name+"</a>"+
-										"<a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a>"+
-									"</p><br>"+
-									"<p>时间："+n.start_time+"</p><br>"+
-									"<p>地点："+n.place+"</p>"+
-									"<br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/>"+
-								"</figcaption></figure>";     */
-                     $item = $('<div><img src="'+neirou.img+'" border="0" ><br/>'+neirou.title+'</div>').hide();
+                     $item = $('<figure class="'+n.class +'" isotope-item" ><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'>'+n.name+'</a><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'>'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>').hide();
+                     //var innerhtml = "<figure class=\""+n.class +" isotope-item\" >";
+  //               	if(n.post_add){
+		// 	innerhtml += "<a href=\"#\" class=\"thumb\"><img src=\"__Uploads__/ActivityPost/"+n.post_add+"\" alt=\"alt\" /></a>"
+		// }
+		// innerhtml += "<figcaption><div class=\"heading\"><a data-toggle=\"modal\" href=\"#myModal\"class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
+		// 		"<a data-toggle=\"modal\" href=\"#myModal\" class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
+		// 		"<a href=\"#\" title=\"关注此活动\"><img src=\"__Public__/Images/attention.png\"/></a>"+
+		// 	"</div>"+
+		// 	"<p>主办方：<a href=\"#\">"+n.league_name+"</a>"+
+		// 		"<a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a>"+
+		// 	"</p><br>"+
+		// 	"<p>时间："+n.start_time+"</p><br>"+
+		// 	"<p>地点："+n.place+"</p>"+
+		// 	"<br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/>"+
+		// "</figcaption></figure>";
+		// //innerhtml.hide();
                      $row.append($item);				
                      $item.fadeIn();				
                 }	 
-			 }
-			else
-               {  alert("没有更多了..."); 
-			      $("#getmore").hide();
-			    }			
+	}else{  
+		alert("没有更多了..."); 
+		$("#getmore").hide();
+	}			
          }
      });
  }
@@ -261,43 +265,6 @@ $(document).ready(function(){
 					dataType:'text',
 					success:function(data){
 						alert(data);
-					}
-				});
-			});
-			$("#getmore2").click(function(){		     
-				$.ajax({
-					url:'<?php echo U('getMoreActivity');?>',
-					type:'post',
-					dataType:'json',
-					data:'lastactivityid='+$(".activityname:last").attr('id'),
-					success:function(data){
-						if(data != "null"){
-							//alert(data);
-							var activity = data;
-							$.each(activity, function(i, n) {
-                        		//document.write(n.name);
-                        		var innerhtml = "<figure class=\""+n.class +" isotope-item\" >";
-			                	if(n.post_add){
-									innerhtml += "<a href=\"#\" class=\"thumb\"><img src=\"__Uploads__/ActivityPost/"+n.post_add+"\" alt=\"alt\" /></a>"
-								}
-								innerhtml += "<figcaption><div class=\"heading\"><a data-toggle=\"modal\" href=\"#myModal\"class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
-										"<a data-toggle=\"modal\" href=\"#myModal\" class=\"activityname\" id=\""+n.id+"\">"+n.name+"</a>"+
-										"<a href=\"#\" title=\"关注此活动\"><img src=\"__Public__/Images/attention.png\"/></a>"+
-									"</div>"+
-									"<p>主办方：<a href=\"#\">"+n.league_name+"</a>"+
-										"<a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a>"+
-									"</p><br>"+
-									"<p>时间："+n.start_time+"</p><br>"+
-									"<p>地点："+n.place+"</p>"+
-									"<br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/>"+
-								"</figcaption></figure>";
-								$('#filter-container').append(innerhtml);					
-                    		})							
-						}else{
-							alert("没有更多了");
-						}
-						$('#filter-container').masonry('reload');
-						alert("asd");
 					}
 				});
 			});			
@@ -386,10 +353,9 @@ $(document).ready(function(){
 			<div id="no-activity" style="text-align:center;display:none">
 				<img src="__Public__/Images/no-activity.jpg"></img>
 			</div>
-			<div id="filter-container" class="cf isotope" >
-			    <?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><figure class="<?php echo ($vai["class"]); ?> isotope-item" >
-				    
-				</figure><?php endforeach; endif; else: echo "" ;endif; ?>			
+			<div id="filter-container" class="cf isotope" style="height:1000px;">	
+				<div >
+				</div>	
 			</div><!-- ENDS Filter container -->
 
 		</div>
@@ -431,7 +397,7 @@ $(document).ready(function(){
 					</a>-->
 				</div>
 				<div class="act-info"><i class="icon-time"></i>时间：<span id="model_time"></span></div>
-				<div class="act-info"><i class="icon-home"></i>地点：<sapn id="model_place"></span></div>
+				<div class="act-info"><i class="icon-home"></i>地点：<span id="model_place"></span></div>
 				<div class="act-info"><i class="icon-envelope"></i>联系方式：<span id="connectinfo"></span></div>
 				<div class="act-info-para" id="introduction">
 				</div>`

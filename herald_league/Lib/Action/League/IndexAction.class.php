@@ -32,6 +32,30 @@ class IndexAction extends Action{
 		$this -> getAlbumInfo();
 		$this -> display();
 	}
+
+	public function comment(){
+		if(!empty($_POST['content'])){
+			if(empty($_POST['comment_id'])){
+				$_POST['comment_id'] = 0;
+			}else{
+				
+			}
+			$CommentInfo = D("CommentInfo");
+			$UserSession = D('Session');
+			$LeagueSession = D('LeagueSession');
+			if($UserSession -> hasUserLogin()){
+				$loginUserInfo = $UserSession -> hasUserLogin();
+				$CommentInfo -> addNewComment($loginUserInfo[0]['user_id'],1,0,$_POST['leagueid'],1,$_POST['content']);
+				echo "<script>history.go(-1)</script>";
+			}elseif ($LeagueSession -> hasLeagueLogin()) {
+				$loginLeagueInfo = $LeagueSession -> hasLeagueLogin();
+				$CommentInfo -> addNewComment($loginLeagueInfo[0]['league_id'],1,$_POST['comment_id'],$_POST['leagueid'],1,$_POST['content']);
+				echo "<script>history.go(-1)</script>";
+			}else{
+				echo "请登录";
+			}
+		}
+	}
 	private function getLeagueInfo(){
 		$LeagueInfo = D('LeagueInfo');
 		$leagueinfo = $LeagueInfo -> getLeagueInfoById($this -> leagueid);

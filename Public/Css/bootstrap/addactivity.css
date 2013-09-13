@@ -1,0 +1,45 @@
+.formborder{
+	padding-bottom:10px;
+	margin-bottom:10px;
+	border-bottom-width:1px;
+	border-bottom-style:dashed;
+	border-bottom-color:#D3D3D3;
+}
+.spform{
+	width:500px;
+}
+#actPic{
+	position:absolute;
+	left:700px;
+	top:80px;
+}
+.mainTitle{
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+	border-bottom-color:#D3D3D3;
+}
+.form-horizontal{
+	border-bottom-width:1px;
+	border-bottom-style:dashed;
+	border-bottom-color:#D3D3D3;
+}
+#cancel{
+	position:relative;
+	top:-71px;
+	left:300px;
+}
+#voteBut{
+	position:relative;
+	top:-71px;
+	left:400px;
+}
+#addVote{
+	position:relative;
+	top:-140px;
+	left:650px;
+}
+#removeVote{
+	position:relative;
+	top:-180px;
+	left:563px;
+}
