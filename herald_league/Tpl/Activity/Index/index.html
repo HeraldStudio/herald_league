@@ -143,7 +143,7 @@
  };
  
  $(document).ready(function(){
-    setTimeout("cli()",100);    
+    setTimeout("cli()",300);    
  });
  
  //这里就要进行计算滚动条当前所在的位置了。如果滚动条离最底部还有100px的时候就要进行调用ajax加载数据
@@ -229,7 +229,7 @@ $(document).ready(function(){
 	// setTimeout("jsonajax()",2000);
     // $('#fl').click();
 	// $("#login").click();
-	setTimeout("cli()",100);
+	setTimeout("cli()",300);
 	})
   });
 </script>
