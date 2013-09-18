@@ -15,15 +15,15 @@
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 	<!-- JS -->
 	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
-	<script src="__Public__/Js/kuxuan/jquery.masonry.min.js"></script>
-    <script src="__Public__/Js/kuxuan/custom.js"></script>
+
+
 	<script src="__Public__/Js/kuxuan/tabs.js"></script>
 	<script src="__Public__/Js/kuxuan/css3-mediaqueries.js"></script>
 	<script src="__Public__/Js/kuxuan/jquery.columnizer.min.js"></script>
 	
 	<!-- Isotope -->
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
-	
+
 	<!-- Lof slider -->
 	<script src="__Public__/Js/kuxuan/jquery.easing.js"></script>
 	<script src="__Public__/Js/kuxuan/lof-slider.js"></script>
@@ -111,13 +111,7 @@
 				margin-right:40px;
 			}
 		 }
-	#filter-container{
-	     height:auto !important;
-	 }
-	 #filter-container div{
-	      width:260px;
-		  float:left;
-	 }
+
 	</style>
  
 
@@ -129,41 +123,47 @@
  
   var $num = 0;		
  function jsonajax(){
-     
+   var lastid = $(".activityname:last").attr('id');
+    if(!lastid){
+     	lastid = 20;
+     }  
      $.ajax({
-         url:'data.php',
-         type:'POST',
-         data:"num="+$num++,
+         url:'<?php echo U('getMoreActivity');?>',
+         type:'post',
+         data:'lastactivityid='+lastid,
          dataType:'json',
          success:function(json){
-             if(typeof json == 'object'){
-                 var neirou,$row,iheight,temp_h;
-                 for(var i=0,l=json.length;i<l;i++){
-                     neirou = json[i];    //当前层数据
-                     //找了高度最少的列做添加新内容
-                     iheight  =  -1;
-                     $("#filter-container div").each(function(){
-                         //得到当前li的高度
-                         temp_h = Number($(this).height());
-                         if(iheight == -1 || iheight >temp_h){
-                             iheight = temp_h;
-                             $row = $(this); //此时$row是li对象了
-                         }
-                     });
-                     $item = $('<figure class="'+neirou.title +'"><img src="'+neirou.img+'" border="0" ><br/>'+neirou.title+'</figure>').hide();
-                     $row.append($item);
-                     $item.fadeIn();
-                 }
-             }
+            if(json){
+			    var n;
+                var l=json.length;
+                for(var i=0; i<l; i++){
+                     n = json[i]; 
+					if(n.post_add)
+						$item = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+					else
+						$item = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+					$('#filter-container').append($item).isotope('appended',$item);
+			     }
+			} 
+			else{  
+					alert("没有更多了..."); 
+					$("#getmore").html("没有更多了...");
+				}			
          }
      });
  } 
- 
- 
+
  </script>
 
 <script>
 $(document).ready(function(){
+    $('#filter-container').isotope({
+	    itemSelector : 'figure',
+		masonry: {
+            columnWidth: 310
+		}
+	 });
+
    $("#getmore").click(function(){ 	   
 	jsonajax();	
 	})
@@ -276,7 +276,7 @@ $(document).ready(function(){
 	<div class="container-fluid" >
 		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:100px;" id="celeft">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
-				<li class="active"><a>分类</a></li>
+				<li class="active"><a id="fl">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected" >显示全部</a></li>
 				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li><a href="#" data-filter=".<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>	
@@ -286,9 +286,7 @@ $(document).ready(function(){
 				<img src="__Public__/Images/no-activity.jpg"></img>
 			</div>
 			<div id="filter-container" class="cf isotope">					
-			     <div></div>
-				 <div></div>
-				 <div></div>
+			
 				 
 			</div><!-- ENDS Filter container -->
 
@@ -296,6 +294,7 @@ $(document).ready(function(){
 		<div id="more" class="offset3" style="font-family:微软雅黑">
 			<div class="btn btn-large btn-block" id="getmore">加载更多</div>
 		</div>
+
 	</div>
 	
 
