@@ -117,9 +117,9 @@
 
 
  <script>
- $(function(){ 
-	jsonajax();
- });
+  $(function(){ 
+    jsonajax();
+});
  
   var $num = 0;		
  function jsonajax(){
@@ -167,7 +167,16 @@ $(document).ready(function(){
    $("#getmore").click(function(){ 	   
 	jsonajax();	
 	})
-  });
+  
+  
+  $('#filter-buttons a').click(function(){
+		var $optionSet = $(this).parents('#filter-buttons');
+	    $optionSet.find('.selected').removeClass('selected');
+	    $(this).addClass('selected');
+
+	});
+	
+});
 </script>
 
 <script>
@@ -274,7 +283,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div class="container-fluid" >
-		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:100px;" id="celeft">
+		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:90px;width:190px" id="celeft">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a id="fl">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected" >显示全部</a></li>
