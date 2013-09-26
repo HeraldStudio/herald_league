@@ -14,9 +14,9 @@ class ActivityInfoModel extends Model{
 	 *
 	 *
 	 * */
-	public function getAllActivityInfo(){
-		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> select();
-		return $this -> getActivityLeague($activityinfo);
+	public function getAllActivityInfoNum(){
+		$activitynum = $this -> count();
+		return $activitynum;
 	}
 	public function getActivityInfoById($activityid){
 		return $this -> where('id='.$activityid) -> find();
@@ -42,7 +42,10 @@ class ActivityInfoModel extends Model{
 	}
 	public function getSortActivity($classid){
 		$activityinfo = $this -> where('class='.$classid) -> select(); 
-		//print_r($activityinfo);
 	    return $activityinfo;
+	}
+	public function getMoreActivityByClass($lastactivityid,$classid){
+		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> where('id<'.$lastactivityid.' AND class='.$classid)-> select();
+		return $activityinfo = $this -> getActivityLeague($activityinfo);
 	}
 }
