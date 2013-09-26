@@ -17,53 +17,42 @@
 	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
 
 
-	<script src="__Public__/Js/kuxuan/tabs.js"></script>
-	<script src="__Public__/Js/kuxuan/css3-mediaqueries.js"></script>
-	<script src="__Public__/Js/kuxuan/jquery.columnizer.min.js"></script>
-	
 	<!-- Isotope -->
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
+	<script src="__Public__/Js/kuxuan/custom-isotope.js"></script>
 
 	<!-- Lof slider -->
-	<script src="__Public__/Js/kuxuan/jquery.easing.js"></script>
-	<script src="__Public__/Js/kuxuan/lof-slider.js"></script>
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/lof-slider.css" media="all"> 
 	<!-- ENDS slider -->
 	
 
 	<!-- Tweet -->
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/jquery.tweet.css" media="all"> 
-	<script src="__Public__/Js/kuxuan/jquery.tweet.js"></script> 
+
 	<!-- ENDS Tweet -->
 	
 	<!-- superfish -->
 	<link rel="stylesheet" media="screen" href="__Public__/Css/kuxuan/superfish.css"> 
-	<script src="__Public__/Js/kuxuan/hoverIntent.js"></script>
-	<script src="__Public__/Js/kuxuan/superfish.js"></script>
-	<script src="__Public__/Js/kuxuan/supersubs.js"></script>
-	<!-- ENDS superfish -->
+
 	
     <!-- prettyPhoto -->
-	<script src="__Public__/Js/kuxuan/jquery.prettyPhoto.js"></script>
+
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/prettyPhoto.css" media="screen">
 	<!-- ENDS prettyPhoto -->
 	
 	<!-- poshytip -->
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/tip-twitter.css">
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/tip-yellowsimple.css">
-	<script src="__Public__/Js/kuxuan/jquery.poshytip.min.js"></script>
 	<!-- ENDS poshytip -->
 	
 
 	
 	<!-- JCarousel -->
-	<script type="text/javascript" src="__Public__/Js/kuxuan/jquery.jcarousel.min.js"></script>
 	<link rel="stylesheet" media="screen" href="__Public__/Css/kuxuan/carousel.css"> 
 	<!-- ENDS JCarousel -->
 	
 
 	<!-- modernizr -->
-	<script src="__Public__/Js/kuxuan/modernizr.js"></script>
 	
 	<!-- SKIN -->
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/skin.css">
@@ -73,8 +62,7 @@
 	
 	<!-- flexslider -->
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/flexslider.css">
-	<script src="__Public__/Js/kuxuan/jquery.flexslider.js"></script>
-	<script src="__Public__/Js/attention.js"></script>
+
 	<style>
 		.fixed-left{
 			position: fixed;
@@ -117,16 +105,12 @@
 
 
  <script>
-  $(function(){ 
-    jsonajax();
-});
- 
-  var $num = 0;		
  function jsonajax(){
    var lastid = $(".activityname:last").attr('id');
     if(!lastid){
      	lastid = 20;
      }  
+	 //alert(lastid);
      $.ajax({
          url:'<?php echo U('getMoreActivity');?>',
          type:'post',
@@ -148,26 +132,16 @@
 			else{  
 					alert("没有更多了..."); 
 					$("#getmore").html("没有更多了...");
-				}			
+				}
          }
      });
  } 
 
- </script>
-
-<script>
-$(document).ready(function(){
-    $('#filter-container').isotope({
-	    itemSelector : 'figure',
-		masonry: {
-            columnWidth: 310
-		}
-	 });
-
-   $("#getmore").click(function(){ 	   
-	jsonajax();	
-	})
-  
+$(document).ready(function(){ 
+jsonajax();	
+ $("#getmore").click(function(){ 	   
+		jsonajax();	
+	});
   
   $('#filter-buttons a').click(function(){
 		var $optionSet = $(this).parents('#filter-buttons');
@@ -176,40 +150,73 @@ $(document).ready(function(){
 
 	});
 	
-});
-</script>
+  $('.activityclass a').click(function(){
+    $("#filter-container").html("");
+	
+    var classid=$(this).attr("id");
+    $.ajax({
+      url:'<?php echo U('getClassActivity');?>',
+      type:'post',
+      data:'classid='+classid,
+      dataType:'json',
+      success:function(json){
+         if(json){
+				var n;
+				var l=json.length;
+				for(i=0; i < l; i++ ){
+					n=json[i];
+					if (n.post_add)
+						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+					else
+				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+				}
+				$("#filter-container").height("0");
+				$("#filter-container").append($items).isotope('appended',$items);
+			
+		     }
+		} 
+     }); 
+	});
 
-<script>
-		$(document).ready(function(){
-			$("#leaguelogin").click(function(){
-				if($("#inputEmail").val() == ""){
-					alert("用户名不能为空");
-				}else if($("#inputPassword").val() == ""){
-					alert("密码不能为空");
-				}else{
-					$.ajax({
-						url:'<?php echo U('leagueLogin');?>',
-						type:'post',
-						dataType:'text',
-						data:'leagueid='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
-						success:function(data){
-							alert(data);
-							//document.write(data);
-						}
-					});
+   $("#leaguelogin").click(function(){
+		if($("#inputEmail").val() == ""){
+			alert("用户名不能为空");
+		}else if($("#inputPassword").val() == ""){
+			alert("密码不能为空");
+		}else{
+			$.ajax({
+				url:'<?php echo U('leagueLogin');?>',
+				type:'post',
+				dataType:'text',
+				data:'leagueid='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
+				success:function(data){
+					alert(data);
+					//document.write(data);
 				}
 			});
-			$(".logout").click(function(){
-				$.ajax({
-					url:'<?php echo U('Public/Login/logout');?>',
-					type:'post',
-					dataType:'text',
-					success:function(data){
-						alert(data);
-					}
-				});
-			});			
+		}
+	});
+	$(".logout").click(function(){
+		$.ajax({
+			url:'<?php echo U('Public/Login/logout');?>',
+			type:'post',
+			dataType:'text',
+			success:function(data){
+				alert(data);
+			}
 		});
+	});			
+});
+
+$(window).load(function(){
+    $('#filter-container').isotope({
+		itemSelector : 'figure',
+		masonry: {
+			columnWidth: 310
+		}
+	});
+ });
+
 </script>
 
 	
@@ -287,7 +294,7 @@ $(document).ready(function(){
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a id="fl">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected" >显示全部</a></li>
-				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li><a href="#" data-filter=".<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>	
 		</div>
 	    <div class="offset3" id="ceright">
@@ -439,4 +446,10 @@ $(document).ready(function(){
 
 </body>
 
+<script>
+
+   
+         var tt=1;
+
+</script>
 </html>

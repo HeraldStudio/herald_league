@@ -40,4 +40,9 @@ class ActivityInfoModel extends Model{
 	public function addActivityInfo($data){
 		return $this -> add($data);
 	}
+	public function getSortActivity($classid){
+		$activityinfo = $this -> where('class='.$classid) -> select(); 
+		//print_r($activityinfo);
+	    return $activityinfo;
+	}
 }

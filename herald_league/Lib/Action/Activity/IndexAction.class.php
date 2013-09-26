@@ -117,4 +117,14 @@ class IndexAction extends Action {
 			echo "非法请求";
 		}
 	}
+	
+	public function getClassActivity(){
+		if($this -> isPost()){
+			$ActivityInfo = D('ActivityInfo');
+			$activityinfo = $ActivityInfo -> getSortActivity($this -> _param('classid'));
+			echo json_encode($activityinfo);
+		}else{
+			echo "非法请求";
+		}
+	}
 }
