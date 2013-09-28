@@ -138,6 +138,7 @@
 $(document).ready(function(){ 
   
   jsonajax(0);	
+  
   $("#0").click(function(){
      $(".getmore").attr("id",0);
      $("#filter-container").html("");
@@ -147,11 +148,11 @@ $(document).ready(function(){
 		masonry: {
 			columnWidth: 310
 		}
-	});
+	  });
      jsonajax(0);
+	 $(".getmore").html("加载更多");
   });
-  $(".getmore").click(function(){ 	  
-        
+  $(".getmore").click(function(){ 	      
 		jsonajax($(this).attr("id"));	
 	});
   
@@ -159,7 +160,6 @@ $(document).ready(function(){
 		var $optionSet = $(this).parents('#filter-buttons');
 	    $optionSet.find('.selected').removeClass('selected');
 	    $(this).addClass('selected');
-
 	});
   
   $('.activityclass').click(function(){
@@ -177,6 +177,7 @@ $(document).ready(function(){
 	//$("#filter-container").height("0");
     var classid=$(this).attr("id");
 	$(".getmore").attr("id",classid);
+	$(".getmore").html("加载更多");
     $.ajax({
       url:'{:U('getClassActivity')}',
       type:'post',
@@ -217,6 +218,7 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
 	$(".logout").click(function(){
 		$.ajax({
 			url:'{:U('Public/Login/logout')}',
@@ -243,7 +245,6 @@ $(window).load(function(){
 	
 	
 </head>
-
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
 <input type="hidden" value="{$activitynum}" id="acn">
 	<div class="navbar navbar-fixed-top well">
