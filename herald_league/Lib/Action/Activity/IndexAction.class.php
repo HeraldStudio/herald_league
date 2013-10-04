@@ -8,9 +8,13 @@
 class IndexAction extends Action {
 	public function index(){
 		$activityclass = $this -> activityClass();
+<<<<<<< HEAD
 		$this -> getActivityNum();
+=======
+		//$activityinfo = $this -> activityInfo();
+>>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
 		$this -> getLoginUserInfo();
-
+        $this -> getActivityNum();
 		$this -> assign('activityclass', $activityclass);
 		$this -> assign('activityinfo', $activityinfo);
 		$this -> display('index');
@@ -19,6 +23,13 @@ class IndexAction extends Action {
 		$ActivityClass = D('ActivityClass');
 		return $ActivityClass -> getClassList();
 	}
+<<<<<<< HEAD
+=======
+	// public function activityInfo(){
+		// $ActivityInfo = D('ActivityInfo');
+		// return $ActivityInfo -> getAllActivityInfo();
+	// }
+>>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
 	public function getActivityNum(){
 		$ActivityInfo = D('ActivityInfo');
 		$this -> activitynum = $ActivityInfo -> getAllActivityInfoNum();
@@ -61,13 +72,22 @@ class IndexAction extends Action {
 		}
 	}
 	public function getMoreActivity(){
+		$classid = $this -> _param('claid');
+    // echo $classid;	
 		if($this -> isPost()){
-			$ActivityInfo = D('ActivityInfo');
-			$lastactivity = $ActivityInfo -> getMoreActivityInfo($this -> _param('lastactivityid'));
-			echo json_encode($lastactivity);
+			if($classid == 0){
+				$ActivityInfo = D('ActivityInfo');
+				$lastactivity = $ActivityInfo -> getMoreActivityInfo($this -> _param('lastactivityid'));
+				echo json_encode($lastactivity);
+			}else{
+				$ActivityInfo = D('ActivityInfo');
+				$lastactivity = $ActivityInfo -> getMoreActivityByClass($this -> _param('lastactivityid'),$classid);
+				echo json_encode($lastactivity);
+			}
 		}else{
 			echo "非法请求";
 		}
+
 	}
 	public function getActivityAttention(){
 		if($this -> isPost()){
@@ -124,7 +144,7 @@ class IndexAction extends Action {
 			$activityinfo = $ActivityInfo -> getSortActivity($this -> _param('classid'));
 			echo json_encode($activityinfo);
 		}else{
-			echo "非法请求";
+		echo "非法请求";
 		}
 	}
 }

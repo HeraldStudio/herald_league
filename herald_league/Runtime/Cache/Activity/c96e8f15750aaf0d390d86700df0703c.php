@@ -104,15 +104,19 @@
 
 
  <script>
- function jsonajax(){
+ function jsonajax(classid){
    var lastid = $(".activityname:last").attr('id');
     if(!lastid){
      	lastid = $("#acn").val();
+<<<<<<< HEAD
      }
+=======
+     }  
+>>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
      $.ajax({
          url:'<?php echo U('getMoreActivity');?>',
          type:'post',
-         data:'lastactivityid='+lastid,
+         data:'lastactivityid='+lastid+'&claid='+classid,
          dataType:'json',
          success:function(json){
             if(json){
@@ -129,36 +133,68 @@
 			} 
 			else{  
 					alert("没有更多了..."); 
-					$("#getmore").html("没有更多了...");
+					$(".getmore").html("没有更多了...");
 				}
          }
      });
  } 
 
 $(document).ready(function(){ 
-jsonajax();	
- $("#getmore").click(function(){ 	   
-		jsonajax();	
+  
+  jsonajax(0);	
+  
+  $("#0").click(function(){
+     $(".getmore").attr("id",0);
+     $("#filter-container").html("");
+	 $("#filter-container").isotope('destroy');
+	 $('#filter-container').isotope({
+		itemSelector : 'figure',
+		masonry: {
+			columnWidth: 310
+		}
+	  });
+     jsonajax(0);
+	 $(".getmore").html("加载更多");
+  });
+  $(".getmore").click(function(){ 	      
+		jsonajax($(this).attr("id"));	
 	});
   
   $('#filter-buttons a').click(function(){
 		var $optionSet = $(this).parents('#filter-buttons');
 	    $optionSet.find('.selected').removeClass('selected');
 	    $(this).addClass('selected');
-
 	});
-	
+  
+  $('.activityclass').click(function(){
+     $("#filter-container").html("");
+	 $("#filter-container").isotope('destroy');
+	 $('#filter-container').isotope({
+		itemSelector : 'figure',
+		masonry: {
+			columnWidth: 310
+		}
+	});
+  });
+  
   $('.activityclass a').click(function(){
+<<<<<<< HEAD
     $("#filter-container").html("");
     $("#filter-container").height("0");
+=======
+	//$("#filter-container").height("0");
+>>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
     var classid=$(this).attr("id");
+	$(".getmore").attr("id",classid);
+	$(".getmore").html("加载更多");
     $.ajax({
       url:'<?php echo U('getClassActivity');?>',
       type:'post',
       data:'classid='+classid,
       dataType:'json',
-      success:function(json){
+      success:function(json){    
          if(json){
+<<<<<<< HEAD
 		var n;
 		var l=json.length;
 		for(i=0; i < l; i++ ){
@@ -172,6 +208,20 @@ jsonajax();
 	
 		}
 	} 
+=======
+				var n;
+				var l=json.length;
+				for(i=0; i < l; i++ ){
+					n=json[i];
+					if (n.post_add)
+						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+					else
+				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+				$("#filter-container").append($items).isotope('appended',$items);
+				}			
+		     }
+		} 
+>>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
      }); 
 	});
 
@@ -193,6 +243,7 @@ jsonajax();
 			});
 		}
 	});
+	
 	$(".logout").click(function(){
 		$.ajax({
 			url:'<?php echo U('Public/Login/logout');?>',
@@ -216,9 +267,12 @@ $(window).load(function(){
 
 </script>
 </head>
-
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+<<<<<<< HEAD
 	<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn"/>
+=======
+<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
+>>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
@@ -287,8 +341,8 @@ $(window).load(function(){
 		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:90px;width:190px" id="celeft">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
 				<li class="active"><a id="fl">分类</a></li>
-				<li><a href="#" data-filter="*" class="selected" >显示全部</a></li>
-				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+				<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
+				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>	
 		</div>
 	    <div class="offset3" id="ceright">
@@ -302,7 +356,7 @@ $(window).load(function(){
 
 		</div>
 		<div id="more" class="offset3" style="font-family:微软雅黑">
-			<div class="btn btn-large btn-block" id="getmore">加载更多</div>
+			<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
 		</div>
 
 	</div>
@@ -440,10 +494,4 @@ $(window).load(function(){
 
 </body>
 
-<script>
-
-   
-         var tt=1;
-
-</script>
 </html>
