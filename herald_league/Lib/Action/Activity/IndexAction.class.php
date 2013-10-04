@@ -8,7 +8,7 @@
 class IndexAction extends Action {
 	public function index(){
 		$activityclass = $this -> activityClass();
-		$activityinfo = $this -> activityInfo();
+		$this -> getActivityNum();
 		$this -> getLoginUserInfo();
 
 		$this -> assign('activityclass', $activityclass);
@@ -19,9 +19,9 @@ class IndexAction extends Action {
 		$ActivityClass = D('ActivityClass');
 		return $ActivityClass -> getClassList();
 	}
-	public function activityInfo(){
+	public function getActivityNum(){
 		$ActivityInfo = D('ActivityInfo');
-		return $ActivityInfo -> getAllActivityInfo();
+		$this -> activitynum = $ActivityInfo -> getAllActivityInfoNum();
 	}
 	public function leagueLogin(){
 		$leagueid = $this -> _param('leagueid');

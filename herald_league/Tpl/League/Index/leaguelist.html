@@ -69,9 +69,8 @@
 						<button type="submit" class="btn">Go</button>
 					</form>
 					<ul class="nav">
-						<li><a href="#">平台首页</a></li>
+						<li><a href="/herald_league/index.php">平台首页</a></li>
 						<li class="active"><a href="#">社团列表</a></li>
-						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
@@ -108,7 +107,7 @@
 										<ul>
 											<volist name="attentionrank" id="vatt">
 											<li>
-												<a target="_blank" href="#">{$vatt.leaguename}</a>
+												<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/{$vatt.league_id}">{$vatt.leaguename}</a>
 												<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 											</li>
 											</volist>
@@ -133,7 +132,7 @@
 										<ul>
 											<volist name="tengoodleagueinfo" id="vten">
 											<li>
-												<a target="_blank" href="#">{$vten.league_name}</a>
+												<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/{$vten.uid}">{$vten.league_name}</a>
 												<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 											</li>
 										    </volist>

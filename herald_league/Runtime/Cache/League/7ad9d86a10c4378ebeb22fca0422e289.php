@@ -144,7 +144,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand" href="#"><strong>社团空间</strong></a>
+				<a class="brand" href="javascript:void(0);"><strong>社团空间</strong></a>
 				<div class="nav-collapse collapse">
 					<a href="#" class="navbar-text pull-right" style="text-decoration:none;padding-left:20px">登录</a>
 					<form class="navbar-form pull-right">
@@ -152,9 +152,8 @@
 						<button type="submit" class="btn">Go</button>
 					</form>
 					<ul class="nav">
-						<li><a href="#">平台首页</a></li>
-						<li><a href="#">社团列表</a></li>
-						<li class="active"><a href="#">社团空间</a></li>
+						<li><a href="/herald_league/index.php">平台首页</a></li>
+						<li><a href="/herald_league/index/League/Index/leaguelist">社团列表</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
@@ -446,13 +445,13 @@
 			<div id="menu3">
 				<div style="height:97px; width:175px;">
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-						<li><a tabindex="-1" href="#">那个什么</a></li>
-						<li><a tabindex="-1" href="#">那个什么</a></li>
-						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">东大之声</a></li>
+						<li><a tabindex="-1" href="#">东大文苑</a></li>
+						<li><a tabindex="-1" href="#">先声知道</a></li>
 					</ul>
 				</div>
 			</div>
-			<div id="Msg3"><p class="text-center">那个什么</p></div>
+			<div id="Msg3"><p class="text-center">东大信息</p></div>
 		</div>
 		
 		<div class="move" id="fix4">

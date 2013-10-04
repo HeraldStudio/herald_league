@@ -19,7 +19,6 @@
 
 	<!-- Isotope -->
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
-	<script src="__Public__/Js/kuxuan/custom-isotope.js"></script>
 
 	<!-- Lof slider -->
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/lof-slider.css" media="all"> 
@@ -108,9 +107,8 @@
  function jsonajax(){
    var lastid = $(".activityname:last").attr('id');
     if(!lastid){
-     	lastid = 20;
-     }  
-	 //alert(lastid);
+     	lastid = $("#acn").val();
+     }
      $.ajax({
          url:'{:U('getMoreActivity')}',
          type:'post',
@@ -118,7 +116,7 @@
          dataType:'json',
          success:function(json){
             if(json){
-			    var n;
+	   var n;
                 var l=json.length;
                 for(var i=0; i<l; i++){
                      n = json[i]; 
@@ -152,7 +150,7 @@ jsonajax();
 	
   $('.activityclass a').click(function(){
     $("#filter-container").html("");
-	$("#filter-container").height("0");
+    $("#filter-container").height("0");
     var classid=$(this).attr("id");
     $.ajax({
       url:'{:U('getClassActivity')}',
@@ -161,19 +159,19 @@ jsonajax();
       dataType:'json',
       success:function(json){
          if(json){
-				var n;
-				var l=json.length;
-				for(i=0; i < l; i++ ){
-					n=json[i];
-					if (n.post_add)
-						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
-					else
-				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
-				}
-				$("#filter-container").append($items).isotope('appended',$items);
-			
-		     }
-		} 
+		var n;
+		var l=json.length;
+		for(i=0; i < l; i++ ){
+			n=json[i];
+			if (n.post_add)
+				$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+			else
+		        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+		}
+		$("#filter-container").append($items).isotope('appended',$items);
+	
+		}
+	} 
      }); 
 	});
 
@@ -217,12 +215,10 @@ $(window).load(function(){
  });
 
 </script>
-
-	
-	
 </head>
 
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+	<input type="hidden" value="{$activitynum}" id="acn"/>
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
@@ -253,7 +249,6 @@ $(window).load(function(){
 					<ul class="nav">
 						<li class="active"><a href="#">平台首页</a></li>
 						<li><a href="{:U('/League/Index/leaguelist')}">社团列表</a></li>
-						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
