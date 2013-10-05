@@ -1,0 +1,12 @@
+$(document).ready(function(){
+	$(".logout").click(function(){
+		$.ajax({
+			url:'{:U('Public/Login/logout')}',
+			type:'post',
+			dataType:'text',
+			success:function(data){
+				alert(data);
+			}
+		});
+	});
+}

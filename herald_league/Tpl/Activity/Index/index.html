@@ -61,7 +61,7 @@
 	
 	<!-- flexslider -->
 	<link rel="stylesheet" href="__Public__/Css/kuxuan/flexslider.css">
-
+	<script type="text/javascript" src="__Public__/Js/logout.js"></script>
 	<style>
 		.fixed-left{
 			position: fixed;
@@ -108,11 +108,7 @@
    var lastid = $(".activityname:last").attr('id');
     if(!lastid){
      	lastid = $("#acn").val();
-<<<<<<< HEAD
-     }
-=======
      }  
->>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
      $.ajax({
          url:'{:U('getMoreActivity')}',
          type:'post',
@@ -120,7 +116,7 @@
          dataType:'json',
          success:function(json){
             if(json){
-	   var n;
+			    var n;
                 var l=json.length;
                 for(var i=0; i<l; i++){
                      n = json[i]; 
@@ -178,12 +174,7 @@ $(document).ready(function(){
   });
   
   $('.activityclass a').click(function(){
-<<<<<<< HEAD
-    $("#filter-container").html("");
-    $("#filter-container").height("0");
-=======
 	//$("#filter-container").height("0");
->>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
     var classid=$(this).attr("id");
 	$(".getmore").attr("id",classid);
 	$(".getmore").html("加载更多");
@@ -194,21 +185,6 @@ $(document).ready(function(){
       dataType:'json',
       success:function(json){    
          if(json){
-<<<<<<< HEAD
-		var n;
-		var l=json.length;
-		for(i=0; i < l; i++ ){
-			n=json[i];
-			if (n.post_add)
-				$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
-			else
-		        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
-		}
-		$("#filter-container").append($items).isotope('appended',$items);
-	
-		}
-	} 
-=======
 				var n;
 				var l=json.length;
 				for(i=0; i < l; i++ ){
@@ -221,7 +197,6 @@ $(document).ready(function(){
 				}			
 		     }
 		} 
->>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
      }); 
 	});
 
@@ -242,17 +217,6 @@ $(document).ready(function(){
 				}
 			});
 		}
-	});
-	
-	$(".logout").click(function(){
-		$.ajax({
-			url:'{:U('Public/Login/logout')}',
-			type:'post',
-			dataType:'text',
-			success:function(data){
-				alert(data);
-			}
-		});
 	});			
 });
 
@@ -268,11 +232,7 @@ $(window).load(function(){
 </script>
 </head>
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
-<<<<<<< HEAD
-	<input type="hidden" value="{$activitynum}" id="acn"/>
-=======
 <input type="hidden" value="{$activitynum}" id="acn">
->>>>>>> e173a13eeff7bb7c7cacb83dca64fdb149d82bee
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
