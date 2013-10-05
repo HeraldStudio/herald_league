@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
-		
+	<script type="text/javascript" src="__Public__/Js/logout.js"></script>
 <!--[if lte IE 6]>
   <!-- bsie css 补丁文件 -->
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
@@ -188,9 +188,9 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">		
-								<li><a href="./index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 								<li><a href="#">上传照片</a></li>
-								<li><a href="./index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
 							</ul>
@@ -314,9 +314,6 @@
 											</div>
 										</div>
 									</div>
-														
-								
-								
 								</div>	
 							</div>
 							
@@ -407,35 +404,6 @@
 					</div>
 				</div>
 				<div class="span2 ">
-					<div class="page-header" style="margin-top:10px;">
-						<h4>
-        						其他社团
-						</h4>
-					</div>
-					<div id="clist">
-						<ul>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-						</ul>	
-					</div>
 					<div class="page-header" >
 						<h4>
         						关注者
@@ -480,6 +448,33 @@
 			</div>
 			<div id="Msg3"><p class="text-center">东大信息</p></div>
 		</div>
+
+		<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>社团登录</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal" style="margin-top:30px;" action="" method="post">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">用户名</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">密码</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="密码" name="password">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+		<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
+	</div>
+</div>
 		
 		<div class="move" id="fix4">
 			<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>

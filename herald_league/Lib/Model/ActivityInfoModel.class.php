@@ -49,4 +49,8 @@ class ActivityInfoModel extends Model{
 		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> where('id<'.$lastactivityid.' AND class='.$classid)-> select();
 		return $activityinfo = $this -> getActivityLeague($activityinfo);
 	}
+	public function getThreePageInfo($currentpage){
+		$activityinfo = $this -> order('id desc') -> limit($currentpage, 3) -> select();
+		return $activityinfo;
+	}
 }

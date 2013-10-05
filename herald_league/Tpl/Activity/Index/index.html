@@ -198,25 +198,6 @@ $(document).ready(function(){
 		     }
 		} 
      }); 
-	});
-
-   $("#leaguelogin").click(function(){
-		if($("#inputEmail").val() == ""){
-			alert("用户名不能为空");
-		}else if($("#inputPassword").val() == ""){
-			alert("密码不能为空");
-		}else{
-			$.ajax({
-				url:'{:U('leagueLogin')}',
-				type:'post',
-				dataType:'text',
-				data:'leagueid='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
-				success:function(data){
-					alert(data);
-					//document.write(data);
-				}
-			});
-		}
 	});			
 });
 

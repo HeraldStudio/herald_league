@@ -75,7 +75,7 @@ class IndexAction extends Action{
 				echo "请登录";
 			}
 		}else{
-			echo "sss";
+			echo "不能为空";
 		}
 	}
 	private function getLeagueInfo(){
@@ -91,6 +91,7 @@ class IndexAction extends Action{
 	private function getLeagueActivityInfo(){
 		$ActivityInfo = D('ActivityInfo');
 		$activityinfo = $ActivityInfo -> getActivityInfoByLeagueId($this -> leagueid);
+		$this -> leagueactivitynum = count($activityinfo);
 		$this -> assign('activityinfo',$activityinfo);
 	}
 	private function getLeagueAlbum(){
@@ -140,5 +141,11 @@ class IndexAction extends Action{
 		$albuminfo = $AlbumInfo -> getAlbumInfoByLeagueIdWithoutPage($this -> leagueid);
 		$this -> leaguename = $LeagueInfo -> getLeagueNameById($this -> leagueid);
 		$this -> assign('albuminfo',$albuminfo);
+	}
+	public function getEachPageActivity(){
+		$currentpage = $_POST['page'];
+		$ActivityInfo = D("ActivityInfo");
+		$activityinfo = $ActivityInfo -> getThreePageInfo($currentpage);
+		echo json_encode($activityinfo);
 	}
 }
