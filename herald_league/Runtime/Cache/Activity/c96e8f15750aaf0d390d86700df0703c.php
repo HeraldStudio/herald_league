@@ -95,7 +95,7 @@
  } 
 
 $(document).ready(function(){ 
-  
+
   jsonajax(0);	
   
   $("#0").click(function(){
@@ -111,6 +111,7 @@ $(document).ready(function(){
      jsonajax(0);
 	 $(".getmore").html("加载更多");
   });
+  
   $(".getmore").click(function(){ 	      
 		jsonajax($(this).attr("id"));	
 	});
@@ -121,7 +122,7 @@ $(document).ready(function(){
 	    $(this).addClass('selected');
 	});
   
-  $('.activityclass').click(function(){
+  $('.activityclass a').click(function(){
      $("#filter-container").html("");
 	 $("#filter-container").isotope('destroy');
 	 $('#filter-container').isotope({
@@ -157,6 +158,7 @@ $(document).ready(function(){
 		     }
 		} 
      }); 
+	  $(".getmore").click();
 	});
 
    $("#leaguelogin").click(function(){
@@ -191,13 +193,12 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-    alert($(window).width());
     if  ( $(window).width() > 980 ) 
 	width = 310;
 	$('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: width
+			columnWidth: 310
 		}
 	});
  });
@@ -207,7 +208,7 @@ $(window).load(function(){
 	
 	
 </head>
-<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)" onload="if(window.name!='a')setTimeout('location.reload()',1000);window.name='a'"">
 <input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
