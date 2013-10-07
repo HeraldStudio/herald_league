@@ -10,58 +10,18 @@
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
-	<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
+	
+	<script src="__Public__/Js/activitydetial.js"></script>
+	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
+	
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
 	<!-- JS -->
 	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
 
-
 	<!-- Isotope -->
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
-
-	<!-- Lof slider -->
-	<link rel="stylesheet" href="__Public__/Css/kuxuan/lof-slider.css" media="all"> 
-	<!-- ENDS slider -->
 	
-
-	<!-- Tweet -->
-	<link rel="stylesheet" href="__Public__/Css/kuxuan/jquery.tweet.css" media="all"> 
-
-	<!-- ENDS Tweet -->
-	
-	<!-- superfish -->
-	<link rel="stylesheet" media="screen" href="__Public__/Css/kuxuan/superfish.css"> 
-
-	
-    <!-- prettyPhoto -->
-
-	<link rel="stylesheet" href="__Public__/Css/kuxuan/prettyPhoto.css" media="screen">
-	<!-- ENDS prettyPhoto -->
-	
-	<!-- poshytip -->
-	<link rel="stylesheet" href="__Public__/Css/kuxuan/tip-twitter.css">
-	<link rel="stylesheet" href="__Public__/Css/kuxuan/tip-yellowsimple.css">
-	<!-- ENDS poshytip -->
-	
-
-	
-	<!-- JCarousel -->
-	<link rel="stylesheet" media="screen" href="__Public__/Css/kuxuan/carousel.css"> 
-	<!-- ENDS JCarousel -->
-	
-
-	<!-- modernizr -->
-	
-	<!-- SKIN -->
-	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/skin.css">
-	
-	<!-- Less framework -->
-	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/lessframework.css">
-	
-	<!-- flexslider -->
-	<link rel="stylesheet" href="__Public__/Css/kuxuan/flexslider.css">
-
 	<style>
 		.fixed-left{
 			position: fixed;
@@ -101,7 +61,6 @@
 
 	</style>
  
-
 
  <script>
  function jsonajax(classid){
@@ -232,10 +191,13 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-    $('#filter-container').isotope({
+    alert($(window).width());
+    if  ( $(window).width() > 980 ) 
+	width = 310;
+	$('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: 310
+			columnWidth: width
 		}
 	});
  });
