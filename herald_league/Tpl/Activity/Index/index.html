@@ -134,6 +134,7 @@ $(document).ready(function(){
   });
   
   $('.activityclass a').click(function(){
+    
 	//$("#filter-container").height("0");
     var classid=$(this).attr("id");
 	$(".getmore").attr("id",classid);
@@ -155,10 +156,13 @@ $(document).ready(function(){
 				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
 				$("#filter-container").append($items).isotope('appended',$items);
 				}			
-		     }
+			}
+		else
+			$("#no-activity").css("display","block"); 
 		} 
-     }); 
-	  $(".getmore").click();
+     });
+	        $(".getmore").click();
+			$("#no-activity").css("display","none");
 	});
 
    $("#leaguelogin").click(function(){
