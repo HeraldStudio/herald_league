@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>	
-		
+	<script type="text/javascript" src="__Public__/Js/logout.js"></script>
 <!--[if lte IE 6]>
   <!-- bsie css 补丁文件 -->
   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
@@ -144,32 +144,58 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand" href="#"><strong>社团空间</strong></a>
+				<a class="brand" href="#"><strong>活动平台</strong></a>
 				<div class="nav-collapse collapse">
-					<a href="#" class="navbar-text pull-right" style="text-decoration:none;padding-left:20px">登录</a>
+					<?php if($loginuser): else: ?>
+					<ul class="nav pull-right" style="text-decoration:none;">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login"> 登录 
+								<b class="caret"></b></a>
+							<ul class="dropdown-menu" style="min-width:0px;">
+								<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
+								<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
+							</ul>
+						</li>
+					</ul><?php endif; ?>
 					<form class="navbar-form pull-right">
 						<input type="text" class="search-query span3" placeholder="Search">
 						<button type="submit" class="btn">Go</button>
 					</form>
 					<ul class="nav">
-						<li><a href="#">平台首页</a></li>
-						<li><a href="#">社团列表</a></li>
-						<li class="active"><a href="#">社团空间</a></li>
-						<li><a href="#">二手市场</a></li>
+						<li><a href="<?php echo U('/Activity/Index');?>">平台首页</a></li>
+						<li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
+						<li><a href="#">社团空间</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
-					<ul class="nav pull-right">        
+					<?php if($loginusertype == 2): ?><ul class="nav pull-right">        
                          <li class="dropdown" >
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> Name <b class="caret"></b> </a>
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
+							<p class="new-message-all">3</p>
+							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">
-								<li><a href="#">个人空间</a></li>
-								<li><a href="#">二手市场</a></li>
-								<li><a href="#">其他</a></li>
+								<li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
+								<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
+								<li><a href="#">其他<p class="new-message-single">33</p></a></li>
 								<li class="divider"></li>
-								<li><a href="#">登出</a></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
+								<input type="hidden" id="loginuserid" value="<?php echo ($loginuserid); ?>"/>
 							</ul>
 						</li>
 					</ul>
+					<?php elseif($loginusertype == 1): ?>
+					<ul class="nav pull-right">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
+							<b class="caret"></b> </a>
+                             <ul class="dropdown-menu">		
+								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
+								<li><a href="#">上传照片</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
+								<li class="divider"></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
+							</ul>
+						</li>
+					</ul><?php endif; ?>
 				</div><!-- /.nav-collapse -->
 			</div>
 		</div>
@@ -265,7 +291,7 @@
 										<div class="w-box-content">
 											<div class="tabbable clearfix">											
 											   <ul class="thumbnails">
-													<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4">
+													<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4" style="margin-left:8px;">
 															<div class="thumbnail">
 																	<?php if(!empty($vai["post_add"])): ?><a href="#" class="thumb">
 																		<img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" />
@@ -288,9 +314,6 @@
 											</div>
 										</div>
 									</div>
-														
-								
-								
 								</div>	
 							</div>
 							
@@ -363,7 +386,7 @@
 											</div><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
 										</div>												
 									</div><?php endforeach; endif; else: echo "" ;endif; ?>
-                                    <form class="autoTxtCount thumbnail row-fluid span11" action="<?php echo U('comment');?>" method="post">
+         <form class="autoTxtCount thumbnail row-fluid span11" action="<?php echo U('comment');?>" method="post">
 				<div>
 				   <textarea class="text span12" placeholder="说点什么..." cols="50" id="text1" rows="2" name="content"></textarea>
 				</div>
@@ -381,35 +404,6 @@
 					</div>
 				</div>
 				<div class="span2 ">
-					<div class="page-header" style="margin-top:10px;">
-						<h4>
-        						其他社团
-						</h4>
-					</div>
-					<div id="clist">
-						<ul>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-							<li>
-								<a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-								<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-							</li>
-						</ul>	
-					</div>
 					<div class="page-header" >
 						<h4>
         						关注者
@@ -446,14 +440,41 @@
 			<div id="menu3">
 				<div style="height:97px; width:175px;">
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
-						<li><a tabindex="-1" href="#">那个什么</a></li>
-						<li><a tabindex="-1" href="#">那个什么</a></li>
-						<li><a tabindex="-1" href="#">那个什么</a></li>
+						<li><a tabindex="-1" href="#">东大之声</a></li>
+						<li><a tabindex="-1" href="#">东大文苑</a></li>
+						<li><a tabindex="-1" href="#">先声知道</a></li>
 					</ul>
 				</div>
 			</div>
-			<div id="Msg3"><p class="text-center">那个什么</p></div>
+			<div id="Msg3"><p class="text-center">东大信息</p></div>
 		</div>
+
+		<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>社团登录</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal" style="margin-top:30px;" action="" method="post">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">用户名</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">密码</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="密码" name="password">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+		<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
+	</div>
+</div>
 		
 		<div class="move" id="fix4">
 			<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>

@@ -42,10 +42,15 @@ class ActivityInfoModel extends Model{
 	}
 	public function getSortActivity($classid){
 		$activityinfo = $this -> where('class='.$classid) -> select(); 
+		print_r($activityinfo);
 	    return $activityinfo;
 	}
 	public function getMoreActivityByClass($lastactivityid,$classid){
 		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> where('id<'.$lastactivityid.' AND class='.$classid)-> select();
 		return $activityinfo = $this -> getActivityLeague($activityinfo);
+	}
+	public function getThreePageInfo($currentpage){
+		$activityinfo = $this -> order('id desc') -> limit($currentpage, 3) -> select();
+		return $activityinfo;
 	}
 }

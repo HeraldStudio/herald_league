@@ -13,6 +13,7 @@ class IndexAction extends Action{
 		$this -> getLeagueAlbum();
 		$this -> getLeagueAttention();
 		$this -> getCommentInfo();
+		$this -> getLoginUserInfo();
 
 		$this -> display();
 	}
@@ -20,8 +21,29 @@ class IndexAction extends Action{
 		$this -> getLeagueList();
 		$this -> getTenGoodLeague();
 		$this -> getAttentionLeagueRank();
+		$this -> getLoginUserInfo();
 		
 		$this -> display();
+	}
+
+	private function getLoginUserInfo(){
+		$UserSession = D('Session');
+		$LeagueSession = D('LeagueSession');
+		if($UserSession -> hasUserLogin()){
+			$this -> loginuser = true;
+			$this -> loginusertype = 2;
+			$loginuserinfo = $UserSession -> hasUserLogin();
+			$this -> loginusername = $loginuserinfo[1];
+			$this -> loginuserid = $loginuserinfo[0];
+		}elseif($LeagueSession -> hasLeagueLogin()){
+			$this -> loginuser = true;
+			$this -> loginusertype = 1;
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			$this -> loginusername = $loginuserinfo[1];
+			$this -> loginuserid = $loginuserinfo[0];
+		}else{
+			$this -> loginuser = false;
+		}
 	}
 	public function album(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
@@ -37,8 +59,6 @@ class IndexAction extends Action{
 		if(!empty($_POST['content'])){
 			if(empty($_POST['comment_id'])){
 				$_POST['comment_id'] = 0;
-			}else{
-				
 			}
 			$CommentInfo = D("CommentInfo");
 			$UserSession = D('Session');
@@ -46,14 +66,16 @@ class IndexAction extends Action{
 			if($UserSession -> hasUserLogin()){
 				$loginUserInfo = $UserSession -> hasUserLogin();
 				$CommentInfo -> addNewComment($loginUserInfo[0]['user_id'],1,0,$_POST['leagueid'],1,$_POST['content']);
-				echo "<script>history.go(-1)</script>";
+				header("Location: /herald_league/index.php/League/Index/index/leagueid/".$_POST['leagueid']."#liuyanban");
 			}elseif ($LeagueSession -> hasLeagueLogin()) {
 				$loginLeagueInfo = $LeagueSession -> hasLeagueLogin();
 				$CommentInfo -> addNewComment($loginLeagueInfo[0]['league_id'],1,$_POST['comment_id'],$_POST['leagueid'],1,$_POST['content']);
-				echo "<script>history.go(-1)</script>";
+				header("Location: /herald_league/index.php/League/Index/index/leagueid/".$_POST['leagueid']."#liuyanban");
 			}else{
 				echo "请登录";
 			}
+		}else{
+			echo "不能为空";
 		}
 	}
 	private function getLeagueInfo(){
@@ -69,6 +91,7 @@ class IndexAction extends Action{
 	private function getLeagueActivityInfo(){
 		$ActivityInfo = D('ActivityInfo');
 		$activityinfo = $ActivityInfo -> getActivityInfoByLeagueId($this -> leagueid);
+		$this -> leagueactivitynum = count($activityinfo);
 		$this -> assign('activityinfo',$activityinfo);
 	}
 	private function getLeagueAlbum(){
@@ -118,5 +141,11 @@ class IndexAction extends Action{
 		$albuminfo = $AlbumInfo -> getAlbumInfoByLeagueIdWithoutPage($this -> leagueid);
 		$this -> leaguename = $LeagueInfo -> getLeagueNameById($this -> leagueid);
 		$this -> assign('albuminfo',$albuminfo);
+	}
+	public function getEachPageActivity(){
+		$currentpage = $_POST['page'];
+		$ActivityInfo = D("ActivityInfo");
+		$activityinfo = $ActivityInfo -> getThreePageInfo($currentpage);
+		echo json_encode($activityinfo);
 	}
 }
