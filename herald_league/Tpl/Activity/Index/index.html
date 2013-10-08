@@ -22,13 +22,13 @@
 	<!-- Isotope -->
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
 	
+	<script type="text/javascript" src="__Public__/Js/kuxuan/jquery.percentageloader-01a.js"></script>
+	
 	<style>
 		.fixed-left{
 			position: fixed;
 			top: 100px;
-		}
-
-		  
+		}  
 		.text-center {
 				text-align: center;
 				}
@@ -58,11 +58,58 @@
 				margin-right:40px;
 			}
 		 }
+		  #topLoader {
+				width: 256px;
+				height: 256px;
+				margin-top: 45px;
+				margin-bottom: 32px;
+				margin-left: 35%;
+		  }
 
 	</style>
- 
+ <script>
+    $(function() {
+          var $topLoader = $("#topLoader").percentageLoader({width: 256, height: 256, controllable : true, progress : 0.5, onProgressUpdate : function(val) {
+              $topLoader.setValue(Math.round(val * 100.0));
+            }});
+
+          var topLoaderRunning = false;
+            if (topLoaderRunning) {
+              return;
+            }
+            topLoaderRunning = true;
+            $topLoader.setProgress(0);
+            $topLoader.setValue('0kb');
+            var kb = 0;
+            var totalKb = 999;
+            
+            var animateFunc = function() {
+              kb += 17;
+              $topLoader.setProgress(kb / totalKb);
+              $topLoader.setValue(kb.toString() + 'kb');
+              
+              if (kb < totalKb) {
+                setTimeout(animateFunc, 25);
+              } else {
+                topLoaderRunning = false;
+              }
+            }
+            
+            setTimeout(animateFunc, 25);
+
+        });      
+ </script>
 
  <script>
+ function isotope(){
+	  $('#filter-container').isotope({
+		itemSelector : 'figure',
+		masonry: {
+			columnWidth: 310
+		}
+	});
+ }
+ 
  function jsonajax(classid){
    var lastid = $(".activityname:last").attr('id');
     if(!lastid){
@@ -95,8 +142,12 @@
  } 
 
 $(document).ready(function(){ 
-
-  jsonajax(0);	
+  
+  
+  jsonajax(0);
+  $('#filter-container').css("display","none");
+  setTimeout(function(){$('#topLoader').hide()},2000);
+  setTimeout(function(){$('#filter-container').css("display","block");$('#0').click();},2000); 
   
   $("#0").click(function(){
      $(".getmore").attr("id",0);
@@ -108,6 +159,7 @@ $(document).ready(function(){
 			columnWidth: 310
 		}
 	  });
+	 $("#no-activity").css("display","none");
      jsonajax(0);
 	 $(".getmore").html("加载更多");
   });
@@ -161,8 +213,8 @@ $(document).ready(function(){
 			$("#no-activity").css("display","block"); 
 		} 
      });
-	        $(".getmore").click();
-			$("#no-activity").css("display","none");
+	        $("#no-activity").css("display","none");
+			$(".getmore").click();
 	});
 
    $("#leaguelogin").click(function(){
@@ -197,14 +249,7 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-    if  ( $(window).width() > 980 ) 
-	width = 310;
-	$('#filter-container').isotope({
-		itemSelector : 'figure',
-		masonry: {
-			columnWidth: 310
-		}
-	});
+	setTimeout(isotope(),2000);
  });
 
 </script>
@@ -212,7 +257,7 @@ $(window).load(function(){
 	
 	
 </head>
-<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)" onload="if(window.name!='a')setTimeout('location.reload()',1000);window.name='a'"">
+<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
 <input type="hidden" value="{$activitynum}" id="acn">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
@@ -297,8 +342,10 @@ $(window).load(function(){
 			<div id="no-activity" style="text-align:center;display:none">
 				<img src="__Public__/Images/no-activity.jpg"></img>
 			</div>
-			<div id="filter-container" class="cf isotope">					
-			
+			<div id="topLoader">      
+			</div>
+			<div id="filter-container" class="cf isotope"  >					
+			     
 				 
 			</div><!-- ENDS Filter container -->
 
