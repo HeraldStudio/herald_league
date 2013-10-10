@@ -66,4 +66,64 @@ $(document).ready(function() {
             
         })
     });
+    $('#prephotopage').click(function() {
+        var currentphotopage = $("#currentphotopage").val();
+        if (currentphotopage != 0) {
+            $("#currentphotopage").val(Number(currentphotopage) - 1);
+        };
+        $.ajax({
+            url: '/herald_league/index.php/League/Index/getEachPagePhoto',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                page: currentphotopage
+            },
+            success: function(data) {
+                if (data) {
+                    var n;
+                    var l = data.length;
+                    for (i = 0; i < l; i++) {
+                        n = data[i];
+                        $items = '<a data-toggle="modal" href="#myModal"><img alt="140x140" src="__Public__/Images/06.jpg" class="img-rounded" /><p>'+n.name+'</p></a>';
+                        $('.photodiv div:nth-child('+(i+1)+')').html($items); 
+
+                    }
+
+                }
+
+            }
+        });
+    });
+
+    $('#nextphotopage').click(function() {
+        var currentphotopage = $("#currentphotopage").val();
+        var maxphotopage = $('#maxphotopage').val();
+        if (currentphotopage < maxphotopage) {
+            $('#currentphotopage').val(Number(currentphotopage) + 1);
+        }
+        $.ajax({
+            url: '/herald_league/index.php/League/Index/getEachPagePhoto',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                page: currentphotopage
+            },
+            success: function(data) {
+                if (data) {
+                    var n;
+                    var l = data.length;
+                    for (i = 0; i < l; i++) {
+                        n = data[i];
+                        $items = '<a data-toggle="modal" href="#myModal"><img alt="140x140" src="__Public__/Images/06.jpg" class="img-rounded" /><p>'+n.name+'</p></a>';
+                       
+                        $('.photodiv div:nth-child('+(i+1)+')').html($items);
+                    }
+
+
+                }
+
+            }
+            
+        })
+    });
 });
