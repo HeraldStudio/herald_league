@@ -58,58 +58,10 @@
 				margin-right:40px;
 			}
 		 }
-		  #topLoader {
-				width: 256px;
-				height: 256px;
-				margin-top: 45px;
-				margin-bottom: 32px;
-				margin-left: 35%;
-		  }
-
 	</style>
- <script>
-    $(function() {
-          var $topLoader = $("#topLoader").percentageLoader({width: 256, height: 256, controllable : true, progress : 0.5, onProgressUpdate : function(val) {
-              $topLoader.setValue(Math.round(val * 100.0));
-            }});
-
-          var topLoaderRunning = false;
-            if (topLoaderRunning) {
-              return;
-            }
-            topLoaderRunning = true;
-            $topLoader.setProgress(0);
-            $topLoader.setValue('0kb');
-            var kb = 0;
-            var totalKb = 999;
-            
-            var animateFunc = function() {
-              kb += 17;
-              $topLoader.setProgress(kb / totalKb);
-              $topLoader.setValue(kb.toString() + 'kb');
-              
-              if (kb < totalKb) {
-                setTimeout(animateFunc, 25);
-              } else {
-                topLoaderRunning = false;
-              }
-            }
-            
-            setTimeout(animateFunc, 25);
-
-        });      
- </script>
 
  <script>
- function isotope(){
-	  $('#filter-container').isotope({
-		itemSelector : 'figure',
-		masonry: {
-			columnWidth: 310
-		}
-	});
- }
- 
+
  function jsonajax(classid){
    var lastid = $(".activityname:last").attr('id');
     if(!lastid){
@@ -127,10 +79,10 @@
                 for(var i=0; i<l; i++){
                      n = json[i]; 
 					if(n.post_add)
-						$item = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' span9"><div class="span3"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><figcaption class="span5"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
 					else
-						$item = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
-					$('#filter-container').append($item).isotope('appended',$item);
+						$item = $('<figure class="'+n.class +' span9"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+					$('#filter-container').append($item);
 			     }
 			} 
 			else{  
@@ -145,20 +97,10 @@ $(document).ready(function(){
   
   
   jsonajax(0);
-  $('#filter-container').css("display","none");
-  setTimeout(function(){$('#topLoader').hide()},2000);
-  setTimeout(function(){$('#filter-container').css("display","block");$('#0').click();},2000); 
-  
+ 
   $("#0").click(function(){
      $(".getmore").attr("id",0);
      $("#filter-container").html("");
-	 $("#filter-container").isotope('destroy');
-	 $('#filter-container').isotope({
-		itemSelector : 'figure',
-		masonry: {
-			columnWidth: 310
-		}
-	  });
 	 $("#no-activity").css("display","none");
      jsonajax(0);
 	 $(".getmore").html("加载更多");
@@ -176,13 +118,6 @@ $(document).ready(function(){
   
   $('.activityclass a').click(function(){
      $("#filter-container").html("");
-	 $("#filter-container").isotope('destroy');
-	 $('#filter-container').isotope({
-		itemSelector : 'figure',
-		masonry: {
-			columnWidth: 310
-		}
-	});
   });
   
   $('.activityclass a').click(function(){
@@ -203,10 +138,10 @@ $(document).ready(function(){
 				for(i=0; i < l; i++ ){
 					n=json[i];
 					if (n.post_add)
-						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
+						$items = $('<figure class="'+n.class +' span9"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
 					else
-				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class=\"pull-right\"/></figcaption></figure>');
-				$("#filter-container").append($items).isotope('appended',$items);
+				        $items = $('<figure class="'+n.class +' span9"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+				$("#filter-container").append($items);
 				}			
 			}
 		else
@@ -249,7 +184,8 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
-	setTimeout(isotope(),2000);
+	//setTimeout(isotope(),2000);
+	 $("#filter-container").isotope('destroy');
  });
 
 </script>
@@ -336,17 +272,14 @@ $(window).load(function(){
 			<div id="no-activity" style="text-align:center;display:none">
 				<img src="__Public__/Images/no-activity.jpg"></img>
 			</div>
-			<div id="topLoader">      
-			</div>
-			<div id="filter-container" class="cf isotope"  >					
-			     
-				 
+			<div id="filter-container" class="cf isotope span9"  >					       
+			    	 
 			</div><!-- ENDS Filter container -->
-
-		</div>
-		<div id="more" class="offset3" style="font-family:微软雅黑">
+		<div id="more" class="span9" style="font-family:微软雅黑">
 			<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
 		</div>
+		</div>
+		
 
 	</div>
 	
