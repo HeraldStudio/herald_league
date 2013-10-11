@@ -26,8 +26,7 @@ class ActivityInfoModel extends Model{
 		return $activityinfo = $this -> getActivityLeague($activityinfo);
 	}
 	public function getActivityInfoByLeagueId($leagueid){
-
-		$activityinfo = $this -> where('league_id='.$leagueid) -> select();
+		$activityinfo = $this -> where('league_id='.$leagueid) -> limit(3) -> select();
 		return $this -> getActivityLeague($activityinfo);
 	}
 	private function getActivityLeague($activityinfo){
