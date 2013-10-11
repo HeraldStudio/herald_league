@@ -73,12 +73,16 @@
           transition-property: top, left, opacity;
 }
 #filter-container {
+  width: 930px;
   margin-bottom: 60px;
   padding-left: 5px;
   padding-top: 5px;
+  margin-left: auto;
   margin-right:auto;
 }
 #filter-container  figure {
+  width: 290px;
+  position: relative;
   margin-right: 20px;
   margin-bottom: 30px;
   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -99,11 +103,6 @@
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-#filter-container .baoming{
-  float:right;
-  margin-right:40px;
-
-}
 #filter-container figure .thumb:hover img {
   opacity: 0.2;
 }
@@ -112,9 +111,8 @@
   text-align: center;
 }
 #filter-container figure figcaption .heading {
-  margin-bottom: 20px;
-  margin-bottom: 20px;
-  font-size: 28px;
+  margin-bottom: 13px;
+  font-size: 26px;
   line-height: 1.2em;
   display: block;
 }
@@ -146,7 +144,4 @@
 }
 #filter-container figure figcaption p a:hover {
   color: #cb5432;
-}
-#filter-container figure figcaption p {
-  font-size:18px;
 }
