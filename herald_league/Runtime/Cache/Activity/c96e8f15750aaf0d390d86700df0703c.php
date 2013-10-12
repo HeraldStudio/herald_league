@@ -1,5 +1,5 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>先声网-活动信息平台</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
@@ -9,16 +9,18 @@
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
+	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">
+	<link rel="stylesheet" type="text/css" href="__Public__/Css/kuxuan/iealert/style.css">
+	
+	<!-- JS -->
+	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
 	
 	<script src="__Public__/Js/activitydetial.js"></script>
 	
 	<script src="__Public__/Js/back-to-top/backtotop.js"></script>
 	
-	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">		
-	<!-- JS -->
-	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
-
+	<script src="__Public__/Js/kuxuan/iealert.js" type="text/javascript"></script>
 	<!-- Isotope -->
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
 	
@@ -99,7 +101,7 @@
 
         });      
  </script>
-
+ 
  <script>
  function isotope(){
 	  $('#filter-container').isotope({
@@ -142,8 +144,6 @@
  } 
 
 $(document).ready(function(){ 
-  
-  
   jsonajax(0);
   $('#filter-container').css("display","none");
   setTimeout(function(){$('#topLoader').hide()},2000);
@@ -254,7 +254,10 @@ $(window).load(function(){
 
 </script>
 
-	
+
+		  
+
+
 	
 </head>
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
@@ -479,7 +482,9 @@ $(window).load(function(){
 	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
 	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>  
-
+<script>
+  $("body").iealert();
+</script>
 </body>
 
 </html>
