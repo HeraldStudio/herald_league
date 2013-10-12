@@ -246,7 +246,6 @@
             </tbody>
           </table>  
           </div>
-        
         <!--zhong-->
         <div class="span6 "  id="cezhong" >
           <div class="row-fluid">
@@ -266,10 +265,9 @@
                     <p>
                       <?php echo (htmlspecialchars_decode($introduce)); ?>
                     </p>
-                                        <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal_member">成员信息</button>                    
+                        <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal_member">成员信息</button>                    
                   </div>
                 </div>
-                
               </div>
               <div class="row-fluid" > 
                 <div class="span12">                
@@ -313,16 +311,8 @@
                       </div>
                     </div>
                   </div>
-                            
-                
-                
                 </div>  
               </div>
-              
-              
-              
-              
-              
               <div class="row-fluid">             
                 <div class="span12">
                   <div class="page-header span12">
