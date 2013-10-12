@@ -46,7 +46,8 @@ class AdminAction extends Action{
 				$this -> time = date("Y-m-d H:i");
 
 				if(!empty($_POST)){
-					$this -> addActivityData();
+					//$this -> addActivityData();
+					echo "<script>alert('sss');</script>";
 				}
 				$this -> display();
 			}else{
@@ -90,7 +91,7 @@ class AdminAction extends Action{
 		$adddata['class'] = $LeagueClass -> getClassId($this -> _param('leagueclass'));
 		$LeagueInfo -> updateLeagueInfo($adddata,$this -> _param('leagueid'));
 	}
-	private function addActivityData(){
+	public function addActivityData(){
 		$ActivityInfo = D('ActivityInfo');
 
 		$adddata['name'] = $this -> _param('activityname');
@@ -104,6 +105,7 @@ class AdminAction extends Action{
 		$adddata['introduction'] = $this -> _param('activityinfo');
 
 		$ActivityInfo -> addActivityInfo($adddata);
+		$this -> success('添加成功');
 	}
 	// 文件上传
 	public function upload() {
