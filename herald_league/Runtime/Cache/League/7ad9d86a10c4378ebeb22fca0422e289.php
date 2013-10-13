@@ -190,9 +190,9 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
               <b class="caret"></b> </a>
                              <ul class="dropdown-menu">   
-                <li><a href="./index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
+                <li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
                 <li><a href="#">上传照片</a></li>
-                <li><a href="./index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
+                <li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
                 <li class="divider"></li>
                 <li><a href="javascript:void(0)" class="logout">登出</a></li>
               </ul>
@@ -246,7 +246,6 @@
             </tbody>
           </table>  
           </div>
-        
         <!--zhong-->
         <div class="span6 "  id="cezhong" >
           <div class="row-fluid">
@@ -266,10 +265,9 @@
                     <p>
                       <?php echo (htmlspecialchars_decode($introduce)); ?>
                     </p>
-                                        <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal_member">成员信息</button>                    
+                        <button class="btn btn-primary  btn-small pull-right" data-toggle="modal" href="#myModal_member">成员信息</button>                    
                   </div>
                 </div>
-                
               </div>
               <div class="row-fluid" > 
                 <div class="span12">                
@@ -313,37 +311,19 @@
                       </div>
                     </div>
                   </div>
-                            
-                
-                
                 </div>  
               </div>
-              
-              
-              
-              
-              
               <div class="row-fluid">             
                 <div class="span12">
                   <div class="page-header span12">
                     <h4 id="xiangce" class="span3">
                       社团相册
                     </h4>
-                    <div class="pagination pull-right">
-                      <ul>
-                          <input type="hidden" value="0" id="currentphotopage">
-                          <input type="hidden" value="<?php echo ($leaguephotonum); ?>" id="maxphotopage">
-                      <li><a href="javascript:void(0);" id="prephotopage">&lt;&lt;</a></li>
-
-                      <li><a href="javascript:void(0);" id="nextphotopage">&gt;&gt;</a></li>
-                      </ul>
-                    </div>
                   </div>
                   <div class="row-fluid">
                     <?php if(is_array($albuminfo)): $i = 0; $__LIST__ = $albuminfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><div class="span4 photodiv">
-                      <a data-toggle="modal" href="#myModal">
-                         <img alt="140x140" src="__Public__/Images/06.jpg" class="img-rounded" />
-                         <p><?php echo ($val["name"]); ?></p>
+                      <a data-toggle="modal" href="/herald_league/index.php/League/Index/album/leagueid/<?php echo ($leagueid); ?>">
+                         <img alt="140x140" src="__Uploads__/LeagueAlbum/<?php echo ($val["cover_address"]); ?>" class="img-rounded" />
                       </a>
                     </div><?php endforeach; endif; else: echo "" ;endif; ?>
                   </div>
@@ -405,35 +385,6 @@
           </div>
         </div>
         <div class="span2 ">
-          <div class="page-header" style="margin-top:10px;">
-            <h4>
-                    其他社团
-            </h4>
-          </div>
-          <div id="clist">
-            <ul>
-              <li>
-                <a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-                <a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-              </li>
-              <li>
-                <a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
-                <a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-              </li>
-              <li>
-                <a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-                <a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-              </li>
-              <li>
-                <a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟</a>
-                <a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-              </li>
-              <li>
-                <a target="_blank" href="#"><img src="__Public__/Images/head-club.jpg">网络安全联盟啊啊啊</a>
-                <a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
-              </li>
-            </ul> 
-          </div>
           <div class="page-header" >
             <h4>
                     关注者

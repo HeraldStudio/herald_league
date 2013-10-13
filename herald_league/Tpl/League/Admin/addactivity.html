@@ -6,7 +6,6 @@
     <!-- Bootstrap -->
     <link href="__Public__/Css/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/datetimepicker.css" rel="stylesheet" media="screen">
-<<<<<<< HEAD
 	<style type="text/css">
 		.formborder{
 			padding-bottom:10px;
@@ -15,8 +14,6 @@
 			border-bottom-style:dashed;
 			border-bottom-color:#D3D3D3;
 		}
-<<<<<<< HEAD
-=======
 		.spform{
 			width:500px;
 		}
@@ -26,12 +23,10 @@
 			top:80px;
 		
 		}
-		
->>>>>>> cb4902466dd5b0207d960e24ab14fd408b394112
 	</style>
-=======
+
 	<link href="__Public__/Css/bootstrap/addactivity.css" rel="stylesheet" media="screen">
->>>>>>> f0c42b7fb6e26232588716b26457be5226107067
+
 	<script src="__Public__/Js/bootstrap/jquery.js"></script>
     <script src="__Public__/Js/bootstrap/bootstrap.min.js"></script>
 	<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-datetimepicker.js" charset="UTF-8"></script>
@@ -42,7 +37,6 @@
 	</script>
 	<load href="__Public__/Ueditor/ueditor.config.js" />
 	<load href="__Public__/Ueditor/ueditor.all.min.js" />
-<<<<<<< HEAD
 	<script type="text/javascript">
 		var ifvote=false;
 		function myclick(){
@@ -96,9 +90,7 @@
 		}
 
 	</script>
-=======
 	<script type="text/javascript" src="__Public__/Js/bootstrap/addactivity.js" charset="UTF-8"></script>
->>>>>>> f0c42b7fb6e26232588716b26457be5226107067
   </head>
   
 <body>
@@ -106,7 +98,8 @@
 		<div class="span1"></div>
 		<div class="span8">
 			<h3 id="mainTitle">社团活动信息发布</h3>
-			<form class="form-horizontal" method="post" action="">
+			<form class="form-horizontal" method="post" action="{:U('/League/Admin/addActivityData')}">
+				<input name="leagueid" value="{$leagueid}" type="hidden"/>
 				<fieldset>
 					<div class="control-group formSep formborder spform">
 						<label for="actName" class="control-label">活动名称：</label>
