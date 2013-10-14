@@ -19,8 +19,18 @@
 	<!-- JS -->
 	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>
 
-	<!-- Isotope -->
-	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
+ <!--[if lte IE 6]>
+  <!-- bsie css 补丁文件 -->
+	<!--<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap3/bootstrap-ie6.css">-->
+
+  <!-- bsie 额外的 css 补丁文件 -->
+	<!--<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap3/ie.css">-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="__Public__/Js/bootstrap3/html5shiv.js"></script>
+      <script src="__Public__/Js/bootstrap3/respond.min.js"></script>
+    <![endif]-->
 	
 	<script type="text/javascript" src="__Public__/Js/kuxuan/jquery.percentageloader-01a.js"></script>
 	
@@ -79,9 +89,9 @@
                 for(var i=0; i<l; i++){
                      n = json[i]; 
 					if(n.post_add)
-						$item = $('<figure class="'+n.class +' span9"><div class="span3"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><figcaption class="span5"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' span4"><div class="span2"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><figcaption class="span5"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /></figcaption></figure>');
 					else
-						$item = $('<figure class="'+n.class +' span9"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' span4"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
 					$('#filter-container').append($item);
 			     }
 			} 
