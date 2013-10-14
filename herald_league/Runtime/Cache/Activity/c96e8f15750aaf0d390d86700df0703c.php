@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
+	<link href="__Public__/Css/bootstrap3/bootstrap3-2.css" rel="stylesheet">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
@@ -25,10 +26,7 @@
 	<script type="text/javascript" src="__Public__/Js/kuxuan/jquery.percentageloader-01a.js"></script>
 	
 	<style>
-		.fixed-left{
-			position: fixed;
-			top: 100px;
-		}  
+		
 		.text-center {
 				text-align: center;
 				}
@@ -41,7 +39,7 @@
 				padding-top:100px;
 			}
 			#more{
-				margin-right:80px;
+				margin-left:30px;
 			}
 		}
 	    @media (max-width: 979px){
@@ -79,9 +77,9 @@
                 for(var i=0; i<l; i++){
                      n = json[i]; 
 					if(n.post_add)
-						$item = $('<figure class="'+n.class +' span9"><div class="span3"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><figcaption class="span5"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' span6 row-fluid"><div class="span6"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><div class="span6"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p class="info">主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p class="info">时间：'+n.start_time+'</p><br><p class="info">地点：'+n.place+'</p><br/></div></figure>');
 					else
-						$item = $('<figure class="'+n.class +' span9"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' span6 row-fluid"><div class="span6"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><div class="span6"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p class="info">主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p class="info">时间：'+n.start_time+'</p><br><p class="info">地点：'+n.place+'</p><br/></div></figure>');
 					$('#filter-container').append($item);
 			     }
 			} 
@@ -137,10 +135,10 @@ $(document).ready(function(){
 				var l=json.length;
 				for(i=0; i < l; i++ ){
 					n=json[i];
-					if (n.post_add)
-						$items = $('<figure class="'+n.class +' span9"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+					if(n.post_add)
+						$item = $('<figure class="'+n.class +' span6 row-fluid"><div class="span6"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><div class="span6"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p class="info">主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p class="info">时间：'+n.start_time+'</p><br><p class="info">地点：'+n.place+'</p><br/></div></figure>');
 					else
-				        $items = $('<figure class="'+n.class +' span9"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p><br /><img src=\"__Public__/Images/need-sign.png\" class="baoming"/></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' span6 row-fluid"><div class="span6"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a></div><div class="span6"><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p class="info">主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p class="info">时间：'+n.start_time+'</p><br><p class="info">地点：'+n.place+'</p><br/></div></figure>');
 				$("#filter-container").append($items);
 				}			
 			}
@@ -188,12 +186,9 @@ $(window).load(function(){
 	 $("#filter-container").isotope('destroy');
  });
 
-</script>
-
-	
-	
+</script>	
 </head>
-<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+<body style="font-family:微软雅黑;background-color: #f5f8f6;">
 <input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
@@ -260,27 +255,41 @@ $(window).load(function(){
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" >
-		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:90px;width:190px" id="celeft">
+	
+	<div class="row-fluid" id="row-fluid" style="padding-top:100px;"> 
+		<div class="span2" style="margin-left:80px;">
 			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
-				<li class="active"><a id="fl">分类</a></li>
-				<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
-				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-			</ul>	
+							<li class="active"><a id="fl">分类</a></li>
+							<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
+							<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+						</ul>	
 		</div>
-	    <div class="offset3" id="ceright">
-			<div id="no-activity" style="text-align:center;display:none">
+		<div id="no-activity" style="text-align:center;display:none">
 				<img src="__Public__/Images/no-activity.jpg"></img>
+		</div>
+		<div class="span9" id=""style="margin-left:0px;font-size:13px">
+			<div id="filter-container">
+				<div class="span1" style="width:0;"></div>
+				<figure class="span6 row-fluid">  
+						<div class="span6">
+							<a href="/event/144">
+								<img src="/Uploads/Images/Event/Poster/Thumb/t_52592e382a3e7.png" class="img-responsive" style="width:100%;height:100%" />
+							</a>
+						</div>
+						<div class="span6 ">
+							<p><a href="/event/144">东南大学第十一届视觉制导机器人竞赛</a></p>
+							<p class="info">时间：10月08日~04月08日</p>
+							<p class="info">地点：东南大学学科竞赛管理系统</p>
+							<p class="info">费用：免费</p>
+							<p class="info">发起：<a href="/group/1" target="_blank">官方帐号</a></p>
+							<p class="info">0人参加<span>|</span>0人感兴趣</p>
+						</div>
+				</figure>
 			</div>
-			<div id="filter-container" class="cf isotope span9"  >					       
-			    	 
-			</div><!-- ENDS Filter container -->
-		<div id="more" class="span9" style="font-family:微软雅黑">
-			<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+			<div id="more">
+				<button type="button"class="btn btn-lg btn-block btn-default getmore" style="font-family:微软雅黑" id="0">加载更多</button>
+			</div>
 		</div>
-		</div>
-		
-
 	</div>
 	
 

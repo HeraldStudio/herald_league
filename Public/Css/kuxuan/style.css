@@ -74,17 +74,18 @@
 }
 #filter-container {
   margin-bottom: 60px;
-  padding-left: 5px;
-  padding-top: 5px;
+  padding-left: 30px;
+  padding-top: 0px;
   margin-right:auto;
 }
 #filter-container  figure {
-  margin-right: 20px;
-  margin-bottom: 30px;
-  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  margin: 0 1% 30px 0;
+  line-height:36px;
+  background-color: white;
+  -webkit-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+  -moz-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+  -o-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+  box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
 }
 #filter-container figure .thumb {
   display: block;
@@ -128,9 +129,6 @@
 #filter-buttons li a:hover,
 #filter-buttons li a.selected {
   border-bottom: 2px solid #444;
-}
-#filter-container figure {
-  background: white;
 }
 #filter-container figure figcaption .heading a ,
 #filter-container figure figcaption p a {
