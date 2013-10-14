@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
-	<link href="__Public__/Css/bootstrap3/bootstrap3-2.css" rel="stylesheet">
+	<!--link href="__Public__/Css/bootstrap3/bootstrap3-2.css" rel="stylesheet"-->
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<script src="__Public__/Js/bootstrap/bootstrap.js"></script>	
@@ -38,9 +38,6 @@
 				margin-right:80px;
 				padding-top:100px;
 			}
-			#more{
-				margin-left:30px;
-			}
 		}
 	    @media (max-width: 979px){
 		     #celeft{
@@ -51,10 +48,6 @@
 				padding-top:30px;
 				margin-right:40px;
 			 }
-			 #more{
-				margin-left:40px;
-				margin-right:40px;
-			}
 		 }
 	</style>
 
@@ -256,19 +249,19 @@ $(window).load(function(){
 		</div>
 	</div>
 	
-	<div class="row-fluid" id="row-fluid" style="padding-top:100px;"> 
-		<div class="span2" style="margin-left:80px;">
-			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
-							<li class="active"><a id="fl">分类</a></li>
-							<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
-							<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-						</ul>	
+	<div class="container"><div class="row" id="row-fluid" style="padding-top:100px;"> 
+		<div class="span2" style="background-color:red;">
+			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="position:fixed;">
+				<li class="active"><a id="fl">分类</a></li>
+				<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
+				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+			</ul>	
 		</div>
 		<div id="no-activity" style="text-align:center;display:none">
-				<img src="__Public__/Images/no-activity.jpg"></img>
+			<img src="__Public__/Images/no-activity.jpg"></img>
 		</div>
-		<div class="span9" id=""style="margin-left:0px;font-size:13px">
-			<div id="filter-container">
+		<div class="span10" id=""style="font-size:13px">
+			<div class="row-fluid" id="filter-container">
 				<div class="span1" style="width:0;"></div>
 				<figure class="span6 row-fluid">  
 						<div class="span6">
@@ -290,83 +283,83 @@ $(window).load(function(){
 				<button type="button"class="btn btn-lg btn-block btn-default getmore" style="font-family:微软雅黑" id="0">加载更多</button>
 			</div>
 		</div>
-	</div>
+	</div></div>
 	
 
-<div id="myModal" class="modal hide fade ">
-	<div class="modal-header">
-		<a class="close" data-dismiss="modal">×</a>
-		<h3>
-		<span></span>
-		<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
-		</h3>
-	</div>
-	<div class="modal-body">
-	  <div class="row-fluid">
-		<div class="span3">
-			<div id="follower">
-				<h5 class="pull-left">关注者</h5>
-				<h5 class="pull-right">17人</h5>
-			</div>
-			<div id="follower-list">
-				<div class="row-fluid" id="attention">
-					
-				</div>
-			</div>
+	<div id="myModal" class="modal hide fade ">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>
+			<span></span>
+			<a href="#" title="关注此活动"><img id="modal-header-attention" src="__Public__/Images/attention.png"/></a>	
+			</h3>
 		</div>
-		<div class="span9">
-			<div class="act-info-header">
-				<h4>活动信息</h4>
-			</div>
-			<div class="act-info-body">
-				<div class="act-info" id="league_name"><i class="icon-user"></i>主办方：<a href="javascript:void(0);"></a>
-					<!--<a href="#" title="关注此社团">
-						<img src="__Public__/Images/attention-small.png"/>
-					</a>-->
+		<div class="modal-body">
+		  <div class="row-fluid">
+			<div class="span3">
+				<div id="follower">
+					<h5 class="pull-left">关注者</h5>
+					<h5 class="pull-right">17人</h5>
 				</div>
-				<div class="act-info"><i class="icon-time"></i>时间：<span id="model_time"></span></div>
-				<div class="act-info"><i class="icon-home"></i>地点：<span id="model_place"></span></div>
-				<div class="act-info"><i class="icon-envelope"></i>联系方式：<span id="connectinfo"></span></div>
-				<div class="act-info-para" id="introduction">
-				</div>`
-				<div class="act-info-pic">
-					<img src="" id="actpost"/>
+				<div id="follower-list">
+					<div class="row-fluid" id="attention">
+						
+					</div>
 				</div>
 			</div>
+			<div class="span9">
+				<div class="act-info-header">
+					<h4>活动信息</h4>
+				</div>
+				<div class="act-info-body">
+					<div class="act-info" id="league_name"><i class="icon-user"></i>主办方：<a href="javascript:void(0);"></a>
+						<!--<a href="#" title="关注此社团">
+							<img src="__Public__/Images/attention-small.png"/>
+						</a>-->
+					</div>
+					<div class="act-info"><i class="icon-time"></i>时间：<span id="model_time"></span></div>
+					<div class="act-info"><i class="icon-home"></i>地点：<span id="model_place"></span></div>
+					<div class="act-info"><i class="icon-envelope"></i>联系方式：<span id="connectinfo"></span></div>
+					<div class="act-info-para" id="introduction">
+					</div>
+					<div class="act-info-pic">
+						<img src="" id="actpost"/>
+					</div>
+				</div>
+			</div>
+		  </div>
 		</div>
-	  </div>
+		<div class="modal-footer">
+			<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
+		</div>
 	</div>
-	<div class="modal-footer">
-		<a href="#" class="btn btn-primary" data-dismiss="modal">知道了</a>
-	</div>
-</div>
 
-<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
-	<div class="modal-header">
-		<a class="close" data-dismiss="modal">×</a>
-		<h3>社团登录</h3>
-	</div>
-	<div class="modal-body">
-		<form class="form-horizontal" style="margin-top:30px;" action="" method="post">
-			<div class="control-group">
-				<label class="control-label" for="inputEmail">用户名</label>
-				<div class="controls">
-					<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+	<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>社团登录</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal" style="margin-top:30px;" action="" method="post">
+				<div class="control-group">
+					<label class="control-label" for="inputEmail">用户名</label>
+					<div class="controls">
+						<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+					</div>
 				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="inputPassword">密码</label>
-				<div class="controls">
-					<input type="password" id="inputPassword" placeholder="密码" name="password">
+				<div class="control-group">
+					<label class="control-label" for="inputPassword">密码</label>
+					<div class="controls">
+						<input type="password" id="inputPassword" placeholder="密码" name="password">
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
+		</div>
 	</div>
-	<div class="modal-footer">
-		<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
-		<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
-	</div>
-</div>
 
 	<div id="fixdiv">
 		<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
@@ -418,7 +411,7 @@ $(window).load(function(){
 	<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:38px; position:fixed; right:7px; bottom:0px; display:none;"></div>
 	<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
 	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
-<div style="height:100px">
+	<div style="height:100px">
 	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
 	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>  
