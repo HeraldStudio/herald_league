@@ -217,20 +217,17 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h3 id="myModalLabel">添加活动宣传图片</h3>
 			  </div>
-			  <div class="modal-body">
-				
-					<input type="file" id="fileinput" name="fileinput"><br/>
-					<img src="" style="width:200px; height:200px;">
-				
-				
-				
-				
-				
-			  </div>
-			  <div class="modal-footer">
-				<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-				<button class="btn btn-primary">上传</button>
-			  </div>
+			  <form method='post' action="{:U('League/Admin/uploadActivityPost')}" enctype="multipart/form-data">
+				  <div class="modal-body">
+						<input type="file" id="fileinput" name="activity_post"><br/>
+						<img src="" style="width:200px; height:200px;">
+				  </div>
+				  <div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+						<input type="submit" value="上传" class="btn btn-primary">
+						
+				  </div>
+			 </form>
 			</div>
 			<!-- Modal -->
 			

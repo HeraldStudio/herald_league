@@ -253,12 +253,6 @@ $(window).load(function(){
  });
 
 </script>
-
-
-		  
-
-
-	
 </head>
 <body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
 <input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
@@ -315,7 +309,7 @@ $(window).load(function(){
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">		
-								<li><a href="./index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 								<li><a href="#">上传照片</a></li>
 								<li><a href="./index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 								<li class="divider"></li>

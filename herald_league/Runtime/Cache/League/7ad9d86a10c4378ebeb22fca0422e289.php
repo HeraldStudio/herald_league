@@ -164,7 +164,7 @@
             <button type="submit" class="btn">Go</button>
           </form>
           <ul class="nav">
-            <li><a href="/">平台首页</a></li>
+            <li><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
             <li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
             <li><a href="#">社团空间</a></li>
             <li><a href="#">失物招领</a></li>
@@ -278,7 +278,7 @@
                         </h4>
                         <div class="pagination pull-right">
                         <ul>
-                          <input type="hidden" value="0" id="currentpage">
+                          <input type="hidden" value="1" id="currentpage">
                           <input type="hidden" value="<?php echo ($leagueactivitynum); ?>" id="maxpage">
                         <li><a href="javascript:void(0);" id = "preactivity">&lt;&lt;</a></li>
                         <li><a href="javascript:void(0);" id = "nextactivity">&gt;&gt;</a></li>

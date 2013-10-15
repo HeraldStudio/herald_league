@@ -35,7 +35,8 @@ $(document).ready(function() {
     $('#nextactivity').click(function() {
         var currentpage = $("#currentpage").val();
         var maxpage = $('#maxpage').val();
-        if (currentpage < maxpage) {
+        if (Number(currentpage) < Number(maxpage)) {
+           // alert(currentpage);
             $('#currentpage').val(Number(currentpage) + 1);
         }
         $.ajax({
@@ -58,12 +59,8 @@ $(document).ready(function() {
                         }
                         $('.activity-page li:nth-child('+(i+1)+')').html($items);
                     }
-
-
                 }
-
             }
-            
         })
     });
     $('#prephotopage').click(function() {
