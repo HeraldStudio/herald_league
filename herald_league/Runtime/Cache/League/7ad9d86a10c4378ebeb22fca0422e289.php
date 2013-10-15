@@ -278,7 +278,7 @@
                         </h4>
                         <div class="pagination pull-right">
                         <ul>
-                          <input type="hidden" value="1" id="currentpage">
+                          <input type="hidden" value="0" id="currentpage">
                           <input type="hidden" value="<?php echo ($leagueactivitynum); ?>" id="maxpage">
                         <li><a href="javascript:void(0);" id = "preactivity">&lt;&lt;</a></li>
                         <li><a href="javascript:void(0);" id = "nextactivity">&gt;&gt;</a></li>
@@ -290,8 +290,8 @@
                          <ul class="thumbnails  activity-page">
                           <?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4" style="margin-left:8px;">
                               <div class="thumbnail">
-                                  <?php if(!empty($vai["post_add"])): ?><a href="#" class="thumb">
-                                    <img src="__Uploads__/ActivityPost/<?php echo ($vai["post_add"]); ?>" alt="alt" />
+                                  <?php if(!empty($vai["post_add"])): ?><a href="javascript:void(0);" class="thumb">
+                                    <img src="__Uploads__/ActivityPost/m_<?php echo ($vai["post_add"]); ?>" alt="alt" />
                                   </a><?php endif; ?>
                                   <div class="heading center" style="font-size:20px;margin-top:20px;">
                                    <a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>

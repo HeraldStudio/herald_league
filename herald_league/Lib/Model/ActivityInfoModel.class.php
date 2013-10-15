@@ -56,4 +56,8 @@ class ActivityInfoModel extends Model{
 		$activityinfo = $this -> order('id desc') -> limit($currentpage, 3) -> select();
 		return $this -> getActivityLeague($activityinfo);
 	}
+	public function addActivityPost($postdata){
+		$data['post_add'] = $postdata['postname'];
+		$this -> where('id='.$postdata['activityid']) -> save($data);
+	}
 }

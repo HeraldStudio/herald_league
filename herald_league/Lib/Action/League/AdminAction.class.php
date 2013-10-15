@@ -100,8 +100,33 @@ class AdminAction extends Action{
 		$adddata['release_time'] = date("Y-m-d H:i");
 		$adddata['introduction'] = $this -> _param('activityinfo');
 
-		$ActivityInfo -> addActivityInfo($adddata);
-		$this->redirect('League/Index/index', array('leagueid'=>$adddata['league_id']), 1, '页面跳转中~');
+		$activityid = $ActivityInfo -> addActivityInfo($adddata);
+
+		$this->redirect('League/Admin/addPostForActivity', array('activityid'=>$activityid), 0.01);
+	}
+
+	public function addPostForActivity(){
+		$this -> activityid = $this -> _param('activityid');
+		$this -> postname = $this -> _param('postname');
+		$this -> display();
+	}
+
+	public function addPost(){
+		$ActivityInfo = D('ActivityInfo');
+		$ActivityInfo -> addActivityPost($_POST);
+		echo "<script>alert('发布成功');</script>";
+		$this->redirect('League/Index/index', array('leagueid'=>1), 0.0001, '~');
+		// /$this -> success('发布成功');
+		//print_r($_POST);
+	}
+
+	public function changeActivityInfo(){
+		$this -> display();
+	}
+
+	public function previewPost($filename, $activityid){
+		$this -> postname = $filename;
+		$this -> activityid = $activityid;
 	}
 
 	public function uploadActivityPost(){
@@ -134,25 +159,8 @@ class AdminAction extends Action{
 		 }else {
 		    //取得成功上传的文件信息
 		    $uploadList = $upload->getUploadFileInfo();
-		    import("ORG.Util.Image");
-		    //给m_缩略图添加水印, Image::water('原文件名','水印图片地址')
-		    Image::water($uploadList[0]['savepath'] . 'm_' . $uploadList[0]['savename'], APP_PATH.'Tpl/Public/Images/logo.png');
-		    $_POST['image'] = $uploadList[0]['savename'];
-		    $this->success('上传成功！');
+		    $this -> previewPost($uploadList[0]['savename'], $this -> _param('activityid'));
+		    $this -> display('previewPost');
 		 }
-	}
-
-	// 文件上传
-	public function upload() {
-		import('ORG.Net.UploadFile');
-		$upload = new UploadFile();// 实例化上传类
-		$upload->maxSize  = 3145728 ;// 设置附件上传大小
-		$upload->allowExts  = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-		$upload->savePath =  './Public/Uploads/';// 设置附件上传目录
-		if(!$upload->upload()) {// 上传错误提示错误信息
-			$this->error($upload->getErrorMsg());
-		}else{// 上传成功
-			$this->success('上传成功！');
-		}
 	}
 }
