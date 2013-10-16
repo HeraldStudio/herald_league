@@ -9,8 +9,9 @@
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
-	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style2.css">
-	<link rel="stylesheet" type="text/css" href="__Public__/Css/kuxuan/iealert/style.css">
+	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">
+	<!--link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/lessframework.css">
+	<!--link rel="stylesheet" type="text/css" href="__Public__/Css/kuxuan/iealert/style.css"-->
 		 <!--[if lte IE 6]>
   <!-- bsie css 补丁文件 -->
 	<!--<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap3/bootstrap-ie6.css">-->
@@ -38,38 +39,35 @@
 
 	
 	<style>
-		.fixed-left{
-			position: fixed;
-			top: 100px;
-		}  
-		.text-center {
-				text-align: center;
-				}
-	    .spant3{
-		          width:220px;
-		}
-		@media (min-width:980px){
+		.text-center {text-align: center;}
+		#filter-buttons{width: 140px;}
+		#ceright{padding-top:120px;}
+		#celeft{padding-top:120px;}
+		@media (min-width: 1200px) {
+			#filter-buttons{
+				width: 170px;
+			}
 			#ceright{
-				margin-right:80px;
-				padding-top:100px;
-			}
-			#more{
-				margin-right:80px;
+				padding-top:120px;
 			}
 		}
-	    @media (max-width: 979px){
+		@media (min-width: 768px) and (max-width: 979px) {
+			#celeft{
+			    width:104px;
+				padding-top:0;
+			 }
+			#ceright{
+				padding-top:0;
+			}
+		}
+	    @media (max-width: 767px){
 		     #celeft{
 			    display:none;
 			 }
 			 #ceright{
-			    margin-left:40px;	
-				padding-top:30px;
-				margin-right:40px;
+			    width:100%;
+				padding-top:0;
 			 }
-			 #more{
-				margin-left:40px;
-				margin-right:40px;
-			}
 		 }
 		  #topLoader {
 				width: 256px;
@@ -78,17 +76,16 @@
 				margin-bottom: 32px;
 				margin-left: 35%;
 		  }
-
 	</style>
 
  
  <script>
- var t;
+ var t=0;
  function isotope(){
 	  $('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: 310
+			columnWidth: 0
 		}
 	});
  }
@@ -140,7 +137,7 @@ $(document).ready(function(){
 	 $('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: 310
+			columnWidth: 0
 		}
 	  });
 	 $("#no-activity").css("display","none");
@@ -164,7 +161,7 @@ $(document).ready(function(){
 	 $('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: 310
+			columnWidth: 0
 		}
 	});
   });
@@ -244,7 +241,7 @@ $(window).load(function(){
 
 	
 </head>
-<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+<body style="font-family:微软雅黑;">
 <input type="hidden" value="{$activitynum}" id="acn">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
@@ -315,9 +312,9 @@ $(window).load(function(){
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" >
-		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:90px;width:190px" id="celeft">
-			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
+	<div class="container"><div class="row" >
+		<div class="span2" id="celeft">
+			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
 				<li class="active"><a id="fl">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
 				<volist name="activityclass" id="va">
@@ -325,22 +322,22 @@ $(window).load(function(){
 				</volist>
 			</ul>	
 		</div>
-	    <div class="offset3" id="ceright">
+	    <div class="span10" id="ceright">
 			<div id="no-activity" style="text-align:center;display:none">
 				<img src="__Public__/Images/no-activity.jpg"></img>
 			</div>
 			<div id="topLoader2">      
 			</div>
-			<div id="filter-container" class="cf isotope"  >					       
-			    	 
+			<div id="filter-container" class="cf isotope row-fluid"  >					       
+			    <div class="span1" style="width:0"></div> 
 			</div><!-- ENDS Filter container -->
-
+			<div id="more" style="font-family:微软雅黑">
+				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+			</div>
 		</div>
-		<div id="more" class="offset3" style="font-family:微软雅黑">
-			<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
-		</div>
+		
 
-	</div>
+	</div></div>
 	
 
 <div id="myModal" class="modal hide fade ">
