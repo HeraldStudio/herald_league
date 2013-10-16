@@ -9,8 +9,9 @@
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
-	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style2.css">
-	<link rel="stylesheet" type="text/css" href="__Public__/Css/kuxuan/iealert/style.css">
+	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">
+	<!--link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/lessframework.css">
+	<!--link rel="stylesheet" type="text/css" href="__Public__/Css/kuxuan/iealert/style.css"-->
 		 <!--[if lte IE 6]>
   <!-- bsie css 补丁文件 -->
 	<!--<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap3/bootstrap-ie6.css">-->
@@ -38,38 +39,35 @@
 
 	
 	<style>
-		.fixed-left{
-			position: fixed;
-			top: 100px;
-		}  
-		.text-center {
-				text-align: center;
-				}
-	    .spant3{
-		          width:220px;
-		}
-		@media (min-width:980px){
+		.text-center {text-align: center;}
+		#filter-buttons{width: 140px;}
+		#ceright{padding-top:120px;}
+		#celeft{padding-top:120px;}
+		@media (min-width: 1200px) {
+			#filter-buttons{
+				width: 170px;
+			}
 			#ceright{
-				margin-right:80px;
-				padding-top:100px;
-			}
-			#more{
-				margin-right:80px;
+				padding-top:120px;
 			}
 		}
-	    @media (max-width: 1210px){
+		@media (min-width: 768px) and (max-width: 979px) {
+			#celeft{
+			    width:104px;
+				padding-top:0;
+			 }
+			#ceright{
+				padding-top:0;
+			}
+		}
+	    @media (max-width: 767px){
 		     #celeft{
 			    display:none;
 			 }
 			 #ceright{
-			    margin-left:40px;	
-				padding-top:30px;
-				margin-right:40px;
+			    width:100%;
+				padding-top:0;
 			 }
-			 #more{
-				margin-left:40px;
-				margin-right:40px;
-			}
 		 }
 		  #topLoader {
 				width: 256px;
@@ -78,7 +76,6 @@
 				margin-bottom: 32px;
 				margin-left: 35%;
 		  }
-
 	</style>
 
  
@@ -112,7 +109,7 @@
                 for(var i=0; i<l; i++){
                      n = json[i]; 
 					if(n.post_add)
-						$item = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
 						$item = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					$('#filter-container').append($item).isotope('appended',$item);
@@ -170,7 +167,7 @@ $(document).ready(function(){
   });
   
   $('.activityclass a').click(function(){
-    t=0;
+    t = 0;
      var classid=$(this).attr("id");
 	$(".getmore").attr("id",classid);
 	$(".getmore").html("加载更多");
@@ -187,7 +184,7 @@ $(document).ready(function(){
 				for(i=0; i < l; i++ ){
 					n=json[i];
 					if (n.post_add)
-						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
 				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 				$("#filter-container").append($items).isotope('appended',$items);
@@ -238,14 +235,8 @@ $(window).load(function(){
  });
 
 </script>
-
-
-		  
-
-
-	
 </head>
-<body style="font-family:微软雅黑; background-image:url(__Public__/Images/noise-all.png)">
+<body style="font-family:微软雅黑;">
 <input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
 	<div class="navbar navbar-fixed-top well">
 		<div class="navbar-inner">
@@ -300,9 +291,9 @@ $(window).load(function(){
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">		
-								<li><a href="./index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 								<li><a href="#">上传照片</a></li>
-								<li><a href="./index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
 							</ul>
@@ -312,30 +303,31 @@ $(window).load(function(){
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" >
-		<div class="span2 fixed-left" style="background-image:url(__Public__/Images/main-bg.png);margin-left:90px;width:190px" id="celeft">
-			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;">
+	<div class="container">
+	  <div class="row" >
+		<div class="span2" id="celeft">
+			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;top:120px;">
 				<li class="active"><a id="fl">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
 				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 			</ul>	
 		</div>
-	    <div class="offset3" id="ceright">
+	    <div class="span10" id="ceright">
 			<div id="no-activity" style="text-align:center;display:none">
-				<img src="__Public__/Images/no-activity.jpg"></img>
+				<img src="__Public__/Images/no-activity.jpg" />
 			</div>
 			<div id="topLoader2">      
 			</div>
-			<div id="filter-container" class="cf isotope"  >					       
-			    	 
+			<div id="filter-container" class="cf isotope row-fluid"  >					       
+			    <div class="span1" style="width:0"></div> 
 			</div><!-- ENDS Filter container -->
-
+			<div id="more" style="font-family:微软雅黑">
+				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+			</div>
 		</div>
-		<div id="more" class="offset3" style="font-family:微软雅黑">
-			<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
-		</div>
+		
 
-	</div>
+	</div></div>
 	
 
 <div id="myModal" class="modal hide fade ">
@@ -465,7 +457,7 @@ $(window).load(function(){
 	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height:100px">
 	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
-	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
+	<h5 class="center" style="text-align:center"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>  
 <script>
   $("body").iealert();

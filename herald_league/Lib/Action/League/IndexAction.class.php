@@ -91,7 +91,8 @@ class IndexAction extends Action{
 	private function getLeagueActivityInfo(){
 		$ActivityInfo = D('ActivityInfo');
 		$activityinfo = $ActivityInfo -> getActivityInfoByLeagueId($this -> leagueid);
-		$this -> leagueactivitynum = count($activityinfo);
+		$this -> leagueactivitynum = $ActivityInfo -> getLeagueActivityNum($this -> leagueid);
+		//$this -> leagueactivitynum = (int)($this -> leagueactivitynum/3)+9;
 		$this -> assign('activityinfo',$activityinfo);
 	}
 	private function getLeagueAlbum(){
