@@ -26,8 +26,12 @@ class ActivityInfoModel extends Model{
 		return $activityinfo = $this -> getActivityLeague($activityinfo);
 	}
 	public function getActivityInfoByLeagueId($leagueid){
-		$activityinfo = $this -> where('league_id='.$leagueid) -> limit(3) -> select();
+		$activityinfo = $this -> where('league_id='.$leagueid) -> order('id desc') -> limit(3) -> select();
 		return $this -> getActivityLeague($activityinfo);
+	}
+	public function getLeagueActivityNum($leagueid){
+		$activitynum = $this -> where('league_id='.$leagueid)  -> count();
+		return $activitynum;
 	}
 	private function getActivityLeague($activityinfo){
 		$leagueinfo = D('LeagueInfo');
@@ -50,6 +54,10 @@ class ActivityInfoModel extends Model{
 	}
 	public function getThreePageInfo($currentpage){
 		$activityinfo = $this -> order('id desc') -> limit($currentpage, 3) -> select();
-		return $activityinfo;
+		return $this -> getActivityLeague($activityinfo);
+	}
+	public function addActivityPost($postdata){
+		$data['post_add'] = $postdata['postname'];
+		$this -> where('id='.$postdata['activityid']) -> save($data);
 	}
 }

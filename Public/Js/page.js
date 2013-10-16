@@ -18,7 +18,7 @@ $(document).ready(function() {
                     for (i = 0; i < l; i++) {
                         n = data[i];
                         if (n.post_add) {
-                            $items = '<div class="thumbnail"><a href="#" class="thumb"><img src="/herald_league/Uploads/ActivityPost/' + n.post_add + '" alt="alt" /></a><div class="heading center" style="font-size:20px;margin-top:20px;"><a data-toggle="modal" href="#myModal" class="activityname" id="' + n.id + '">' + n.name + '</a><a href="#" title="关注此活动"><img src="/herald_league/Public/Images/attention.png"/></a></div><div class="word_wrap"><br/><p>主办方：<a href="#">' + n.league_name + '</a><a href="#" title="关注此社团"><img src="/herald_league/Public/Images/attention-small.png"/></a></p><p>时间：' + n.start_time + '</p><p>地点：' + n.place + '</p><br/><a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a></div></div>';
+                            $items = '<div class="thumbnail"><a href="#" class="thumb"><img src="/herald_league/Uploads/ActivityPost/m_' + n.post_add + '" alt="alt" /></a><div class="heading center" style="font-size:20px;margin-top:20px;"><a data-toggle="modal" href="#myModal" class="activityname" id="' + n.id + '">' + n.name + '</a><a href="#" title="关注此活动"><img src="/herald_league/Public/Images/attention.png"/></a></div><div class="word_wrap"><br/><p>主办方：<a href="#">' + n.league_name + '</a><a href="#" title="关注此社团"><img src="/herald_league/Public/Images/attention-small.png"/></a></p><p>时间：' + n.start_time + '</p><p>地点：' + n.place + '</p><br/><a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a></div></div>';
                         } else {
                             $items = '<div class="thumbnail"><div class="heading center" style="font-size:20px;margin-top:20px;"><a data-toggle="modal" href="#myModal" class="activityname" id="' + n.id + '">' + n.name + '</a><a href="#" title="关注此活动"><img src="/herald_league/Public/Images/attention.png"/></a></div><div class="word_wrap"><br/><p>主办方：<a href="#">' + n.league_name + '</a><a href="#" title="关注此社团"><img src="/herald_league/Public/Images/attention-small.png"/></a></p><p>时间：' + n.start_time + '</p><p>地点：' + n.place + '</p><br/><a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a></div></div>';
                         };
@@ -35,7 +35,8 @@ $(document).ready(function() {
     $('#nextactivity').click(function() {
         var currentpage = $("#currentpage").val();
         var maxpage = $('#maxpage').val();
-        if (currentpage < maxpage) {
+        if (Number(currentpage) < Number(maxpage)) {
+           // alert(currentpage);
             $('#currentpage').val(Number(currentpage) + 1);
         }
         $.ajax({
@@ -52,18 +53,14 @@ $(document).ready(function() {
                     for (i = 0; i < l; i++) {
                         n = data[i];
                         if (n.post_add) {
-                            $items = '<div class="thumbnail"><a href="#" class="thumb"><img src="/herald_league/Uploads/ActivityPost/' + n.post_add + '" alt="alt" /></a><div class="heading center" style="font-size:20px;margin-top:20px;"><a data-toggle="modal" href="#myModal" class="activityname" id="' + n.id + '">' + n.name + '</a><a href="#" title="关注此活动"><img src="/herald_league/Public/Images/attention.png"/></a></div><div class="word_wrap"><br/><p>主办方：<a href="#">' + n.league_name + '</a><a href="#" title="关注此社团"><img src="/herald_league/Public/Images/attention-small.png"/></a></p><p>时间：' + n.start_time + '</p><p>地点：' + n.place + '</p><br/><a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a></div></div>';
+                            $items = '<div class="thumbnail"><a href="javascript:void(0);" class="thumb"><img src="/herald_league/Uploads/ActivityPost/m_' + n.post_add + '" alt="alt" /></a><div class="heading center" style="font-size:20px;margin-top:20px;"><a data-toggle="modal" href="#myModal" class="activityname" id="' + n.id + '">' + n.name + '</a><a href="#" title="关注此活动"><img src="/herald_league/Public/Images/attention.png"/></a></div><div class="word_wrap"><br/><p>主办方：<a href="#">' + n.league_name + '</a><a href="#" title="关注此社团"><img src="/herald_league/Public/Images/attention-small.png"/></a></p><p>时间：' + n.start_time + '</p><p>地点：' + n.place + '</p><br/><a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a></div></div>';
                         } else {
                             $items = '<div class="thumbnail"><div class="heading center" style="font-size:20px;margin-top:20px;"><a data-toggle="modal" href="#myModal" class="activityname" id="' + n.id + '">' + n.name + '</a><a href="#" title="关注此活动"><img src="/herald_league/Public/Images/attention.png"/></a></div><div class="word_wrap"><br/><p>主办方：<a href="#">' + n.league_name + '</a><a href="#" title="关注此社团"><img src="/herald_league/Public/Images/attention-small.png"/></a></p><p>时间：' + n.start_time + '</p><p>地点：' + n.place + '</p><br/><a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a></div></div>';
                         }
                         $('.activity-page li:nth-child('+(i+1)+')').html($items);
                     }
-
-
                 }
-
             }
-            
         })
     });
     $('#prephotopage').click(function() {

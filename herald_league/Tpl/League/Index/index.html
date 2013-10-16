@@ -166,7 +166,7 @@
             <button type="submit" class="btn">Go</button>
           </form>
           <ul class="nav">
-            <li><a href="/">平台首页</a></li>
+            <li><a href="{:U('/Activity/Index/index')}">平台首页</a></li>
             <li><a href="{:U('/League/Index/leaguelist')}">社团列表</a></li>
             <li><a href="#">社团空间</a></li>
             <li><a href="#">失物招领</a></li>
@@ -296,8 +296,8 @@
                             <li class="span4" style="margin-left:8px;">
                               <div class="thumbnail">
                                   <notempty name="vai.post_add">  
-                                  <a href="#" class="thumb">
-                                    <img src="__Uploads__/ActivityPost/{$vai.post_add}" alt="alt" />
+                                  <a href="javascript:void(0);" class="thumb">
+                                    <img src="__Uploads__/ActivityPost/m_{$vai.post_add}" alt="alt" />
                                   </a>
                                   </notempty>
                                   <div class="heading center" style="font-size:20px;margin-top:20px;">
