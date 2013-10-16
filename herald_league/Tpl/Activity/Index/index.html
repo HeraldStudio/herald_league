@@ -112,7 +112,7 @@
                 for(var i=0; i<l; i++){
                      n = json[i]; 
 					if(n.post_add)
-						$item = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+						$item = $('<figure class="'+n.class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
 						$item = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					$('#filter-container').append($item).isotope('appended',$item);
@@ -186,7 +186,7 @@ $(document).ready(function(){
 				for(i=0; i < l; i++ ){
 					n=json[i];
 					if (n.post_add)
-						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"#\" class=\"thumb\"><img src="__Uploads__/ActivityPost/'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
 				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 				$("#filter-container").append($items).isotope('appended',$items);
@@ -298,7 +298,7 @@ $(window).load(function(){
                              <ul class="dropdown-menu">		
 								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/{$loginuserid}">发布活动</a></li>
 								<li><a href="#">上传照片</a></li>
-								<li><a href="./index.php/League/Admin/changeinfo/leagueid/{$loginuserid}">修改社团信息</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/{$loginuserid}">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
 							</ul>
@@ -321,7 +321,7 @@ $(window).load(function(){
 		</div>
 	    <div class="offset3" id="ceright">
 			<div id="no-activity" style="text-align:center;display:none">
-				<img src="__Public__/Images/no-activity.jpg"></img>
+				<img src="__Public__/Images/no-activity.jpg" />
 			</div>
 			<div id="topLoader2">      
 			</div>

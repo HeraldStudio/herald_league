@@ -17,19 +17,87 @@ class AdminAction extends Action{
 				}
 				$this -> display();
 			}else{
-				echo "quanxianbuzu";
+				$this -> error("权限不足");
 			}
 		}else{
-				echo "quanxianbuzu";
+				$this -> error("权限不足");
 		}
 	}
-	public function addalbum(){
+
+	public function updateavatar(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
 		if($this -> leagueid < 0 || !isset($this -> leagueid)){
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
 
+		$this -> display();
+	}
+
+	//上传头像
+	public function uploadImg(){
+		import('ORG.Net.UploadFile');
+		$upload = new UploadFile();						// 实例化上传类
+		$upload->maxSize = 1*1024*1024;					//设置上传图片的大小
+		$upload->allowExts = array('jpg','png','gif');	//设置上传图片的后缀
+		$upload->uploadReplace = true;					//同名则替换
+		$upload->saveRule = 'uniqid';					//设置上传头像命名规则(临时图片),修改了UploadFile上传类
+		$upload->thumbRemoveOrigin = true;
+		//$upload->subType = 'date';
+
+		//完整的头像路径
+		$path = 'Uploads/LeagueAvatar/';
+		$upload->savePath = $path;
+		if(!$upload->upload()) {						// 上传错误提示错误信息
+			$this->ajaxReturn('',$upload->getErrorMsg(),0,'json');
+		}else{											// 上传成功 获取上传文件信息
+			$info =  $upload->getUploadFileInfo();
+			$picName = $info[0]['savename'];
+			$temp_size = getimagesize($path.$picName);
+			if($temp_size[0] < 100 || $temp_size[1] < 100){//判断宽和高是否符合头像要求
+				$this->ajaxReturn(0,'图片宽或高不得小于100px！',0,'json');
+			}
+			$this->ajaxReturn(__ROOT__.'/Uploads/LeagueAvatar/'.$user_path.$picName,$info,1,'json');
+		}
+	}
+
+	//裁剪并保存用户头像
+	public function cropImg(){
+		//图片裁剪数据
+		$params = $this->_post();						//裁剪参数
+		if(!isset($params) && empty($params)){
+			return;
+		}
+		
+		$picName = $this->_post('picName');
+      $picName = explode('/',$picName);
+      $leagueid = $this -> _param('leagueid');
+		//头像目录地址
+		$path = 'Uploads/LeagueAvatar/';
+		//要保存的图片
+		$real_path = $path.$picName[4];
+		//临时图片地址
+		$pic_path = $real_path;
+		$thumb = explode('.',$picName[4]);
+		import('ORG.ThinkImage.ThinkImage');
+		$Think_img = new ThinkImage(THINKIMAGE_GD); 
+		//裁剪原图
+		$Think_img->open($pic_path)->crop($params['w'],$params['h'],$params['x'],$params['y'])->save($real_path);
+		//生成缩略图
+		$Think_img->open($real_path)->thumb(100,100, 1)->save($path.$thumb[0].'_100.jpg');
+		$Think_img->open($real_path)->thumb(60,60, 1)->save($path.$thumb[0].'_60.jpg');
+		$Think_img->open($real_path)->thumb(30,30, 1)->save($path.$thumb[0].'_30.jpg');
+		$LeagueInfo = D('LeagueInfo');
+		$LeagueInfo -> updateLeagueAvatar($leagueid, $picName[4]);
+		$this->success('上传头像成功');
+	}
+
+	public function addalbum(){
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
 		$this -> display();
 	}
 
@@ -77,7 +145,7 @@ class AdminAction extends Action{
 	private function updateLeagueInfo(){
 		$LeagueClass = D('LeagueClass');
 		$LeagueInfo = D('LeagueInfo');
-
+		print_r($_POST);
 		$adddata['league_name'] = $this -> _param('leaguename'); 
 		$adddata['introduce'] = $this -> _param('introduce');
 		$adddata['member'] = $this -> _param('member');
@@ -116,8 +184,6 @@ class AdminAction extends Action{
 		$ActivityInfo -> addActivityPost($_POST);
 		echo "<script>alert('发布成功');</script>";
 		$this->redirect('League/Index/index', array('leagueid'=>1), 0.0001, '~');
-		// /$this -> success('发布成功');
-		//print_r($_POST);
 	}
 
 	public function changeActivityInfo(){

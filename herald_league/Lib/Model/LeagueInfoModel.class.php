@@ -57,4 +57,8 @@ class LeagueInfoModel extends Model{
 			return "success";
 		}
 	}
+	public function updateLeagueAvatar($leagueid, $avatarname){
+		$data['avatar_address'] = $avatarname;
+		$this -> where('uid='.$leagueid) -> save($data);
+	}
 }
