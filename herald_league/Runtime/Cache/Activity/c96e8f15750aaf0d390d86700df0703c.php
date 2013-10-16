@@ -57,7 +57,7 @@
 				margin-right:80px;
 			}
 		}
-	    @media (max-width: 979px){
+	    @media (max-width: 1210px){
 		     #celeft{
 			    display:none;
 			 }
@@ -83,12 +83,12 @@
 
  
  <script>
- var t;
+ var t=0;
  function isotope(){
 	  $('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: 310
+			columnWidth: 0
 		}
 	});
  }
@@ -140,7 +140,7 @@ $(document).ready(function(){
 	 $('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: 310
+			columnWidth: 0
 		}
 	  });
 	 $("#no-activity").css("display","none");
@@ -164,12 +164,13 @@ $(document).ready(function(){
 	 $('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {
-			columnWidth: 310
+			columnWidth: 0
 		}
 	});
   });
   
   $('.activityclass a').click(function(){
+    t=0;
      var classid=$(this).attr("id");
 	$(".getmore").attr("id",classid);
 	$(".getmore").html("加载更多");
