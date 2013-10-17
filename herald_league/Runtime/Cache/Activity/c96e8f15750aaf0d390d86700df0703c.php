@@ -267,6 +267,7 @@ $(window).load(function(){
 								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 								<li><a href="/herald_league/index.php/League/Admin/addalbum/leagueid/<?php echo ($loginuserid); ?>">上传照片</a></li>
 								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
+								<li><a href="">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
 							</ul>
@@ -279,7 +280,7 @@ $(window).load(function(){
 	<div class="container">
 	  <div class="row" >
 		<div class="span2" id="celeft">
-			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;top:120px;">
+			<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
 				<li class="active"><a id="fl">分类</a></li>
 				<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
 				<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
