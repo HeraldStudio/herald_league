@@ -208,7 +208,7 @@ $(document).ready(function(){
 				url:'{:U('leagueLogin')}',
 				type:'post',
 				dataType:'text',
-				data:'leagueid='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
+				data:'email='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
 				success:function(data){
 					alert(data);
 					//document.write(data);

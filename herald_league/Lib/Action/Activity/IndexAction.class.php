@@ -22,23 +22,19 @@ class IndexAction extends Action {
 		return $ActivityClass -> getClassList();
 	}
 
-	// public function activityInfo(){
-		// $ActivityInfo = D('ActivityInfo');
-		// return $ActivityInfo -> getAllActivityInfo();
-	// }
 	public function getActivityNum(){
 		$ActivityInfo = D('ActivityInfo');
 		$this -> activitynum = $ActivityInfo -> getAllActivityInfoNum();
 	}
 	public function leagueLogin(){
-		$leagueid = $this -> _param('leagueid');
+		$email = $this -> _param('email');
 		$password = $this ->_param('password');
 
 		$LeagueInfo = D('LeagueInfo');
-		$isUserExit = $LeagueInfo -> cheakLeague($leagueid, $password);
+		$isUserExit = $LeagueInfo -> cheakLeague($email, $password);
 		if($isUserExit == "success"){
 			$LeagueSession = D('LeagueSession');
-			$result = $LeagueSession -> addSession($leagueid, $password);
+			$result = $LeagueSession -> addSession($email, $password);
 			if($result == "success"){
 				echo "登录成功";
 			}elseif($result == "alreadylogin"){

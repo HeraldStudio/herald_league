@@ -49,8 +49,8 @@ class LeagueInfoModel extends Model{
 	public function updateLeagueInfo($data,$leagueid){
 		$this -> where('uid='.$leagueid) -> save($data);
 	}
-	public function cheakLeague($leagueid, $password){
-		$result = $this -> where("uid='".$leagueid."' AND password='".$password."'") -> find();
+	public function cheakLeague($email, $password){
+		$result = $this -> where("email='".$email."' AND password='".$password."'") -> find();
 		if(!$result){
 			return "error";
 		}else{
@@ -60,5 +60,21 @@ class LeagueInfoModel extends Model{
 	public function updateLeagueAvatar($leagueid, $avatarname){
 		$data['avatar_address'] = $avatarname;
 		$this -> where('uid='.$leagueid) -> save($data);
+	}
+	
+	public function addLeague($email, $password){
+		$data['email'] = $email; 
+		$pregresult = preg_match( '/^[a-z]([a-z0-9]*[-_\.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i', $email);
+		$data['password'] = md5($password);
+		if($pregresult == 1){
+			$addresult = $this -> add($data);
+			if($addresult){
+				return "success";
+			}else{
+				return "ear";//email aready regester
+			}
+		}else{
+			return "badpatten";
+		}
 	}
 }

@@ -31,7 +31,18 @@ class AdminAction extends Action{
 			return;
 		}
 
-		$this -> display();
+		$LeagueSession = D('LeagueSession');
+		if($LeagueSession -> hasLeagueLogin()){
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			if($loginuserinfo[0] == $this -> leagueid){
+				
+				$this -> display();
+			}else{
+				$this -> error("权限不足");
+			}
+		}else{
+				$this -> error("权限不足");
+		}
 	}
 
 	//上传头像
@@ -84,7 +95,7 @@ class AdminAction extends Action{
 		//裁剪原图
 		$Think_img->open($pic_path)->crop($params['w'],$params['h'],$params['x'],$params['y'])->save($real_path);
 		//生成缩略图
-		$Think_img->open($real_path)->thumb(100,100, 1)->save($path.$thumb[0].'_100.jpg');
+		$Think_img->open($real_path)->thumb(100,100, 1)->save('m_s_'.$path.$thumb[0].'.jpg');// android
 		$Think_img->open($real_path)->thumb(60,60, 1)->save($path.$thumb[0].'_60.jpg');
 		$Think_img->open($real_path)->thumb(30,30, 1)->save($path.$thumb[0].'_30.jpg');
 		$LeagueInfo = D('LeagueInfo');
