@@ -10,6 +10,7 @@
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">
+	<link rel="stylesheet" type="text/css" href="__Public__/Css/kuxuan/iealert/style.css">
 	<!--link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/lessframework.css">
 	<!--link rel="stylesheet" type="text/css" href="__Public__/Css/kuxuan/iealert/style.css"-->
 		 <!--[if lte IE 6]>
@@ -37,7 +38,6 @@
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
 	<script type="text/javascript" src="__Public__/Js/logout.js"></script>
 	
-
 	
 	<style>
 		.text-center {text-align: center;}
@@ -173,6 +173,7 @@ $(document).ready(function(){
 	$(".getmore").attr("id",classid);
 	$(".getmore").html("加载更多");
     $.ajax({
+	  async : false,
       url:'<?php echo U('getClassActivity');?>',
       type:'post',
       data:'classid='+classid,
