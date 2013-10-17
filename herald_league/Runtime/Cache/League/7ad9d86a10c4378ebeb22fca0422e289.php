@@ -169,7 +169,8 @@
           <ul class="nav">
             <li><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
             <li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-            <li><a href="#">社团空间</a></li>
+            <li class="active"><a href="#">社团空间</a></li>
+            <li><a href="#">二手市场</a></li>
             <li><a href="#">失物招领</a></li>
           </ul>
           <?php if($loginusertype == 2): ?><ul class="nav pull-right">        
