@@ -199,36 +199,6 @@ $(document).ready(function(){
 	        $("#no-activity").css("display","none");
 			jsonajax($(this).attr("id"));
 	});
-
- //   $("#leaguelogin").click(function(){
-	// 	if($("#inputEmail").val() == ""){
-	// 		alert("用户名不能为空");
-	// 	}else if($("#inputPassword").val() == ""){
-	// 		alert("密码不能为空");
-	// 	}else{
-	// 		$.ajax({
-	// 			url:'<?php echo U('leagueLogin');?>',
-	// 			type:'post',
-	// 			dataType:'text',
-	// 			data:'email='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
-	// 			success:function(data){
-	// 				alert(data);
-	// 				//document.write(data);
-	// 			}
-	// 		});
-	// 	}
-	// });
-	
-	// $(".logout").click(function(){
-	// 	$.ajax({
-	// 		url:'<?php echo U('Public/Login/logout');?>',
-	// 		type:'post',
-	// 		dataType:'text',
-	// 		success:function(data){
-	// 			alert(data);
-	// 		}
-	// 	});
-	// });			
 });
 
 $(window).load(function(){
@@ -267,7 +237,6 @@ $(window).load(function(){
 					<ul class="nav">
 						<li class="active"><a href="#">平台首页</a></li>
 						<li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
@@ -293,7 +262,7 @@ $(window).load(function(){
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">		
 								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
-								<li><a href="#">上传照片</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/addalbum/leagueid/<?php echo ($loginuserid); ?>">上传照片</a></li>
 								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
