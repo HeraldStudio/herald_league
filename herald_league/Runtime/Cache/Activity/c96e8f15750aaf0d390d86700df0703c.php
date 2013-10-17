@@ -38,6 +38,7 @@
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
 	<script type="text/javascript" src="__Public__/Js/logout.js"></script>
 	
+	
 	<style>
 		.text-center {text-align: center;}
 		#filter-buttons{width: 140px;}
@@ -77,7 +78,8 @@
 				margin-left: 35%;
 		  }
 	</style>
-	<!--[if IE 8]>
+
+	  <!--[if IE 8]>
 	<style type="text/css">
 		.container{width:1170px;}
 		.span2 {width: 170px;}
@@ -115,17 +117,14 @@
          url:'<?php echo U('getMoreActivity');?>',
          type:'post',
          data:'lastactivityid='+lastid+'&claid='+classid,
-         dataType:'text',
-         success:function(data){
-			
-			arr = eval("("+data+")");
-            if(arr){
+         dataType:'json',
+         success:function(json){
+            if(json){
 			    t=1;
 			    var n;
-                var l=arr.length;
+                var l=json.length;
                 for(var i=0; i<l; i++){
-                     n = arr[i]; 
-
+                     n = json[i]; 
 					if(n.post_add)
 						$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
@@ -139,9 +138,6 @@
 					$(".getmore").html("没有更多了...");
 					t = 0;
 				}
-			
-
-
          }
      });
  } 
@@ -199,22 +195,22 @@ $(document).ready(function(){
       data:'classid='+classid,
       dataType:'json',
       success:function(json){    
-		 if(json){
-			t=1;
-			var n;
-			var l=json.length;
-			for(i=0; i < l; i++ ){
-				n=json[i];
-				if (n.post_add)
-					$items = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
-				else
-					$items = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
-			$("#filter-container").append($items).isotope('appended',$items);
-			}			
-		}
+         if(json){
+				t=1;
+				var n;
+				var l=json.length;
+				for(i=0; i < l; i++ ){
+					n=json[i];
+					if (n.post_add)
+						$items = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+					else
+				        $items = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+				$("#filter-container").append($items).isotope('appended',$items);
+				}			
+			}
 		else{
 			$("#no-activity").css("display","block");
-		}
+		}		
 	   } 
      });
 	        $("#no-activity").css("display","none");

@@ -79,6 +79,22 @@
 		  }
 	</style>
 
+	  <!--[if IE 8]>
+	<style type="text/css">
+		.container{width:1170px;}
+		.span2 {width: 170px;}
+		.span10 {width: 970px;}
+		#filter-buttons{width: 170px;}
+	</style>
+	<![endif]-->
+	<!--[if lt IE 8]>
+	<style type="text/css">
+		.container{width:1170px;}
+		.span2 {width: 170px;}
+		.span10 {width: 970px;}
+		#filter-buttons{width: 170px;}
+	</style>
+	<![endif]-->
  
  <script>
  var t=0;
@@ -110,9 +126,9 @@
                 for(var i=0; i<l; i++){
                      n = json[i]; 
 					if(n.post_add)
-						$item = $('<figure class="'+n.class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+						$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
-						$item = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+						$item = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					$('#filter-container').append($item).isotope('appended',$item);
 					isotope();
 			     }
@@ -186,9 +202,9 @@ $(document).ready(function(){
 				for(i=0; i < l; i++ ){
 					n=json[i];
 					if (n.post_add)
-						$items = $('<figure class="'+n.class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+						$items = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img src="__Uploads__/ActivityPost/m_'+n.post_add+'" alt=\"alt\" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
-				        $items = $('<figure class="'+n.class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
+				        $items = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a><a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a></div><p>主办方：<a href="#">'+n.league_name+'</a><a href=\"#\" title=\"关注此社团\"><img src=\"__Public__/Images/attention-small.png\"/></a></p><br><p>时间：'+n.start_time+'</p><br><p>地点：'+n.place+'</p></figcaption></figure>');
 				$("#filter-container").append($items).isotope('appended',$items);
 				}			
 			}
