@@ -227,7 +227,10 @@ $(window).load(function(){
 							<ul class="dropdown-menu" style="min-width:0px;">
 								<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
 								<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
-							</ul>
+							</ul>							
+						</li>
+						<li>
+							<a id="leagueregester" href="<?php echo U('League/Index/leagueRegester');?>">社团注册</a>
 						</li>
 					</ul><?php endif; ?>
 					<form class="navbar-form pull-right">
