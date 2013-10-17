@@ -20,11 +20,10 @@ $(document).ready(function(){
 				url:'/herald_league/index.php/Index/leagueLogin.html',
 				type:'post',
 				dataType:'text',
-				data:'leagueid='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
+				data:'email='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
 				success:function(data){
 					alert(data);
 					history.go(0);
-					//document.write(data);
 				}
 			});
 		}

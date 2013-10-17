@@ -150,7 +150,7 @@
         <div class="nav-collapse collapse">
           <?php if($loginuser): else: ?>
           <ul class="nav pull-right" style="text-decoration:none;">        
-                         <li class="dropdown" >
+            <li class="dropdown" >
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login"> 登录 
                 <b class="caret"></b></a>
               <ul class="dropdown-menu" style="min-width:0px;">
@@ -158,6 +158,9 @@
                 <li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
               </ul>
             </li>
+			<li>
+				<a id="leagueregester" href="<?php echo U('League/Index/leagueRegester');?>">社团注册</a>
+			</li>
           </ul><?php endif; ?>
           <form class="navbar-form pull-right">
             <input type="text" class="search-query span3" placeholder="Search">

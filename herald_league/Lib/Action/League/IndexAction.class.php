@@ -1,7 +1,10 @@
 <?php
+/*
+ this class is league zone pages, there are four pages.
+ each public function control one page
+ */
 class IndexAction extends Action{
-	//private $leagueid;
-	//public $leaguename;
+	/*league zone page*/
 	public function index(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
 		if($this -> leagueid < 0){
@@ -17,12 +20,51 @@ class IndexAction extends Action{
 
 		$this -> display();
 	}
+	/*leaguelist page*/
 	public function leaguelist(){
 		$this -> getLeagueList();
 		$this -> getTenGoodLeague();
 		$this -> getAttentionLeagueRank();
 		$this -> getLoginUserInfo();
 		
+		$this -> display();
+	}
+	/*league album page*/
+	public function album(){
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
+		$this -> getAlbumInfo();
+
+		$this -> display();
+	}
+	/*each page activity information in league zone*/
+	public function getEachPageActivity(){
+		$currentpage = $_POST['page'];
+		$ActivityInfo = D("ActivityInfo");
+		$activityinfo = $ActivityInfo -> getThreePageInfo($currentpage);
+		echo json_encode($activityinfo);
+	}
+	/*league regester page*/
+	public function leagueRegester(){
+		$email = $this -> _post('email');
+		$password = $this -> _post('password');
+
+		if(!empty($email ) && !empty($password)){
+			$LeagueInfo = D('LeagueInfo');
+			$regesterresult = $LeagueInfo -> addLeague($email, $password);
+			if($regesterresult == "success"){
+				$this -> success("注册成功!");
+			}elseif($regesterresult == "badpatten"){
+				$this -> error("邮箱格式不正确!");
+			}elseif($regesterresult == "ear"){
+				$this -> error("邮箱已注册过");
+			}else{
+				$this -> error("未知错误，请重试");
+			}
+		}
 		$this -> display();
 	}
 
@@ -45,16 +87,7 @@ class IndexAction extends Action{
 			$this -> loginuser = false;
 		}
 	}
-	public function album(){
-		$this -> leagueid = intval($this -> _param('leagueid'));
-		if($this -> leagueid < 0){
-			echo "<script>history.go(-1)</script>";
-			return;
-		}
-		$this -> getAlbumInfo();
-		$this -> display();
-	}
-
+	
 	public function comment(){
 		if(!empty($_POST['content'])){
 			if(empty($_POST['comment_id'])){
@@ -72,10 +105,10 @@ class IndexAction extends Action{
 				$CommentInfo -> addNewComment($loginLeagueInfo[0]['league_id'],1,$_POST['comment_id'],$_POST['leagueid'],1,$_POST['content']);
 				header("Location: /herald_league/index.php/League/Index/index/leagueid/".$_POST['leagueid']."#liuyanban");
 			}else{
-				echo "请登录";
+				$this -> error("请登录");
 			}
 		}else{
-			echo "不能为空";
+			$this -> error("不能为空");
 		}
 	}
 	private function getLeagueInfo(){
@@ -142,11 +175,5 @@ class IndexAction extends Action{
 		$albuminfo = $AlbumInfo -> getAlbumInfoByLeagueIdWithoutPage($this -> leagueid);
 		$this -> leaguename = $LeagueInfo -> getLeagueNameById($this -> leagueid);
 		$this -> assign('albuminfo',$albuminfo);
-	}
-	public function getEachPageActivity(){
-		$currentpage = $_POST['page'];
-		$ActivityInfo = D("ActivityInfo");
-		$activityinfo = $ActivityInfo -> getThreePageInfo($currentpage);
-		echo json_encode($activityinfo);
 	}
 }

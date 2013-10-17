@@ -29,6 +29,12 @@ class LeagueInfoModel extends Model{
 	public function getLeagueNameById($leagueid){
 		return $this -> where('uid='.$leagueid) -> getField('league_name');
 	}
+	public function getLeagueNameByEmail($email){
+		return $this -> where("email='".$email."'") -> getField('league_name');
+	}
+	public function getLeagueIdByEmail($email){
+		return $this -> where("email='".$email."'") -> getField('uid');
+	}
 	public function getLeagueInfoById($leagueid){
 		return $this -> where('uid='.$leagueid) -> find();
 	}
@@ -49,12 +55,33 @@ class LeagueInfoModel extends Model{
 	public function updateLeagueInfo($data,$leagueid){
 		$this -> where('uid='.$leagueid) -> save($data);
 	}
-	public function cheakLeague($leagueid, $password){
-		$result = $this -> where("uid='".$leagueid."' AND password='".$password."'") -> find();
+
+	public function checkLeague($email, $password){
+		$result = $this -> where("email='".$email."' AND password='".md5($password)."'") -> find();
 		if(!$result){
 			return "error";
 		}else{
 			return "success";
+		}
+	}
+	public function updateLeagueAvatar($leagueid, $avatarname){
+		$data['avatar_address'] = $avatarname;
+		$this -> where('uid='.$leagueid) -> save($data);
+	}
+
+	public function addLeague($email, $password){
+		$data['email'] = $email; 
+		$pregresult = preg_match( '/^[a-z]([a-z0-9]*[-_\.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i', $email);
+		$data['password'] = md5($password);
+		if($pregresult == 1){
+			$addresult = $this -> add($data);
+			if($addresult){
+				return "success";
+			}else{
+				return "ear";//email aready regester
+			}
+		}else{
+			return "badpatten";
 		}
 	}
 }
