@@ -112,6 +112,23 @@ class AdminAction extends Action{
 		$this -> display();
 	}
 
+	public function uploadsAlbum(){
+		import ( 'ORG.Net.UploadFile' );
+		$upload = new UploadFile ();
+		$upload->imageClassPath = 'ORG.Util.Image';
+		$upload->maxSize = 2097152; // 设置附件上传大小不超过2MB
+		$upload->allowExts = array ('jpg', 'gif', 'png', 'jpeg' ); // 设置附件上传类型
+		$upload->savePath = 'Uploads/LeagueAlbum/'; // 设置附件上传目录
+		
+		if (! $upload->upload ()) { // 上传错误提示错误信息
+			$this->error ( $upload->getErrorMsg () );
+		} else { // 上传成功 获取上传文件信息
+			$info = $upload->getUploadFileInfo ();
+			dump($info);
+			$this->ajaxReturn($info);
+		}
+	}
+
 	public function addactivity(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
 		if($this -> leagueid < 0 || !isset($this -> leagueid)){
