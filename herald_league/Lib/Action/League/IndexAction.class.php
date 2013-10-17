@@ -105,10 +105,10 @@ class IndexAction extends Action{
 				$CommentInfo -> addNewComment($loginLeagueInfo[0]['league_id'],1,$_POST['comment_id'],$_POST['leagueid'],1,$_POST['content']);
 				header("Location: /herald_league/index.php/League/Index/index/leagueid/".$_POST['leagueid']."#liuyanban");
 			}else{
-				echo "请登录";
+				$this -> error("请登录");
 			}
 		}else{
-			echo "不能为空";
+			$this -> error("不能为空");
 		}
 	}
 	private function getLeagueInfo(){

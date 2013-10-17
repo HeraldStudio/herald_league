@@ -35,6 +35,7 @@
 	<script src="__Public__/Js/kuxuan/iealert.js" type="text/javascript"></script>
 	<!-- Isotope -->
 	<script src="__Public__/Js/kuxuan/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="__Public__/Js/logout.js"></script>
 	
 
 	
@@ -199,35 +200,35 @@ $(document).ready(function(){
 			jsonajax($(this).attr("id"));
 	});
 
-   $("#leaguelogin").click(function(){
-		if($("#inputEmail").val() == ""){
-			alert("用户名不能为空");
-		}else if($("#inputPassword").val() == ""){
-			alert("密码不能为空");
-		}else{
-			$.ajax({
-				url:'<?php echo U('leagueLogin');?>',
-				type:'post',
-				dataType:'text',
-				data:'email='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
-				success:function(data){
-					alert(data);
-					//document.write(data);
-				}
-			});
-		}
-	});
+ //   $("#leaguelogin").click(function(){
+	// 	if($("#inputEmail").val() == ""){
+	// 		alert("用户名不能为空");
+	// 	}else if($("#inputPassword").val() == ""){
+	// 		alert("密码不能为空");
+	// 	}else{
+	// 		$.ajax({
+	// 			url:'<?php echo U('leagueLogin');?>',
+	// 			type:'post',
+	// 			dataType:'text',
+	// 			data:'email='+$("#inputEmail").val()+'&password='+$("#inputPassword").val(),
+	// 			success:function(data){
+	// 				alert(data);
+	// 				//document.write(data);
+	// 			}
+	// 		});
+	// 	}
+	// });
 	
-	$(".logout").click(function(){
-		$.ajax({
-			url:'<?php echo U('Public/Login/logout');?>',
-			type:'post',
-			dataType:'text',
-			success:function(data){
-				alert(data);
-			}
-		});
-	});			
+	// $(".logout").click(function(){
+	// 	$.ajax({
+	// 		url:'<?php echo U('Public/Login/logout');?>',
+	// 		type:'post',
+	// 		dataType:'text',
+	// 		success:function(data){
+	// 			alert(data);
+	// 		}
+	// 	});
+	// });			
 });
 
 $(window).load(function(){

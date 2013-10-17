@@ -14,7 +14,7 @@ class IndexAction extends Action {
 		$this -> getLoginUserInfo();
       $this -> getActivityNum();
 		$this -> assign('activityclass', $activityclass);
-		$this -> assign('activityinfo', $activityinfo);
+		//$this -> assign('activityinfo', $activityinfo);
 		$this -> display('index');
 	}
 	public function activityClass(){
@@ -27,11 +27,15 @@ class IndexAction extends Action {
 		$this -> activitynum = $ActivityInfo -> getAllActivityInfoNum();
 	}
 	public function leagueLogin(){
+		if(!$this -> isPost()){
+			$this -> error('非法请求');
+			return;
+		}
 		$email = $this -> _param('email');
 		$password = $this ->_param('password');
 
 		$LeagueInfo = D('LeagueInfo');
-		$isUserExit = $LeagueInfo -> cheakLeague($email, $password);
+		$isUserExit = $LeagueInfo -> checkLeague($email, $password);
 		if($isUserExit == "success"){
 			$LeagueSession = D('LeagueSession');
 			$result = $LeagueSession -> addSession($email, $password);
@@ -77,7 +81,8 @@ class IndexAction extends Action {
 				echo json_encode($lastactivity);
 			}
 		}else{
-			echo "非法请求";
+			$this -> error('非法请求');
+			return;
 		}
 
 	}
@@ -90,7 +95,8 @@ class IndexAction extends Action {
 			$result['activityinfo'] = $ActivityInfo -> getActivityInfoById($this -> _param('activityid'));
 			echo json_encode($result);
 		}else{
-			echo "非法请求";
+			$this -> error('非法请求');
+			return;
 		}
 	}
 	public function attentionactivity(){
@@ -108,7 +114,8 @@ class IndexAction extends Action {
 				echo "Please Login as nomal user";
 			}
 		}else{
-			echo "非法请求";
+			$this -> error('非法请求');
+			return;
 		}
 	}
 	public function attentionleague(){
@@ -126,7 +133,8 @@ class IndexAction extends Action {
 				echo "Please Login as nomal user";
 			}
 		}else{
-			echo "非法请求";
+			$this -> error('非法请求');
+			return;
 		}
 	}
 	
@@ -136,7 +144,8 @@ class IndexAction extends Action {
 			$activityinfo = $ActivityInfo -> getSortActivity($this -> _param('classid'));
 			echo json_encode($activityinfo);
 		}else{
-		echo "非法请求";
+			$this -> error('非法请求');
+			return;
 		}
 	}
 }
