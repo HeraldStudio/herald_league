@@ -455,7 +455,7 @@ $(window).load(function(){
 	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height:100px">
 	<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
-	<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
+	<h5 class="center" style="text-align:center"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>  
 <script>
   $("body").iealert();
