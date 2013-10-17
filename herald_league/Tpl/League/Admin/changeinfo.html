@@ -13,6 +13,16 @@
 			textarea {
 				display: block;
 			}
+			.title{
+			    font-size:15px;
+			}
+			.infor{
+				padding-bottom:13px; 
+				margin-bottom:13px; 
+				border-bottom-width:1px; 
+				border-bottom-style:dashed; 
+				border-bottom-color:#D3D3D3;
+			}
 		</style>
 		<script src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script src="__Public__/Js/bootstrap/bootstrap.min.js"></script>
@@ -80,23 +90,99 @@
 		</script>
 	</head>
 
-	<body>
-		<div class="container-fluid">
+<body style="font-family:微软雅黑;">
+	    <div class="navbar navbar-fixed-top well">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#"><strong>活动平台</strong></a>
+				<div class="nav-collapse collapse">
+					<if condition="$loginuser">
+					<else />
+					<ul class="nav pull-right" style="text-decoration:none;">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login"> 登录 
+								<b class="caret"></b></a>
+							<ul class="dropdown-menu" style="min-width:0px;">
+								<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
+								<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
+							</ul>
+						</li>
+					</ul>
+					</if>
+					<form class="navbar-form pull-right">
+						<input type="text" class="search-query span3" placeholder="Search">
+						<button type="submit" class="btn">Go</button>
+					</form>
+					<ul class="nav">
+						<li class="active"><a href="#">平台首页</a></li>
+						<li><a href="{:U('/League/Index/leaguelist')}">社团列表</a></li>
+						<li><a href="#">社团空间</a></li>
+						<li><a href="#">二手市场</a></li>
+						<li><a href="#">失物招领</a></li>
+					</ul>
+					<if condition="$loginusertype eq 2">
+					<ul class="nav pull-right">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> {$loginusername} 
+							<p class="new-message-all">3</p>
+							<b class="caret"></b> </a>
+                             <ul class="dropdown-menu">
+								<li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
+								<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
+								<li><a href="#">其他<p class="new-message-single">33</p></a></li>
+								<li class="divider"></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
+								<input type="hidden" id="loginuserid" value="{$loginuserid}"/>
+							</ul>
+						</li>
+					</ul>
+					<elseif condition="$loginusertype eq 1"/>
+					<ul class="nav pull-right">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> {$loginusername} 
+							<b class="caret"></b> </a>
+                             <ul class="dropdown-menu">		
+								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/{$loginuserid}">发布活动</a></li>
+								<li><a href="#">上传照片</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/{$loginuserid}">修改社团信息</a></li>
+								<li class="divider"></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
+							</ul>
+						</li>
+					</ul>
+					</if>
+				</div><!-- /.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	
+		<div class="container-fluid" style="margin-top:90px;">
 			<div class="row-fluid">
 				<div class="span1"></div>
 						
 				<div class="span10">
-					<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3;">修改社团信息</h3>
+					<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3; padding-bottom:5px;">修改社团信息</h3>
 
 						<div class="row-fluid">
-							<div class="span9">
+						   
+							<div class="span12">
 								<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" action="" method="post">
 									<fieldset>
-										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-											<label for="groupName" class="control-label">社团名称：</label>
+										<div class="control-group formSep infor" style="margin-top:10px;">
+											<label for="groupName" class="control-label title">社团名称：</label>
 											<div class="controls">
-												<input type="text" id="groupName" class="input-xlarge" name="leaguename" value="{$leaguename}"/>
-												&nbsp社团类别：
+												<input type="text" id="groupName" class="input-xlarge title" name="leaguename" value="{$leaguename}"/>										
+											</div>
+										</div>
+										
+										<div class="control-group formSep infor" >
+											<label for="groupName" class="control-label title">社团类别：</label>
+											<div class="controls">
 												<select class="span1"  id="unclass" style="width:150px;" name="leagueclass">
 												<volist name="leagueclasslist" id="vcl">
 												<option>{$vcl.class_name}</option>
@@ -105,27 +191,27 @@
 											</div>
 										</div>
 										
-										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-											<label for="fileinput" class="control-label">社团头像：</label>
+										<div class="control-group formSep infor" >
+											<label for="fileinput" class="control-label title">社团头像：</label>
 											<div class="controls">
 												<div data-fileupload="image" class="fileupload fileupload-new">
 													<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
 														<img src="__Uploads__/LeagueAvatar/{$avatr}" alt="">
 													</div>
-												</div>
-												<a class="btn" style="position:relative; left:300px;top:-51px;" href = "/herald_league/index.php/League/Admin/updateavatar/leagueid/{$leagueid}">修改社团头像</a>
+												</div>			
+												<a class="btn" style="margin-top:15px" href = "/herald_league/index.php/League/Admin/updateavatar/leagueid/{$leagueid}">修改社团头像</a>
 											</div>
 										</div>
 										
-										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-											<label for="groupIntro" class="control-label">社团介绍：</label>
+										<div class="control-group formSep infor" >
+											<label for="groupIntro" class="control-label title">社团介绍：</label>
 											<div class="controls">
 												<script type="text/plain" id="introduce" name="introduce"></script>
 											</div>
 										</div>
 										
-										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-											<label for="groupMum" class="control-label">社团成员：</label>
+										<div class="control-group formSep infor" >
+											<label for="groupMum" class="control-label title">社团成员：</label>
 											<div class="controls">
 												<script type="text/plain" id="member" name="member"></script>
 												<script type="text/javascript">
@@ -151,13 +237,16 @@
 												 </script>
 											</div>
 										</div>
-										<div class="control-group formSep" style="padding-bottom:10px; margin-bottom:10px; border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;">
-											<label class="control-label">联系方式：</label>
+										<div class="control-group formSep infor" >
+											<label class="control-label title">联系方式：</label>
 											<div class="controls">
-												电话：<input name="phone" type="text" id="groupTel" style="width:100px;" value="{$phone}">
-												邮箱：<input name="email" type="text" id="groupMail" style="width:150px;" value="{$email}">
+												电话：<input name="phone" type="text" id="groupTel" style="width:100px;" value="{$phone}">	
 												<input name="leagueid" type="hidden" value="{$leagueid}">
 											</div>
+											<div class="controls" style="margin-top:10px;">					
+												邮箱：<input name="email" type="text" id="groupMail" style="width:150px;" value="{$email}">											
+											</div>
+											
 											<div class="controls" style="margin-top:10px;">
 												地点：<input name="place" type="text" id="groupPlace" style="width:310px;" value="{$place}">
 											</div>
@@ -170,7 +259,7 @@
 										</div>
 									</fieldset>
 								</form>
-								<button class="btn btn-info" onclick="cleanAll()" style="position:relative; left:300px;top:-51px;" >重置</button>
+								<button class="btn btn btn-danger" onclick="cleanAll()" style="position:relative; left:300px;top:-51px;" >重置</button>
 								<button class="btn btn-primary" href="index2.html" style="position:relative; left:350px;top:-51px;">添加社团相册</button>
 							</div>
 							<div class="span1"></div>
@@ -182,5 +271,31 @@
 			</div>
 		</div>
 
-	</body>
+		<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>社团登录</h3>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" style="margin-top:30px;" action="" method="post">
+					<div class="control-group">
+						<label class="control-label" for="inputEmail">用户名</label>
+						<div class="controls">
+							<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputPassword">密码</label>
+						<div class="controls">
+							<input type="password" id="inputPassword" placeholder="密码" name="password">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+				<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
+	</div>
+</div>
+</body>
 </html>
