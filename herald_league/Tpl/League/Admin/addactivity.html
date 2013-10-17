@@ -94,7 +94,7 @@
   </head>
   
 <body>
-	<div class="navbar navbar-fixed-top well">
+	<div class="navbar  well">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -113,7 +113,10 @@
 							<ul class="dropdown-menu" style="min-width:0px;">
 								<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
 								<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
-							</ul>
+							</ul>							
+						</li>
+						<li>
+							<a id="leagueregester" href="{:U('League/Index/leagueRegester')}">社团注册</a>
 						</li>
 					</ul>
 					</if>
@@ -124,7 +127,6 @@
 					<ul class="nav">
 						<li class="active"><a href="#">平台首页</a></li>
 						<li><a href="{:U('/League/Index/leaguelist')}">社团列表</a></li>
-						<li><a href="#">社团空间</a></li>
 						<li><a href="#">二手市场</a></li>
 						<li><a href="#">失物招领</a></li>
 					</ul>
@@ -151,8 +153,8 @@
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">		
 								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/{$loginuserid}">发布活动</a></li>
-								<li><a href="#">上传照片</a></li>
-								<li><a href="./index.php/League/Admin/changeinfo/leagueid/{$loginuserid}">修改社团信息</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/addalbum/leagueid/{$loginuserid}">上传照片</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/{$loginuserid}">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
 							</ul>
@@ -173,21 +175,21 @@
 					<div class="control-group formSep formborder spform">
 						<label for="actName" class="control-label">活动名称：</label>
 						<div class="controls">
-							<input type="text" id="actName" class="input-xlarge" name="activityname" value="">
+							<input type="text" id="actName" class="input-xlarge" name="activityname" value="" required>
 						</div>
 					</div>
 
 					<div class="control-group formSep formborder" >
 						<label for="actBegin" class="control-label">开始时间：</label>
 						<div class="controls">
-							<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="starttime"/>
+							<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="starttime" required>
 						</div>
 					</div>
 
 					<div class="control-group formSep formborder">
 						<label for="actEnd" class="control-label">结束时间：</label>
 						<div class="controls">
-							<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="endtime"/>
+							<input size="16" type="text" value="{$time}" readonly class="form_datetime" name="endtime" required>
 						</div>
 					</div>
 		
@@ -205,14 +207,14 @@
 					<div class="control-group formSep formborder">
 						<label for="actPlace" class="control-label">活动地点：</label>
 						<div class="controls">
-							<input type="text" id="actPlace" class="input-xlarge" name="activityplace" value="">
+							<input type="text" id="actPlace" class="input-xlarge" name="activityplace" value="" required>
 						</div>
 					</div>
 				
 					<div class="control-group formSep formborder">
 						<label for="actPlace" class="control-label">联系方式：</label>
 						<div class="controls">
-							<input type="text" id="actTel" class="input-xlarge" name="connectinfo" value="">
+							<input type="text" id="actTel" class="input-xlarge" name="connectinfo" value="" required>
 						</div>
 					</div>
 					<div class="control-group formSep formborder">
@@ -235,7 +237,7 @@
 									// 	activityinfo.setContent('{$leagueintro|htmlspecialchars_decode}');     //加载数据库Action.class.PHP传过来的值
 									// });
 								 });    
-								 </script>
+								</script>
 						</div>
 					</div>
 									

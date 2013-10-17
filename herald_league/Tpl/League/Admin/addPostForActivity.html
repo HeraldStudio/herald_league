@@ -1,8 +1,54 @@
-<form method='post' action="{:U('League/Admin/uploadActivityPost')}" enctype="multipart/form-data">
-  <div class="modal-body">
-  		<input type = "hidden" name = "activityid" value="{$activityid}"/>
-		<input type="file" id="fileinput" name="activity_post"><br/>
-		<button class="btn" data-dismiss="modal" aria-hidden="true">跳过</button>
-	   <input type="submit" value="上传" class="btn btn-primary">
-  </div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addPostForActivity Page</title>
+	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
+	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
+	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
+	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>	
+	<script src="__Public__/Js/bootstrap/bootstrap.file-input.js"></script>
+	<style>
+	.center {
+		width: auto;
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+			}
+	.text-center {
+		text-align: center;
+		}
+	.main{
+	    padding-left:40px;
+		padding-right:40px;
+		font-family: "microsoft yahei";
+		-webkit-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+		-moz-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+		-o-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+		box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+	}
+	</style>
+<script>$(document).ready(function(){$('input[type=file]').bootstrapFileInput();});</script>
+</head>
+ <body style="background-image:url(__Public__/Images/noise-all.png)">	
+ <div class="container center main modal-body" style="margin-top:150px;background-color:white">  
+    <form method='post' action="{:U('League/Admin/uploadActivityPost')}" enctype="multipart/form-data">
+	    <legend>活动添加海报</legend>
+		<input type = "hidden" name = "activityid" value="{$activityid}"/>
+		<!-- <input type="file" id="fileinput" name="activity_post" style=""> -->
+		<a class="file-input-wrapper ">
+		<input type="file" id="fileinput" name="activity_post" title="选择文件" ></a>
+		<span class="file-input"></span>
+		<div style="margin-top:40px">
+			<button type="submit" class="btn btn-success" style="margin-left:10px">上传</button>
+			<button class="btn  btn-primary" data-dismiss="modal" aria-hidden="true" style="margin-left:30px">跳过</button>		
+		</div>
+	</form>
+ </div>
+		
+</body>
+</html>
+
+
+
