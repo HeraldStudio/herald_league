@@ -13,25 +13,12 @@
 		<script src="__Public__/Js/bootstrap/bootstrap.js"></script>  
 		<script src="__Public__/Js/back-to-top/backtotop.js"></script>  
 		<script type="text/javascript" src="__Public__/Js/logout.js"></script>
-    
-<!--[if lte IE 6]>
-  <!-- bsie css 补丁文件 -->
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
+		<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>  
+		<script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
+		<script src="__Public__/Js/back-to-top/script.js"></script> 
+		<script src="__Public__/Js/room.js"></script>
+		<script src="__Public__/Js/page.js"></script>
 
-  <!-- bsie 额外的 css 补丁文件 -->
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
-  <!--[endif]-->
-  
-  <script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>  
-  <script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
-    <script src="__Public__/Js/back-to-top/script.js"></script> 
-    <script src="__Public__/Js/room.js"></script>
-<script src="__Public__/Js/page.js"></script>
-
-  <!--[if lte IE 6]-->
-  <!-- bsie js 补丁只在IE6中才执行 -->
-  <script type="text/javascript" src="js/bootstrap-ie.js"></script>
-  <!--[endif]-->
   <style>
     .fixed-left{
       position:fixed; 

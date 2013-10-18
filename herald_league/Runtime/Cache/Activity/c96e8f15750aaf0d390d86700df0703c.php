@@ -4,6 +4,7 @@
     <title>先声网-活动信息平台</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">	
 	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
@@ -186,10 +187,11 @@ $(document).ready(function(){
   $('.activityclass a').click(function(){
     t = 0;
      var classid=$(this).attr("id");
+	// alert(classid);
 	$(".getmore").attr("id",classid);
 	$(".getmore").html("加载更多");
     $.ajax({
-	  async : false,
+	  //async : false,
       url:'<?php echo U('getClassActivity');?>',
       type:'post',
       data:'classid='+classid,

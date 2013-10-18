@@ -44,12 +44,12 @@ class ActivityInfoModel extends Model{
 		return $this -> add($data);
 	}
 	public function getSortActivity($classid){
-		$activityinfo = $this -> where('class='.$classid) -> select(); 
+		$activityinfo = $this -> where('league_class='.$classid) -> select(); 
 		print_r($activityinfo);
 	    return $activityinfo;
 	}
 	public function getMoreActivityByClass($lastactivityid,$classid){
-		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> where('id<'.$lastactivityid.' AND class='.$classid)-> select();
+		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> where('id<'.$lastactivityid.' AND league_class='.$classid)-> select();
 		return $activityinfo = $this -> getActivityLeague($activityinfo);
 	}
 	public function getThreePageInfo($currentpage){
