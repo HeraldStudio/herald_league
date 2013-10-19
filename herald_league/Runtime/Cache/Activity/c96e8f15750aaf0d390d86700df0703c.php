@@ -318,7 +318,7 @@ $(window).load(function(){
 							<b class="caret"></b> </a>
                              <ul class="dropdown-menu">		
 								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
-								<li><a href="/herald_league/index.php/League/Admin/addalbum/leagueid/<?php echo ($loginuserid); ?>">上传照片</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/adminAlbumList/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
 								<li><a href="">社团空间</a></li>
 								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 								<li class="divider"></li>
@@ -426,8 +426,8 @@ $(window).load(function(){
 			</div>	
 		</div>
 		<div class="modal-footer">
-			<form><button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
-			<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a></form>
+			<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
 		</div>
 	</form>
 </div>
