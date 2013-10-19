@@ -15,4 +15,7 @@ class LeagueAlbumModel extends Model{
 		$data['cover_address'] = $coveradd;
 		$this -> where('id='.$albumid) -> save($data);
 	}
+	public function getAlbumNameById($albumid){
+		return $this -> where('id='.$albumid) -> getField('name');
+	}
 }
