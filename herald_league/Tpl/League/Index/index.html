@@ -120,7 +120,23 @@
   .pagination{
       margin-bottom:5px;
   }
+  #filter-buttons li a {
+		color: #444;
+  }
+  #filter-buttons li a:hover,
+  #filter-buttons li a.selected {
+		border-bottom: 2px solid #444;
+ }
   </style>
+  <script>
+	$(function(){
+		$('#filter-buttons a').click(function(){
+		var $optionSet = $(this).parents('#filter-buttons');
+	    $optionSet.find('.selected').removeClass('selected');
+	    $(this).addClass('selected');
+		});
+   });
+  </script>
     </head>
     <body style="font-family:微软雅黑;background-image:url(__Public__/Images/noise-all.png)" id="top">
   <p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
@@ -212,7 +228,7 @@
             </h4>
           </div>
           <nav>
-          <ul class="nav nav-tabs nav-stacked " >
+          <ul class="nav nav-tabs nav-stacked " id="filter-buttons">
             <li class="active"><a href="#">{$leaguename}</a></li>
             <li><a href="#">社团信息</a></li>
             <li><a href="#huodong">活动信息</a></li>
