@@ -115,7 +115,7 @@ class AdminAction extends Action{
 			if($loginuserinfo[0] == $this -> leagueid){
 				$LeagueAlbum = D('LeagueAlbum');
 				$album = $LeagueAlbum -> getAlbumInfoByLeagueIdWithoutPage($this -> leagueid);
-				print_r($album);
+				$this -> assign('leaguealbum', $album);
 				$this -> display();
 			}else{
 				$this -> error("权限不足");
@@ -127,7 +127,8 @@ class AdminAction extends Action{
 
 	public function addalbum(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
-		if($this -> leagueid < 0 || !isset($this -> leagueid)){
+		$this -> albumid = intval($this -> _param('albumid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid) || $this -> albumid < 0 || !isset($this -> albumid)){
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
@@ -135,6 +136,9 @@ class AdminAction extends Action{
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
 			if($loginuserinfo[0] == $this -> leagueid){
+				$LeagueAlbumPicture = D('LeagueAlbumPicture');
+				$picture = $LeagueAlbumPicture -> getPictureByAlbumId($this -> albumid);
+				$this -> assign('picture', $picture);
 				$this -> display();
 			}else{
 				$this -> error("权限不足");
@@ -144,6 +148,15 @@ class AdminAction extends Action{
 		}
 	}
 
+	public function setCover(){
+		if($this -> isPost()){
+			$LeagueAlbum = D('LeagueAlbum');
+			$LeagueAlbum -> setAlbumCover($this -> _param('albumid'), $this -> _param('picadd'));
+			echo "success";
+		}else{
+			$this -> error('非法请求');
+		}
+	}
 	public function uploadsAlbum(){
 		import ( 'ORG.Net.UploadFile' );
 		$upload = new UploadFile ();

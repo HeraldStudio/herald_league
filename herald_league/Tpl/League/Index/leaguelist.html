@@ -47,14 +47,26 @@
 		}
 		@media (min-width:980px){
 			#row-fluid{
-				padding-top:100px;
+				padding-top:120px;
 			}
 		}
 	</style>
+	<!--[if IE 8]>
+	<style type="text/css">
+		#navbar{position: static;}
+		#row-fluid{padding-top:20px;}
+	</style>
+	<![endif]-->
+	<!--[if lt IE 8]>
+	<style type="text/css">
+		#navbar{position: static;}
+		#row-fluid{padding-top:20px;}
+	</style>
+	<![endif]-->
 </head>
 
 <body style="font-family:微软雅黑;">
-	<div class="navbar navbar-fixed-top well">
+	<div class="navbar navbar-fixed-top well" id="navbar">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!--与响应式有关-->
@@ -115,6 +127,7 @@
                              <ul class="dropdown-menu">		
 								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/{$loginuserid}">发布活动</a></li>
 								<li><a href="#">上传照片</a></li>
+								<li><a href="">社团空间</a></li>
 								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/{$loginuserid}">修改社团信息</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -215,13 +228,13 @@
 		</div>
 	</div>
 
-	<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
+<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>社团登录</h3>
 	</div>
-	<div class="modal-body">
-		<form class="form-horizontal" style="margin-top:30px;" action="" method="post">
+	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;" action="" method="post">
+		<div class="modal-body">
 			<div class="control-group">
 				<label class="control-label" for="inputEmail">用户名</label>
 				<div class="controls">
@@ -234,12 +247,12 @@
 					<input type="password" id="inputPassword" placeholder="密码" name="password">
 				</div>
 			</div>
-		</form>
-	</div>
-	<div class="modal-footer">
-		<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
-		<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
-	</div>
+		</div>
+		<div class="modal-footer">
+			<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
+		</div>
+	</form>
 </div>
 	
 	<div id="fixdiv">
@@ -293,9 +306,9 @@
 	<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
 	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>				
 	
-	<div style="height:100px;bottom:100px">
-		<hr style="border-top: 1px solid black;margin-bottom:36px;margin-left:40px;margin-right:40px">
-		<h5 class="center" style="display:table;margin-left: auto;margin-right: auto;"> CopyRight &copy 2001-2013 Herald.seu.edu.cn</h5>
+	<div style="height: 100px;margin-top:30px;">
+		<hr style="border-top: 1px solid black;margin:0px 40px 0px 40px;">
+		<h5 class="center" style="text-align:center;padding-top:36px;margin:0;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 	</div> 
 </body>
 </html>

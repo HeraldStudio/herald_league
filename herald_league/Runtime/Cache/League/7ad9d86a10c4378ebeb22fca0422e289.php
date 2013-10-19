@@ -1,37 +1,24 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en" class="login_page">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>先声网－<?php echo ($leaguename); ?></title>
-  <link href="__Public__/Css/room.css" rel="stylesheet" media="screen">
-    <link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
-  <link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
-  <link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
-  <link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
-  <script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
-    <script src="__Public__/Js/测试bootstrap/bootstrap.js"></script>  
-  <script src="__Public__/Js/back-to-top/backtotop.js"></script>  
-    <script type="text/javascript" src="__Public__/Js/logout.js"></script>
-    
-<!--[if lte IE 6]>
-  <!-- bsie css 补丁文件 -->
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-ie6.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>先声网－<?php echo ($leaguename); ?></title>
+		<link href="__Public__/Css/room.css" rel="stylesheet" media="screen">
+		<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
+		<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
+		<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
+		<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
+		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
+		<script src="__Public__/Js/bootstrap/bootstrap.js"></script>  
+		<script src="__Public__/Js/back-to-top/backtotop.js"></script>  
+		<script type="text/javascript" src="__Public__/Js/logout.js"></script>
+		<script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>  
+		<script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
+		<script src="__Public__/Js/back-to-top/script.js"></script> 
+		<script src="__Public__/Js/room.js"></script>
+		<script src="__Public__/Js/page.js"></script>
 
-  <!-- bsie 额外的 css 补丁文件 -->
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/ie.css">
-  <![endif]-->
-  
-  <script src="__Public__/Js/back-to-top/jquery1.3.2.js"></script>  
-  <script src="__Public__/Js/back-to-top/jquery.scrollTo.js"></script>
-    <script src="__Public__/Js/back-to-top/script.js"></script> 
-    <script src="__Public__/Js/room.js"></script>
-<script src="__Public__/Js/page.js"></script>
-
-  <!--[if lte IE 6]>
-  <!-- bsie js 补丁只在IE6中才执行 -->
-  <script type="text/javascript" src="js/bootstrap-ie.js"></script>
-  <!--[endif]-->
   <style>
     .fixed-left{
       position:fixed; 
@@ -169,24 +156,25 @@
           <ul class="nav">
             <li><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
             <li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-            <li><a href="#">社团空间</a></li>
+            <li class="active"><a href="#">社团空间</a></li>
+            <li><a href="#">二手市场</a></li>
             <li><a href="#">失物招领</a></li>
           </ul>
           <?php if($loginusertype == 2): ?><ul class="nav pull-right">        
-                         <li class="dropdown" >
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
-              <p class="new-message-all">3</p>
-              <b class="caret"></b> </a>
-                             <ul class="dropdown-menu">
-                <li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
-                <li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
-                <li><a href="#">其他<p class="new-message-single">33</p></a></li>
-                <li class="divider"></li>
-                <li><a href="javascript:void(0)" class="logout">登出</a></li>
-                <input type="hidden" id="loginuserid" value="<?php echo ($loginuserid); ?>"/>
-              </ul>
-            </li>
-          </ul>
+			 <li class="dropdown" >
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?> 
+				<p class="new-message-all">3</p>
+				<b class="caret"></b> </a>
+				 <ul class="dropdown-menu">
+					<li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
+					<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
+					<li><a href="#">其他<p class="new-message-single">33</p></a></li>
+					<li class="divider"></li>
+					<li><a href="javascript:void(0)" class="logout">登出</a></li>
+					<input type="hidden" id="loginuserid" value="<?php echo ($loginuserid); ?>"/>
+				</ul>
+			</li>
+		</ul>
           <?php elseif($loginusertype == 1): ?>
           <ul class="nav pull-right">        
                          <li class="dropdown" >
@@ -195,6 +183,7 @@
                              <ul class="dropdown-menu">   
                 <li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
                 <li><a href="#">上传照片</a></li>
+				<li><a href="">社团空间</a></li>
                 <li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
                 <li class="divider"></li>
                 <li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -537,6 +526,32 @@
   <div class="modal-footer">
     <a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>
   </div>
+</div>
+<div id="loginModal" class="modal hide fade " style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>社团登录</h3>
+	</div>
+	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;" action="" method="post">
+		<div class="modal-body">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">用户名</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">密码</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="密码" name="password">
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="leaguelogin" type="submit" class="btn btn-primary" data-dismiss="modal">登录</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal" id="leaguelogincancle">取消</a>
+		</div>
+	</form>
 </div>
   <script>
     $(document).ready(function(){

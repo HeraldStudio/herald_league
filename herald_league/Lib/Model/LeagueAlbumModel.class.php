@@ -11,4 +11,8 @@ class LeagueAlbumModel extends Model{
 		}
 		return $albuminfo;
 	}
+	public function setAlbumCover($albumid, $coveradd){
+		$data['cover_address'] = $coveradd;
+		$this -> where('id='.$albumid) -> save($data);
+	}
 }

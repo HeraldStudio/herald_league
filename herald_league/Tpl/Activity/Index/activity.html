@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>先声网-活动详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">	
+	<meta charset='utf-8'>
+	
+	<link href="/herald_league/Public/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
+	<link href="/herald_league/Public/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
+	<link href="/herald_league/Public/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
+	<link href="/herald_league/Public/Css/activity.css" rel="stylesheet" media="screen">
+	<script src="/herald_league/Public/Js/bootstrap/jquery.js"></script>
+	<script src="/herald_league/Public/Js/kuxuan/jquery-1.7.1.min.js"></script>
+	<script src="/herald_league/Public/Js/bootstrap/bootstrap.js"></script>	
+	<script src="/herald_league/Public/Js/back-to-top/backtotop.js"></script>
+	<!--[if IE 8]>
+	<style type="text/css">
+		#navbar{position: static;}
+	</style>
+	<![endif]-->
+	<!--[if lt IE 8]>
+	<style type="text/css">
+		#navbar{position: static;}
+	</style>
+	<![endif]-->
+</head>
+<body style="font-family:微软雅黑;">
+	<div class="navbar navbar-fixed-top well" id="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#"><strong>活动平台</strong></a>
+				<div class="nav-collapse collapse">
+					<if condition="$loginuser">
+					<else />
+					<ul class="nav pull-right" style="text-decoration:none;">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login"> 登录 
+								<b class="caret"></b></a>
+							<ul class="dropdown-menu" style="min-width:0px;">
+								<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
+								<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
+							</ul>							
+						</li>
+						<li>
+							<a id="leagueregester" href="{:U('League/Index/leagueRegester')}">社团注册</a>
+						</li>
+					</ul>
+					</if>
+					<form class="navbar-form pull-right">
+						<input type="text" class="search-query span3" placeholder="Search">
+						<button type="submit" class="btn">Go</button>
+					</form>
+					<ul class="nav">
+						<li><a href="#">平台首页</a></li>
+						<li><a href="#">社团列表</a></li>
+						<li class="active"><a href="#">活动详情</a></li>
+						<li><a href="#">二手市场</a></li>
+						<li><a href="#">失物招领</a></li>
+					</ul>
+					<!--if condition="$loginusertype eq 2">
+					<ul class="nav pull-right">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> {$loginusername} 
+							<p class="new-message-all">3</p>
+							<b class="caret"></b> </a>
+                             <ul class="dropdown-menu">
+								<li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
+								<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
+								<li><a href="#">其他<p class="new-message-single">33</p></a></li>
+								<li class="divider"></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
+								<input type="hidden" id="loginuserid" value="{$loginuserid}"/>
+							</ul>
+						</li>
+					</ul>
+					<elseif condition="$loginusertype eq 1"/>
+					<ul class="nav pull-right">        
+                         <li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> {$loginusername} 
+							<b class="caret"></b> </a>
+                             <ul class="dropdown-menu">		
+								<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/{$loginuserid}">发布活动</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/addalbum/leagueid/{$loginuserid}">上传照片</a></li>
+								<li><a href="">社团空间</a></li>
+								<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/{$loginuserid}">修改社团信息</a></li>
+								<li class="divider"></li>
+								<li><a href="javascript:void(0)" class="logout">登出</a></li>
+							</ul>
+						</li>
+					</ul>
+					</if-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" id="container-fluid">
+		<div class="row-fluid" >
+			<div class="span7 offset1">
+				<div class="act-info-header">
+					<h2>
+						<span>先声之夜</span>
+						<a href="#" title="关注此活动"><img id="modal-header-attention" src="/herald_league/Public/Images/attention.png"/></a>	
+					</h2>
+				</div>
+				<div class="act-info-body">
+					<div class="act-info"><i class="icon-user"></i>主办方：<a href="#">东南大学先声网</a>
+						<a href="#" title="关注此社团">
+							<img src="/herald_league/Public/Images/attention-small.png"/>
+						</a>
+					</div>
+					<div class="act-info"><i class="icon-time"></i>时间：2013年06月30日 18:30</div>
+					<div class="act-info"><i class="icon-home"></i>地点：焦廷标馆</div>
+					<div class="act-info"><i class="icon-envelope"></i>联系方式：行政楼520</div>
+					<div class="act-info-para">
+						<p>我们先辈发明的围棋能够延衍千年而不至湮灭。黑白色的棋子在象征意义的穹宇之间寥寥落落地布下，演练的是风云际会，人生拼搏。许多棋手由是而领悟了世事的兴盛与衰没，欢乐与痛苦，失败与成就乃至死亡与新生。
+						</p>
+						<p>12年春季，北京大学生围棋联赛如火如荼地举行了，多家知名媒体新浪、搜狐报导围棋赛事，围棋第一大杂志《围棋天地》刊登比赛状况。但是现在，上海的大学生们面临着一个难题，很多同学喜欢围棋并对围棋有着浓厚的兴趣，却面临着无棋可下，无赛可参的窘境。
+						</p>
+						<p>为了搭建同学之间交流的平台，推广和宣传围棋文化，丰富同学课余生活让同学更深入的了解认识中国棋文化，弘扬中国民族文化艺术，培养学生特色技能，展现朝气蓬勃、积极进取、开拓创新的精神风貌，增进各校之间的交流与来往。故而举办这次“大学生围棋联赛”。
+						</p>
+					</div>
+					<div class="act-info-pic">
+						<img src="/herald_league/Public/Images/test-poster.jpg"/>
+					</div>
+				</div>
+			</div>
+			<div class="span3">
+				<div id="follower">
+					<h4 class="pull-left">关注者</h4>
+					<h4 class="pull-right">17人</h4>
+				</div>
+				<div class="row-fluid" id="follower-list">
+					<div class="span1" style="width:0px;"></div>
+					<div class="span3">
+						<img src="/herald_league/Public/Images/head.jpg" />
+						<span>王小四四</span>
+					</div>
+					<div class="span3">
+						<img src="/herald_league/Public/Images/head.jpg" />
+						<span>王小四四</span>
+					</div>
+					<div class="span3">
+						<img src="/herald_league/Public/Images/head.jpg" />
+						<span>王小四四</span>
+					</div>
+					<div class="span3">
+						<img src="/herald_league/Public/Images/head.jpg" />
+						<span>王小四四</span>
+					</div>
+				</div>
+				<div id="share">
+					<h4>分享到其它平台</h4>
+					<div style="text-align:center;padding-top:10px;">
+						<div class="bshare-custom icon-medium-plus"style="width:100%"><div class="bsPromo bsPromo2"></div><a title="分享到人人网" class="bshare-renren"></a><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a><a title="分享到i贴吧" class="bshare-itieba" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="fixdiv">
+		<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
+		<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
+		<div class="move" id="fix2">
+			<div id="fix2pic"  onmouseover="mover(2)" onmouseout="mout(2)"></div>
+			<div id="menu2">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" id="menub2" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">加入我们</a></li>
+						<li><a tabindex="-1" href="#">先声大纪事</a></li>
+						<li><a tabindex="-1" href="#">先声元老</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg2"><p class="text-center">关于我们</p></div>
+		</div>
+		
+		<div class="move" id="fix3">
+			<div id="fix3pic"  onmouseover="mover(3)" onmouseout="mout(3)"></div>
+			<div id="menu3">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">东大之声</a></li>
+						<li><a tabindex="-1" href="#">东大文苑</a></li>
+						<li><a tabindex="-1" href="#">先声知道</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg3"><p class="text-center">东大信息</p></div>
+		</div>
+		
+		<div class="move" id="fix4">
+			<div id="fix4pic"  onmouseover="mover(4)" onmouseout="mout(4)"></div>
+			<div id="menu4">
+				<div style="height:97px; width:175px;">
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position:static; margin-bottom: 5px; *width: 180px;">
+						<li><a tabindex="-1" href="#">跑操查询</a></li>
+						<li><a tabindex="-1" href="#">校车时刻表</a></li>
+						<li><a tabindex="-1" href="#">图书馆</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="Msg4"><p class="text-center">校园助手</p></div>
+		</div>
+	</div>
+	<div class="myboder" onmouseover="mboder()" id="bodert" style="width:175px; height:25px; position:fixed; right:7px; bottom:237px; display:none"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderb" style="width:175px; height:38px; position:fixed; right:7px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
+	<div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
+	<div style="height: 100px;margin-top:30px;">
+		<hr style="border-top: 1px solid black;margin:0px 40px 0px 40px;">
+		<h5 class="center" style="text-align:center;padding-top:36px;margin:0;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
+	</div>  
+</body>
+</html>
+	
