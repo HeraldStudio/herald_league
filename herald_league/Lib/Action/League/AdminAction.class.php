@@ -164,13 +164,28 @@ class AdminAction extends Action{
 		$upload->maxSize = 2097152; // 设置附件上传大小不超过2MB
 		$upload->allowExts = array ('jpg', 'gif', 'png', 'jpeg' ); // 设置附件上传类型
 		$upload->savePath = 'Uploads/LeagueAlbum/'; // 设置附件上传目录
+		//设置需要生成缩略图，仅对图像文件有效
+		$upload->thumb = true;
+		$upload->thumbPrefix = 'm_,s_';  //生产2张缩略图
+		 //设置缩略图最大宽度
+		$upload->thumbMaxWidth = '400,100';
+		 //设置缩略图最大高度
+		$upload->thumbMaxHeight = '400,100';
+		 //设置上传文件规则
+		$upload->saveRule = 'uniqid';
 		
 		if (! $upload->upload ()) { // 上传错误提示错误信息
 			$this->error ( $upload->getErrorMsg () );
 		} else { // 上传成功 获取上传文件信息
 			$info = $upload->getUploadFileInfo ();
-			dump($info);
-			$this->ajaxReturn($info);
+			$picname = $info[0]['savename'];
+			$albumid = $this -> _post('albumid');
+			//echo $albumid;
+			//var_dump($albumid);
+			$LeagueAlbumPicture = D('LeagueAlbumPicture');
+			$LeagueAlbumPicture -> addNewPicture($albumid, $picname);
+			//echo "s";
+			//$this->ajaxReturn($info);
 		}
 	}
 

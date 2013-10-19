@@ -104,6 +104,7 @@
         <form id="form1" action="{:U('League/Admin/uploadsAlbum')}" method="post" enctype="multipart/form-data">
             <div class="case-que-hd" style="font-size:18px;"> <span class="filename">图片文件名</span> <span class="filesize">大小</span> <span class="filedel">删除</span> </div>
             <!-- 上传队列-->
+            <input type="hidden" id="albumid" value="{$albumid}"/>
             <div class="fieldset flash" id="fsUploadProgress"></div>
             <div class="case-que-foot" id="que-foot"> <span class="filename">共<i id="totalnum"></i>张图片 <a href="javascript:;" id="continue-add">继续添加案例图片</a></span> <span class="filedel">文件大小：<i id="totalsize"></i></span> </div>
             <div id="upload-btn"><span id="spanButtonPlaceHolder"></span></div>
@@ -161,6 +162,24 @@
 	//上传
 	$('#upload').click(function(){
 		swfu.startUpload();
+		var albumid = $('#albumid').val();
+		//alert(albumid);
+		$.ajax({
+			url: '{:U("League/Admin/uploadsAlbum")}',
+			type: 'post',
+			dataType: 'text',
+			data: {albumid: albumid},
+		})
+		.done(function(data) {
+			console.log(data);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
 	})
 	
 	//继续添加
