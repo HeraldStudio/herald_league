@@ -36,7 +36,7 @@
     }
   .page-header{
       padding-bottom: 0px;
-      margin: 20px 0 15px;
+      margin: 10px 0 15px;
       border-bottom: 1px solid black;
       }
   .clear:after{
