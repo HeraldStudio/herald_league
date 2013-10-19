@@ -1,0 +1,78 @@
+#filter-container {
+  margin-bottom: 60px;
+  padding: 0px;
+  margin-right:auto;
+}
+#filter-container  figure {
+  width: 290px;
+  position: relative;
+  margin: 0 0 30px 30px;
+  line-height:36px;
+  background-color: white;
+  -webkit-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+  -moz-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+  -o-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+  box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
+  border: 1px solid whitesmoke;
+}
+#filter-container figure .thumb {
+  display: block;
+  width: 100%;
+  line-height: 0em;
+}
+#filter-container figure .thumb img {
+  max-width: 100%;
+  max-height:100%;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#filter-container .baoming{
+  float:right;
+  margin-right:40px;
+
+}
+#filter-container figure .thumb:hover img {
+  opacity: 0.2;
+}
+#filter-container figure figcaption {
+  margin: 18px 10px 10px 10px;
+  text-align: center;
+}
+#filter-container figure figcaption .heading {
+  margin-bottom: 12px;
+  font-size: 23px;
+  line-height: 1.2em;
+  display: block;
+}
+#filter-container figure figcaption .readmore {
+  display: block;
+  margin: 10px 0px;
+}
+#filter-buttons li a {
+  color: #444;
+}
+#filter-buttons li a:hover,
+#filter-buttons li a.selected {
+  border-bottom: 2px solid #444;
+}
+#filter-container figure figcaption .heading a ,
+#filter-container figure figcaption p a {
+  text-decoration:none;
+  color: #656360;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#filter-container figure figcaption .heading a:hover{
+  color: #cb5432;
+}
+#filter-container figure figcaption p a:hover {
+  color: #cb5432;
+}
+#filter-container figure figcaption p {
+  font-size:13px;
+  margin-bottom:1px;
+}
