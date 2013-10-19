@@ -119,7 +119,7 @@
 </div>
 <!--container-->
 	<div class="container" id="container">
-		<h2 style="text-align:center;">这里放个相册名吧</h2>
+		<h2 style="text-align:center;">{$albumname}</h2>
 		<div class="row-fluid">
 			<div class="span1" style="width:0;"></div>
 			<volist name="picture" id="vp">
@@ -127,7 +127,7 @@
 					<div class="photo"><img src="__Uploads__/LeagueAlbum/s_{$vp.address}"></div>
 					<div class="figcaption">
 						<h5>照片名称:<span>{$vp.name}</span></h5>
-						照片介绍:<span>{$vp.introduction}</span></br>
+						照片介绍:<span>{$vp.introduction}</span><br/>
 						<button class="btn setcover" id="{$vp.address}" data-albumid="{$albumid}">设为封面</button><br/>
 					</div>
 				</div>
@@ -165,7 +165,7 @@
 	window.onload = function() {
 		var conf = {
 			flash_url : P + "./__Public__/Js/swfupload/swfupload.swf",
-			upload_url : P + "herald_league/index.php/League/Admin/addAlbumPicture",
+			upload_url : P + "herald_league/index.php/League/Admin/addAlbumPicture.html?albumid={$albumid}",
 			file_size_limit : "2 MB",
 			file_upload_limit:'20',
 			file_types : "*.jpg;*.gif;*.png;*.jpeg",

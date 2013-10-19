@@ -136,6 +136,8 @@ class AdminAction extends Action{
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
 			if($loginuserinfo[0] == $this -> leagueid){
+				$LeagueAlbum = D('LeagueAlbum');
+				$this -> albumname = $LeagueAlbum -> getAlbumNameById($this -> albumid);
 				$LeagueAlbumPicture = D('LeagueAlbumPicture');
 				$picture = $LeagueAlbumPicture -> getPictureByAlbumId($this -> albumid);
 				$this -> assign('picture', $picture);
@@ -161,7 +163,7 @@ class AdminAction extends Action{
 	public function addAlbumPicture(){
 		//print_r($_POST);
 		$picname = $this -> uploadsAlbum();
-		$albumid = $this -> _param('albumid');
+		$albumid = $_GET['albumid'];
 		//echo $albumid;
 		if(!empty($picname)){
 			$LeagueAlbumPicture = D('LeagueAlbumPicture');
@@ -179,14 +181,14 @@ class AdminAction extends Action{
 		$upload->thumb = true;
 		$upload->thumbPrefix = 'm_,s_';  //生产2张缩略图
 		 //设置缩略图最大宽度
-		$upload->thumbMaxWidth = '400,100';
+		$upload->thumbMaxWidth = '400,200';
 		 //设置缩略图最大高度
-		$upload->thumbMaxHeight = '400,100';
+		$upload->thumbMaxHeight = '400,200';
 		 //设置上传文件规则
 		$upload->saveRule = 'uniqid';
 		
 		if (! $upload->upload ()) { // 上传错误提示错误信息
-			//$this->error ( $upload->getErrorMsg () );
+			$this->error ( $upload->getErrorMsg () );
 		} else { // 上传成功 获取上传文件信息
 			$info = $upload->getUploadFileInfo ();
 			return $info[0]['savename'];
