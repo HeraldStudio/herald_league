@@ -157,6 +157,17 @@ class AdminAction extends Action{
 			$this -> error('非法请求');
 		}
 	}
+
+	public function addAlbumPicture(){
+		//print_r($_POST);
+		$picname = $this -> uploadsAlbum();
+		$albumid = $this -> _param('albumid');
+		//echo $albumid;
+		if(!empty($picname)){
+			$LeagueAlbumPicture = D('LeagueAlbumPicture');
+			$LeagueAlbumPicture -> addNewPicture($albumid, $picname);
+		}
+	}
 	public function uploadsAlbum(){
 		import ( 'ORG.Net.UploadFile' );
 		$upload = new UploadFile ();
@@ -175,17 +186,10 @@ class AdminAction extends Action{
 		$upload->saveRule = 'uniqid';
 		
 		if (! $upload->upload ()) { // 上传错误提示错误信息
-			$this->error ( $upload->getErrorMsg () );
+			//$this->error ( $upload->getErrorMsg () );
 		} else { // 上传成功 获取上传文件信息
 			$info = $upload->getUploadFileInfo ();
-			$picname = $info[0]['savename'];
-			$albumid = $this -> _post('albumid');
-			//echo $albumid;
-			//var_dump($albumid);
-			$LeagueAlbumPicture = D('LeagueAlbumPicture');
-			$LeagueAlbumPicture -> addNewPicture($albumid, $picname);
-			//echo "s";
-			//$this->ajaxReturn($info);
+			return $info[0]['savename'];
 		}
 	}
 

@@ -101,7 +101,7 @@
     <div class="bd-create-case" style="font-size:16px;">
       <h2 style="text-align:center;">上传图片</h2>
       <div class="bd-work-wrap">
-        <form id="form1" action="{:U('League/Admin/uploadsAlbum')}" method="post" enctype="multipart/form-data">
+        <form id="form1" action="{:U('League/Admin/addAlbumPicture')}" method="post" enctype="multipart/form-data">
             <div class="case-que-hd" style="font-size:18px;"> <span class="filename">图片文件名</span> <span class="filesize">大小</span> <span class="filedel">删除</span> </div>
             <!-- 上传队列-->
             <input type="hidden" id="albumid" value="{$albumid}"/>
@@ -115,16 +115,13 @@
             &nbsp; <a href="#">取消上传</a> </div>
                </div>
     </div>
-  <!--delete by zr /div-->
-  <!-- container right
-  <div class="col-right"></div>delete by zr-->
 </div>
 <script type="text/javascript">
 	var swfu, WID = "13";
 	window.onload = function() {
 		var conf = {
 			flash_url : P + "./__Public__/Js/swfupload/swfupload.swf",
-			upload_url : P + "herald_league/index.php/League/Admin/uploadsAlbum",
+			upload_url : P + "herald_league/index.php/League/Admin/addAlbumPicture",
 			file_size_limit : "2 MB",
 			file_upload_limit:'20',
 			file_types : "*.jpg;*.gif;*.png;*.jpeg",
@@ -162,24 +159,6 @@
 	//上传
 	$('#upload').click(function(){
 		swfu.startUpload();
-		var albumid = $('#albumid').val();
-		//alert(albumid);
-		$.ajax({
-			url: '{:U("League/Admin/uploadsAlbum")}',
-			type: 'post',
-			dataType: 'text',
-			data: {albumid: albumid},
-		})
-		.done(function(data) {
-			console.log(data);
-		})
-		.fail(function() {
-			console.log("error");
-		})
-		.always(function() {
-			console.log("complete");
-		});
-		
 	})
 	
 	//继续添加
