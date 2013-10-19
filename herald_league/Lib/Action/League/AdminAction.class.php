@@ -35,7 +35,6 @@ class AdminAction extends Action{
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
 			if($loginuserinfo[0] == $this -> leagueid){
-				
 				$this -> display();
 			}else{
 				$this -> error("权限不足");
@@ -102,6 +101,29 @@ class AdminAction extends Action{
 		$LeagueInfo -> updateLeagueAvatar($leagueid, $picName[4]);
 		$this->success('上传头像成功');
 	}
+    
+   public function adminAlbumList(){
+   		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
+
+		$LeagueSession = D('LeagueSession');
+		if($LeagueSession -> hasLeagueLogin()){
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			if($loginuserinfo[0] == $this -> leagueid){
+				$LeagueAlbum = D('LeagueAlbum');
+				$album = $LeagueAlbum -> getAlbumInfoByLeagueIdWithoutPage($this -> leagueid);
+				print_r($album);
+				$this -> display();
+			}else{
+				$this -> error("权限不足");
+			}
+		}else{
+				$this -> error("权限不足");
+		}
+   }
 
 	public function addalbum(){
 		$this -> leagueid = intval($this -> _param('leagueid'));
@@ -109,7 +131,17 @@ class AdminAction extends Action{
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
-		$this -> display();
+		$LeagueSession = D('LeagueSession');
+		if($LeagueSession -> hasLeagueLogin()){
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			if($loginuserinfo[0] == $this -> leagueid){
+				$this -> display();
+			}else{
+				$this -> error("权限不足");
+			}
+		}else{
+				$this -> error("权限不足");
+		}
 	}
 
 	public function uploadsAlbum(){
