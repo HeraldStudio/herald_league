@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
 	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 	<link href="__Public__/Css/back-to-top/backtotop.css" rel="stylesheet" media="screen"> 
-	<link href="__Public__/Css/activity.css" rel="stylesheet" media="screen">
+	<!--link href="__Public__/Css/activity.css" rel="stylesheet" media="screen"-->
 	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
 	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
 	<link rel="stylesheet" media="all" href="__Public__/Css/kuxuan/style.css">
@@ -42,16 +42,15 @@
 	
 	<style>
 		.text-center {text-align: center;}
-		#filter-buttons{width: 140px;}
-		#ceright{padding-top:120px;}
-		#celeft{padding-top:120px;}
 		@media (min-width: 1200px) {
-			#filter-buttons{
-				width: 170px;
-			}
-			#ceright{
-				padding-top:120px;
-			}
+			#filter-buttons{width: 170px;}
+			#ceright{padding-top:120px;}
+			#celeft{padding-top:120px;}
+		}
+		@media (min-width: 980px) and (max-width: 1199px) {
+			#filter-buttons{width: 140px;}
+			#ceright{padding-top:120px;}
+			#celeft{padding-top:120px;}
 		}
 		@media (min-width: 768px) and (max-width: 979px) {
 			#celeft{
@@ -78,22 +77,57 @@
 				margin-bottom: 32px;
 				margin-left: 35%;
 		  }
+		  
+		.new-message-all{
+			display:inline-block;
+			background-color:red;
+			font-size:12px;
+			color:white;
+			padding:2px 5px;
+			line-height:12px;
+			border-radius:4px;
+			position:absolute;
+			top:1px;
+			left:-3px;
+		}
+		.new-message-single{
+			float:right;
+			display:inline-block;
+			background-color:red;
+			font-size:12px;
+			color:white;
+			padding:3px 4px;
+			line-height:8px;
+			margin-top:3px;
+			border-radius:3px;
+		}
+
+		#filter-container img{
+			vertical-align:baseline;
+		}
+
 	</style>
 
 	<!--[if IE 8]>
 	<style type="text/css">
+		#navbar{position: static;}
 		.container{width:1170px;}
 		.span2 {width: 170px;}
 		.span10 {width: 970px;}
 		#filter-buttons{width: 170px;}
+		#ceright{padding-top:10px;}
+		#celeft{padding-top:10px;}
 	</style>
 	<![endif]-->
 	<!--[if lt IE 8]>
 	<style type="text/css">
+		#navbar{position: static;}
 		.container{width:1170px;}
 		.span2 {width: 170px;}
 		.span10 {width: 970px;}
 		#filter-buttons{width: 170px;}
+		#ceright{padding-top:10px;}
+		#celeft{padding-top:10px;}
 	</style>
 	<![endif]-->
  
@@ -228,7 +262,7 @@ $(window).load(function(){
 </head>
 <body style="font-family:微软雅黑;">
 <input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-	<div class="navbar navbar-fixed-top well">
+	<div class="navbar navbar-fixed-top well" id="navbar">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
