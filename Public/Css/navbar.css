@@ -1,0 +1,60 @@
+#navcolor{
+	background-color:#8cd55b;
+}
+.navbar .brand {
+  display: block;
+  float: left;
+  padding: 10px 20px 10px;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 200;
+  color:#ffffff;
+  text-shadow: 0 0px 0 #ffffff;
+}
+.navbar .nav > li > a {
+  float: none;
+  padding: 10px 15px 10px;
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 0 0px 0 #ffffff;
+}
+.navbar .nav li.dropdown > .dropdown-toggle .caret{
+  border-top-color:#ffffff;
+  border-bottom-color:#ffffff;
+}
+.navbar .nav li.dropdown > a:hover .caret,
+.navbar .nav li.dropdown > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.active > .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+  border-top-color: #8cd55b;
+  border-bottom-color: #8cd55b;
+}
+.navbar-inner {
+  background-color: #8cd55b;
+}
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+  color:white;
+  text-shadow: 0 0px 0 #ffffff;
+  font-size:16px;
+  text-decoration: none;
+  background-color: transparent;
+}
+.navbar-inner .nav .active > a,
+.navbar-inner .nav .active > a:hover,
+.navbar-inner .nav .active > a:focus {
+  color: #8cd55b;
+  background-color: #ffffff;
+  font-size:16px;
+  font-weight: bold;
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  color: #8cd55b;
+  background-color: #ffffff;
+}
