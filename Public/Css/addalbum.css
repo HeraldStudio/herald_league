@@ -1,9 +1,9 @@
 .row-fluid .span2{margin:10px 24px;}
 .figure{
-	height:250px;
+	height:200px;
 }
 .photo{height:150px;text-align:center;}
-.figcaption{text-align:center;height:100px;}
+.figcaption{text-align:center;}
 h5{padding:0;margin:0;}
 @media (min-width: 980px){
 	#container{padding-top:50px;}

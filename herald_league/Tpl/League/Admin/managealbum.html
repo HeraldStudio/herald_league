@@ -1,6 +1,10 @@
 <link href="__Public__/Css/managealbum.css" rel="stylesheet" media="screen"> 
+<!--load href="__Public__/Js/bootstrap/bootstrap.js"/-->
+
 <div class="container" id="container">
+	
 	<h2 style="text-align:center;">相册列表</h2>
+	<a href="#newAlbum" role="button" class="btn" data-toggle="modal">新建相册</a>
 	<div class="row-fluid">
 		<div class="span1" style="width:0;"></div>
 		<volist name="leaguealbum" id="va">
@@ -13,4 +17,31 @@
 		</div>
 		</volist>
 	</div>
+
+</div>
+<div class="modal hide fade " id="newAlbum" style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>新建相册</h3>
+	</div>
+	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;" action="" method="post">
+		<div class="modal-body">
+			<div class="control-group">
+				<label class="control-label" for="inputName">相册名称</label>
+				<div class="controls">
+					<input type="text" id="inputName" placeholder="相册名称" >
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputInfo">相册介绍</label>
+				<div class="controls">
+					<textarea type="text" id="inputInfo" placeholder="相册介绍"></textarea>
+				</div>
+			</div>	
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-primary" data-dismiss="modal">创建</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal">取消</a>
+		</div>
+	</form>
 </div>

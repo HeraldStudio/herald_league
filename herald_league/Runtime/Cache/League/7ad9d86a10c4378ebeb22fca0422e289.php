@@ -75,7 +75,7 @@
 								</ul>
 							</li>
 							<li>
-								<a id="leagueregester" href="<?php echo U('League/Index/leagueRegester');?>">社团注册</a>
+								<a id="leagueregester" href="<?php echo U('League/Index/leagueregester');?>">社团注册</a>
 							</li>
 						</ul><?php endif; ?>
 						<form class="navbar-form pull-right">
