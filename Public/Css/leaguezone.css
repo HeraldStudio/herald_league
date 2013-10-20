@@ -1,7 +1,7 @@
 .fixed-left{
       position:fixed; 
       left:77px;
-      top: 100px;
+      top: 66px;
     }
   .center_lz {
     width: auto;
@@ -49,7 +49,7 @@
      }
     @media (min-width: 979px){
         #main2{
-           padding-top:100px;
+           padding-top:66px;
       }
   }
   .pagination {
