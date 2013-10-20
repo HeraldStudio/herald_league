@@ -239,7 +239,6 @@ class AdminAction extends Action{
 	private function updateLeagueInfo(){
 		$LeagueClass = D('LeagueClass');
 		$LeagueInfo = D('LeagueInfo');
-		print_r($_POST);
 		$adddata['league_name'] = $this -> _param('leaguename'); 
 		$adddata['introduce'] = $this -> _param('introduce');
 		$adddata['member'] = $this -> _param('member');
@@ -264,10 +263,10 @@ class AdminAction extends Action{
 
 		$activityid = $ActivityInfo -> addActivityInfo($adddata);
 
-		$this->redirect('League/Admin/addPostForActivity', array('activityid'=>$activityid), 0.01);
+		$this->redirect('League/Admin/addpostforactivity', array('activityid'=>$activityid), 0.01);
 	}
 
-	public function addPostForActivity(){
+	public function addpostforactivity(){
 		$this -> activityid = $this -> _param('activityid');
 		$this -> postname = $this -> _param('postname');
 		$this -> display();

@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>addPostForActivity Page</title>
-	<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
-	<link href="__Public__/Css/bootstrap/bootstrap.css" rel="stylesheet" media="screen"> 
-	<link href="__Public__/Css/bootstrap/bootstrap-responsive.css" rel="stylesheet" media="screen"> 
-	<script src="__Public__/Js/kuxuan/jquery-1.7.1.min.js"></script>	
-	<script src="__Public__/Js/bootstrap/bootstrap.file-input.js"></script>
-	<style>
-	.center {
-		width: auto;
-		display: table;
-		margin-left: auto;
-		margin-right: auto;
-			}
-	.text-center {
-		text-align: center;
-		}
-	.main{
-	    padding-left:40px;
-		padding-right:40px;
-		font-family: "microsoft yahei";
-		-webkit-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
-		-moz-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
-		-o-box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
-		box-shadow: 2px 5px 5px rgba(34, 25, 25, 0.2);
-	}
-	</style>
-<script>$(document).ready(function(){$('input[type=file]').bootstrapFileInput();});</script>
-</head>
- <body style="background-image:url(__Public__/Images/noise-all.png)">	
- <div class="container center main modal-body" style="margin-top:150px;background-color:white">  
+<link href="__Public__/Css/addpostforactivity.css" rel="stylesheet" media="screen"> 
+<div class="container main modal-body" style="margin-top:150px;background-color:white">  
     <form method='post' action="{:U('League/Admin/uploadActivityPost')}" enctype="multipart/form-data">
 	    <legend>活动添加海报</legend>
 		<input type = "hidden" name = "activityid" value="{$activityid}"/>
@@ -46,9 +13,8 @@
 		</div>
 	</form>
  </div>
-		
-</body>
-</html>
+<script src="__Public__/Js/bootstrap/bootstrap.file-input.js"></script>
+<script>$(document).ready(function(){$('input[type=file]').bootstrapFileInput();});</script>
 
 
 

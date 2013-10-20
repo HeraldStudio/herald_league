@@ -6,7 +6,7 @@ fieldset, img { border: 0 }
 address, caption, cite, code, dfn, em, i, strong, th, var, optgroup { font-style: normal; font-weight: normal }
 ul, ol { list-style: none }
 caption, th { text-align: left }
-h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal }
+h1, h2, h3, h4, h5, h6 {  font-weight: normal }
 sup { vertical-align: baseline }
 sub { vertical-align: baseline }
 legend { color: #000 }
@@ -18,7 +18,6 @@ a { color: #37a; text-decoration: none; cursor: pointer }
 a:hover { color: #fff; text-decoration: none;}
 a:active { color: #fff; text-decoration: none; }
 a img { border-width: 0; vertical-align: middle }
-body, td, th { font: normal 12px "Open Sans", Arial, sans-serif; line-height: 1.62 }
 table { border-collapse: collapse; border: 0; padding: 0; margin: 0 }
 textarea { resize: none }
 input[type=text]:focus, input[type=password]:focus, textarea:focus { outline: 0 }

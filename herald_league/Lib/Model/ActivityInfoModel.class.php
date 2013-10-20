@@ -45,8 +45,7 @@ class ActivityInfoModel extends Model{
 	}
 	public function getSortActivity($classid){
 		$activityinfo = $this -> where('league_class='.$classid) -> select(); 
-		print_r($activityinfo);
-	    return $activityinfo;
+	  return $activityinfo;
 	}
 	public function getMoreActivityByClass($lastactivityid,$classid){
 		$activityinfo = $this -> order('id desc') -> limit(ACTIVITY_NUM) -> where('id<'.$lastactivityid.' AND league_class='.$classid)-> select();

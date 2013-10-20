@@ -1,0 +1,16 @@
+form {
+	margin: 0;
+}
+textarea {
+	display: block;
+}
+.title{
+    font-size:15px;
+}
+.infor{
+	padding-bottom:13px; 
+	margin-bottom:13px; 
+	border-bottom-width:1px; 
+	border-bottom-style:dashed; 
+	border-bottom-color:#D3D3D3;
+}
