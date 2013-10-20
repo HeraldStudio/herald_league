@@ -1,3 +1,7 @@
+$(window).load(function(){
+	isotope();
+});
+
 function isotope(){
 	  $('#filter-container').isotope({
 		itemSelector : 'figure',
@@ -13,7 +17,7 @@ function jsonajax(classid){
      	lastid = $("#acn").val();
      } 
      $.ajax({
-	     async : false,
+	       async : false,
          url:'/herald_league/index.php/Index/getMoreActivity.html',
          type:'post',
          data:'lastactivityid='+lastid+'&claid='+classid,
@@ -31,7 +35,7 @@ function jsonajax(classid){
 						$item = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
 					$('#filter-container').append($item).isotope('appended',$item);		
 			     }
-				 isotope();
+			     isotope();
 			} 
 			else{  
 					alert("没有更多了..."); 
@@ -42,11 +46,8 @@ function jsonajax(classid){
  } 
 
 $(function(){
+	isotope();
   jsonajax(0);
-  $(".getmore").click();
-  $("#0").click();
- 
-  
   $("#0").click(function(){
      $(".getmore").attr("id",0);
      $("#filter-container").html("");
@@ -69,13 +70,13 @@ $(function(){
 	});
 
   $('.activityclass a').click(function(){
-     $("#filter-container").html("");
+   $("#filter-container").html("");
 	 $("#filter-container").isotope('destroy');
 	 isotope();
   });
 
 $('.activityclass a').click(function(){
-    $("#no-activity").css("display","none");
+  $("#no-activity").css("display","none");
 	var lastid = $(".activityname:last").attr('id');
     if(!lastid){
      	lastid = $("#acn").val();
@@ -83,36 +84,33 @@ $('.activityclass a').click(function(){
      var classid=$(this).attr("id");
 	$(".getmore").attr("id",classid);
 	$(".getmore").html("加载更多");
-    $.ajax({
-	     async : true,
+  $.ajax({
+	       async : false,
          url:'/herald_league/index.php/Index/getMoreActivity.html',
          type:'post',
          data:'lastactivityid='+lastid+'&claid='+classid,
          dataType:'json',
          success:function(json){
             if(json){
-			    var n;
-                var l=json.length;
-                for(var i=0; i<l; i++){
-                     n = json[i]; 
-					if(n.post_add)
-						$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img  src="./Uploads/ActivityPost/m_'+n.post_add+'" data-toggle="modal" href="#myModal" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
-					else
-						$item = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
-					$('#filter-container').append($item).isotope('appended',$item);
-			     }
-				 isotope();
-			} 
-		else{
-			$("#no-activity").css("display","block");
-			$(".getmore").html("没有更多了...");
-			}		
-	   }
+					   			 var n;
+		                var l=json.length;
+		                for(var i=0; i<l; i++){
+		                     n = json[i]; 
+										if(n.post_add)
+											$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img  src="./Uploads/ActivityPost/m_'+n.post_add+'" data-toggle="modal" href="#myModal" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
+										else
+											$item = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
+										$('#filter-container').append($item).isotope('appended',$item);
+								     }
+								     isotope();				
+							} 
+						else{
+							$("#no-activity").css("display","block");
+							$(".getmore").html("没有更多了...");
+							}		
+	   			}
      });
 	});
 
 });
 
-$(window).load(function(){
-	isotope();
-});

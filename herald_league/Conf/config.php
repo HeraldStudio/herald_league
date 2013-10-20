@@ -6,7 +6,7 @@ return array(
 	'DB_HOST' => 'localhost',
 	'DB_NAME' => 'herald_league',
 	'DB_USER' => 'root',
-	'DB_PWD' => '',
+	'DB_PWD' => '12345678',
 	'DB_PORT' => 3306,
 	'DB_PREFIX' => 'lg_',
 	//分组设置

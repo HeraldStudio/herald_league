@@ -53,12 +53,16 @@ class IndexAction extends Action{
 	public function leagueregester(){
 		$email = $this -> _post('email');
 		$password = $this -> _post('password');
+		$leaguename = $this -> _post('leaguename');
 
-		if(!empty($email ) && !empty($password)){
+		if(!empty($email ) && !empty($password) && !empty($leaguename)){
 			$LeagueInfo = D('LeagueInfo');
-			$regesterresult = $LeagueInfo -> addLeague($email, $password);
+			$regesterresult = $LeagueInfo -> addLeague($email, $password, $leaguename);
 			if($regesterresult == "success"){
-				$this -> success("注册成功!");
+				$LeagueSession = D('LeagueSession');
+			   $LeagueSession -> addSession($email, $password);
+			   $this->redirect('Activity/Index/index','', 1, '注册成功!');
+				//$this -> success("注册成功!");
 			}elseif($regesterresult == "badpatten"){
 				$this -> error("邮箱格式不正确!");
 			}elseif($regesterresult == "ear"){

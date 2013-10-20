@@ -1,6 +1,6 @@
 <link href="__Public__/Css/managealbum.css" rel="stylesheet" media="screen"> 
 <!--load href="__Public__/Js/bootstrap/bootstrap.js"/-->
-
+<load href="__Public__/Js/createalbum.js"/>
 <div class="container" id="container">
 	
 	<h2 style="text-align:center;">相册列表</h2>
@@ -24,23 +24,24 @@
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>新建相册</h3>
 	</div>
-	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;" action="" method="post">
+	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;" action="{:U('League/Admin/createAlbum')}" method="post">
 		<div class="modal-body">
 			<div class="control-group">
 				<label class="control-label" for="inputName">相册名称</label>
 				<div class="controls">
-					<input type="text" id="inputName" placeholder="相册名称" >
+					<input type="hidden" name="leagueid" value="{$leagueid}"> 
+					<input type="text" name="albumname" id="inputAlbumName" placeholder="相册名称" >
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="inputInfo">相册介绍</label>
 				<div class="controls">
-					<textarea type="text" id="inputInfo" placeholder="相册介绍"></textarea>
+					<textarea type="text" name="albumintro" id="inputAlbumInfo" placeholder="相册介绍"></textarea>
 				</div>
 			</div>	
 		</div>
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary" data-dismiss="modal">创建</button>
+			<button type="submit" id="createAlbum" class="btn btn-primary" data-dismiss="modal">创建</button>
 			<a href="javascript:void(0);" class="btn" data-dismiss="modal">取消</a>
 		</div>
 	</form>
