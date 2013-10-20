@@ -1,4 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!--这个页面放置导航栏的html信息-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>先声网-活动信息平台</title>
@@ -16,7 +17,7 @@
 	
 	<link rel="stylesheet" media="all" href="__Public__/Css/isotope/lessframework.css">
 	<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css">
-		 <!--[if lte IE 6]>
+	<!--[if lte IE 6]>
   <!-- bsie css 补丁文件 -->
 	<!--<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap3/bootstrap-ie6.css">-->
 
