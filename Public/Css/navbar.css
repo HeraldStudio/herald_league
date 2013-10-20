@@ -58,3 +58,8 @@
   color: #8cd55b;
   background-color: #ffffff;
 }
+/* 全局 */
+body{
+	background-image:url("../Images/noise-all.png");
+	font:微软雅黑;
+}
