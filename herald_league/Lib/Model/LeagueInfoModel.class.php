@@ -69,10 +69,11 @@ class LeagueInfoModel extends Model{
 		$this -> where('uid='.$leagueid) -> save($data);
 	}
 
-	public function addLeague($email, $password){
+	public function addLeague($email, $password, $leaguename){
 		$data['email'] = $email; 
 		$pregresult = preg_match( '/^[a-z]([a-z0-9]*[-_\.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i', $email);
 		$data['password'] = md5($password);
+		$data['league_name'] = $leaguename;
 		if($pregresult == 1){
 			$addresult = $this -> add($data);
 			if($addresult){
