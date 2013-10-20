@@ -110,8 +110,8 @@
 								<b class="caret"></b> </a>
 								<ul class="dropdown-menu">
 									<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
-									<li><a href="/herald_league/index.php/League/Admin/adminAlbumList/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
-									<li><a href="">社团空间</a></li>
+									<li><a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
+									<li><a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($loginuserid); ?>">社团空间</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 									<li class="divider"></li>
 									<li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -280,7 +280,7 @@
 									</div>
 									<div class="row-fluid">
 										<?php if(is_array($albuminfo)): $i = 0; $__LIST__ = $albuminfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><div class="span4 photodiv">
-											<a data-toggle="modal" href="/herald_league/index.php/League/Index/album/leagueid/<?php echo ($leagueid); ?>">
+											<a href="/herald_league/index.php/League/Index/album/leagueid/<?php echo ($leagueid); ?>">
 											<img alt="140x140" src="__Uploads__/LeagueAlbum/<?php echo ($val["cover_address"]); ?>" class="img-rounded" />
 											</a>
 										</div><?php endforeach; endif; else: echo "" ;endif; ?>
