@@ -148,4 +148,8 @@ class IndexAction extends Action {
 			return;
 		}
 	}
+
+	public function testlayout(){
+		$this -> display();
+	}
 }
