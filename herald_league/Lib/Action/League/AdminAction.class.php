@@ -72,6 +72,14 @@ class AdminAction extends Action{
 		}
 	}
 
+	public function createAlbum(){
+		$albumname = $this -> _param('albumname');
+		$albumintro = $this -> _param('albumintro');
+		$leagueid = $this -> _param('leagueid');
+		$LeagueAlbum = D('LeagueAlbum');
+		$LeagueAlbum -> createAlbum($albumname, $albumintro, $leagueid);
+	}
+
 	//裁剪并保存用户头像
 	public function cropImg(){
 		//图片裁剪数据

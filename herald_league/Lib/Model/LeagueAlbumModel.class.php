@@ -18,4 +18,10 @@ class LeagueAlbumModel extends Model{
 	public function getAlbumNameById($albumid){
 		return $this -> where('id='.$albumid) -> getField('name');
 	}
+	public function createAlbum($albumname, $albumintro, $leagueid){
+		$data['name'] = $albumname;
+		$data['introduction'] = $albumintro;
+		$data['league_id'] = $leagueid;
+		$this -> add($data);
+	}
 }
