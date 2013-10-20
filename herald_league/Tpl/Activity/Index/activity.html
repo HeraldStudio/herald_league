@@ -1,60 +1,29 @@
-
 <link href="/herald_league/Public/Css/activity.css" rel="stylesheet" media="screen">
  <div class="container-fluid" id="container-fluid">
 		<div class="row-fluid" >
 			<div class="span7 offset1">
 				<div class="act-info-header">
 					<h2>
-						<span>先声之夜</span>
-						<a href="#" title="关注此活动"><img id="modal-header-attention" src="/herald_league/Public/Images/attention.png"/></a>	
+						<span>{$activityinfo['name']}</span>
 					</h2>
 				</div>
 				<div class="act-info-body">
-					<div class="act-info"><i class="icon-user"></i>主办方：<a href="#">东南大学先声网</a>
-						<a href="#" title="关注此社团">
-							<img src="/herald_league/Public/Images/attention-small.png"/>
-						</a>
+					<div class="act-info">
+						<i class="icon-user"></i>
+						主办方：<a href="#">{$activityinfo['name']}</a>
 					</div>
-					<div class="act-info"><i class="icon-time"></i>时间：2013年06月30日 18:30</div>
-					<div class="act-info"><i class="icon-home"></i>地点：焦廷标馆</div>
-					<div class="act-info"><i class="icon-envelope"></i>联系方式：行政楼520</div>
+					<div class="act-info"><i class="icon-time"></i>时间：{$activityinfo['start_time']}</div>
+					<div class="act-info"><i class="icon-home"></i>地点：{$activityinfo['place']}</div>
+					<div class="act-info"><i class="icon-envelope"></i>联系方式：{$activityinfo['connect_info']}</div>
 					<div class="act-info-para">
-						<p>我们先辈发明的围棋能够延衍千年而不至湮灭。黑白色的棋子在象征意义的穹宇之间寥寥落落地布下，演练的是风云际会，人生拼搏。许多棋手由是而领悟了世事的兴盛与衰没，欢乐与痛苦，失败与成就乃至死亡与新生。
-						</p>
-						<p>12年春季，北京大学生围棋联赛如火如荼地举行了，多家知名媒体新浪、搜狐报导围棋赛事，围棋第一大杂志《围棋天地》刊登比赛状况。但是现在，上海的大学生们面临着一个难题，很多同学喜欢围棋并对围棋有着浓厚的兴趣，却面临着无棋可下，无赛可参的窘境。
-						</p>
-						<p>为了搭建同学之间交流的平台，推广和宣传围棋文化，丰富同学课余生活让同学更深入的了解认识中国棋文化，弘扬中国民族文化艺术，培养学生特色技能，展现朝气蓬勃、积极进取、开拓创新的精神风貌，增进各校之间的交流与来往。故而举办这次“大学生围棋联赛”。
-						</p>
+						{$activityinfo['introduction']|htmlspecialchars_decode}
 					</div>
 					<div class="act-info-pic">
-						<img src="/herald_league/Public/Images/test-poster.jpg"/>
+						<img src="__Uploads__/ActivityPost/l_{$activityinfo['post_add']}"/>
 					</div>
 				</div>
 			</div>
 			<div class="span3">
-				<div id="follower">
-					<h4 class="pull-left">关注者</h4>
-					<h4 class="pull-right">17人</h4>
-				</div>
-				<div class="row-fluid" id="follower-list">
-					<div class="span1" style="width:0px;"></div>
-					<div class="span3">
-						<img src="/herald_league/Public/Images/head.jpg" />
-						<span>王小四四</span>
-					</div>
-					<div class="span3">
-						<img src="/herald_league/Public/Images/head.jpg" />
-						<span>王小四四</span>
-					</div>
-					<div class="span3">
-						<img src="/herald_league/Public/Images/head.jpg" />
-						<span>王小四四</span>
-					</div>
-					<div class="span3">
-						<img src="/herald_league/Public/Images/head.jpg" />
-						<span>王小四四</span>
-					</div>
-				</div>
 				<div id="share">
 					<h4>分享到其它平台</h4>
 					<div style="text-align:center;padding-top:10px;">
