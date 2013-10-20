@@ -12,13 +12,14 @@ class IndexAction extends Action {
 		$this -> getActivityNum();
 		//$activityinfo = $this -> activityInfo();
 		$this -> getLoginUserInfo();
-      $this -> getActivityNum();
+    $this -> getActivityNum();
 		$this -> assign('activityclass', $activityclass);
 		//$this -> assign('activityinfo', $activityinfo);
 		$this -> display('index');
 	}
 	public function activityClass(){
 		$ActivityClass = D('ActivityClass');
+		$this -> getLoginUserInfo();
 		return $ActivityClass -> getClassList();
 	}
 
