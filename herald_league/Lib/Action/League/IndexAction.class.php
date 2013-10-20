@@ -37,6 +37,7 @@ class IndexAction extends Action{
 			return;
 		}
 		$this -> getAlbumInfo();
+		$this -> getLoginUserInfo();
 
 		$this -> display();
 	}

@@ -6,6 +6,7 @@ class AdminAction extends Action{
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
+		$this -> getLoginUserInfo();
 		$LeagueSession = D('LeagueSession');
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
@@ -30,7 +31,7 @@ class AdminAction extends Action{
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
-
+		$this -> getLoginUserInfo();
 		$LeagueSession = D('LeagueSession');
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
@@ -109,6 +110,7 @@ class AdminAction extends Action{
 			return;
 		}
 
+		$this -> getLoginUserInfo();
 		$LeagueSession = D('LeagueSession');
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
@@ -132,6 +134,7 @@ class AdminAction extends Action{
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
+		$this -> getLoginUserInfo();
 		$LeagueSession = D('LeagueSession');
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
@@ -161,10 +164,9 @@ class AdminAction extends Action{
 	}
 
 	public function addAlbumPicture(){
-		//print_r($_POST);
+		$this -> getLoginUserInfo();
 		$picname = $this -> uploadsAlbum();
 		$albumid = $_GET['albumid'];
-		//echo $albumid;
 		if(!empty($picname)){
 			$LeagueAlbumPicture = D('LeagueAlbumPicture');
 			$LeagueAlbumPicture -> addNewPicture($albumid, $picname);
@@ -201,6 +203,7 @@ class AdminAction extends Action{
 			echo "<script>history.go(-1)</script>";
 			return;
 		}
+		$this -> getLoginUserInfo();
 		$LeagueSession = D('LeagueSession');
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
@@ -225,6 +228,26 @@ class AdminAction extends Action{
 		$this -> place = $leagueinfo['place'];
 		$this -> email = $leagueinfo['email'];
 		$this -> avatr = $leagueinfo['avatar_address'];
+	}
+
+	private function getLoginUserInfo(){
+		$UserSession = D('Session');
+		$LeagueSession = D('LeagueSession');
+		if($UserSession -> hasUserLogin()){
+			$this -> loginuser = true;
+			$this -> loginusertype = 2;
+			$loginuserinfo = $UserSession -> hasUserLogin();
+			$this -> loginusername = $loginuserinfo[1];
+			$this -> loginuserid = $loginuserinfo[0];
+		}elseif($LeagueSession -> hasLeagueLogin()){
+			$this -> loginuser = true;
+			$this -> loginusertype = 1;
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			$this -> loginusername = $loginuserinfo[1];
+			$this -> loginuserid = $loginuserinfo[0];
+		}else{
+			$this -> loginuser = false;
+		}
 	}
 	private function getLeagueClassList(){
 		$LeagueClass = D('LeagueClass');
@@ -269,57 +292,26 @@ class AdminAction extends Action{
 	public function addpostforactivity(){
 		$this -> activityid = $this -> _param('activityid');
 		$this -> postname = $this -> _param('postname');
+		$this -> getLoginUserInfo();
 		$this -> display();
 	}
 
 	public function addPost(){
 		$ActivityInfo = D('ActivityInfo');
 		$ActivityInfo -> addActivityPost($_POST);
+		$this -> getLoginUserInfo();
 		echo "<script>alert('发布成功');</script>";
 		$this->redirect('League/Index/index', array('leagueid'=>1), 0.0001, '~');
 	}
 
 	public function changeActivityInfo(){
+		$this -> getLoginUserInfo();
 		$this -> display();
 	}
 
 	public function previewPost($filename, $activityid){
 		$this -> postname = $filename;
 		$this -> activityid = $activityid;
-	}
-
-	public function uploadActivityPost(){
-		import('ORG.Net.UploadFile');
-		 //导入上传类
-		$upload = new UploadFile();
-		 //设置上传文件大小
-		$upload->maxSize = 3292200;
-		 //设置上传文件类型
-		$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
-		 //设置附件上传目录
-		$upload->savePath = 'Uploads/ActivityPost/';
-		 //设置需要生成缩略图，仅对图像文件有效
-		$upload->thumb = true;
-		 // 设置引用图片类库包路径
-		$upload->imageClassPath = 'ORG.Util.Image';
-		 //设置需要生成缩略图的文件后缀
-		$upload->thumbPrefix = 'm_,s_';  //生产2张缩略图
-		 //设置缩略图最大宽度
-		$upload->thumbMaxWidth = '400,100';
-		 //设置缩略图最大高度
-		$upload->thumbMaxHeight = '400,100';
-		 //设置上传文件规则
-		$upload->saveRule = 'uniqid';
-		 //删除原图
-		$upload->thumbRemoveOrigin = true;
-		 if (!$upload->upload()) {
-		    //捕获上传异常
-		    $this->error($upload->getErrorMsg());
-		 }else {
-		    //取得成功上传的文件信息
-		    $uploadList = $upload->getUploadFileInfo();
-		    $this -> previewPost($uploadList[0]['savename'], $this -> _param('activityid'));
-		    $this -> display('previewPost');
-		 }
+		$this -> getLoginUserInfo();
 	}
 }

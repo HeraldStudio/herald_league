@@ -22,6 +22,10 @@ class IndexAction extends Action {
 		return $ActivityClass -> getClassList();
 	}
 
+	public function activity(){
+		$this -> display();
+	}
+
 	public function getActivityNum(){
 		$ActivityInfo = D('ActivityInfo');
 		$this -> activitynum = $ActivityInfo -> getAllActivityInfoNum();
