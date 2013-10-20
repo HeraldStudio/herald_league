@@ -99,21 +99,18 @@
 													<li class="span4" style="margin-left:8px;">
 														<div class="thumbnail">
 															<notempty name="vai.post_add">
-															<a href="javascript:void(0);" class="thumb">
+															<a href="/herald_league/index.php/Activity/Index/activity/activityid/{$vai.id}" class="thumb">
 															<img src="__Uploads__/ActivityPost/m_{$vai.post_add}" alt="alt" />
 															</a>
 															</notempty>
 															<div class="heading center_lz" style="font-size:20px;margin-top:20px;">
-																<a data-toggle="modal" href="#myModal" class="activityname" id="{$vai.id}">{$vai.name}</a>
-																<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+																<a href="/herald_league/index.php/Activity/Index/activity/activityid/{$vai.id}" class="activityname" id="{$vai.id}">{$vai.name}</a>
 															</div>
 															<div class="word_wrap">
 																<br/><p>主办方：<a href="#">{$vai.league_name}</a>
-																<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 																</p>
 																<p>时间：{$vai.start_time}</p>
 																<p>地点：{$vai.place}</p><br/>
-																<a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a>
 															</div>
 														</div>
 													</li>

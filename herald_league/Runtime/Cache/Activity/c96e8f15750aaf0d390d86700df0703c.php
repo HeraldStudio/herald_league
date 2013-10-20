@@ -67,7 +67,7 @@
 						<?php if($loginuser): else: ?>
 						<ul class="nav pull-right" style="text-decoration:none;">
 							<li class="dropdown" >
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login"> 登录
+								<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" id="login"> 登录
 								<b class="caret"></b></a>
 								<ul class="dropdown-menu" style="min-width:0px;">
 									<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
@@ -83,8 +83,8 @@
 							<button type="submit" class="btn">Go</button>
 						</form>
 						<ul class="nav">
-							<li class="active"><a href="#">平台首页</a></li>
-							<li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
+							<li class="<?php if($currentpage == 1): ?>active<?php endif; ?>"><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
+							<li class="<?php if($currentpage == 2): ?>active<?php endif; ?>"><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
 							<li><a href="#">二手市场</a></li>
 							<li><a href="#">失物招领</a></li>
 						</ul>

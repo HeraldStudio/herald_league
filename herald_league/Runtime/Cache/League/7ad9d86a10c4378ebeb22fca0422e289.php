@@ -67,7 +67,7 @@
 						<?php if($loginuser): else: ?>
 						<ul class="nav pull-right" style="text-decoration:none;">
 							<li class="dropdown" >
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="login"> 登录
+								<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" id="login"> 登录
 								<b class="caret"></b></a>
 								<ul class="dropdown-menu" style="min-width:0px;">
 									<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
@@ -83,8 +83,8 @@
 							<button type="submit" class="btn">Go</button>
 						</form>
 						<ul class="nav">
-							<li class="active"><a href="#">平台首页</a></li>
-							<li><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
+							<li class="<?php if($currentpage == 1): ?>active<?php endif; ?>"><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
+							<li class="<?php if($currentpage == 2): ?>active<?php endif; ?>"><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
 							<li><a href="#">二手市场</a></li>
 							<li><a href="#">失物招领</a></li>
 						</ul>
@@ -247,20 +247,17 @@
 												<ul class="thumbnails  activity-page">
 													<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vai): $mod = ($i % 2 );++$i;?><li class="span4" style="margin-left:8px;">
 														<div class="thumbnail">
-															<?php if(!empty($vai["post_add"])): ?><a href="javascript:void(0);" class="thumb">
+															<?php if(!empty($vai["post_add"])): ?><a href="/herald_league/index.php/Activity/Index/activity/activityid/<?php echo ($vai["id"]); ?>" class="thumb">
 															<img src="__Uploads__/ActivityPost/m_<?php echo ($vai["post_add"]); ?>" alt="alt" />
 															</a><?php endif; ?>
 															<div class="heading center_lz" style="font-size:20px;margin-top:20px;">
-																<a data-toggle="modal" href="#myModal" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
-																<a href="#" title="关注此活动"><img src="__Public__/Images/attention.png"/></a>
+																<a href="/herald_league/index.php/Activity/Index/activity/activityid/<?php echo ($vai["id"]); ?>" class="activityname" id="<?php echo ($vai["id"]); ?>"><?php echo ($vai["name"]); ?></a>
 															</div>
 															<div class="word_wrap">
 																<br/><p>主办方：<a href="#"><?php echo ($vai["league_name"]); ?></a>
-																<a href="#" title="关注此社团"><img src="__Public__/Images/attention-small.png"/></a>
 																</p>
 																<p>时间：<?php echo ($vai["start_time"]); ?></p>
 																<p>地点：<?php echo ($vai["place"]); ?></p><br/>
-																<a class="btn btn-primary pull-right" data-toggle="modal" href="#myModal">浏览</a>
 															</div>
 														</div>
 													</li><?php endforeach; endif; else: echo "" ;endif; ?>

@@ -26,6 +26,7 @@ class IndexAction extends Action{
 		$this -> getTenGoodLeague();
 		$this -> getAttentionLeagueRank();
 		$this -> getLoginUserInfo();
+		$this -> currentpage = 2;
 		
 		$this -> display();
 	}
