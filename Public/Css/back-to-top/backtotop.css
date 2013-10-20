@@ -71,7 +71,8 @@
 	position:fixed;
 	bottom:242px;
 	right:35px;
-	background-color:#D3D3D3;
+	color:white;
+	background-color:#8cd55b;
 	  -webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 			border-radius: 4px;
@@ -83,7 +84,7 @@
 #fix2pic{
 	width:32px;
 	height:32px;
-	background-image:url(../../Images/top.png);
+	background-image:url(../../Images/down.png);
 	cursor:pointer;
 	position:relative;
 	left:0px;
@@ -103,7 +104,8 @@
 	position:fixed;
 	bottom:205px;
 	right:35px;
-	background-color:#D3D3D3;
+	color:white;
+	background-color:#8cd55b;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -117,7 +119,7 @@
 #fix3pic{
 	width:32px;
 	height:32px;
-	background-image:url(../../Images/top.png);
+	background-image:url(../../Images/down.png);
 	cursor:pointer;
 	position:relative;
 	left:0px;
@@ -136,7 +138,8 @@
 	position:absolute;
 	top:0px;
 	right:28px;
-	background-color:#D3D3D3;
+	color:white;
+	background-color:#8cd55b;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -150,7 +153,7 @@
 #fix4pic{
 	width:32px;
 	height:32px;
-	background-image:url(../../Images/top.png);
+	background-image:url(../../Images/down.png);
 	cursor:pointer;
 	position:relative;
 	left:0px;
@@ -169,7 +172,8 @@
 	position:absolute;
 	top:0px;
 	right:28px;
-	background-color:#D3D3D3;
+	color:white;
+	background-color:#8cd55b;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
