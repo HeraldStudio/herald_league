@@ -26,6 +26,6 @@ return array(
 	'__Uploads__' => __ROOT__.'/Uploads',
 	),
 
-	//'LAYOUT_ON' => true,
+	'LAYOUT_ON' => true,
 );
 ?>
