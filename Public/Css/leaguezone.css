@@ -1,0 +1,107 @@
+.fixed-left{
+      position:fixed; 
+      left:77px;
+      top: 100px;
+    }
+  .center_lz {
+    width: auto;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+      }
+  .text-center {
+    text-align: center;
+    }
+  .page-header{
+      padding-bottom: 0px;
+      margin: 10px 0 15px;
+      border-bottom: 1px solid black;
+      }
+  .clear:after{
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+        }
+  .reply{
+        margin-bottom:10px;
+  }
+      h1,h2,h3,h4,h5,h6{
+      font-weight:normal;
+   }
+    p{
+       text-indent:2em;
+   }
+   #cezhong{
+      margin-left:250px;
+  }
+  @media (max-width: 979px){
+         #celeft{
+          display:none;
+       }
+       #cezhong{
+          margin-left:40px; 
+       }
+       #main2{
+           padding-top:10px;
+       }
+     }
+    @media (min-width: 979px){
+        #main2{
+           padding-top:100px;
+      }
+  }
+  .pagination {
+        margin: 10px 0 0px;
+      }
+    .tips { color:#999; padding:0 5px; }  
+    .tips strong { color:#1E9300; }
+    .tips .js_txtFull strong { color:#F00; }
+    textarea.text { width:474px; }
+  .reply_title{
+      background-color:#eeeeee;
+  }
+  .pinglun{
+     font-size:14px;
+     text-indent:2em;
+     padding-top:28px;
+  }
+  .pinglun_2{
+     font-size:11px;
+     padding-top:2px;
+  
+  }
+   .hero-unit {
+      padding:20px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 25px;
+      color: inherit;
+      background-color: #eeeeee;
+      -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+          border-radius: 6px;
+    }
+  .word_wrap{
+        overflow:hidden;
+      word-wrap:break-word;
+  }
+  #follower{
+    height:35px;
+  }
+  .text{
+      font-size:14px;
+    line-height:30px;
+  }
+  .pagination{
+      margin-bottom:5px;
+  }
+  #filter-buttons li a {
+		color: #444;
+  }
+  #filter-buttons li a:hover,
+  #filter-buttons li a.selected {
+		border-bottom: 2px solid #444;
+ }

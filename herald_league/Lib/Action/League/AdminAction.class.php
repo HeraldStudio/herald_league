@@ -102,7 +102,7 @@ class AdminAction extends Action{
 		$this->success('上传头像成功');
 	}
     
-   public function adminAlbumList(){
+   public function managealbum(){
    		$this -> leagueid = intval($this -> _param('leagueid'));
 		if($this -> leagueid < 0 || !isset($this -> leagueid)){
 			echo "<script>history.go(-1)</script>";

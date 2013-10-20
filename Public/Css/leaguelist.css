@@ -1,0 +1,35 @@
+.row-fluid{
+margin-bottom:10px;
+}
+.accordion a{
+color:#656360;
+}
+.accordion a:hover{
+color:#cb5432;
+text-decoration:none;
+}
+.accordion ul{
+margin-left:0px;
+}
+.accordion ul li{
+text-align:center;
+line-height:25px;
+list-style-type:none;
+border-bottom:1px solid #EFEFEF;
+margin-bottom:20px;
+}
+.accordian li img{
+padding-left:3px;
+}
+.accordion .span3{
+border-bottom:1px solid #EFEFEF;
+}
+img{
+max-width:35px;
+max-height:35px;
+}
+@media (min-width:980px){
+#row-fluid{
+padding-top:80px;
+}
+}

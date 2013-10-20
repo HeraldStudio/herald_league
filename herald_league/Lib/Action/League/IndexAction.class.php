@@ -48,7 +48,7 @@ class IndexAction extends Action{
 		echo json_encode($activityinfo);
 	}
 	/*league regester page*/
-	public function leagueRegester(){
+	public function leagueregester(){
 		$email = $this -> _post('email');
 		$password = $this -> _post('password');
 

@@ -1,5 +1,4 @@
-
- function isotope(){
+function isotope(){
 	  $('#filter-container').isotope({
 		itemSelector : 'figure',
 		masonry: {

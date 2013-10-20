@@ -1,0 +1,17 @@
+h1{
+	font-size:50px;
+	margin:50px;
+	color:#333;
+}
+span.reference{
+	font-family:Arial;
+	position:fixed;
+	right:10px;
+	top:10px;
+	font-size:15px;
+}
+span.reference a{
+	color:#fff;
+	text-transform:uppercase;
+	text-decoration:none;
+}

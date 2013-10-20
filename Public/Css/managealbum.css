@@ -1,0 +1,14 @@
+.row-fluid .span3{margin:20px 58px;}
+	.figure{
+		box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.8);
+		-moz-box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.8);
+		-webkit-box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.8);
+		background: #F3F3F3;
+	}
+	.figcaption{text-align:center;padding:10px;}
+	@media (min-width: 980px){
+		#container{padding-top:50px;}
+	}
+	@media (min-width: 768px) and (max-width: 979px){
+		#container{padding-top:0px;}
+	}
