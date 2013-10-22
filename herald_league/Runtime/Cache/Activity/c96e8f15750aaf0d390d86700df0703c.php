@@ -153,7 +153,7 @@
 <div class="row" >
 	<div class="span2" id="celeft">
 		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><a id="fl">分类</a></li>
+			<li class="active"><p id="fl">分类</p></li>
 			<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
 			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 		</ul>
