@@ -33,7 +33,15 @@
 	color:#cb5432;
 	text-decoration:none;
 }
-
+#league_name{
+	list-style: none;
+	text-align:left;
+	margin-left: 0px;
+}
+#league_name li{
+	border-bottom: 1px solid #ddd;
+	line-height: 35px;
+}
 
 	
 
