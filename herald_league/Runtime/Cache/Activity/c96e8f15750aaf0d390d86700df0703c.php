@@ -8,21 +8,12 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-<!-- 		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/lessframework.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/backtotop.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/style.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/navbar.css" /> -->
-		
 		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery.isotope.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/Js_all.js"></script>
-		<!-- <script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
-		<script type="text/javascript" src="__Public__/Js/back-to-top/backtotop.js"></script>
-		<script type="text/javascript" src="__Public__/Js/iealert.js"></script>
-		<script type="text/javascript" src="__Public__/Js/logout.js"></script> -->
 		
 		<!--[if lte IE 6]>
 		<!-- bsie css 补丁文件 -->
@@ -96,14 +87,11 @@
 						<?php if($loginusertype == 2): ?><ul class="nav pull-right">
 							<li class="dropdown" >
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#menutest1"> <?php echo ($loginusername); ?>
-								<p class="new-message-all">3</p>
 								<b class="caret"></b> </a>
 								<ul class="dropdown-menu">
-									<li><a href="#">个人空间<p class="new-message-single">1</p></a></li>
-									<li><a href="#">二手市场<p class="new-message-single">2</p></a></li>
-									<li><a href="#">其他<p class="new-message-single">33</p></a></li>
+									<li><a href="javascript:alert('开发中...');">个人空间</a></li>
 									<li class="divider"></li>
-									<li><a href="javascript:void(0)" class="logout">登出</a></li>
+									<li><a href="javascript:void(0)" id="logout_user">登出</a></li>
 									<input type="hidden" id="loginuserid" value="<?php echo ($loginuserid); ?>"/>
 								</ul>
 							</li>
