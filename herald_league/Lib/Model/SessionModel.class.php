@@ -1,19 +1,35 @@
 <?php
-class SessionModel extends Model{
-	protected $dbName = "herald_user_account";
-	protected $tablePrefix = "herald_";
+class SessionModel{
 	public function hasUserLogin(){
 		if(!empty($_COOKIE['HERALD_USER_SESSION_ID'])){
-			$result = $this -> where('expired_time >'.time().' AND ip=\''.$_SERVER['REMOTE_ADDR'].'\' AND session_id=\''.$_COOKIE['HERALD_USER_SESSION_ID'].'\'') -> getField('user_id');
-			if(!$result){
-				return false;
+			$loginuserinfojson = $this -> postCookie();
+			if(!empty($loginuserinfojson)){
+				$loginuserinfo = json_decode($loginuserinfojson, true);
+				if($loginuserinfo['code'] == 200){
+					$resultinfo =  json_decode($loginuserinfo['data'], true);
+					$result = $resultinfo['cardnum'];
+					$username = $resultinfo['truename'];
+					return array($result, $username);
+				}elseif($loginuserinfo['code'] == 404){
+					return false;
+				}
 			}else{
-				$User = D('User');
-				$username = $User -> getUserNameById($result);
-				return array($result, $username);
+				return false;
 			}
 		}else{
 			return false;
 		}
+	}
+	private function postCookie(){
+		$ch = curl_init();
+      $postdata ="cookie=".$_COOKIE['HERALD_USER_SESSION_ID'];
+      curl_setopt($ch, CURLOPT_URL, 'http://herald.seu.edu.cn/useraccount/getloginuserinfo.php');
+      curl_setopt($ch, CURLOPT_HEADER, 0);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_POST, 1);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+      $responseword = curl_exec($ch);
+      curl_close($ch);
+ 		return $responseword;
 	}
 }

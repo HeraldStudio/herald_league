@@ -3,10 +3,10 @@ return array(
 	//'配置项'=>'配置值'
 	//数据库配置项
 	'DB_TYPE' => 'mysql',
-	'DB_HOST' => 'localhost',
+	'DB_HOST' => '121.248.63.106',
 	'DB_NAME' => 'herald_league',
-	'DB_USER' => 'root',
-	'DB_PWD' => '123456',
+	'DB_USER' => 'herald_league',
+	'DB_PWD' => 'herald_league_psd',
 	'DB_PORT' => 3306,
 	'DB_PREFIX' => 'lg_',
 	//分组设置

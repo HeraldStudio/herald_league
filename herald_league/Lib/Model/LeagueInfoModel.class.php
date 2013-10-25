@@ -24,7 +24,7 @@ class LeagueInfoModel extends Model{
 	 	return $leagueclass;
 	}
 	private function getLeagueInfoByClass($classid){
-		return $this -> where('class='.$classid) -> field('league_name,uid') -> select();
+		return $this -> where('class='.$classid) -> field('league_name,uid, avatar_address') -> select();
 	}
 	public function getLeagueNameById($leagueid){
 		return $this -> where('uid='.$leagueid) -> getField('league_name');
@@ -77,7 +77,7 @@ class LeagueInfoModel extends Model{
 		if($pregresult == 1){
 			$addresult = $this -> add($data);
 			if($addresult){
-				return "success";
+				return $addresult;
 			}else{
 				return "ear";//email aready regester
 			}
