@@ -23,6 +23,8 @@ padding-left:3px;
 }
 .accordion .span3{
 border-bottom:1px solid #EFEFEF;
+margin-left:10px;
+line-height:45px;
 }
 img{
 max-width:35px;

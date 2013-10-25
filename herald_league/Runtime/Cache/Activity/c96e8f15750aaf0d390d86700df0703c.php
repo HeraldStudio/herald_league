@@ -7,22 +7,12 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-<!-- 		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/lessframework.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/backtotop.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/style.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/navbar.css" /> -->
-		
-		
+		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery.isotope.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/Js_all.js"></script>
-		<!-- <script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
-		<script type="text/javascript" src="__Public__/Js/back-to-top/backtotop.js"></script>
-		<script type="text/javascript" src="__Public__/Js/iealert.js"></script>
-		<script type="text/javascript" src="__Public__/Js/logout.js"></script> -->
 		
 		<!--[if lte IE 6]>
 		<!-- bsie css 补丁文件 -->
