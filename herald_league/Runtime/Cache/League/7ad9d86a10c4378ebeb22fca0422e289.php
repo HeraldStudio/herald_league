@@ -183,7 +183,7 @@
 						社团联系方式
 						</h4>
 					</div>
-					<table class="table table-hover" contenteditable="false">
+					<table class="table table-hover" contenteditable="false" >
 						<tbody>
 							<tr>
 								<td>邮箱</td>
@@ -342,13 +342,22 @@
 				<div class="span2 ">
 					<div class="page-header" >
 						<h4>
-						关注者
+						同类社团
 						</h4>
 					</div>
 					<div id="flist">
-						<?php if(is_array($leagueattentioninfo)): $i = 0; $__LIST__ = $leagueattentioninfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 3 );++$i; if(($key) != "0"): if(($mod) == "2"): ?><div class="row-fluid"><?php endif; endif; ?>
+						<!-- <?php if(is_array($leagueattentioninfo)): $i = 0; $__LIST__ = $leagueattentioninfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 3 );++$i; if(($key) != "0"): if(($mod) == "2"): ?><div class="row-fluid"><?php endif; endif; ?>
 							<div class="span4"><img src="__Uploads__/UserAvatar/<?php echo ($vle["avatar_address"]); ?>"/><br /><?php echo ($vle["user_true_name"]); ?></div>
-							<?php if(($key) != "0"): if(($mod) == "2"): ?></div><?php endif; endif; endforeach; endif; else: echo "" ;endif; ?>
+							<?php if(($key) != "0"): if(($mod) == "2"): ?></div><?php endif; endif; endforeach; endif; else: echo "" ;endif; ?> -->
+						<div class="row-fluid">
+							<div class="span11">
+ 								<ul id="league_name">
+ 									<li>足球社</li>
+ 									<li>足球社</li>
+ 									<li>足球社</li>
+ 								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
