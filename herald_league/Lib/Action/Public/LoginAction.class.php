@@ -18,10 +18,10 @@ class LoginAction extends Action{
 				$LeagueSession = D('LeagueSession');
 				$LeagueSession -> where('session_id='.$_COOKIE['HERALD_LEAGUE_SESSION_ID']) -> delete();
 				cookie('HERALD_LEAGUE_SESSION_ID',null);
-				echo "success";
+				echo "退出成功";
 				return;
 			}else{
-				echo "error";
+				echo "未知错误";
 				return;
 			}
 		}else{

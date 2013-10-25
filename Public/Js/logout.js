@@ -6,7 +6,7 @@ $(document).ready(function(){
 			dataType:'text',
 			success:function(data){
 				alert(data);
-				history.go(0);
+				window.location = "http://herald.seu.edu.cn/herald_league"
 			}
 		});
 	});

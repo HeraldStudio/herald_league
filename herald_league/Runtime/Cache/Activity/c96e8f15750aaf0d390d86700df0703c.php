@@ -75,7 +75,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" id="login"> 登录
 								<b class="caret"></b></a>
 								<ul class="dropdown-menu" style="min-width:0px;">
-									<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
+									<li><a href="http://herald.seu.edu.cn/useraccount/login.html">个人登录</a></li>
 									<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
 								</ul>
 							</li>

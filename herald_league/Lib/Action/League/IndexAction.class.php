@@ -58,17 +58,14 @@ class IndexAction extends Action{
 		if(!empty($email ) && !empty($password) && !empty($leaguename)){
 			$LeagueInfo = D('LeagueInfo');
 			$regesterresult = $LeagueInfo -> addLeague($email, $password, $leaguename);
-			if($regesterresult == "success"){
-				$LeagueSession = D('LeagueSession');
-			   $LeagueSession -> addSession($email, $password);
-			   $this->redirect('Activity/Index/index','', 1, '注册成功!');
-				//$this -> success("注册成功!");
-			}elseif($regesterresult == "badpatten"){
+			if($regesterresult == "badpatten"){
 				$this -> error("邮箱格式不正确!");
 			}elseif($regesterresult == "ear"){
 				$this -> error("邮箱已注册过");
 			}else{
-				$this -> error("未知错误，请重试");
+				$LeagueSession = D('LeagueSession');
+			   $LeagueSession -> addSession($email, $password);
+			   $this->redirect('/League/Admin/changeinfo/leagueid/'.$regesterresult,'', 1, '注册成功!');
 			}
 		}
 		$this -> display();

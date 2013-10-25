@@ -73,11 +73,16 @@ class AdminAction extends Action{
 	}
 
 	public function createAlbum(){
-		$albumname = $this -> _param('albumname');
-		$albumintro = $this -> _param('albumintro');
-		$leagueid = $this -> _param('leagueid');
-		$LeagueAlbum = D('LeagueAlbum');
-		$LeagueAlbum -> createAlbum($albumname, $albumintro, $leagueid);
+		if($this -> isPost()){
+			$albumname = $this -> _param('albumname');
+			$albumintro = $this -> _param('albumintro');
+			$leagueid = $this -> _param('leagueid');
+			$LeagueAlbum = D('LeagueAlbum');
+			$LeagueAlbum -> createAlbum($albumname, $albumintro, $leagueid);
+			echo "success";
+		}else{
+			echo "非法请求 请返回重试!";
+		}
 	}
 
 	//裁剪并保存用户头像
@@ -165,7 +170,7 @@ class AdminAction extends Action{
 		if($this -> isPost()){
 			$LeagueAlbum = D('LeagueAlbum');
 			$LeagueAlbum -> setAlbumCover($this -> _param('albumid'), $this -> _param('picadd'));
-			echo "success";
+			echo "设置成功";
 		}else{
 			$this -> error('非法请求');
 		}
@@ -322,4 +327,38 @@ class AdminAction extends Action{
 		$this -> activityid = $activityid;
 		$this -> getLoginUserInfo();
 	}
+	public function uploadActivityPost(){
+     import('ORG.Net.UploadFile');
+      //导入上传类
+     $upload = new UploadFile();
+      //设置上传文件大小
+     $upload->maxSize = 3292200;
+      //设置上传文件类型
+     $upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
+      //设置附件上传目录
+     $upload->savePath = 'Uploads/ActivityPost/';
+      //设置需要生成缩略图，仅对图像文件有效
+     $upload->thumb = true;
+      // 设置引用图片类库包路径
+     $upload->imageClassPath = 'ORG.Util.Image';
+      //设置需要生成缩略图的文件后缀
+     $upload->thumbPrefix = 'm_,s_';  //生产2张缩略图
+      //设置缩略图最大宽度
+     $upload->thumbMaxWidth = '400,100';
+      //设置缩略图最大高度
+     $upload->thumbMaxHeight = '400,100';
+      //设置上传文件规则
+     $upload->saveRule = 'uniqid';
+      //删除原图
+     $upload->thumbRemoveOrigin = true;
+      if (!$upload->upload()) {
+         //捕获上传异常
+         $this->error($upload->getErrorMsg());
+      }else {
+         //取得成功上传的文件信息
+         $uploadList = $upload->getUploadFileInfo();
+         $this -> previewPost($uploadList[0]['savename'], $this -> _param('activityid'));
+         $this -> display('previewPost');
+      }
+   }
 }
