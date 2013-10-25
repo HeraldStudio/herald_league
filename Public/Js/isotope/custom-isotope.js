@@ -39,6 +39,7 @@ function jsonajax(classid){
 			} 
 			else{  
 					alert("没有更多了..."); 
+					//$("#no-activity").css("display","block");
 					$(".getmore").html("没有更多了...");
 				}
          }
