@@ -7,11 +7,7 @@ return array(
 	'DB_NAME' => 'herald_league',
 
 	'DB_USER' => 'root',
-<<<<<<< HEAD
-	'DB_PWD' => '123456',
-=======
 	'DB_PWD' => '12345678',
->>>>>>> 7180be0083020e0d7cdf74ce71109c5b44e2ea86
 	'DB_PORT' => 3306,
 	'DB_PREFIX' => 'lg_',
 	//分组设置

@@ -7,8 +7,12 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
+<<<<<<< HEAD
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
 		
+=======
+		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />		
+>>>>>>> 7180be0083020e0d7cdf74ce71109c5b44e2ea86
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
@@ -91,7 +95,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="javascript:alert('开发中...');">个人空间</a></li>
 									<li class="divider"></li>
-									<li><a href="javascript:void(0)" id="logout_user">登出</a></li>
+									<li><a href="javascript:void(0)" class="logout">登出</a></li>
 									<input type="hidden" id="loginuserid" value="<?php echo ($loginuserid); ?>"/>
 								</ul>
 							</li>

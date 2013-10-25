@@ -101,7 +101,3 @@
   #filter-buttons li a {
 		color: #444;
   }
-  #filter-buttons li a:hover,
-  #filter-buttons li a.selected {
-		border-bottom: 2px solid #444;
- }
