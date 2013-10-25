@@ -11,14 +11,16 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/navbar.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/lessframework.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
+		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
-		<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
+		<script type="text/javascript" src="__Public__/Js/isotope/jquery.isotope.min.js"></script>
+		<script type="text/javascript" src="__Public__/Js/isotope/Js_all.js"></script>
+		<!-- <script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
 		<script type="text/javascript" src="__Public__/Js/back-to-top/backtotop.js"></script>
 		<script type="text/javascript" src="__Public__/Js/iealert.js"></script>
-		<script type="text/javascript" src="__Public__/Js/isotope/jquery.isotope.min.js"></script>
-		<script type="text/javascript" src="__Public__/Js/logout.js"></script>
+		<script type="text/javascript" src="__Public__/Js/logout.js"></script> -->
 		<!--[if lte IE 6]>
 		<!-- bsie css 补丁文件 -->
 		<!--<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap3/bootstrap-ie6.css">-->
@@ -363,6 +365,24 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div id="myModal_member" class="modal hide fade ">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>成员信息</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row-fluid">   
+    <div class="span12">
+      <div class="text">
+        <?php echo (htmlspecialchars_decode($memberinfo)); ?> 
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>
+  </div>
 </div>
 
 <script>
