@@ -5,14 +5,16 @@ $(document).ready(function(){
 		}else if($("#inputAlbumInfo").val() == ""){
 			alert("相册介绍不能为空");
 		}else{
+			var leagueid = $("#leagueid").val();
 			$.ajax({
-				url:'herald_league/index.php/League/Admin/createAlbum',
+				url:'/herald_league/index.php/League/Admin/createAlbum',
 				type:'post',
 				dataType:'text',
-				data:'albumname='+$("#inputAlbumName").val()+'&albumintro='+$("#inputAlbumInfo").val(),
+				data:'albumname='+$("#inputAlbumName").val()+'&albumintro='+$("#inputAlbumInfo").val()+'&leagueid='+leagueid,
 				success:function(data){
-					alert(data);
-					history.go(0);
+					if(data=="success"){
+						history.go(0);
+					}
 				}
 			});
 		}

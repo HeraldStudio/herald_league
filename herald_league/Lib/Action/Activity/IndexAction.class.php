@@ -2,7 +2,7 @@
 /**
  *@copyright HeraldStudio SEU
  *@author GuoGengrui <tairyguo@gmail.com>
- *@version 1.0.0
+*@version 1.0.0
  *
  * */
 class IndexAction extends Action {
@@ -23,8 +23,12 @@ class IndexAction extends Action {
 
 	public function activity(){
 		$this -> activityid = intval($this -> _param('activityid'));
-		if($this -> activityid < 0 || !isset($this -> activityid)){
-			echo "<script>history.go(-1)</script>";
+		if($this -> activityid
+< 0 || !isset($this ->
+	activityid)){
+			echo "
+	<script>history.go(-1)</script>
+	";
 			return;
 		}
 		$ActivityInfo = D('ActivityInfo');
@@ -96,7 +100,6 @@ class IndexAction extends Action {
 			$this -> error('非法请求');
 			return;
 		}
-
 	}
 	public function getActivityAttention(){
 		if($this -> isPost()){
@@ -159,9 +162,5 @@ class IndexAction extends Action {
 			$this -> error('非法请求');
 			return;
 		}
-	}
-
-	public function testlayout(){
-		$this -> display();
 	}
 }

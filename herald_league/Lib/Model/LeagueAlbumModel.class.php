@@ -22,6 +22,7 @@ class LeagueAlbumModel extends Model{
 		$data['name'] = $albumname;
 		$data['introduction'] = $albumintro;
 		$data['league_id'] = $leagueid;
+		$data['cover_address'] = 'dafaulecover.jpg';
 		$this -> add($data);
 	}
 }

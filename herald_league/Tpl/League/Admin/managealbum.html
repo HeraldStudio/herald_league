@@ -27,12 +27,12 @@
 		<a class="close" data-dismiss="modal">×</a>
 		<h3>新建相册</h3>
 	</div>
-	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;" action="{:U('League/Admin/createAlbum')}" method="post">
+	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;">
 		<div class="modal-body">
 			<div class="control-group">
 				<label class="control-label" for="inputName">相册名称</label>
 				<div class="controls">
-					<input type="hidden" name="leagueid" value="{$leagueid}"> 
+					<input type="hidden" id = "leagueid" name="leagueid" value="{$leagueid}"> 
 					<input type="text" name="albumname" id="inputAlbumName" placeholder="相册名称" >
 				</div>
 			</div>

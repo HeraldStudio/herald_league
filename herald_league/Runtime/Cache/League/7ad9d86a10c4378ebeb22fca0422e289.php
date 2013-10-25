@@ -4,21 +4,26 @@
 		<title>先声网-活动信息平台</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<meta charset='utf-8'>
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/back-to-top/backtotop.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/style.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/navbar.css" />
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/lessframework.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
+		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
+<!-- 		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/lessframework.css" />
+		<link rel="stylesheet" type="text/css" href="__Public__/Css/backtotop.css" />
+		<link rel="stylesheet" type="text/css" href="__Public__/Css/isotope/style.css" />
+		<link rel="stylesheet" type="text/css" href="__Public__/Css/navbar.css" /> -->
+		
+		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
-		<script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
+		<script type="text/javascript" src="__Public__/Js/isotope/jquery.isotope.min.js"></script>
+		<script type="text/javascript" src="__Public__/Js/Js_all.js"></script>
+		<!-- <script type="text/javascript" src="__Public__/Js/activitydetial.js"></script>
 		<script type="text/javascript" src="__Public__/Js/back-to-top/backtotop.js"></script>
 		<script type="text/javascript" src="__Public__/Js/iealert.js"></script>
-		<script type="text/javascript" src="__Public__/Js/isotope/jquery.isotope.min.js"></script>
-		<script type="text/javascript" src="__Public__/Js/logout.js"></script>
+		<script type="text/javascript" src="__Public__/Js/logout.js"></script> -->
+		
 		<!--[if lte IE 6]>
 		<!-- bsie css 补丁文件 -->
 		<!--<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap3/bootstrap-ie6.css">-->
@@ -70,7 +75,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" id="login"> 登录
 								<b class="caret"></b></a>
 								<ul class="dropdown-menu" style="min-width:0px;">
-									<li><a href="http://herald.seu.edu.cn/useraccount/">个人登录</a></li>
+									<li><a href="http://herald.seu.edu.cn/useraccount/login.html">个人登录</a></li>
 									<li><a data-toggle="modal" href="#loginModal">社团登录</a></li>
 								</ul>
 							</li>
