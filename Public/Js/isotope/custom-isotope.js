@@ -30,7 +30,7 @@ function jsonajax(classid){
                 for(var i=0; i<l; i++){
                      n = json[i]; 
 					if(n.post_add)
-						$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img  src="./Uploads/ActivityPost/m_'+n.post_add+'" data-toggle="modal" href="#myModal" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
+						$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img  src="/herald_league/Uploads/ActivityPost/m_'+n.post_add+'" data-toggle="modal" href="#myModal" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
 					else
 						$item = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
 					$('#filter-container').append($item).isotope('appended',$item);		
@@ -98,7 +98,7 @@ $('.activityclass a').click(function(){
 		                for(var i=0; i<l; i++){
 		                     n = json[i]; 
 										if(n.post_add)
-											$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img  src="./Uploads/ActivityPost/m_'+n.post_add+'" data-toggle="modal" href="#myModal" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
+											$item = $('<figure class="'+n.league_class +' isotope-item"><a href=\"javascript:void(0);\" class=\"thumb\"><img  src="/herald_league/Uploads/ActivityPost/m_'+n.post_add+'" data-toggle="modal" href="#myModal" /></a><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
 										else
 											$item = $('<figure class="'+n.league_class +' isotope-item"><figcaption><div class="heading"><a data-toggle="modal" href="#myModal" class="activityname" id="'+n.id+'">'+n.name+'</a></div><p>主办方：<a href="#">'+n.league_name+'</a></p><p>时间：'+n.start_time+'</p><p>地点：'+n.place+'</p></figcaption></figure>');
 										$('#filter-container').append($item).isotope('appended',$item);
