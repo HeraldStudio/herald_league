@@ -7,20 +7,29 @@
 <script type="text/javascript" src="__Public__/Js/swfupload/fileprogress.js"></script>
 <script type="text/javascript" src="__Public__/Js/swfupload/handlers.js"></script>
 <link rel="stylesheet" type="text/css" href="__Public__/Css/addalbum.css">
-
+<!--  jQuery lightBox plugin -->
+<script type="text/javascript" src="__Public__/Js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="__Public__/Css/jquery.lightbox-0.5.css" media="screen" />
+<script type="text/javascript">
+$(function() {
+	$('.row-fluid a').lightBox();
+});
+</script>
 <!--container-->
 	<div class="container" id="container">
+		<a href="/herald_league/index.php/League/Admin/managealbum/leagueid/{$leagueid}" class="btn"><<返回相册列表</a>
 		<h2 style="text-align:center;">{$albumname}</h2>
 		<div class="row-fluid">
 			<div class="span1" style="width:0;"></div>
 			<volist name="picture" id="vp">
 				<div class="span2 figure">				
-					<div class="photo"><img src="__Uploads__/LeagueAlbum/s_{$vp.address}"></div>
+					<a href="__Uploads__/LeagueAlbum/s_{$vp.address}"><div class="photo"><img src="__Uploads__/LeagueAlbum/s_{$vp.address}"></div></a>
 					<div class="figcaption">
 						<button class="btn setcover" id="{$vp.address}" data-albumid="{$albumid}">设为封面</button><br/>
+						<button class="btn disabled" id="{$vp.address}" data-albumid="{$albumid}">当前封面</button><br/>
 					</div>
 				</div>
-			</volist> 
+			</volist>		
 		</div>
 
 		<!--delete by zr div class="col-left"-->
@@ -39,7 +48,7 @@
 			  <div id="upload-start" style="display:none">
 				<button id="upload" class="btn">开始上传</button>
 				&nbsp; <a href="#">取消上传</a> </div>
-				   </div>
+			</div>
 		</div>
 	  <!--delete by zr /div-->
 	  <!-- container right
