@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
@@ -144,6 +143,7 @@
 <link href="__Public__/Css/managealbum.css" rel="stylesheet" media="screen"> 
 <!--load href="__Public__/Js/bootstrap/bootstrap.js"/-->
 <script type="text/javascript" src="__Public__/Js/createalbum.js"></script>
+<script type="text/javascript" src="__Public__/Js/deletealbum.js"></script>
 <div class="container" id="container">
 	
 	<h2 style="text-align:center;">相册列表</h2>
@@ -155,7 +155,7 @@
 			<div class="figcaption">
 				<h4>
 					<a href="/herald_league/index.php/League/Admin/addalbum/leagueid/<?php echo ($leagueid); ?>/albumid/<?php echo ($va["id"]); ?>"><?php echo ($va["name"]); ?></a>
-					<a href="#deleteAlbum" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
+					<a class="delete" href="#deleteAlbum" title="删除" id="<?php echo ($va["id"]); ?>" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
 				</h4>
 				相册介绍:<span><?php echo ($va["introduction"]); ?></span>
 			</div>
@@ -201,7 +201,7 @@
 	</div>
 	<div class="modal-footer">
 		<form style="margin:0;">
-			<button type="submit" id="createAlbum" class="btn btn-primary" data-dismiss="modal">确定</button>
+			<button type="submit" id="" class="btn btn-primary" data-dismiss="modal">确定</button>
 			<a href="javascript:void(0);" class="btn" data-dismiss="modal">取消</a>
 		</form>
 	</div>

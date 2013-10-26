@@ -5,14 +5,14 @@ $(document).ready(function(){
 	});
 
 	$("#deleteAlbum button").click(function(){
-		var albumid = $(this).attr("id");
+		var albumid = $("#deleteAlbum button").attr("id");
 		$.ajax({
-			url:'',
+			url:'/herald_league/index.php/League/Admin/deleteAlbum',
 			type:'post',
 			dataType:'text',
 			data:albumid,
 			success:function(data){
-				if(data=="success"){
+				if(data){
 					alert("删除成功");
 					window.location.reload();
 				}
