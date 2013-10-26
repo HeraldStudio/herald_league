@@ -13,7 +13,7 @@ $(document).ready(function(){
 				data:'albumname='+$("#inputAlbumName").val()+'&albumintro='+$("#inputAlbumInfo").val()+'&leagueid='+leagueid,
 				success:function(data){
 					if(data=="success"){
-						history.go(0);
+						window.location.reload();
 					}
 				}
 			});
