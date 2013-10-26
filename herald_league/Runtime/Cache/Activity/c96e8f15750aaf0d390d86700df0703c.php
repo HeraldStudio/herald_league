@@ -7,12 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
-<<<<<<< HEAD
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-		
-=======
-		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />		
->>>>>>> 7180be0083020e0d7cdf74ce71109c5b44e2ea86
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
