@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
@@ -142,8 +141,9 @@
 				</form>
 			</div>
 <link rel="stylesheet" type="text/css" href="__Public__/Css/leagueregester.css" />
+<script type="text/javascript" src="__Public__/Js/leagueRegister.js"></script>
 <div class="container center_re main" style="margin-top:150px;background-color:white">
-	<form action="<?php echo U('League/Index/leagueregester');?>" method="post">
+	<form> <!--action="<?php echo U('League/Index/leagueregester');?>" method="post"-->
 		<legend>社团注册</legend>
 		<label class="control-label">社团名称:</label>
 		<input type="text" name="leaguename" placeholder="社团名称" required>
@@ -154,7 +154,7 @@
 		<label class="control-label" for="inputPassword"  >密码:</label>
 		<input type="password" name="password" placeholder="密码" required >
 		<div class="controls">
-			<button type="submit" class="btn btn-success" style="margin-left:40px">提交</button>
+			<button type="submit" class="btn btn-success" style="margin-left:40px" id="regestersubmit">提交</button>
 			<button class="btn btn-danger" type="reset" style="margin-left:30px">重 置</button>
 		</div>
 	</form>
