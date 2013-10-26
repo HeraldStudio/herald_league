@@ -8,10 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-<<<<<<< HEAD
-		
-=======
->>>>>>> 7824fc371d528a0ebb1c17acc925984b8cfc7e73
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
@@ -128,7 +124,7 @@
 						<div class="control-group">
 							<label class="control-label" for="inputEmail">用户名</label>
 							<div class="controls">
-								<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+								<input type="text" id="inputEmail" placeholder="用户名/邮箱" name="leaguename">
 							</div>
 						</div>
 						<div class="control-group">
