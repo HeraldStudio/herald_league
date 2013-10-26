@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>

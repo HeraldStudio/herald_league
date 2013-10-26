@@ -1,19 +1,17 @@
 <load href="__Public__/Css/leagueregester.css" />
 <load href="__Public__/Js/leagueRegister.js"/>
 <div class="container center_re main" style="margin-top:150px;background-color:white">
-	<form> <!--action="{:U('League/Index/leagueregester')}" method="post"-->
-		<legend>社团注册</legend>
-		<label class="control-label">社团名称:</label>
-		<input type="text" name="leaguename" placeholder="社团名称" required>
+<legend>社团注册</legend>
+<label class="control-label">社团名称:</label>
+<input type="text" name="leaguename" id="leaguename" placeholder="社团名称">
 
-		<label class="control-label">邮箱:</label>
-		<input type="text" name="email" placeholder="邮箱" required>
-		
-		<label class="control-label" for="inputPassword"  >密码:</label>
-		<input type="password" name="password" placeholder="密码" required >
-		<div class="controls">
-			<button type="submit" class="btn btn-success" style="margin-left:40px" id="regestersubmit">提交</button>
-			<button class="btn btn-danger" type="reset" style="margin-left:30px">重 置</button>
-		</div>
-	</form>
+<label class="control-label">用户名/邮箱:</label>
+<input type="text" name="email" id="email" placeholder="用户名/邮箱">
+
+<label class="control-label" for="inputPassword"  >密码:</label>
+<input type="password" id="password" name="password" placeholder="密码" >
+<div class="controls">
+	<button class="btn btn-success" type="submit" style="margin-left:40px" id="league_regester">提交</button>
+	<button class="btn btn-danger" type="reset" style="margin-left:30px">重 置</button>
+</div>
 </div>

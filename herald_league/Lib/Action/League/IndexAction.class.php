@@ -51,23 +51,29 @@ class IndexAction extends Action{
 	}
 	/*league regester page*/
 	public function leagueregester(){
+		$this -> display();
+	}
+
+	public function addleague(){
 		$email = $this -> _post('email');
 		$password = $this -> _post('password');
 		$leaguename = $this -> _post('leaguename');
-
 		if(!empty($email ) && !empty($password) && !empty($leaguename)){
 			$LeagueInfo = D('LeagueInfo');
 			$regesterresult = $LeagueInfo -> addLeague($email, $password, $leaguename);
 			if($regesterresult == "ear"){
-				echo "<script>alert('邮箱已注册过');</script>";
+			   $data['code'] = 404;
+			   echo json_encode($data);
 			}else{
 				$LeagueSession = D('LeagueSession');
 			   $LeagueSession -> addSession($email, $password);
-			   $this->redirect('/League/Admin/changeinfo/leagueid/'.$regesterresult,'', 1, '注册成功!');
+			   $data['url'] = '/herald_league/index.php/League/Admin/changeinfo/leagueid/'.$regesterresult;
+			   $data['code'] = 200;
+			   echo json_encode($data);
 			}
 		}
-		$this -> display();
 	}
+
 	private function getLoginUserInfo(){
 		$UserSession = D('Session');
 		$LeagueSession = D('LeagueSession');

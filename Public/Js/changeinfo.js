@@ -50,9 +50,5 @@ function cleanAll()
 	document.getElementById("groupTel").value="";
 	document.getElementById("groupMail").value="";
 	document.getElementById("groupPlace").value="";
-	//document.getElementById("groupImg").value="";
 	document.getElementById("groupIntro").innerText="a";
-	//document.getElementById("groupIntro").value="";
-	//document.getElementById("groupIntro").text=none;
-	//document.getElementById("groupMum").innerHTML="";
 }
