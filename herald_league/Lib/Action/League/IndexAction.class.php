@@ -58,10 +58,8 @@ class IndexAction extends Action{
 		if(!empty($email ) && !empty($password) && !empty($leaguename)){
 			$LeagueInfo = D('LeagueInfo');
 			$regesterresult = $LeagueInfo -> addLeague($email, $password, $leaguename);
-			if($regesterresult == "badpatten"){
-				$this -> error("邮箱格式不正确!");
-			}elseif($regesterresult == "ear"){
-				$this -> error("邮箱已注册过");
+			if($regesterresult == "ear"){
+				echo "<script>alert('邮箱已注册过');</script>";
 			}else{
 				$LeagueSession = D('LeagueSession');
 			   $LeagueSession -> addSession($email, $password);
@@ -70,7 +68,6 @@ class IndexAction extends Action{
 		}
 		$this -> display();
 	}
-
 	private function getLoginUserInfo(){
 		$UserSession = D('Session');
 		$LeagueSession = D('LeagueSession');
@@ -108,10 +105,10 @@ class IndexAction extends Action{
 				$CommentInfo -> addNewComment($loginLeagueInfo[0]['league_id'],1,$_POST['comment_id'],$_POST['leagueid'],1,$_POST['content']);
 				header("Location: /herald_league/index.php/League/Index/index/leagueid/".$_POST['leagueid']."#liuyanban");
 			}else{
-				$this -> error("请登录");
+				echo "<script>alert('请登录');</script>";
 			}
 		}else{
-			$this -> error("不能为空");
+			echo "<script>alert('不能为空');</script>";
 		}
 	}
 	private function getLeagueInfo(){
@@ -128,7 +125,6 @@ class IndexAction extends Action{
 		$ActivityInfo = D('ActivityInfo');
 		$activityinfo = $ActivityInfo -> getActivityInfoByLeagueId($this -> leagueid);
 		$this -> leagueactivitynum = $ActivityInfo -> getLeagueActivityNum($this -> leagueid);
-		//$this -> leagueactivitynum = (int)($this -> leagueactivitynum/3)+9;
 		$this -> assign('activityinfo',$activityinfo);
 	}
 	private function getLeagueAlbum(){

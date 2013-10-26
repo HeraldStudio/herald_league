@@ -71,18 +71,13 @@ class LeagueInfoModel extends Model{
 
 	public function addLeague($email, $password, $leaguename){
 		$data['email'] = $email; 
-		$pregresult = preg_match( '/^[a-z]([a-z0-9]*[-_\.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i', $email);
 		$data['password'] = md5($password);
 		$data['league_name'] = $leaguename;
-		if($pregresult == 1){
-			$addresult = $this -> add($data);
-			if($addresult){
-				return $addresult;
-			}else{
-				return "ear";//email aready regester
-			}
+		$addresult = $this -> add($data);
+		if($addresult){
+			return $addresult;
 		}else{
-			return "badpatten";
+			return "ear";
 		}
 	}
 }

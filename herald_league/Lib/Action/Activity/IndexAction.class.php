@@ -23,17 +23,12 @@ class IndexAction extends Action {
 
 	public function activity(){
 		$this -> activityid = intval($this -> _param('activityid'));
-		if($this -> activityid
-< 0 || !isset($this ->
-	activityid)){
-			echo "
-	<script>history.go(-1)</script>
-	";
+		if($this -> activityid< 0 || !isset($this -> activityid)){
+			echo "<script>history.go(-1)</script>";
 			return;
 		}
 		$ActivityInfo = D('ActivityInfo');
 		$this -> activityinfo = $ActivityInfo -> getActivityInfoById($this -> activityid);
-		//$this -> assign('activityinfo',$activityinfo);
 		$this -> getLoginUserInfo();
 		$this -> display();
 	}

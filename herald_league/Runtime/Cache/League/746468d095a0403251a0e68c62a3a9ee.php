@@ -141,32 +141,72 @@
 					</div>
 				</form>
 			</div>
-<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-<div class="container">
-<div class="row" >
-	<div class="span2" id="celeft">
-		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
-			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-	<div class="span10" id="ceright">
-		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
-		</div>
-		<div id="topLoader2">
-		</div>
-		<div id="filter-container" class="cf isotope row-fluid"  >
-			<div class="span1" style="width:0"></div>
-			</div><!-- ENDS Filter container -->
-			<div id="more" style="font-family:微软雅黑">
-				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+<link href="__Public__/Css/managealbum.css" rel="stylesheet" media="screen"> 
+<!--load href="__Public__/Js/bootstrap/bootstrap.js"/-->
+<script type="text/javascript" src="__Public__/Js/createalbum.js"></script>
+<div class="container" id="container">
+	
+	<h2 style="text-align:center;">相册列表</h2>
+	<a href="#newAlbum" role="button" class="btn" data-toggle="modal">新建相册</a>
+	<div class="row-fluid">
+		<div class="span1" style="width:0;"></div>
+		<?php if(is_array($leaguealbum)): $i = 0; $__LIST__ = $leaguealbum;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><div class="span3 figure" style="text-align:center;">
+			<a href="/herald_league/index.php/League/Admin/addalbum/leagueid/<?php echo ($leagueid); ?>/albumid/<?php echo ($va["id"]); ?>"><img src="__Uploads__/LeagueAlbum/m_<?php echo ($va["cover_address"]); ?>"></a>
+			<div class="figcaption">
+				<h4>
+					<a href="/herald_league/index.php/League/Admin/addalbum/leagueid/<?php echo ($leagueid); ?>/albumid/<?php echo ($va["id"]); ?>"><?php echo ($va["name"]); ?></a>
+					<a href="#deleteAlbum" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
+				</h4>
+				相册介绍:<span><?php echo ($va["introduction"]); ?></span>
 			</div>
+		</div><?php endforeach; endif; else: echo "" ;endif; ?>
+	</div>
+
+</div>
+<div class="modal hide fade " id="newAlbum" style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>新建相册</h3>
+	</div>
+	<form class="form-horizontal" style="margin-top:30px;margin-bottom:0;">
+		<div class="modal-body">
+			<div class="control-group">
+				<label class="control-label" for="inputName">相册名称</label>
+				<div class="controls">
+					<input type="hidden" id = "leagueid" name="leagueid" value="<?php echo ($leagueid); ?>"> 
+					<input type="text" name="albumname" id="inputAlbumName" placeholder="相册名称" >
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputInfo">相册介绍</label>
+				<div class="controls">
+					<textarea type="text" name="albumintro" id="inputAlbumInfo" placeholder="相册介绍"></textarea>
+				</div>
+			</div>	
 		</div>
+		<div class="modal-footer">
+			<button type="submit" id="createAlbum" class="btn btn-primary" data-dismiss="modal">创建</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal">取消</a>
+		</div>
+	</form>
+</div>
+<div class="modal hide fade " id="deleteAlbum" style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>删除相册</h3>
+	</div>
+	
+	<div class="modal-body">
+		<p>提示：删除当前相册将会把相册中的所有照片一起删除，确定继续吗？</p>
+	</div>
+	<div class="modal-footer">
+		<form style="margin:0;">
+			<button type="submit" id="createAlbum" class="btn btn-primary" data-dismiss="modal">确定</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal">取消</a>
+		</form>
 	</div>
 </div>
-<script type="text/javascript" src="__Public__/Js/isotope/custom-isotope.js"></script>
+
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

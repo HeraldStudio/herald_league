@@ -141,32 +141,115 @@
 					</div>
 				</form>
 			</div>
-<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-<div class="container">
-<div class="row" >
-	<div class="span2" id="celeft">
-		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
-			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-	<div class="span10" id="ceright">
-		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
+<link rel="stylesheet" type="text/css" href="__Public__/Css/uploadspic.css?0517">
+<script src="http://lib.sinaapp.com/js/jquery/1.8/jquery.min.js"></script>
+<script>var P="<?php echo K_LINK;?>";</script>
+<script type="text/javascript" src="__Public__/Js/makecover.js"></script>
+<script type="text/javascript" src="__Public__/Js/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="__Public__/Js/swfupload/plugins/swfupload.queue.js"></script>
+<script type="text/javascript" src="__Public__/Js/swfupload/fileprogress.js"></script>
+<script type="text/javascript" src="__Public__/Js/swfupload/handlers.js"></script>
+<link rel="stylesheet" type="text/css" href="__Public__/Css/addalbum.css">
+<!--  jQuery lightBox plugin -->
+<script type="text/javascript" src="__Public__/Js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="__Public__/Css/jquery.lightbox-0.5.css" media="screen" />
+<script type="text/javascript">
+$(function() {
+	$('.row-fluid a').lightBox();
+});
+</script>
+<!--container-->
+	<div class="container" id="container">
+		<a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($leagueid); ?>" class="btn"><<返回相册列表</a>
+		<h2 style="text-align:center;"><?php echo ($albumname); ?></h2>
+		<div class="row-fluid">
+			<div class="span1" style="width:0;"></div>
+			<?php if(is_array($picture)): $i = 0; $__LIST__ = $picture;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vp): $mod = ($i % 2 );++$i;?><div class="span2 figure">				
+					<a href="__Uploads__/LeagueAlbum/s_<?php echo ($vp["address"]); ?>"><div class="photo"><img src="__Uploads__/LeagueAlbum/s_<?php echo ($vp["address"]); ?>"></div></a>
+					<div class="figcaption">
+						<button class="btn setcover" id="<?php echo ($vp["address"]); ?>" data-albumid="<?php echo ($albumid); ?>">设为封面</button><br/>
+						<button class="btn disabled" id="<?php echo ($vp["address"]); ?>" data-albumid="<?php echo ($albumid); ?>">当前封面</button><br/>
+					</div>
+				</div><?php endforeach; endif; else: echo "" ;endif; ?>		
 		</div>
-		<div id="topLoader2">
-		</div>
-		<div id="filter-container" class="cf isotope row-fluid"  >
-			<div class="span1" style="width:0"></div>
-			</div><!-- ENDS Filter container -->
-			<div id="more" style="font-family:微软雅黑">
-				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+
+		<!--delete by zr div class="col-left"-->
+		<div class="bd-create-case" style="font-size:16px;">
+		  <h2 style="text-align:center;">上传图片</h2>
+		  <div class="bd-work-wrap">
+			<form id="form1" action="<?php echo U('League/Admin/uploadsAlbum');?>" method="post" enctype="multipart/form-data">
+				<div class="case-que-hd" style="font-size:18px;"> <span class="filename">图片文件名</span> <span class="filesize">大小</span> <span class="filedel">删除</span> </div>
+				<!-- 上传队列-->
+				<input type="hidden" id="albumid" value="<?php echo ($albumid); ?>"/>
+				<div class="fieldset flash" id="fsUploadProgress"></div>
+				<div class="case-que-foot" id="que-foot"> <span class="filename">共<i id="totalnum"></i>张图片 <a href="javascript:;" id="continue-add">继续添加案例图片</a></span> <span class="filedel">文件大小：<i id="totalsize"></i></span> </div>
+				<div id="upload-btn"><span id="spanButtonPlaceHolder"></span></div>
+			  </form>
+			  <p id="upload-tips">提示：每次最多可以批量上传二十张照片，按着 “ctrl” 键可以一次选择多张照片</p>
+			  <div id="upload-start" style="display:none">
+				<button id="upload" class="btn">开始上传</button>
+				&nbsp; <a href="#">取消上传</a> </div>
 			</div>
 		</div>
+	  <!--delete by zr /div-->
+	  <!-- container right
+	  <div class="col-right"></div>delete by zr-->
 	</div>
-</div>
-<script type="text/javascript" src="__Public__/Js/isotope/custom-isotope.js"></script>
+
+<script type="text/javascript">
+	var swfu, WID = "13";
+	window.onload = function() {
+		var conf = {
+			flash_url : P + "./__Public__/Js/swfupload/swfupload.swf",
+			upload_url : P + "herald_league/index.php/League/Admin/addAlbumPicture.html?albumid=<?php echo ($albumid); ?>",
+			file_size_limit : "2 MB",
+			file_upload_limit:'20',
+			file_types : "*.jpg;*.gif;*.png;*.jpeg",
+			file_types_description : "Web Image Files",
+			file_upload_limit : 100,
+			file_queue_limit : 0,
+			custom_settings : {
+				progressTarget : "fsUploadProgress",
+				cancelButtonId : "btnCancel"
+			},
+			debug : false,
+
+			// Button settings
+			button_image_url : P + ".__Public__/Js/swfupload/images/upload-btns.png",
+			button_width : "97",
+			button_height : "29",
+			button_placeholder_id : "spanButtonPlaceHolder",
+			button_action : SWFUpload.BUTTON_ACTION.SELECT_FILES,
+
+			// The event handler functions are defined in handlers.js
+			file_queued_handler : fileQueued,
+			file_queue_error_handler : fileQueueError,
+			file_dialog_complete_handler : fileDialogComplete,
+			upload_start_handler : uploadStart,
+			upload_progress_handler : uploadProgress,
+			upload_error_handler : uploadError,
+			upload_success_handler : uploadSuccess,
+			upload_complete_handler : uploadComplete,
+			queue_complete_handler : queueComplete	// Queue plugin event
+		};
+
+		swfu = new SWFUpload(conf);
+	};
+	
+	//上传
+	$('#upload').click(function(){
+		swfu.startUpload();
+	})
+	
+	//继续添加
+	$('#continue-add').click(function(){
+		$('#que-foot').hide();
+		$('#upload-btn').css({'opacity':1,'height':30});
+		$('#upload-btn object').css({'height':29});
+		
+	})
+</script><!--foot-->
+
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

@@ -141,32 +141,129 @@
 					</div>
 				</form>
 			</div>
-<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-<div class="container">
-<div class="row" >
-	<div class="span2" id="celeft">
-		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
-			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-	<div class="span10" id="ceright">
-		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
-		</div>
-		<div id="topLoader2">
-		</div>
-		<div id="filter-container" class="cf isotope row-fluid"  >
-			<div class="span1" style="width:0"></div>
-			</div><!-- ENDS Filter container -->
-			<div id="more" style="font-family:微软雅黑">
-				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+﻿<link href="__Public__/Css/bootstrap/datetimepicker.css" rel="stylesheet" media="screen">
+<link href="__Public__/Css/bootstrap/addactivity.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript">
+	window.UEDITOR_HOME_URL = "__Public__/Ueditor/";
+</script>
+<script type="text/javascript" src="__Public__/Ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__Public__/Ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="__Public__/Js/bootstrap/addactivity.js" charset="UTF-8"></script>
+<body>
+	<div class="row-fluid" style="padding-top:50px;">
+		<div class="span1"></div>
+		<div class="span8">
+			<h3 id="mainTitle">社团活动信息发布</h3>
+			<form class="form-horizontal" method="post" action="<?php echo U('/League/Admin/addActivityData');?>">
+				<input name="leagueid" value="<?php echo ($leagueid); ?>" type="hidden"/>
+				<fieldset>
+					<div class="control-group formSep formborder spform">
+						<label for="actName" class="control-label">活动名称：</label>
+						<div class="controls">
+							<input type="text" id="actName" class="input-xlarge" name="activityname" value="" required>
+						</div>
+					</div>
+					<div class="control-group formSep formborder" >
+						<label for="actBegin" class="control-label">开始时间：</label>
+						<div class="controls">
+							<input size="16" type="text" value="<?php echo ($time); ?>" readonly class="form_datetime" name="starttime" required>
+						</div>
+					</div>
+					<div class="control-group formSep formborder">
+						<label for="actEnd" class="control-label">结束时间：</label>
+						<div class="controls">
+							<input size="16" type="text" value="<?php echo ($time); ?>" readonly class="form_datetime" name="endtime" required>
+						</div>
+					</div>
+					
+					<div class="control-group formSep formborder">
+						<label for="actName" class="control-label">活动类型：</label>
+						<div class="controls">
+							<select id="activityclass" name="activityclass">
+								<?php if(is_array($activityclasslist)): $i = 0; $__LIST__ = $activityclasslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vacl): $mod = ($i % 2 );++$i;?><option><?php echo ($vacl["class"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+							</select>
+						</div>
+					</div>
+					
+					<div class="control-group formSep formborder">
+						<label for="actPlace" class="control-label">活动地点：</label>
+						<div class="controls">
+							<input type="text" id="actPlace" class="input-xlarge" name="activityplace" value="" required>
+						</div>
+					</div>
+					
+					<div class="control-group formSep formborder">
+						<label for="actPlace" class="control-label">联系方式：</label>
+						<div class="controls">
+							<input type="text" id="actTel" class="input-xlarge" name="connectinfo" value="" required>
+						</div>
+					</div>
+					<div class="control-group formSep formborder">
+						<label for="actInfo" class="control-label">详细信息：</label>
+						<div class="controls">
+							<script type="text/plain" id="activityinfo" name="activityinfo"></script>
+							<script type="text/javascript">
+							$(function(){
+								var activityinfo;
+								var options = {
+									initialFrameWidth:700,        //初化宽度
+									initialFrameHeight:300,        //初化高度
+									focus:false,                        //初始化时，是否让编辑器获得焦点true或false
+									maximumWords:1000,        //允许的最大字符数
+								};
+								activityinfo = new UE.ui.Editor(options);
+								activityinfo = new UE.ui.Editor(options);
+								activityinfo.render("activityinfo");
+								// activityinfo.ready(function(){
+									// 	activityinfo.setContent('<?php echo (htmlspecialchars_decode($leagueintro)); ?>');     //加载数据库Action.class.PHP传过来的值
+								// });
+							});
+							</script>
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>
+						</div>
+					</div>
+					
+				</fieldset>
+			</form>
+			
+			<button class="btn btn-info" id="cancel">取消</button>
+			<!-- <div id="actPic">
+						<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">添加活动宣传图片</a>
+			</div> -->
+			
+			<!-- Modal -->
+			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">添加活动宣传图片</h3>
+				</div>
+				<form method='post' action="<?php echo U('League/Admin/uploadActivityPost');?>" enctype="multipart/form-data">
+					<div class="modal-body">
+						<input type="file" id="fileinput" name="activity_post"><br/>
+						<img src="" style="width:200px; height:200px;">
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+						<input type="submit" value="上传" class="btn btn-primary">
+						
+					</div>
+				</form>
 			</div>
+			<!-- Modal -->
+			
 		</div>
+		<div class="span3"></div>
 	</div>
-</div>
-<script type="text/javascript" src="__Public__/Js/isotope/custom-isotope.js"></script>
+	<script type="text/javascript">
+		$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+	</script>
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

@@ -141,32 +141,118 @@
 					</div>
 				</form>
 			</div>
-<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-<div class="container">
-<div class="row" >
-	<div class="span2" id="celeft">
-		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
-			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-	<div class="span10" id="ceright">
-		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
-		</div>
-		<div id="topLoader2">
-		</div>
-		<div id="filter-container" class="cf isotope row-fluid"  >
-			<div class="span1" style="width:0"></div>
-			</div><!-- ENDS Filter container -->
-			<div id="more" style="font-family:微软雅黑">
-				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+<script type="text/javascript">
+window.UEDITOR_HOME_URL = "__Public__/Ueditor/";    //UEDITOR_HOME_URL、config、all这三个顺序不能改变(绝对路径)
+</script>
+<script type="text/javascript" src="__Public__/Ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__Public__/Ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="__Public__/Js/changeinfo.js"></script>
+
+<div class="container-fluid" style="margin-top:90px;">
+<div class="row-fluid">
+	<div class="span1"></div>		
+	<div class="span10">
+		<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3; padding-bottom:5px;">修改社团信息</h3>
+			<div class="row-fluid">		   
+				<div class="span12">
+					<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" action="" method="post">
+						<fieldset>
+							<div class="control-group formSep infor" style="margin-top:10px;">
+								<label for="groupName" class="control-label title">社团名称：</label>
+								<div class="controls">
+									<input type="text" id="groupName" class="input-xlarge title" name="leaguename" value="<?php echo ($leaguename); ?>"/>										
+								</div>
+							</div>
+							
+							<div class="control-group formSep infor" >
+								<label for="groupName" class="control-label title">社团类别：</label>
+								<div class="controls">
+									<select class="span1"  id="unclass" style="width:150px;" name="leagueclass">
+									<?php if(is_array($leagueclasslist)): $i = 0; $__LIST__ = $leagueclasslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vcl): $mod = ($i % 2 );++$i;?><option><?php echo ($vcl["class_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+									</select>
+								</div>
+							</div>
+							
+							<div class="control-group formSep infor" >
+								<label for="fileinput" class="control-label title">社团头像：</label>
+								<div class="controls">
+									<div data-fileupload="image" class="fileupload fileupload-new">
+										<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
+											<img src="__Uploads__/LeagueAvatar/<?php echo ($avatr); ?>" alt="">
+										</div>
+									</div>			
+									<a class="btn" style="margin-top:15px" href = "/herald_league/index.php/League/Admin/updateavatar/leagueid/<?php echo ($leagueid); ?>">修改社团头像</a>
+								</div>
+							</div>
+							
+							<div class="control-group formSep infor" >
+								<label for="groupIntro" class="control-label title">社团介绍：</label>
+								<div class="controls">
+									<script type="text/plain" id="introduce" name="introduce"></script>
+								</div>
+							</div>
+							
+							<div class="control-group formSep infor" >
+								<label for="groupMum" class="control-label title">社团成员：</label>
+								<div class="controls">
+									<script type="text/plain" id="member" name="member"></script>
+									<script type="text/javascript">
+									$(function(){
+									    var introduce, member;
+									    var options = {
+									        initialFrameWidth:700,        //初化宽度
+									        initialFrameHeight:300,        //初化高度
+									        focus:false,                        //初始化时，是否让编辑器获得焦点true或false
+									        maximumWords:1000,        //允许的最大字符数
+									    };
+									    introduce = new UE.ui.Editor(options);
+									    member = new UE.ui.Editor(options);
+									    introduce.render("introduce");
+									    introduce.ready(function(){
+									        introduce.setContent('<?php echo (htmlspecialchars_decode($leagueintro)); ?>');     //加载数据库Action.class.PHP传过来的值
+									    });
+									    member.render("member");
+									    member.ready(function(){
+									        member.setContent('<?php echo (htmlspecialchars_decode($member)); ?>');     //加载数据库Action.class.PHP传过来的值
+									    });
+									 });    
+									 </script>
+								</div>
+							</div>
+							<div class="control-group formSep infor" >
+								<label class="control-label title">联系方式：</label>
+								<div class="controls">
+									电话：<input name="phone" type="text" id="groupTel" style="width:100px;" value="<?php echo ($phone); ?>">	
+									<input name="leagueid" type="hidden" value="<?php echo ($leagueid); ?>">
+								</div>
+								<div class="controls" style="margin-top:10px;">					
+									邮箱：<input name="email" type="text" id="groupMail" style="width:150px;" value="<?php echo ($email); ?>">											
+								</div>
+								
+								<div class="controls" style="margin-top:10px;">
+									地点：<input name="place" type="text" id="groupPlace" style="width:310px;" value="<?php echo ($place); ?>">
+								</div>
+							</div>
+							
+							<div class="control-group">
+								<div class="controls">
+									<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>
+									<button class="btn btn btn-danger" type="button" onclick="cleanAll()" style="flaot:left;" >重置</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+					
+				</div>
+				<div class="span1"></div>
 			</div>
-		</div>
+		
 	</div>
+
+	<div class="span3"></div>
 </div>
-<script type="text/javascript" src="__Public__/Js/isotope/custom-isotope.js"></script>
+</div>
+
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
