@@ -108,3 +108,6 @@
 	background:#fff;
 	display: none;
 }
+#crop-preview-100, #crop-preview-60{
+	max-width:none;	
+}

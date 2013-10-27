@@ -166,6 +166,27 @@ class AdminAction extends Action{
 		}
 	}
 
+	public function deletealbum(){
+		if($this -> isPost()){
+			$this -> error("非法请求");
+			return;
+		}
+		$this -> getLoginUserInfo();
+		$LeagueSession = D('LeagueSession');
+		if($LeagueSession -> hasLeagueLogin()){
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			if($loginuserinfo[0] == $this -> leagueid){
+				$LeagueAlbum = D('LeagueAlbum');
+				$LeagueAlbum -> deleteAlbum($this -> _param('albumid'));
+				$this -> ajaxReturn(0,"删除成功");
+			}else{
+				$this -> error("权限不足");
+			}
+		}else{
+				$this -> error("权限不足");
+		}
+	}
+
 	public function setCover(){
 		if($this -> isPost()){
 			$LeagueAlbum = D('LeagueAlbum');
@@ -283,6 +304,7 @@ class AdminAction extends Action{
 		$adddata['place'] = $this -> _param('place');
 		$adddata['class'] = $LeagueClass -> getClassId($this -> _param('leagueclass'));
 		$LeagueInfo -> updateLeagueInfo($adddata,$this -> _param('leagueid'));
+		$this->redirect('League/Index/index/', array('leagueid' => $this -> _param('leagueid')), 0.001, '...');
 	}
 	public function addActivityData(){
 		$ActivityInfo = D('ActivityInfo');

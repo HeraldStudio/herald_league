@@ -140,32 +140,23 @@
 					</div>
 				</form>
 			</div>
-<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-<div class="container">
-<div class="row" >
-	<div class="span2" id="celeft">
-		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" class="selected" id="0" >显示全部</a></li>
-			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-	<div class="span10" id="ceright">
-		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
-		</div>
-		<div id="topLoader2">
-		</div>
-		<div id="filter-container" class="cf isotope row-fluid" >
-			<div class="span1" style="width:0"></div>
-			</div><!-- ENDS Filter container -->
-			<div id="more" style="font-family:微软雅黑">
-				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
-			</div>
-		</div>
-	</div>
+<link rel="stylesheet" type="text/css" href="__Public__/Css/leagueregester.css" />
+<script type="text/javascript" src="__Public__/Js/leagueRegister.js"></script>
+<div class="container center_re main" style="margin-top:150px;background-color:white">
+<legend>社团注册</legend>
+<label class="control-label">社团名称:</label>
+<input type="text" name="leaguename" id="leaguename" placeholder="社团名称">
+
+<label class="control-label">用户名/邮箱:</label>
+<input type="text" name="email" id="email" placeholder="用户名/邮箱">
+
+<label class="control-label" for="inputPassword"  >密码:</label>
+<input type="password" id="password" name="password" placeholder="密码" >
+<div class="controls">
+	<button class="btn btn-success" type="submit" style="margin-left:40px" id="league_regester">提交</button>
+	<button class="btn btn-danger" type="reset" style="margin-left:30px">重 置</button>
 </div>
-<script type="text/javascript" src="__Public__/Js/isotope/custom-isotope.js"></script>
+</div>
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

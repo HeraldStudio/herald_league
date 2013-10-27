@@ -7,7 +7,6 @@ $(document).ready(function(){
 			data:'activityid='+$(this).prev('a').attr('id'),
 			success:function(data){
 				alert(data);
-				//document.write(data);
 			}
 		});
 	});

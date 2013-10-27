@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
+		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
@@ -124,7 +125,7 @@
 						<div class="control-group">
 							<label class="control-label" for="inputEmail">用户名</label>
 							<div class="controls">
-								<input type="text" id="inputEmail" placeholder="用户名/邮箱" name="leaguename">
+								<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
 							</div>
 						</div>
 						<div class="control-group">
@@ -140,32 +141,27 @@
 					</div>
 				</form>
 			</div>
-<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-<div class="container">
-<div class="row" >
-	<div class="span2" id="celeft">
-		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" class="selected" id="0" >显示全部</a></li>
-			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-	<div class="span10" id="ceright">
-		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
+<link href="__Public__/Css/addpostforactivity.css" rel="stylesheet" media="screen"> 
+<div class="container main modal-body" style="margin-top:150px;background-color:white">  
+    <form method='post' action="<?php echo U('League/Admin/uploadActivityPost');?>" enctype="multipart/form-data">
+	    <legend>活动添加海报</legend>
+		<input type = "hidden" name = "activityid" value="<?php echo ($activityid); ?>"/>
+		<!-- <input type="file" id="fileinput" name="activity_post" style=""> -->
+		<a class="file-input-wrapper ">
+		<input type="file" id="fileinput" name="activity_post" title="选择文件" ></a>
+		<span class="file-input"></span>
+		<div style="margin-top:40px">
+			<button type="submit" class="btn btn-success" style="margin-left:10px">上传</button>
+			<button class="btn  btn-primary" data-dismiss="modal" aria-hidden="true" style="margin-left:30px">跳过</button>		
 		</div>
-		<div id="topLoader2">
-		</div>
-		<div id="filter-container" class="cf isotope row-fluid" >
-			<div class="span1" style="width:0"></div>
-			</div><!-- ENDS Filter container -->
-			<div id="more" style="font-family:微软雅黑">
-				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
-			</div>
-		</div>
-	</div>
-</div>
-<script type="text/javascript" src="__Public__/Js/isotope/custom-isotope.js"></script>
+	</form>
+ </div>
+<script src="__Public__/Js/bootstrap/bootstrap.file-input.js"></script>
+<script>$(document).ready(function(){$('input[type=file]').bootstrapFileInput();});</script>
+
+
+
+
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
