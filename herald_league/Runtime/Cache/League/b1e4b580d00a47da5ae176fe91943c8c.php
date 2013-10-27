@@ -141,118 +141,52 @@
 					</div>
 				</form>
 			</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>跳转提示</title>
+<style type="text/css">
+*{ padding: 0; margin: 0; }
+body{ background-image: url("/herald_league/Public/Images/noise-all.png"); font-family: '微软雅黑'; color: #333; font-size: 16px; }
+.system-message{ padding: 24px 48px; }
+.system-message h1{ font-size: 100px; font-weight: normal; line-height: 120px; margin-bottom: 12px; }
+.system-message .jump{ padding-top: 10px}
+.system-message .jump a{ color: #333;}
+.system-message .success,.system-message .error{ line-height: 1.8em; font-size: 36px }
+.system-message .detail{ font-size: 12px; line-height: 20px; margin-top: 12px; display:none}
+</style>
+</head>
+<body>
+<div class="system-message">
+	<?php if(isset($message)): ?><div style="text-align:center;padding-top:50px;" >
+			<img src="__Public__/Images/success.png" />
+			<p class="success" style="color:#555">成功：<?php echo($message); ?></p>
+		</div>
+		<?php else: ?>
+		<div style="text-align:center;padding-top:50px;" >
+			<img src="__Public__/Images/error.png" />
+			<p class="error" style="color:#555">错误：<?php echo($error); ?></p>
+		</div><?php endif; ?>
+	<p class="detail"></p>
+	<p class="jump" style="text-align:center">
+	页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
+	</p>
+</div>
 <script type="text/javascript">
-window.UEDITOR_HOME_URL = "__Public__/Ueditor/";    //UEDITOR_HOME_URL、config、all这三个顺序不能改变(绝对路径)
+(function(){
+var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+var interval = setInterval(function(){
+	var time = --wait.innerHTML;
+	if(time <= 0) {
+		location.href = href;
+		clearInterval(interval);
+	};
+}, 1000);
+})();
 </script>
-<script type="text/javascript" src="__Public__/Ueditor/ueditor.config.js"></script>
-<script type="text/javascript" src="__Public__/Ueditor/ueditor.all.min.js"></script>
-<script type="text/javascript" src="__Public__/Js/changeinfo.js"></script>
-
-<div class="container-fluid" style="margin-top:90px;">
-<div class="row-fluid">
-	<div class="span1"></div>		
-	<div class="span10">
-		<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:#D3D3D3; padding-bottom:5px;">修改社团信息</h3>
-			<div class="row-fluid">		   
-				<div class="span12">
-					<form class="form-horizontal"  style="border-bottom-width:1px; border-bottom-style:dashed; border-bottom-color:#D3D3D3;" action="" method="post">
-						<fieldset>
-							<div class="control-group formSep infor" style="margin-top:10px;">
-								<label for="groupName" class="control-label title">社团名称：</label>
-								<div class="controls">
-									<input type="text" id="groupName" class="input-xlarge title" name="leaguename" value="<?php echo ($leaguename); ?>"/>										
-								</div>
-							</div>
-							
-							<div class="control-group formSep infor" >
-								<label for="groupName" class="control-label title">社团类别：</label>
-								<div class="controls">
-									<select class="span1"  id="unclass" style="width:150px;" name="leagueclass">
-									<?php if(is_array($leagueclasslist)): $i = 0; $__LIST__ = $leagueclasslist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vcl): $mod = ($i % 2 );++$i;?><option><?php echo ($vcl["class_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-									</select>
-								</div>
-							</div>
-							
-							<div class="control-group formSep infor" >
-								<label for="fileinput" class="control-label title">社团头像：</label>
-								<div class="controls">
-									<div data-fileupload="image" class="fileupload fileupload-new">
-										<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
-											<img src="__Uploads__/LeagueAvatar/<?php echo ($avatr); ?>" alt="">
-										</div>
-									</div>			
-									<a class="btn" style="margin-top:15px" href = "/herald_league/index.php/League/Admin/updateavatar/leagueid/<?php echo ($leagueid); ?>">修改社团头像</a>
-								</div>
-							</div>
-							
-							<div class="control-group formSep infor" >
-								<label for="groupIntro" class="control-label title">社团介绍：</label>
-								<div class="controls">
-									<script type="text/plain" id="introduce" name="introduce"></script>
-								</div>
-							</div>
-							
-							<div class="control-group formSep infor" >
-								<label for="groupMum" class="control-label title">社团成员：</label>
-								<div class="controls">
-									<script type="text/plain" id="member" name="member"></script>
-									<script type="text/javascript">
-									$(function(){
-									    var introduce, member;
-									    var options = {
-									        initialFrameWidth:700,        //初化宽度
-									        initialFrameHeight:300,        //初化高度
-									        focus:false,                        //初始化时，是否让编辑器获得焦点true或false
-									        maximumWords:1000,        //允许的最大字符数
-									    };
-									    introduce = new UE.ui.Editor(options);
-									    member = new UE.ui.Editor(options);
-									    introduce.render("introduce");
-									    introduce.ready(function(){
-									        introduce.setContent('<?php echo (htmlspecialchars_decode($leagueintro)); ?>');     //加载数据库Action.class.PHP传过来的值
-									    });
-									    member.render("member");
-									    member.ready(function(){
-									        member.setContent('<?php echo (htmlspecialchars_decode($member)); ?>');     //加载数据库Action.class.PHP传过来的值
-									    });
-									 });    
-									 </script>
-								</div>
-							</div>
-							<div class="control-group formSep infor" >
-								<label class="control-label title">联系方式：</label>
-								<div class="controls">
-									电话：<input name="phone" type="text" id="groupTel" style="width:100px;" value="<?php echo ($phone); ?>">	
-									<input name="leagueid" type="hidden" value="<?php echo ($leagueid); ?>">
-								</div>
-								<div class="controls" style="margin-top:10px;">					
-									邮箱：<input name="email" type="text" id="groupMail" style="width:150px;" value="<?php echo ($email); ?>">											
-								</div>
-								
-								<div class="controls" style="margin-top:10px;">
-									地点：<input name="place" type="text" id="groupPlace" style="width:310px;" value="<?php echo ($place); ?>">
-								</div>
-							</div>
-							
-							<div class="control-group">
-								<div class="controls">
-									<button class="btn btn-success" type="submit" onclick="mycheck()">提交信息</button>
-									<button class="btn btn btn-danger" type="button" onclick="cleanAll()" style="flaot:left;" >重置</button>
-								</div>
-							</div>
-						</fieldset>
-					</form>
-					
-				</div>
-				<div class="span1"></div>
-			</div>
-		
-	</div>
-
-	<div class="span3"></div>
-</div>
-</div>
-
+</body>
+</html>
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>
@@ -301,8 +235,8 @@ window.UEDITOR_HOME_URL = "__Public__/Ueditor/";    //UEDITOR_HOME_URL、config�
 <div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
 <div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height: 100px;margin-top:30px;">
-	<hr style="border-top: 1px solid #999;margin:0px 40px 0px 40px;">
-	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;color:#666;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
+	<hr style="border-top: 1px solid #A2A2A2;margin:0px 40px 0px 40px;">
+	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;color:#777;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>
 <script>
 $("body").iealert();
