@@ -17,6 +17,7 @@ class IndexAction extends Action{
 		$this -> getLeagueAttention();
 		$this -> getCommentInfo();
 		$this -> getLoginUserInfo();
+		$this -> getSameClassLeague();
 
 		$this -> display();
 	}
@@ -44,9 +45,10 @@ class IndexAction extends Action{
 	}
 	/*each page activity information in league zone*/
 	public function getEachPageActivity(){
-		$currentpage = $_POST['page'];
+		$currentpage = $this -> _param('page');
+		$leagueid = $this -> _param('leagueid');
 		$ActivityInfo = D("ActivityInfo");
-		$activityinfo = $ActivityInfo -> getThreePageInfo($currentpage);
+		$activityinfo = $ActivityInfo -> getThreePageInfo($currentpage, $leagueid);
 		echo json_encode($activityinfo);
 	}
 	/*league regester page*/
@@ -74,6 +76,11 @@ class IndexAction extends Action{
 		}
 	}
 
+	public function getSameClassLeague(){
+		$LeagueInfo = D('LeagueInfo');
+		$info = $LeagueInfo ->  getSameClassLeague($this -> leagueclass);
+		$this -> assign('sameclassleague',$info);
+	}
 	private function getLoginUserInfo(){
 		$UserSession = D('Session');
 		$LeagueSession = D('LeagueSession');
@@ -126,6 +133,7 @@ class IndexAction extends Action{
 		$this -> phone = $leagueinfo['phone'];
 		$this -> place = $leagueinfo['place'];
 		$this -> memberinfo = $leagueinfo['member'];
+		$this -> leagueclass = $leagueinfo['class'];
 	}
 	private function getLeagueActivityInfo(){
 		$ActivityInfo = D('ActivityInfo');

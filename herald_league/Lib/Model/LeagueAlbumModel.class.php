@@ -25,4 +25,7 @@ class LeagueAlbumModel extends Model{
 		$data['cover_address'] = 'dafaulecover.jpg';
 		$this -> add($data);
 	}
+	public function deleteAlbum($albumid){
+		$this -> where('id='.$albumid) -> delete();
+	}
 }
