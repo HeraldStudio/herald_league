@@ -143,7 +143,7 @@
 			</div>
 <link rel="stylesheet" type="text/css" href="__Public__/Css/leagueregester.css" />
 <script type="text/javascript" src="__Public__/Js/leagueRegister.js"></script>
-<div class="container center_re main" style="margin-top:150px;background-color:white">
+<div class="container center_re main" style="margin-top:100px;background-color:white;padding:30px 40px;">
 <legend>社团注册</legend>
 <label class="control-label">社团名称:</label>
 <input type="text" name="leaguename" id="leaguename" placeholder="社团名称">
