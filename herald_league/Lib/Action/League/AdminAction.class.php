@@ -57,7 +57,6 @@ class AdminAction extends Action{
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
 			if($loginuserinfo[0] == $this -> leagueid){
 				$this -> getLeagueActivity($this -> leagueid);
-				//$this -> error("sss");
 				$this -> display();
 			}else{
 				$this -> error("权限不足");
