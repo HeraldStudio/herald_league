@@ -19,12 +19,12 @@ body{ background-image: url("/herald_league/Public/Images/noise-all.png"); font-
 	<present name="message">
 		<div style="text-align:center;padding-top:50px;" >
 			<img src="__Public__/Images/success.png" />
-			<p class="success"><?php echo($message); ?></p>
+			<p class="success" style="color:#555">成功：<?php echo($message); ?></p>
 		</div>
 		<else/>
 		<div style="text-align:center;padding-top:50px;" >
 			<img src="__Public__/Images/error.png" />
-			<p class="error"><?php echo($error); ?></p>
+			<p class="error" style="color:#555">错误：<?php echo($error); ?></p>
 		</div>
 		
 	</present>

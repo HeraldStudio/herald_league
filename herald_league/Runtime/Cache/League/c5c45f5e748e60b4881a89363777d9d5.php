@@ -301,8 +301,8 @@ window.UEDITOR_HOME_URL = "__Public__/Ueditor/";    //UEDITOR_HOME_URL„ÄÅconfig„
 <div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
 <div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height: 100px;margin-top:30px;">
-	<hr style="border-top: 1px solid black;margin:0px 40px 0px 40px;">
-	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
+	<hr style="border-top: 1px solid #999;margin:0px 40px 0px 40px;">
+	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;color:#666;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>
 <script>
 $("body").iealert();
