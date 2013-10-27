@@ -85,8 +85,8 @@
 											</h4>
 											<div class="pagination pull-right">
 												<ul>
-													<input type="hidden" value="0" id="currentpage">
-													<input type="hidden" value="{$leagueactivitynum}" id="maxpage">
+													<input type="hidden" value="1" id="currentpage">
+													<input type="hidden" value="{$leagueactivitynum-4}" id="maxpage">
 													<li><a href="javascript:void(0);" id = "preactivity">&lt;&lt;</a></li>
 													<li><a href="javascript:void(0);" id = "nextactivity">&gt;&gt;</a></li>
 												</ul>
@@ -130,9 +130,9 @@
 										</h4>
 									</div>
 									<div class="row-fluid">
+										<input type="hidden" id="leagueidpage" value="{$leagueid}">
 										<volist name="albuminfo" id="val">
 										<div class="span4 photodiv">
-											<input type="hidden" id="leagueidpage" value="{$leagueid}">
 											<a href="/herald_league/index.php/League/Index/album/leagueid/{$leagueid}">
 											<img alt="140x140" src="__Uploads__/LeagueAlbum/{$val.cover_address}" class="img-rounded" />
 											</a>

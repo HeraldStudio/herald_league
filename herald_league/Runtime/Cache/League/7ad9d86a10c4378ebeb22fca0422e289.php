@@ -228,8 +228,8 @@
 											</h4>
 											<div class="pagination pull-right">
 												<ul>
-													<input type="hidden" value="0" id="currentpage">
-													<input type="hidden" value="<?php echo ($leagueactivitynum); ?>" id="maxpage">
+													<input type="hidden" value="1" id="currentpage">
+													<input type="hidden" value="<?php echo ($leagueactivitynum-4); ?>" id="maxpage">
 													<li><a href="javascript:void(0);" id = "preactivity">&lt;&lt;</a></li>
 													<li><a href="javascript:void(0);" id = "nextactivity">&gt;&gt;</a></li>
 												</ul>
@@ -269,8 +269,8 @@
 										</h4>
 									</div>
 									<div class="row-fluid">
+										<input type="hidden" id="leagueidpage" value="<?php echo ($leagueid); ?>">
 										<?php if(is_array($albuminfo)): $i = 0; $__LIST__ = $albuminfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><div class="span4 photodiv">
-											<input type="hidden" id="leagueidpage" value="<?php echo ($leagueid); ?>">
 											<a href="/herald_league/index.php/League/Index/album/leagueid/<?php echo ($leagueid); ?>">
 											<img alt="140x140" src="__Uploads__/LeagueAlbum/<?php echo ($val["cover_address"]); ?>" class="img-rounded" />
 											</a>

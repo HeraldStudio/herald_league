@@ -4,7 +4,7 @@
 	<div class="span2" id="celeft">
 		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
 			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
+			<li><a href="#" class="selected" id="0" >显示全部</a></li>
 			<volist name="activityclass" id="va">
 			<li class="activityclass" id="activity_class"><a href="#" id="{$va.id}">{$va.class}</a></li>
 			</volist>
@@ -12,11 +12,13 @@
 	</div>
 	<div class="span10" id="ceright">
 		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
+			<img src="__Public__/Images/error.png" />
+			<h3 style="color:#666;">当前分类下没有活动</h3>
+			<h3 style="color:#666;">先看看其它分类吧~</h3>
 		</div>
 		<div id="topLoader2">
 		</div>
-		<div id="filter-container" class="cf isotope row-fluid"  >
+		<div id="filter-container" class="cf isotope row-fluid" >
 			<div class="span1" style="width:0"></div>
 			</div><!-- ENDS Filter container -->
 			<div id="more" style="font-family:微软雅黑">

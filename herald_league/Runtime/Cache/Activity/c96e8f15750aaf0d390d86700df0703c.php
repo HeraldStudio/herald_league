@@ -147,17 +147,19 @@
 	<div class="span2" id="celeft">
 		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
 			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" data-filter="*" class="selected" id="0" >显示全部</a></li>
+			<li><a href="#" class="selected" id="0" >显示全部</a></li>
 			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 		</ul>
 	</div>
 	<div class="span10" id="ceright">
 		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
+			<img src="__Public__/Images/error.png" />
+			<h3 style="color:#666;">当前分类下没有活动</h3>
+			<h3 style="color:#666;">先看看其它分类吧~</h3>
 		</div>
 		<div id="topLoader2">
 		</div>
-		<div id="filter-container" class="cf isotope row-fluid"  >
+		<div id="filter-container" class="cf isotope row-fluid" >
 			<div class="span1" style="width:0"></div>
 			</div><!-- ENDS Filter container -->
 			<div id="more" style="font-family:微软雅黑">
@@ -215,8 +217,8 @@
 <div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
 <div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height: 100px;margin-top:30px;">
-	<hr style="border-top: 1px solid black;margin:0px 40px 0px 40px;">
-	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
+	<hr style="border-top: 1px solid #999;margin:0px 40px 0px 40px;">
+	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;color:#666;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>
 <script>
 $("body").iealert();
