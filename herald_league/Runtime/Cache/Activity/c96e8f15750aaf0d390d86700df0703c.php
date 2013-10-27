@@ -153,7 +153,9 @@
 	</div>
 	<div class="span10" id="ceright">
 		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
+			<img src="__Public__/Images/error.png" />
+			<h3 style="color:#666;">当前分类下没有活动</h3>
+			<h3 style="color:#666;">先看看其它分类吧~</h3>
 		</div>
 		<div id="topLoader2">
 		</div>
@@ -215,8 +217,8 @@
 <div class="myboder" onmouseover="mboder()" id="boderl" style="width:80px; height:262px; position:fixed; right:181px; bottom:0px; display:none;"></div>
 <div class="myboder" onmouseover="mboder()" id="boderr" style="width:7px; height:262px; position:fixed; right:0px; bottom:0px; display:none;"></div>
 <div style="height: 100px;margin-top:30px;">
-	<hr style="border-top: 1px solid black;margin:0px 40px 0px 40px;">
-	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
+	<hr style="border-top: 1px solid #999;margin:0px 40px 0px 40px;">
+	<h5 class="center" style="text-align:center;padding-top:36px;margin:0;color:#666;"> CopyRight &copy; 2001-2013 Herald.seu.edu.cn</h5>
 </div>
 <script>
 $("body").iealert();

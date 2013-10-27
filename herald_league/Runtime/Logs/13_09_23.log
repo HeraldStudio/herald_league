@@ -1,0 +1,10 @@
+[ 2013-09-23T19:41:29+08:00 ] 127.0.0.1 /herald_league/index.php/League/Index/index/leagueid/1
+NOTIC: 建议使用I方法替代_param
+ERR: Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2013-09-23T19:41:34+08:00 ] 127.0.0.1 /herald_league/
+ERR: Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2013-09-23T19:41:38+08:00 ] 127.0.0.1 /herald_league/
+ERR: Access denied for user 'root'@'localhost' (using password: YES)
+
