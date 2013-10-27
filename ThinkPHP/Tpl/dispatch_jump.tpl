@@ -16,17 +16,22 @@ body{ background-image: url("/herald_league/Public/Images/noise-all.png"); font-
 </head>
 <body>
 <div class="system-message">
-<present name="message">
-<h1>:)</h1>
-<p class="success"><?php echo($message); ?></p>
-<else/>
-<h1>:(sss</h1>
-<p class="error"><?php echo($error); ?></p>
-</present>
-<p class="detail"></p>
-<p class="jump">
-页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
-</p>
+	<present name="message">
+		<div style="text-align:center;padding-top:50px;" >
+			<img src="__Public__/Images/success.png" />
+			<p class="success"><?php echo($message); ?></p>
+		</div>
+		<else/>
+		<div style="text-align:center;padding-top:50px;" >
+			<img src="__Public__/Images/error.png" />
+			<p class="error"><?php echo($error); ?></p>
+		</div>
+		
+	</present>
+	<p class="detail"></p>
+	<p class="jump" style="text-align:center">
+	页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
+	</p>
 </div>
 <script type="text/javascript">
 (function(){
