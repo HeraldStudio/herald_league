@@ -80,8 +80,8 @@
 						<ul class="nav">
 							<li class="<?php if($currentpage == 1): ?>active<?php endif; ?>"><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
 							<li class="<?php if($currentpage == 2): ?>active<?php endif; ?>"><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-							<li><a href="#">二手市场</a></li>
-							<li><a href="#">失物招领</a></li>
+							<li><a href="javascript:alert('开发中...');">二手市场</a></li>
+							<li><a href="http://herald.seu.edu.cn/laf/item/list/all/0/1/">失物招领</a></li>
 						</ul>
 						<?php if($loginusertype == 2): ?><ul class="nav pull-right">
 							<li class="dropdown" >
@@ -104,6 +104,7 @@
 									<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
 									<li><a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($loginuserid); ?>">社团空间</a></li>
+									<li><a href="/herald_league/index.php/League/Admin/manageactivity/leagueid/<?php echo ($loginuserid); ?>">活动管理</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 									<li class="divider"></li>
 									<li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -124,7 +125,7 @@
 						<div class="control-group">
 							<label class="control-label" for="inputEmail">用户名</label>
 							<div class="controls">
-								<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+								<input type="text" id="inputEmail" placeholder="用户名/邮箱" name="leaguename">
 							</div>
 						</div>
 						<div class="control-group">
@@ -147,7 +148,7 @@
 <title>跳转提示</title>
 <style type="text/css">
 *{ padding: 0; margin: 0; }
-body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16px; }
+body{ background-image: url("/herald_league/Public/Images/noise-all.png"); font-family: '微软雅黑'; color: #333; font-size: 16px; }
 .system-message{ padding: 24px 48px; }
 .system-message h1{ font-size: 100px; font-weight: normal; line-height: 120px; margin-bottom: 12px; }
 .system-message .jump{ padding-top: 10px}
@@ -161,7 +162,7 @@ body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16p
 <?php if(isset($message)): ?><h1>:)</h1>
 <p class="success"><?php echo($message); ?></p>
 <?php else: ?>
-<h1>:(</h1>
+<h1>:(sss</h1>
 <p class="error"><?php echo($error); ?></p><?php endif; ?>
 <p class="detail"></p>
 <p class="jump">

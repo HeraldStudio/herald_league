@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
@@ -125,7 +124,7 @@
 						<div class="control-group">
 							<label class="control-label" for="inputEmail">用户名</label>
 							<div class="controls">
-								<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+								<input type="text" id="inputEmail" placeholder="用户名/邮箱" name="leaguename">
 							</div>
 						</div>
 						<div class="control-group">
@@ -141,114 +140,41 @@
 					</div>
 				</form>
 			</div>
-<link rel="stylesheet" type="text/css" href="__Public__/Css/uploadspic.css?0517">
-<script src="http://lib.sinaapp.com/js/jquery/1.8/jquery.min.js"></script>
-<script>var P="<?php echo K_LINK;?>";</script>
-<script type="text/javascript" src="__Public__/Js/makecover.js"></script>
-<script type="text/javascript" src="__Public__/Js/swfupload/swfupload.js"></script>
-<script type="text/javascript" src="__Public__/Js/swfupload/plugins/swfupload.queue.js"></script>
-<script type="text/javascript" src="__Public__/Js/swfupload/fileprogress.js"></script>
-<script type="text/javascript" src="__Public__/Js/swfupload/handlers.js"></script>
-<link rel="stylesheet" type="text/css" href="__Public__/Css/addalbum.css">
-<!--  jQuery lightBox plugin -->
-<script type="text/javascript" src="__Public__/Js/jquery.lightbox-0.5.js"></script>
-<link rel="stylesheet" type="text/css" href="__Public__/Css/jquery.lightbox-0.5.css" media="screen" />
-<script type="text/javascript">
-$(function() {
-	$('.row-fluid a').lightBox();
-});
-</script>
-<!--container-->
-	<div class="container" id="container">
-		<a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($leagueid); ?>" class="btn"><<返回相册列表</a>
-		<h2 style="text-align:center;"><?php echo ($albumname); ?></h2>
-		<div class="row-fluid">
-			<div class="span1" style="width:0;"></div>
-			<?php if(is_array($picture)): $i = 0; $__LIST__ = $picture;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vp): $mod = ($i % 2 );++$i;?><div class="span2 figure">				
-					<a href="__Uploads__/LeagueAlbum/s_<?php echo ($vp["address"]); ?>"><div class="photo"><img src="__Uploads__/LeagueAlbum/s_<?php echo ($vp["address"]); ?>"></div></a>
-					<div class="figcaption">
-						<button class="btn setcover" id="<?php echo ($vp["address"]); ?>" data-albumid="<?php echo ($albumid); ?>">设为封面</button><br/>
-						<button class="btn disabled" id="<?php echo ($vp["address"]); ?>" data-albumid="<?php echo ($albumid); ?>">当前封面</button><br/>
+<link href="/herald_league/Public/Css/activity.css" rel="stylesheet" media="screen">
+ <div class="container-fluid" id="container-fluid">
+		<div class="row-fluid" >
+			<div class="span7 offset1">
+				<div class="act-info-header">
+					<h2>
+						<span><?php echo ($activityinfo['name']); ?></span>
+					</h2>
+				</div>
+				<div class="act-info-body">
+					<div class="act-info">
+						<i class="icon-user"></i>
+						主办方：<a href="#"><?php echo ($activityinfo['name']); ?></a>
 					</div>
-				</div><?php endforeach; endif; else: echo "" ;endif; ?>		
-		</div>
-
-		<!--delete by zr div class="col-left"-->
-		<div class="bd-create-case" style="font-size:16px;">
-		  <h2 style="text-align:center;">上传图片</h2>
-		  <div class="bd-work-wrap">
-			<form id="form1" action="<?php echo U('League/Admin/uploadsAlbum');?>" method="post" enctype="multipart/form-data">
-				<div class="case-que-hd" style="font-size:18px;"> <span class="filename">图片文件名</span> <span class="filesize">大小</span> <span class="filedel">删除</span> </div>
-				<!-- 上传队列-->
-				<input type="hidden" id="albumid" value="<?php echo ($albumid); ?>"/>
-				<div class="fieldset flash" id="fsUploadProgress"></div>
-				<div class="case-que-foot" id="que-foot"> <span class="filename">共<i id="totalnum"></i>张图片 <a href="javascript:;" id="continue-add">继续添加案例图片</a></span> <span class="filedel">文件大小：<i id="totalsize"></i></span> </div>
-				<div id="upload-btn"><span id="spanButtonPlaceHolder"></span></div>
-			  </form>
-			  <p id="upload-tips">提示：每次最多可以批量上传二十张照片，按着 “ctrl” 键可以一次选择多张照片</p>
-			  <div id="upload-start" style="display:none">
-				<button id="upload" class="btn">开始上传</button>
-				&nbsp; <a href="#">取消上传</a> </div>
+					<div class="act-info"><i class="icon-time"></i>时间：<?php echo ($activityinfo['start_time']); ?></div>
+					<div class="act-info"><i class="icon-home"></i>地点：<?php echo ($activityinfo['place']); ?></div>
+					<div class="act-info"><i class="icon-envelope"></i>联系方式：<?php echo ($activityinfo['connect_info']); ?></div>
+					<div class="act-info-para">
+						<?php echo (htmlspecialchars_decode($activityinfo['introduction'])); ?>
+					</div>
+					<div class="act-info-pic">
+						<img src="__Uploads__/ActivityPost/m_<?php echo ($activityinfo['post_add']); ?>"/>
+					</div>
+				</div>
+			</div>
+			<div class="span3">
+				<div id="share">
+					<h4>分享到其它平台</h4>
+					<div style="text-align:center;padding-top:10px;">
+						<div class="bshare-custom icon-medium-plus"style="width:100%"><div class="bsPromo bsPromo2"></div><a title="分享到人人网" class="bshare-renren"></a><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a><a title="分享到i贴吧" class="bshare-itieba" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+					</div>
+				</div>
 			</div>
 		</div>
-	  <!--delete by zr /div-->
-	  <!-- container right
-	  <div class="col-right"></div>delete by zr-->
 	</div>
-
-<script type="text/javascript">
-	var swfu, WID = "13";
-	window.onload = function() {
-		var conf = {
-			flash_url : P + "./__Public__/Js/swfupload/swfupload.swf",
-			upload_url : P + "herald_league/index.php/League/Admin/addAlbumPicture.html?albumid=<?php echo ($albumid); ?>",
-			file_size_limit : "2 MB",
-			file_upload_limit:'20',
-			file_types : "*.jpg;*.gif;*.png;*.jpeg",
-			file_types_description : "Web Image Files",
-			file_upload_limit : 100,
-			file_queue_limit : 0,
-			custom_settings : {
-				progressTarget : "fsUploadProgress",
-				cancelButtonId : "btnCancel"
-			},
-			debug : false,
-
-			// Button settings
-			button_image_url : P + ".__Public__/Js/swfupload/images/upload-btns.png",
-			button_width : "97",
-			button_height : "29",
-			button_placeholder_id : "spanButtonPlaceHolder",
-			button_action : SWFUpload.BUTTON_ACTION.SELECT_FILES,
-
-			// The event handler functions are defined in handlers.js
-			file_queued_handler : fileQueued,
-			file_queue_error_handler : fileQueueError,
-			file_dialog_complete_handler : fileDialogComplete,
-			upload_start_handler : uploadStart,
-			upload_progress_handler : uploadProgress,
-			upload_error_handler : uploadError,
-			upload_success_handler : uploadSuccess,
-			upload_complete_handler : uploadComplete,
-			queue_complete_handler : queueComplete	// Queue plugin event
-		};
-
-		swfu = new SWFUpload(conf);
-	};
-	
-	//上传
-	$('#upload').click(function(){
-		swfu.startUpload();
-	})
-	
-	//继续添加
-	$('#continue-add').click(function(){
-		$('#que-foot').hide();
-		$('#upload-btn').css({'opacity':1,'height':30});
-		$('#upload-btn object').css({'height':29});
-		
-	})
-</script><!--foot-->
 
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>

@@ -5,7 +5,7 @@
 <title>跳转提示</title>
 <style type="text/css">
 *{ padding: 0; margin: 0; }
-body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16px; }
+body{ background-image: url("/herald_league/Public/Images/noise-all.png"); font-family: '微软雅黑'; color: #333; font-size: 16px; }
 .system-message{ padding: 24px 48px; }
 .system-message h1{ font-size: 100px; font-weight: normal; line-height: 120px; margin-bottom: 12px; }
 .system-message .jump{ padding-top: 10px}
@@ -16,17 +16,22 @@ body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16p
 </head>
 <body>
 <div class="system-message">
-<present name="message">
-<h1>:)</h1>
-<p class="success"><?php echo($message); ?></p>
-<else/>
-<h1>:(</h1>
-<p class="error"><?php echo($error); ?></p>
-</present>
-<p class="detail"></p>
-<p class="jump">
-页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
-</p>
+	<present name="message">
+		<div style="text-align:center;padding-top:50px;" >
+			<img src="__Public__/Images/success.png" />
+			<p class="success" style="color:#555">成功：<?php echo($message); ?></p>
+		</div>
+		<else/>
+		<div style="text-align:center;padding-top:50px;" >
+			<img src="__Public__/Images/error.png" />
+			<p class="error" style="color:#555">错误：<?php echo($error); ?></p>
+		</div>
+		
+	</present>
+	<p class="detail"></p>
+	<p class="jump" style="text-align:center">
+	页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
+	</p>
 </div>
 <script type="text/javascript">
 (function(){

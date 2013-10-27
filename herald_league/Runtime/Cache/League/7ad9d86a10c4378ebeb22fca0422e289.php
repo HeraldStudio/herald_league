@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/bootstrap/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/iealert/style.css" />
 		<link rel="stylesheet" type="text/css" href="__Public__/Css/Css_all.css" />
-		
 		<script type="text/javascript" src="__Public__/Js/bootstrap/jquery.js"></script>
 		<script type="text/javascript" src="__Public__/Js/isotope/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="__Public__/Js/bootstrap/bootstrap.js"></script>
@@ -81,8 +80,8 @@
 						<ul class="nav">
 							<li class="<?php if($currentpage == 1): ?>active<?php endif; ?>"><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
 							<li class="<?php if($currentpage == 2): ?>active<?php endif; ?>"><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-							<li><a href="#">二手市场</a></li>
-							<li><a href="#">失物招领</a></li>
+							<li><a href="javascript:alert('开发中...');">二手市场</a></li>
+							<li><a href="http://herald.seu.edu.cn/laf/item/list/all/0/1/">失物招领</a></li>
 						</ul>
 						<?php if($loginusertype == 2): ?><ul class="nav pull-right">
 							<li class="dropdown" >
@@ -105,6 +104,7 @@
 									<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
 									<li><a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($loginuserid); ?>">社团空间</a></li>
+									<li><a href="/herald_league/index.php/League/Admin/manageactivity/leagueid/<?php echo ($loginuserid); ?>">活动管理</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 									<li class="divider"></li>
 									<li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -125,7 +125,7 @@
 						<div class="control-group">
 							<label class="control-label" for="inputEmail">用户名</label>
 							<div class="controls">
-								<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+								<input type="text" id="inputEmail" placeholder="用户名/邮箱" name="leaguename">
 							</div>
 						</div>
 						<div class="control-group">
@@ -270,6 +270,7 @@
 									</div>
 									<div class="row-fluid">
 										<?php if(is_array($albuminfo)): $i = 0; $__LIST__ = $albuminfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><div class="span4 photodiv">
+											<input type="hidden" id="leagueidpage" value="<?php echo ($leagueid); ?>">
 											<a href="/herald_league/index.php/League/Index/album/leagueid/<?php echo ($leagueid); ?>">
 											<img alt="140x140" src="__Uploads__/LeagueAlbum/<?php echo ($val["cover_address"]); ?>" class="img-rounded" />
 											</a>
@@ -339,15 +340,10 @@
 						</h4>
 					</div>
 					<div id="flist">
-						<!-- <?php if(is_array($leagueattentioninfo)): $i = 0; $__LIST__ = $leagueattentioninfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 3 );++$i; if(($key) != "0"): if(($mod) == "2"): ?><div class="row-fluid"><?php endif; endif; ?>
-							<div class="span4"><img src="__Uploads__/UserAvatar/<?php echo ($vle["avatar_address"]); ?>"/><br /><?php echo ($vle["user_true_name"]); ?></div>
-							<?php if(($key) != "0"): if(($mod) == "2"): ?></div><?php endif; endif; endforeach; endif; else: echo "" ;endif; ?> -->
 						<div class="row-fluid">
 							<div class="span11">
  								<ul id="league_name">
- 									<li>足球社</li>
- 									<li>足球社</li>
- 									<li>足球社</li>
+ 									<?php if(is_array($sameclassleague)): $i = 0; $__LIST__ = $sameclassleague;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vb): $mod = ($i % 2 );++$i;?><li><a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vb["uid"]); ?>"><?php echo ($vb["league_name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
  								</ul>
 							</div>
 						</div>

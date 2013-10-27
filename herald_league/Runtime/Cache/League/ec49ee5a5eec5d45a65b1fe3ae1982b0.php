@@ -141,32 +141,53 @@
 					</div>
 				</form>
 			</div>
-<input type="hidden" value="<?php echo ($activitynum); ?>" id="acn">
-<div class="container">
-<div class="row" >
-	<div class="span2" id="celeft">
-		<ul class="nav nav-tabs nav-stacked " id="filter-buttons" style="margin-bottom:0px;position:fixed;">
-			<li class="active"><p id="fl">分类</p></li>
-			<li><a href="#" class="selected" id="0" >显示全部</a></li>
-			<?php if(is_array($activityclass)): $i = 0; $__LIST__ = $activityclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><li class="activityclass" id="activity_class"><a href="#" id="<?php echo ($va["id"]); ?>"><?php echo ($va["class"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-	<div class="span10" id="ceright">
-		<div id="no-activity" style="text-align:center;display:none">
-			<img src="__Public__/Images/no-activity.jpg" />
-		</div>
-		<div id="topLoader2">
-		</div>
-		<div id="filter-container" class="cf isotope row-fluid" >
-			<div class="span1" style="width:0"></div>
-			</div><!-- ENDS Filter container -->
-			<div id="more" style="font-family:微软雅黑">
-				<div class="btn btn-large btn-block getmore" id="0">加载更多</div>
+<link href="__Public__/Css/managealbum.css" rel="stylesheet" media="screen"> 
+<script type="text/javascript" src="__Public__/Js/deleteactivity.js"></script>
+<div class="container" id="container">
+	<h2 style="text-align:center;">活动列表</h2>
+	<div class="row-fluid">
+		<div class="span1" style="width:0;"></div>
+		<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><div class="span3 figure" style="text-align:center;">
+				<?php if(!empty($va["post_add"])): ?><a href="/herald_league/index.php/Activity/Index/activity/activityid/<?php echo ($va["id"]); ?>" class="thumb">
+					<img src="__Uploads__/ActivityPost/m_<?php echo ($va["post_add"]); ?>" alt="alt" />
+					</a><?php endif; ?>
+			<div class="figcaption">
+				<h4>
+					<?php echo ($va["name"]); ?>
+					<a class="delete" id="<?php echo ($va["id"]); ?>" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
+				</h4>
+				<p>时间：<?php echo ($va["start_time"]); ?></p>
+				<p>地点：<?php echo ($va["place"]); ?></p>
 			</div>
-		</div>
+		</div><?php endforeach; endif; else: echo "" ;endif; ?>
 	</div>
 </div>
-<script type="text/javascript" src="__Public__/Js/isotope/custom-isotope.js"></script>
+
+<div class="modal hide fade " id="deleteActivity" style="width:560px;margin-left:-280px;">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3>删除活动</h3>
+	</div>
+	<div class="modal-body">
+		<p>确定要删除当前活动吗？你可以在发布活动中重新发布一个活动。</p>
+	</div>
+	<div class="modal-footer">
+		<form style="margin:0;">
+			<button type="submit" id="" class="btn btn-primary" data-dismiss="modal">确定</button>
+			<a href="javascript:void(0);" class="btn" data-dismiss="modal">取消</a>
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><h1 style="margin-top:100px;"><?php echo ($va["name"]); ?></h1><button>delete</button><?php endforeach; endif; else: echo "" ;endif; ?> -->
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

@@ -80,8 +80,8 @@
 						<ul class="nav">
 							<li class="<?php if($currentpage == 1): ?>active<?php endif; ?>"><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
 							<li class="<?php if($currentpage == 2): ?>active<?php endif; ?>"><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-							<li><a href="#">二手市场</a></li>
-							<li><a href="#">失物招领</a></li>
+							<li><a href="javascript:alert('开发中...');">二手市场</a></li>
+							<li><a href="http://herald.seu.edu.cn/laf/item/list/all/0/1/">失物招领</a></li>
 						</ul>
 						<?php if($loginusertype == 2): ?><ul class="nav pull-right">
 							<li class="dropdown" >
@@ -104,6 +104,7 @@
 									<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
 									<li><a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($loginuserid); ?>">社团空间</a></li>
+									<li><a href="/herald_league/index.php/League/Admin/manageactivity/leagueid/<?php echo ($loginuserid); ?>">活动管理</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 									<li class="divider"></li>
 									<li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -142,7 +143,7 @@
 			</div>
 <link rel="stylesheet" type="text/css" href="__Public__/Css/leagueregester.css" />
 <script type="text/javascript" src="__Public__/Js/leagueRegister.js"></script>
-<div class="container center_re main" style="margin-top:150px;background-color:white">
+<div class="container center_re main" style="margin-top:100px;background-color:white;padding:30px 40px;">
 <legend>社团注册</legend>
 <label class="control-label">社团名称:</label>
 <input type="text" name="leaguename" id="leaguename" placeholder="社团名称">

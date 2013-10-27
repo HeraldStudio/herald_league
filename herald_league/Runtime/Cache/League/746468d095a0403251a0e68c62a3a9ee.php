@@ -80,8 +80,8 @@
 						<ul class="nav">
 							<li class="<?php if($currentpage == 1): ?>active<?php endif; ?>"><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
 							<li class="<?php if($currentpage == 2): ?>active<?php endif; ?>"><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-							<li><a href="#">二手市场</a></li>
-							<li><a href="#">失物招领</a></li>
+							<li><a href="javascript:alert('开发中...');">二手市场</a></li>
+							<li><a href="http://herald.seu.edu.cn/laf/item/list/all/0/1/">失物招领</a></li>
 						</ul>
 						<?php if($loginusertype == 2): ?><ul class="nav pull-right">
 							<li class="dropdown" >
@@ -104,6 +104,7 @@
 									<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
 									<li><a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($loginuserid); ?>">社团空间</a></li>
+									<li><a href="/herald_league/index.php/League/Admin/manageactivity/leagueid/<?php echo ($loginuserid); ?>">活动管理</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 									<li class="divider"></li>
 									<li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -124,7 +125,7 @@
 						<div class="control-group">
 							<label class="control-label" for="inputEmail">用户名</label>
 							<div class="controls">
-								<input type="text" id="inputEmail" placeholder="用户名" name="leaguename">
+								<input type="text" id="inputEmail" placeholder="用户名/邮箱" name="leaguename">
 							</div>
 						</div>
 						<div class="control-group">
@@ -147,6 +148,7 @@
 <div class="container" id="container">
 	
 	<h2 style="text-align:center;">相册列表</h2>
+	<input type="hidden" id="albumleagueid" value="<?php echo ($leagueid); ?>"> 
 	<a href="#newAlbum" role="button" class="btn" data-toggle="modal">新建相册</a>
 	<div class="row-fluid">
 		<div class="span1" style="width:0;"></div>
