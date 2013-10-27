@@ -4,50 +4,23 @@
 	<h2 style="text-align:center;">活动列表</h2>
 	<div class="row-fluid">
 		<div class="span1" style="width:0;"></div>
+		<volist name="activityinfo" id= "va">
 		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
+				<notempty name="va.post_add">
+					<a href="/herald_league/index.php/Activity/Index/activity/activityid/{$va.id}" class="thumb">
+					<img src="__Uploads__/ActivityPost/m_{$va.post_add}" alt="alt" />
+					</a>
+				</notempty>
 			<div class="figcaption">
 				<h4>
-					活动名称
-					<a class="delete" id="1" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
+					{$va.name}
+					<a class="delete" id="{$va.id}" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
 				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
+				<p>时间：{$va.start_time}</p>
+				<p>地点：{$va.place}</p>
 			</div>
 		</div>
-		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
-			<div class="figcaption">
-				<h4>
-					活动名称
-					<a class="delete" id="2" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
-				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
-			</div>
-		</div>
-		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
-			<div class="figcaption">
-				<h4>
-					活动名称
-					<a class="delete" id="3" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
-				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
-			</div>
-		</div>
-		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
-			<div class="figcaption">
-				<h4>
-					活动名称
-					<a class="delete" id="4" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
-				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
-			</div>
-		</div>
+	   </volist>
 	</div>
 </div>
 
