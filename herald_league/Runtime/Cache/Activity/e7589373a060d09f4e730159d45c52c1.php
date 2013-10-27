@@ -140,63 +140,42 @@
 					</div>
 				</form>
 			</div>
-<link rel="stylesheet" type="text/css" href="__Public__/Css/leaguelist.css" />
-<div class="row-fluid" id="row-fluid">
-	<div class="span3 offset1">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="top10-list">
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#top10-list" href="#top10">
-								<h4 style="color:#99CCFF;">校园十佳社团<i class="icon-star pull-right" title="点我试试"></i></h4>
-								</a>
-							</div>
-							<div id="top10" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<ul>
-										<?php if(is_array($tengoodleagueinfo)): $i = 0; $__LIST__ = $tengoodleagueinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vten): $mod = ($i % 2 );++$i;?><li>
-											<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vten["uid"]); ?>"><?php echo ($vten["league_name"]); ?></a>
-										</li><?php endforeach; endif; else: echo "" ;endif; ?>
-									</ul>
-								</div>
-							</div>
-						</div>
+<link href="/herald_league/Public/Css/activity.css" rel="stylesheet" media="screen">
+ <div class="container-fluid" id="container-fluid">
+		<div class="row-fluid" >
+			<div class="span7 offset1">
+				<div class="act-info-header">
+					<h2>
+						<span><?php echo ($activityinfo['name']); ?></span>
+					</h2>
+				</div>
+				<div class="act-info-body">
+					<div class="act-info">
+						<i class="icon-user"></i>
+						主办方：<a href="#"><?php echo ($activityinfo['name']); ?></a>
+					</div>
+					<div class="act-info"><i class="icon-time"></i>时间：<?php echo ($activityinfo['start_time']); ?></div>
+					<div class="act-info"><i class="icon-home"></i>地点：<?php echo ($activityinfo['place']); ?></div>
+					<div class="act-info"><i class="icon-envelope"></i>联系方式：<?php echo ($activityinfo['connect_info']); ?></div>
+					<div class="act-info-para">
+						<?php echo (htmlspecialchars_decode($activityinfo['introduction'])); ?>
+					</div>
+					<div class="act-info-pic">
+						<img src="__Uploads__/ActivityPost/m_<?php echo ($activityinfo['post_add']); ?>"/>
 					</div>
 				</div>
 			</div>
-			
-		</div>
-	</div>
-	<div class="span7" style="margin-left:10px;font-size:13px">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="accordion-list">
-						<?php if(is_array($leaguelist)): $i = 0; $__LIST__ = $leaguelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 2 );++$i;?><div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#<?php echo ($vle["id"]); ?>">
-								<h4 style="color:<?php echo ($vle["color"]); ?>;"><?php echo ($vle["class_name"]); ?>（<?php echo ($vle["leagueaccount"]); ?>）<i class="icon-star pull-right" title="点我试试"></i></h4>
-								</a>
-							</div>
-							<div id="<?php echo ($vle["id"]); ?>" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<div class="span1" style="width:0;"></div>
-										<?php if(is_array($vle["leagueinfo"])): $i = 0; $__LIST__ = $vle["leagueinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vlei): $mod = ($i % 2 );++$i;?><div class="span3">
-											<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vlei["uid"]); ?>"><img src="__Uploads__/LeagueAvatar/s_<?php echo ($vlei["avatar_address"]); ?>"><?php echo ($vlei["league_name"]); ?></a>
-										</div><?php endforeach; endif; else: echo "" ;endif; ?>
-									</div>
-								</div>
-							</div>
-						</div><?php endforeach; endif; else: echo "" ;endif; ?>
+			<div class="span3">
+				<div id="share">
+					<h4>分享到其它平台</h4>
+					<div style="text-align:center;padding-top:10px;">
+						<div class="bshare-custom icon-medium-plus"style="width:100%"><div class="bsPromo bsPromo2"></div><a title="分享到人人网" class="bshare-renren"></a><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a><a title="分享到i贴吧" class="bshare-itieba" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

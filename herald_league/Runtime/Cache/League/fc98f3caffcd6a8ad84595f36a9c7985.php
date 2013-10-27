@@ -140,63 +140,169 @@
 					</div>
 				</form>
 			</div>
-<link rel="stylesheet" type="text/css" href="__Public__/Css/leaguelist.css" />
-<div class="row-fluid" id="row-fluid">
-	<div class="span3 offset1">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="top10-list">
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#top10-list" href="#top10">
-								<h4 style="color:#99CCFF;">校园十佳社团<i class="icon-star pull-right" title="点我试试"></i></h4>
-								</a>
-							</div>
-							<div id="top10" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<ul>
-										<?php if(is_array($tengoodleagueinfo)): $i = 0; $__LIST__ = $tengoodleagueinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vten): $mod = ($i % 2 );++$i;?><li>
-											<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vten["uid"]); ?>"><?php echo ($vten["league_name"]); ?></a>
-										</li><?php endforeach; endif; else: echo "" ;endif; ?>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
+<link rel="stylesheet" type="text/css" href="__Public__/Css/jquery.Jcrop.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="__Public__/Js/uploadify-v3.1/uploadify.css" media="all">
+<script type="text/javascript" src="__Public__/Js/uploadify-v3.1/jquery.uploadify-3.1.min.js"></script>
+<script type="text/javascript" src="__Public__/Js/jquery.Jcrop.min.js"></script>
+<script type="text/javascript" src="__Public__/Js/ThinkBox/jquery.ThinkBox.js"></script>
+<link rel="stylesheet" type="text/css" href="__Public__/Js/ThinkBox/css/ThinkBox.css" media="all">
+<link rel="stylesheet" type="text/css" href="__Public__/Css/updateavatar.css" media="all">
+
+
+<div class="main" style="margin-top:120px">
+<h3 style="border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:black; padding-bottom:5px;">修改社团头像</h3>
+<!-- 修改头像 -->
+<form action="<?php echo U('League/Admin/cropImg');?>" method="post" id="pic" class="update-pic cf">
+	<div class="upload-area">
+		<input type="file" id="user-pic">
+		<div class="file-tips">支持JPG,PNG,GIF，图片小于1MB，尺寸不小于100*100,真实高清头像更受欢迎！</div>
+		<div class="preview hidden" id="preview-hidden"></div>
 	</div>
-	<div class="span7" style="margin-left:10px;font-size:13px">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="accordion-list">
-						<?php if(is_array($leaguelist)): $i = 0; $__LIST__ = $leaguelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 2 );++$i;?><div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#<?php echo ($vle["id"]); ?>">
-								<h4 style="color:<?php echo ($vle["color"]); ?>;"><?php echo ($vle["class_name"]); ?>（<?php echo ($vle["leagueaccount"]); ?>）<i class="icon-star pull-right" title="点我试试"></i></h4>
-								</a>
-							</div>
-							<div id="<?php echo ($vle["id"]); ?>" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<div class="span1" style="width:0;"></div>
-										<?php if(is_array($vle["leagueinfo"])): $i = 0; $__LIST__ = $vle["leagueinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vlei): $mod = ($i % 2 );++$i;?><div class="span3">
-											<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vlei["uid"]); ?>"><img src="__Uploads__/LeagueAvatar/s_<?php echo ($vlei["avatar_address"]); ?>"><?php echo ($vlei["league_name"]); ?></a>
-										</div><?php endforeach; endif; else: echo "" ;endif; ?>
-									</div>
-								</div>
-							</div>
-						</div><?php endforeach; endif; else: echo "" ;endif; ?>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="preview-area">
+		<input type="hidden" id="x" name="x" />
+		<input type="hidden" id="y" name="y" />
+		<input type="hidden" id="w" name="w" />
+		<input type="hidden" id="h" name="h" />
+		<input type="hidden" id='img_src' name='src'/>
+		<div class="tcrop">头像预览</div>
+		<div class="crop crop100"><img id="crop-preview-100" src="" alt=""></div>
+		<div class="crop crop60"><img id="crop-preview-60" src="" alt=""></div>
+		<div>
+		<a class="uppic-btn save-pic btn btn-success btn-small" href="javascript:;">保存</a>
+		<a class="uppic-btn reupload-img btn btn-primary btn-small" href="javascript:$('#user-pic').uploadify('cancel','*');">重新上传</a>
+		<a class="save-done btn btn-success btn-small"  href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($leagueid); ?>">完成修改</a>
+	    </div>
 	</div>
+	<input type="hidden" name="picName" id="picName">
+	<input type="hidden" name="leagueid" id="leagueid" value="<?php echo ($leagueid); ?>">
+</form>
 </div>
+
+
+<script type="text/javascript">
+	$(function(){
+		//上传头像(uploadify插件)
+		$("#user-pic").uploadify({
+			'queueSizeLimit' : 1,
+			'removeTimeout' : 0.5,
+			'preventCaching' : true,
+			'multi'    : false,
+			'swf' 			: '__Public__/Js/uploadify-v3.1/uploadify.swf',
+			'uploader' 		: '<?php echo U("League/Admin/uploadImg");?>',
+			'buttonText' 	: '<i class="userup-icon"></i>上传头像',
+			'width' 		: '200',
+			'height' 		: '200',
+			'fileTypeExts'	: '*.jpg; *.png; *.gif;',
+			'onUploadSuccess' : function(file, data, response){
+				var data = $.parseJSON(data);
+				if(data['status'] == 0){
+					$.ThinkBox.error(data['info'],{'delayClose':3000});
+					return;
+				}
+				var preview = $('.upload-area').children('#preview-hidden');
+				preview.show().removeClass('hidden');
+				//两个预览窗口赋值
+				$('.crop').children('img').attr('src',data['data']+'?random='+Math.random());
+				//隐藏表单赋值
+				$('#picName').val(data['data']);
+				$('#img_src').val(data['data']);
+				//绑定需要裁剪的图片
+				var img = $('<img />');
+				preview.append(img);
+				preview.children('img').attr('src',data['data']+'?random='+Math.random());
+				var crop_img = preview.children('img');
+				crop_img.attr('id',"cropbox").show();
+				var img = new Image();
+				img.src = data['data']+'?random='+Math.random();
+				//根据图片大小在画布里居中
+				img.onload = function(){
+					var img_height = 0;
+					var img_width = 0;
+					var real_height = img.height;
+					var real_width = img.width;
+					if(real_height > real_width && real_height > 200){
+						var persent = real_height / 200;
+						real_height = 200;
+						real_width = real_width / persent;
+					}else if(real_width > real_height && real_width > 200){
+						var persent = real_width / 200;
+						real_width = 200;
+						real_height = real_height / persent;
+					}
+					if(real_height < 200){
+						img_height = (200 - real_height)/2;	
+					}
+					if(real_width < 200){
+						img_width = (200 - real_width)/2;
+					}
+					preview.css({width:(200-img_width)+'px',height:(200-img_height)+'px'});
+					preview.css({paddingTop:img_height+'px',paddingLeft:img_width+'px'});			
+				}
+				//裁剪插件
+				$('#cropbox').Jcrop({
+		            bgColor:'#333',   //选区背景色
+		            bgFade:true,      //选区背景渐显
+		            fadeTime:1000,    //背景渐显时间
+		            allowSelect:false, //是否可以选区，
+		            allowResize:true, //是否可以调整选区大小
+		            aspectRatio: 1,     //约束比例
+		            minSize : [100,100],//可选最小大小
+		            boxWidth : 200,		//画布宽度
+		            boxHeight : 200,	//画布高度
+		            onChange: showPreview,//改变时重置预览图
+		            onSelect: showPreview,//选择时重置预览图
+		            setSelect:[ 0, 0, 100, 100],//初始化时位置
+		            onSelect: function (c){	//选择时动态赋值，该值是最终传给程序的参数！
+			            $('#x').val(c.x);//需裁剪的左上角X轴坐标
+			            $('#y').val(c.y);//需裁剪的左上角Y轴坐标
+			            $('#w').val(c.w);//需裁剪的宽度
+			            $('#h').val(c.h);//需裁剪的高度
+		          }
+		        });
+				//提交裁剪好的图片
+				$('.save-pic').click(function(){
+					if($('#preview-hidden').html() == ''){
+						$.ThinkBox.error('请先上传图片！');
+					}else{
+						//由于GD库裁剪gif图片很慢，所以长时间显示弹出框
+						$.ThinkBox.success('图片处理中，请稍候……',{'delayClose':30000});
+						$('#pic').submit();
+					}
+				});
+				//重新上传,清空裁剪参数
+				var i = 0;
+				$('.reupload-img').click(function(){
+					$('#preview-hidden').find('*').remove();
+					$('#preview-hidden').hide().addClass('hidden').css({'padding-top':0,'padding-left':0});
+				});
+		     }
+		});
+		//预览图
+		function showPreview(coords){
+			var img_width = $('#cropbox').width();
+			var img_height = $('#cropbox').height();
+			  //根据包裹的容器宽高,设置被除数
+			  var rx = 100 / coords.w;
+			  var ry = 100 / coords.h; 
+			  $('#crop-preview-100').css({
+			    width: Math.round(rx * img_width) + 'px',
+			    height: Math.round(ry * img_height) + 'px',
+			    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+			    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+			  });
+			  rx = 60 / coords.w;
+			  ry = 60 / coords.h;
+			  $('#crop-preview-60').css({
+			    width: Math.round(rx * img_width) + 'px',
+			    height: Math.round(ry * img_height) + 'px',
+			    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+			    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+			  });
+		}
+	})
+	
+</script>
+
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

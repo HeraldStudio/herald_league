@@ -80,8 +80,8 @@
 						<ul class="nav">
 							<li class="<?php if($currentpage == 1): ?>active<?php endif; ?>"><a href="<?php echo U('/Activity/Index/index');?>">平台首页</a></li>
 							<li class="<?php if($currentpage == 2): ?>active<?php endif; ?>"><a href="<?php echo U('/League/Index/leaguelist');?>">社团列表</a></li>
-							<li><a href="#">二手市场</a></li>
-							<li><a href="#">失物招领</a></li>
+							<li><a href="javascript:alert('开发中...');">二手市场</a></li>
+							<li><a href="http://herald.seu.edu.cn/laf/item/list/all/0/1/">失物招领</a></li>
 						</ul>
 						<?php if($loginusertype == 2): ?><ul class="nav pull-right">
 							<li class="dropdown" >
@@ -104,6 +104,7 @@
 									<li><a href="/herald_league/index.php/League/Admin/addactivity/leagueid/<?php echo ($loginuserid); ?>">发布活动</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/managealbum/leagueid/<?php echo ($loginuserid); ?>">相册管理</a></li>
 									<li><a href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($loginuserid); ?>">社团空间</a></li>
+									<li><a href="/herald_league/index.php/League/Admin/manageactivity/leagueid/<?php echo ($loginuserid); ?>">活动管理</a></li>
 									<li><a href="/herald_league/index.php/League/Admin/changeinfo/leagueid/<?php echo ($loginuserid); ?>">修改社团信息</a></li>
 									<li class="divider"></li>
 									<li><a href="javascript:void(0)" class="logout">登出</a></li>
@@ -140,63 +141,7 @@
 					</div>
 				</form>
 			</div>
-<link rel="stylesheet" type="text/css" href="__Public__/Css/leaguelist.css" />
-<div class="row-fluid" id="row-fluid">
-	<div class="span3 offset1">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="top10-list">
-						<div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#top10-list" href="#top10">
-								<h4 style="color:#99CCFF;">校园十佳社团<i class="icon-star pull-right" title="点我试试"></i></h4>
-								</a>
-							</div>
-							<div id="top10" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<ul>
-										<?php if(is_array($tengoodleagueinfo)): $i = 0; $__LIST__ = $tengoodleagueinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vten): $mod = ($i % 2 );++$i;?><li>
-											<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vten["uid"]); ?>"><?php echo ($vten["league_name"]); ?></a>
-										</li><?php endforeach; endif; else: echo "" ;endif; ?>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-	<div class="span7" style="margin-left:10px;font-size:13px">
-		<div class="container-fluid">
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="accordion" id="accordion-list">
-						<?php if(is_array($leaguelist)): $i = 0; $__LIST__ = $leaguelist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vle): $mod = ($i % 2 );++$i;?><div class="accordion-group">
-							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-list" href="#<?php echo ($vle["id"]); ?>">
-								<h4 style="color:<?php echo ($vle["color"]); ?>;"><?php echo ($vle["class_name"]); ?>（<?php echo ($vle["leagueaccount"]); ?>）<i class="icon-star pull-right" title="点我试试"></i></h4>
-								</a>
-							</div>
-							<div id="<?php echo ($vle["id"]); ?>" class="accordion-body in collapse">
-								<div class="accordion-inner">
-									<div class="row-fluid">
-										<div class="span1" style="width:0;"></div>
-										<?php if(is_array($vle["leagueinfo"])): $i = 0; $__LIST__ = $vle["leagueinfo"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vlei): $mod = ($i % 2 );++$i;?><div class="span3">
-											<a target="_blank" href="/herald_league/index.php/League/Index/index/leagueid/<?php echo ($vlei["uid"]); ?>"><img src="__Uploads__/LeagueAvatar/s_<?php echo ($vlei["avatar_address"]); ?>"><?php echo ($vlei["league_name"]); ?></a>
-										</div><?php endforeach; endif; else: echo "" ;endif; ?>
-									</div>
-								</div>
-							</div>
-						</div><?php endforeach; endif; else: echo "" ;endif; ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><h1 style="margin-top:100px;"><?php echo ($va["name"]); ?></h1><button>delete</button><?php endforeach; endif; else: echo "" ;endif; ?>
 <div id="fixdiv">
 	<p id="back-to-top" onmouseover="mover(1)" onmouseout="mout(1)"><a href="#top"><span></span></a></p>
 	<div id="MsgGoUp"><p class="text-center">返回顶部</p></div>

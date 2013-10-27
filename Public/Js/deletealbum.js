@@ -6,16 +6,15 @@ $(document).ready(function(){
 
 	$("#deleteAlbum button").click(function(){
 		var albumid = $("#deleteAlbum button").attr("id");
+		var leagueid = $("#albumleagueid").val();
 		$.ajax({
-			url:'/herald_league/index.php/League/Admin/deleteAlbum',
+			url:'/herald_league/index.php/League/Admin/deletealbum',
 			type:'post',
 			dataType:'text',
-			data:albumid,
+			data:'albumid='+albumid+'&leagueid='+leagueid,
 			success:function(data){
-				if(data){
-					alert("删除成功");
-					window.location.reload();
-				}
+				alert(data);
+				history.go(0);
 			}
 		});
 	});

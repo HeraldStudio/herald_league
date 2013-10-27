@@ -80,4 +80,7 @@ class LeagueInfoModel extends Model{
 			return "ear";
 		}
 	}
+	public function getSameClassLeague($leagueclass){
+		return $this -> where('class='.$leagueclass) -> select();
+	}
 }

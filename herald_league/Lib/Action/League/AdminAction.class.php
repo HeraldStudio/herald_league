@@ -45,6 +45,54 @@ class AdminAction extends Action{
 		}
 	}
 
+	public function manageactivity(){
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid)){
+			echo "<script>history.go(-1)</script>";
+			return;
+		}
+		$this -> getLoginUserInfo();
+		$LeagueSession = D('LeagueSession');
+		if($LeagueSession -> hasLeagueLogin()){
+			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+			if($loginuserinfo[0] == $this -> leagueid){
+				$this -> getLeagueActivity($this -> leagueid);
+				$this -> display();
+			}else{
+				$this -> error("权限不足");
+			}
+		}else{
+				$this -> error("权限不足");
+		}
+	}
+
+	private function getLeagueActivity($leagueid){
+		$ActivityInfo = D('ActivityInfo');
+		$activityinfo = $ActivityInfo -> getActivityInfoByLeagueId($leagueid);
+		$this -> assign('activityinfo',$activityinfo);
+	}
+
+	public function deleteactivity(){
+		if($this -> isPost()){
+			$LeagueSession = D('LeagueSession');
+			if($LeagueSession -> hasLeagueLogin()){
+				$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+				if($loginuserinfo[0] == $this -> leagueid){
+					$activityid = $this -> _param('activityid');
+					$ActivityInfo = D('ActivityInfo');
+					$ActivityInfo -> deleteActivity($activityid);
+					echo "删除成功";
+				}else{
+					echo "权限不足";
+				}
+			}else{
+					echo "权限不足";
+			}
+		}else{
+			echo "非法请求 请返回重试";
+		}
+	}
+
 	//上传头像
 	public function uploadImg(){
 		import('ORG.Net.UploadFile');
@@ -79,7 +127,7 @@ class AdminAction extends Action{
 			$leagueid = $this -> _param('leagueid');
 			$LeagueAlbum = D('LeagueAlbum');
 			$LeagueAlbum -> createAlbum($albumname, $albumintro, $leagueid);
-			echo "success";
+			echo "创建成功";
 		}else{
 			echo "非法请求 请返回重试!";
 		}
@@ -167,8 +215,14 @@ class AdminAction extends Action{
 	}
 
 	public function deletealbum(){
-		if($this -> isPost()){
+		if(!$this -> isPost()){
 			$this -> error("非法请求");
+			return;
+		}
+		$this -> leagueid = intval($this -> _param('leagueid'));
+		$this -> albumid = intval($this -> _param('albumid'));
+		if($this -> leagueid < 0 || !isset($this -> leagueid) || $this -> albumid < 0 || !isset($this -> albumid)){
+			echo "<script>history.go(-1)</script>";
 			return;
 		}
 		$this -> getLoginUserInfo();
@@ -177,13 +231,13 @@ class AdminAction extends Action{
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
 			if($loginuserinfo[0] == $this -> leagueid){
 				$LeagueAlbum = D('LeagueAlbum');
-				$LeagueAlbum -> deleteAlbum($this -> _param('albumid'));
-				$this -> ajaxReturn(0,"删除成功");
+				$LeagueAlbum -> deleteAlbum($this -> albumid);
+				echo "删除成功";
 			}else{
-				$this -> error("权限不足");
+				echo "权限不足";
 			}
 		}else{
-				$this -> error("权限不足");
+				echo "权限不足";
 		}
 	}
 
@@ -320,13 +374,13 @@ class AdminAction extends Action{
 		$adddata['introduction'] = $this -> _param('activityinfo');
 
 		$activityid = $ActivityInfo -> addActivityInfo($adddata);
-
-		$this->redirect('League/Admin/addpostforactivity', array('activityid'=>$activityid), 0.01);
+		header("Location: /herald_league/index.php/League/Admin/addpostforactivity/leagueid/".$adddata['league_id']."/activityid/".$activityid);
 	}
 
 	public function addpostforactivity(){
 		$this -> activityid = $this -> _param('activityid');
-		$this -> postname = $this -> _param('postname');
+		#$this -> postname = $this -> _param('postname');
+		$this -> leagueid = $this -> _param('leagueid');
 		$this -> getLoginUserInfo();
 		$this -> display();
 	}
@@ -334,9 +388,11 @@ class AdminAction extends Action{
 	public function addPost(){
 		$ActivityInfo = D('ActivityInfo');
 		$ActivityInfo -> addActivityPost($_POST);
+		$activityinfo = $ActivityInfo -> getActivityInfoById($_POST['activityid']);
+		$leagueid = $activityinfo['league_id'];
 		$this -> getLoginUserInfo();
 		echo "<script>alert('发布成功');</script>";
-		$this->redirect('League/Index/index', array('leagueid'=>1), 0.0001, '~');
+		header("Location: /herald_league/index.php/League/Index/index/leagueid/".$leagueid);
 	}
 
 	public function changeActivityInfo(){
