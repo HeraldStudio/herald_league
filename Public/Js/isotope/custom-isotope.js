@@ -42,19 +42,21 @@ function jsonajax(classid){
 				}
          }
      });
+		setTimeout(function(){isotope();},400);
+		//$('#filter-container').css('height','auto');
  } 
 
 $(function(){
 	isotope();
   jsonajax(0);
   $("#0").click(function(){
-     $(".getmore").attr("id",0);
-     $("#filter-container").html("");
-	 $("#filter-container").isotope('destroy');
-	 isotope();
-	 $("#no-activity").css("display","none");
-     jsonajax(0);
-	 $(".getmore").html("加载更多");
+    $(".getmore").attr("id",0);
+    $("#filter-container").html("");
+	  $("#filter-container").isotope('destroy');
+	  isotope();
+	  $("#no-activity").css("display","none");
+      jsonajax(0);
+	  $(".getmore").html("加载更多");
   });
   
     $(".getmore").click(function(){ 	      
@@ -109,6 +111,7 @@ $('.activityclass a').click(function(){
 							}		
 	   			}
      });
+		setTimeout(function(){isotope();},400);
 	});
 
 });

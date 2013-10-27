@@ -56,8 +56,8 @@ class AdminAction extends Action{
 		if($LeagueSession -> hasLeagueLogin()){
 			$loginuserinfo = $LeagueSession -> hasLeagueLogin();
 			if($loginuserinfo[0] == $this -> leagueid){
-				//$this -> getLeagueActivity($this -> leagueid);
-				$this -> error("sss");
+				$this -> getLeagueActivity($this -> leagueid);
+				//$this -> error("sss");
 				$this -> display();
 			}else{
 				$this -> error("权限不足");
@@ -78,9 +78,11 @@ class AdminAction extends Action{
 			$LeagueSession = D('LeagueSession');
 			if($LeagueSession -> hasLeagueLogin()){
 				$loginuserinfo = $LeagueSession -> hasLeagueLogin();
+				$ActivityInfo = D('ActivityInfo');
+				$info = $ActivityInfo -> getActivityInfoById($this -> _param('activityid'));
+			   $this -> leagueid = $info['league_id'];
 				if($loginuserinfo[0] == $this -> leagueid){
 					$activityid = $this -> _param('activityid');
-					$ActivityInfo = D('ActivityInfo');
 					$ActivityInfo -> deleteActivity($activityid);
 					echo "删除成功";
 				}else{

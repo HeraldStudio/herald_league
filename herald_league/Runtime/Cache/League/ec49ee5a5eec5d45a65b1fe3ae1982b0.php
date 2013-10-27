@@ -147,50 +147,19 @@
 	<h2 style="text-align:center;">活动列表</h2>
 	<div class="row-fluid">
 		<div class="span1" style="width:0;"></div>
-		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
+		<?php if(is_array($activityinfo)): $i = 0; $__LIST__ = $activityinfo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$va): $mod = ($i % 2 );++$i;?><div class="span3 figure" style="text-align:center;">
+				<?php if(!empty($va["post_add"])): ?><a href="/herald_league/index.php/Activity/Index/activity/activityid/<?php echo ($va["id"]); ?>" class="thumb">
+					<img src="__Uploads__/ActivityPost/m_<?php echo ($va["post_add"]); ?>" alt="alt" />
+					</a><?php endif; ?>
 			<div class="figcaption">
 				<h4>
-					活动名称
-					<a class="delete" id="1" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
+					<?php echo ($va["name"]); ?>
+					<a class="delete" id="<?php echo ($va["id"]); ?>" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
 				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
+				<p>时间：<?php echo ($va["start_time"]); ?></p>
+				<p>地点：<?php echo ($va["place"]); ?></p>
 			</div>
-		</div>
-		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
-			<div class="figcaption">
-				<h4>
-					活动名称
-					<a class="delete" id="2" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
-				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
-			</div>
-		</div>
-		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
-			<div class="figcaption">
-				<h4>
-					活动名称
-					<a class="delete" id="3" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
-				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
-			</div>
-		</div>
-		<div class="span3 figure" style="text-align:center;">
-			<img src="" alt="alt" />
-			<div class="figcaption">
-				<h4>
-					活动名称
-					<a class="delete" id="4" href="#deleteActivity" title="删除" data-toggle="modal"><img src="__Public__/Images/icon-recycle.png" /></a>
-				</h4>
-				<p>时间：活动时间</p>
-				<p>地点：活动地点</p>
-			</div>
-		</div>
+		</div><?php endforeach; endif; else: echo "" ;endif; ?>
 	</div>
 </div>
 
